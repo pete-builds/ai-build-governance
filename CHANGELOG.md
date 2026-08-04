@@ -80,9 +80,18 @@ Applicability, Required evidence, Exceptions, Implementation guidance,
 Sources and confidence. Qualifications belong **next to the claims they
 affect**, not only in a closing section.
 
-> Chapter 10 is converted. The remaining chapters carry the new terminology
-> but retain their earlier internal structure, and are being converted
-> **without changing any requirement**. Stated here rather than implied.
+**All twelve normative chapters are now converted**, and conformance is
+enforced by `tools/check.sh`. No requirement was altered, added, or removed in
+the conversion.
+
+The conversion made Part I both denser and more findable. Requirements are now
+numbered and normatively worded (183 MUST, SHOULD, and MAY statements across
+the model), qualifications sit next to the claims they affect rather than in a
+closing section, and 88 labelled statements mark what is a requirement, what
+is guidance, what is a local decision, and what is a design judgment.
+
+Duplication with the templates was cut in the same pass: chapters state the
+requirement and rationale, templates hold the operational checklists.
 
 ### New automated check
 

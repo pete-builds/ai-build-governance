@@ -1,202 +1,135 @@
 # 02. Statement of Need
 
-Nobody builds a building because a contractor had a good idea about
-concrete. Institutional construction establishes need *before* anyone
-draws anything, through a recognizable sequence of artifacts: a
-**statement of need** justifying the project against mission, a
-**feasibility study** testing whether it can be done at all, a
-**program of requirements** (architectural programming) defining what
-the building must actually contain, and a **capital project request**
-competing for funding against everything else.
+## Purpose
 
-Only after that does design begin.
+Establishes what problem a capability solves, and who says so, before anyone
+chooses a solution.
 
-AI work at universities almost always inverts this. Someone
-demonstrates a capability, the demo is impressive, and a project forms
-around the demo. The need gets written afterward, backwards, to justify
-what already exists.
+## Failure this prevents
 
-This chapter exists to stop that.
+Solution-first building. Someone demonstrates a capability, the demo is
+impressive, a project forms around the demo, and the need is written
+afterwards to justify what already exists. The second failure it prevents is
+cheaper and more common: building something that already exists.
 
----
+## Requirement
 
-## The borrowed idea that does the most work
+> **REQUIREMENT 2.1**
+> Every capability above Tier 1 **MUST** have a Statement of Need that is
+> **authored or signed by someone other than the builder**.
 
-Building commissioning practice separates two documents, and the
-separation is the single most useful import in this whole model:
+That signature is the entire control. A need statement written by the person
+who wants to build the thing is a proposal in disguise.
 
-- The **Owner's Project Requirements (OPR)** is the *what*. The owner
-  writes it. It states what the thing must accomplish and how success
-  will be measured. It is deliberately not a design.
-- The **Basis of Design (BOD)** is the *how*. The design team writes
-  it, in response.
+> **REQUIREMENT 2.2**
+> The Statement of Need **MUST** contain all six of:
 
-A **Commissioning Authority** then audits the BOD against the OPR. Not
-"is this a good design" but "does this design deliver what was asked
-for." (These terms come from commissioning practice, associated with
-ASHRAE Guideline 0. Well attested, though not verified against the
-guideline text directly.)
-
-Import that split exactly:
-
-| Construction | Here | Author |
+| # | Section | Must contain |
 |---|---|---|
-| Owner's Project Requirements | **Statement of Need** (this chapter) | The person with the problem |
-| Basis of Design | **Design Response** (chapter 04) | The person building it |
-| Commissioning Authority audit | **Design review** (chapter 04) | Someone who is neither |
+| 1 | Problem | What is wrong today, stated **without a solution in it** |
+| 2 | Affected population | Named group and rough scale |
+| 3 | Cost of inaction | What happens if nothing is built |
+| 4 | Definition of done | At least one measurable criterion **that could fail** |
+| 5 | Data required | Data classes needed, in the institution's own scheme |
+| 6 | Ownership | Who decides it is worth doing, and who owns it in eighteen months |
 
-**The Statement of Need must be authored or signed by someone other
-than the builder.** This is the entire control. A need statement
-written by the person who wants to build the thing is a proposal
-wearing a costume.
+> **REQUIREMENT 2.3 Tolerance for error**
+> Section 4 **MUST** state the acceptable error rate, who bears the cost of
+> an error, and how an affected person would find out and contest an output.
 
----
+> **GUIDANCE**
+> AI systems produce wrong answers as routine operation, not as defects. A
+> need statement that has not confronted its own tolerable error rate is
+> not finished.
 
-## What a Statement of Need contains
+> **REQUIREMENT 2.4 Prior-art check**
+> Four questions **MUST** be answered in writing before design begins:
+> whether the vendor already publishes an official integration; whether an
+> equivalent already exists in the institution's registry; whether this can
+> be bought; and whether it can be done without AI.
 
-Use [`templates/statement-of-need.md`](../templates/statement-of-need.md).
-Six required sections, and a hard length limit of two pages.
+> **REQUIREMENT 2.5**
+> Where the answer to any 2.4 question is yes, the Statement of Need
+> **MUST** state why building anyway is justified.
 
-### 1. The problem, stated without a solution in it
+> **REQUIREMENT 2.6 Standing Owner**
+> Where the named operator holds a fixed-term appointment, a Standing Owner
+> on a continuing appointment **MUST** be identified before design review
+> completes. See [chapter 09](09-roles.md).
 
-Describe what is wrong today in terms a person outside the field would
-recognize. If the sentence contains the words "AI," "agent," "LLM," or
-a product name, it is not a problem statement, it is a solution
-statement. Rewrite it.
+## Applicability
 
-A useful forcing question: **who is worse off today, and how would they
-describe it?**
+Required above Tier 1. At Tier 1 the builder records the need and proceeds
+without a second signature.
 
-### 2. Who is affected, and how many
+A Statement of Need is **not** a funding decision, though it usually feeds
+one. Recording a valid unfunded need is a useful outcome, and a register of
+them is how an institution notices the same need arriving from four units.
 
-Named population and rough scale. "Staff in one office" and "every
-undergraduate" are different projects with different tiers, and this is
-one of the inputs to classification in chapter 03.
+## Required evidence
 
-### 3. What happens if we do nothing
+A signed Statement of Need in the registry carrying a permanent identifier,
+owner and operator names, declared data classes, declared population and
+scale, the four prior-art findings, and the stated error tolerance.
 
-The honest answer is sometimes "very little," and that is a legitimate
-outcome of writing this down. Construction calls the analogous section
-deficiency cataloguing: what is the actual cost of the current state.
+## Exceptions
 
-If the answer is "nothing much, but it would be nice," the project can
-still proceed as an explicitly labeled experiment. It just does not get
-to claim operational urgency, and it does not get to skip tiering on
-the grounds that it is only a pilot.
+> **REQUIREMENT 2.7 Grounds for return**
+> A Statement of Need **MUST** be returned rather than classified where the
+> problem statement remains a solution statement after one revision; no
+> named owner will exist in eighteen months and none can be found; the data
+> required includes classes the institution forbids on the intended platform
+> and no alternative design is offered; the success criterion cannot fail; or
+> 2.4 found an official integration and the only stated reason to build is
+> preference.
 
-### 4. What "done" looks like, measurably
+Returning at this stage is cheap. Returning after six weeks of building is
+not.
 
-At least one criterion that could fail. "Improved efficiency" cannot
-fail. "Reduces median handling time for this request type from three
-days to under one" can.
+## Implementation guidance
 
-This is also where you state the **acceptance threshold for being
-wrong**. AI systems produce wrong answers as a matter of routine, not
-as a defect. So: what error rate is acceptable, who bears the cost of
-an error, and how would an affected person find out and contest it? A
-need statement that has not confronted its own tolerable error rate is
-not finished.
+**The split worth understanding.** Building commissioning practice separates
+the owner's statement of requirements (the *what*, written by the owner) from
+the basis of design (the *how*, written by the designer), and has a third
+party audit one against the other. This chapter is the first document;
+[chapter 04](04-design-review.md) is the second and the audit.
 
-### 5. Data required
+| Document | Author | Answers |
+|---|---|---|
+| Statement of Need | The person with the problem | What must be true |
+| Design response | The builder | How it will be made true |
+| Design review | Neither | Does the design deliver the need |
 
-What data classes the thing needs to touch, named in your institution's
-own classification scheme. Not what it would be nice to have. What it
-needs.
+**On section 1.** If the problem statement contains "AI," "agent," "LLM," or
+a product name, it is a solution statement. The forcing question: who is
+worse off today, and how would *they* describe it?
 
-This is the field most often filled in optimistically, and it is the
-one that sets the authorization tier. Chapter 03 treats an upgrade to this
-field as an alteration requiring re-review, precisely because "we also
-gave it access to the student records" is how a Tier 1 project becomes
-a Tier 3 project without anyone noticing.
+**On section 3.** "Not much, but it would be nice" is a legitimate answer. The
+project can proceed as a labelled experiment. It does not then get to claim
+operational urgency or skip classification on the grounds of being a pilot.
 
-### 6. Decision authority and ownership
+**On section 5.** This is the field most often filled in optimistically, and
+it sets the tier. Widening it later is an alteration requiring re-review,
+because "we also connected it to the student records" is how a Tier 1 project
+becomes Tier 3 unnoticed.
 
-Two names, and they may not be the same person:
+**On 2.4.** The cheapest step in the framework. An honest "this already
+exists" is the highest-value outcome the whole process can produce and
+**SHOULD** be recorded as a success rather than a failed intake.
 
-- **Who decides this is worth doing** (the owner, signing the need)
-- **Who will own it in eighteen months** (the operator)
+Template: [templates/statement-of-need.md](../templates/statement-of-need.md).
+Worked instance: [guide/02-running-example.md](../guide/02-running-example.md),
+stage 1, where the prior-art check surfaced a non-AI fix that shipped first.
 
-If the second name is a student, an intern, or a fixed-term fellow, the
-project needs a standing institutional co-owner before it may proceed
-past design review. See chapter 09. This is not a slight on short-tenure
-contributors; it is an acknowledgment that they leave, which is the
-whole point of a fellowship.
+## Sources and confidence
 
----
+> **DESIGN JUDGMENT**
+> The six required sections, the four prior-art questions, and the return
+> criteria are reasoned from institutional capital-planning practice, not
+> measured. No study was located on whether structured intake reduces wasted
+> effort more than it suppresses useful experimentation.
 
-## The check that saves the most effort: does this already exist
-
-Before design, answer four questions in writing. This mirrors
-construction's feasibility study, and it is the cheapest step in the
-entire model.
-
-1. **Does the vendor already publish an official integration?** For any
-   external service, check whether it ships its own MCP server, SDK, or
-   CLI. Building a wrapper around a service that already publishes one
-   is the most common avoidable waste in this space.
-2. **Does something equivalent already exist inside the institution?**
-   Query your own registry (chapter 07). Decentralized institutions
-   routinely build the same thing three times in three units.
-3. **Can this be bought?** If a supported commercial product does this,
-   the build has to justify itself against it, including the
-   maintenance cost that a build incurs forever and a purchase does
-   not.
-4. **Can it be done without AI?** A deterministic script, a database
-   view, or fixing the upstream process is frequently the correct
-   answer, and it will be cheaper, more reliable, and easier to govern.
-   Asking this question is not obstruction. It is the same question a
-   feasibility study asks about whether the building is needed at all.
-
-An honest "yes, this already exists" here is the highest-value outcome
-the whole model can produce, and it should be recorded and celebrated
-rather than treated as a failed intake.
-
----
-
-## Grounds for refusal
-
-A Statement of Need should be sent back, not tiered, when:
-
-- The problem statement is a solution statement and stays one after one
-  revision
-- No named owner will exist in eighteen months and none can be found
-- The data required includes classes the institution's own policy
-  forbids in the intended platform, and no alternative design is offered
-- The measurable success criterion cannot fail
-- Question 1 above turns up an official integration and the response is
-  "but I want to build it anyway" with no reason attached
-
-Refusal at this stage is cheap and kind. Refusal after six weeks of
-building is neither.
-
----
-
-## What this stage is not
-
-It is not architecture review. No diagrams, no technology choices, no
-model selection. Those belong in the design response at chapter 04, and
-mixing them in here is how need statements become unreadable and
-therefore unread.
-
-It is also not a funding decision, though at most institutions it will
-feed one. Construction keeps the statement of need distinct from the
-capital request for good reason: the need can be real and legitimate
-and still lose to a more urgent need this cycle. Recording a valid
-unfunded need is a useful outcome, and a registry of them is how you
-notice the same need arriving from four different units.
-
----
-
-## Output of this stage
-
-A signed Statement of Need, filed in the registry, carrying:
-
-- A permanent identifier
-- The owner's name and the operator's name
-- Declared data classes
-- Declared population and scale
-- The existing-tooling findings
-
-That record is the input to [chapter 03, Classification](03-classification.md),
-which uses the declared data, population, and capability to set the
-authorization tier by objective trigger rather than by anyone's judgment.
+> **UNVERIFIED**
+> The owner-requirements and basis-of-design split is attributed to building
+> commissioning practice associated with ASHRAE Guideline 0. The guideline
+> text could not be retrieved. See [SOURCES.md](../SOURCES.md).

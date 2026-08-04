@@ -1,296 +1,213 @@
-# 12. Certified Reusable Components and Certified Patterns
+# 11. Certified Reusable Components
 
-**The problem this chapter exists for.** A group builds something good.
-Another group wants to use it. Under every governance model described so
-far, the second group enters the process at the beginning and the
-component gets reviewed again, by different people, against the same
-standard, reaching the same conclusion. Multiply by the number of groups
-and the number of components, and governance becomes a relay of queues.
+## Purpose
 
-That is the failure people actually experience. It is worse than a bad
-gate, because it punishes reuse specifically, and reuse is the thing you
-most want.
+Lets a capability that has already been checked be consumed by others without
+being checked again, so that only the new integration is reviewed.
 
-Construction solved this, and the solution is the most valuable idea in
-the whole analogy.
+## Failure this prevents
 
----
+**Reuse being harder than rebuilding.** Without this, the second group to want
+a component enters the process at the beginning, the component is reviewed
+again by different people against the same standard reaching the same
+conclusion, and the originating team becomes an unpaid help desk. Since
+rebuilding is then faster than adopting, people rebuild, and the institution
+now governs four unreviewed copies of the same thing.
 
-## How the built environment handles it
+That is the failure people actually experience. It is worse than a bad gate,
+because it punishes reuse specifically.
 
-Nobody re-tests a fire-rated door assembly in every building. The
-assembly was tested once, against a published standard, by an
-organization competent to test it, and it carries a mark. A building
-official does not repeat the test. They confirm the mark, confirm the
-installation matches the terms the certification was issued under, and
-move on.
+## Requirement
 
-The mechanism that makes this credible has four parts, and the fourth is
-the one that gets dropped:
+> **REQUIREMENT 11.1**
+> A component **MAY** be certified once, against published criteria, by a
+> party independent of the builder. Consumers then inherit the certification
+> and **only the integration is inspected**.
 
-1. **Published criteria** to test against
-2. **Testing** by a party competent and independent
-3. **A report or mark** that states the *scope* of what was certified
-4. **Ongoing surveillance**, so the certification keeps meaning something
+> **REQUIREMENT 11.2 Certification and classification are separate axes**
+> Certification reduces **component** review. It **MUST NOT** lower a tier.
 
-**ICC Evaluation Service** is a verified example of the full pattern for
-novel products, where the code itself is silent. ICC-ES develops
-Acceptance Criteria, tests products against them, issues an **Evaluation
-Report (ESR)** that building departments rely on, and conducts ongoing
-inspection and surveillance
-([ICC-ES](https://icc-es.org/)).
+| Axis | Question | Reduced by certification? |
+|---|---|---|
+| **Component risk** | Is this thing built soundly? | **Yes.** That is what certification is for. |
+| **Use risk** | What will this instance touch, decide, and affect? | **No. Never.** |
 
-That last part is why an ESR is not a rubber stamp. A certification with
-no surveillance decays into a historical claim.
+> **REQUIREMENT 11.3**
+> A conforming instance **MUST** be classified in full against its own data
+> classes, autonomy, blast radius, audience, consequential decisions,
+> integrations, and external communication, per
+> [chapter 03](03-classification.md).
 
-`UNVERIFIED`, and worth flagging because the analogy leans on them: the
-IBC's verbatim definitions of **listed**, **labeled**, and **approved
-agency**; the precise rule that a governance platform team accepts a certification
-without retesting and inspects only the installation; and the practice
-in many US states of approving a modular or factory-built design once at
-state level so local jurisdictions accept the factory-built portion
-without re-inspecting closed work. These are described here as commonly
-understood industry practice. Primary sources could not be retrieved, so
-treat the *shape* as sound and the *details* as unconfirmed.
+> **GUIDANCE**
+> An earlier edition got this wrong and said a conforming instance entered at
+> Tier 1 regardless of its own triggers. That was a loophole: a certified
+> scaffold could have carried education records, informed employment
+> decisions, or held all three legs of the lethal trifecta and still entered
+> at Tier 1 because the scaffold had a certificate.
+>
+> **EXAMPLE**
+> The same certified read-only server over an internal API, pointed at two
+> corpora:
+>
+> - Over a **public course catalog**, one unit: Tier 1 or 2 on its own
+>   triggers, component review skipped. Fast.
+> - Over **education records**, staff-facing: **Tier 3** on data
+>   classification, component review still skipped. Design review covers the
+>   corpus, the access model, and who sees what, not the server.
+>
+> Same component. Different tiers. Correctly.
 
----
-
-## The rule
-
-**A component is inspected once, against published criteria, by someone
-competent and independent. After that, consumers inherit the
-certification and only the integration is inspected.**
-
-This is the anti-queue mechanism. It is what turns governance from a toll
-booth into a supply of trusted parts.
-
-### What can be certified
-
-Anything reusable with a stable interface and a definable scope:
-
-- An MCP server and its tools
-- A retrieval index over a defined corpus
-- An Agent Studio subworkflow or template
-- A prompt or agent scaffold with known behavior
-- A gateway key pattern with a fixed configuration
-- A validated dataset or feature view
-- An authentication or authorization pattern
-
-### What a certification must state
-
-A listing is only as useful as its **scope of certification**. A mark
-that says "approved" without saying approved *for what* is worse than
-nothing, because it invites use outside the conditions it was tested
-under.
+> **REQUIREMENT 11.4 What a certification must state**
 
 | Field | Why |
 |---|---|
-| Identifier and version | Certifications attach to versions, never to "latest" |
-| **Scope of certification** | What it was tested to do, in plain language |
-| **Tier ceiling** | The highest authorization tier this listing supports. A consumer at a higher tier does not inherit it. |
-| Data classes authorizationted | What it was certified to handle |
-| Tools and egress | Everything it can reach, from its own inspection |
-| Tested configuration | The exact configuration certified, including versions |
-| **Conditions of use** | What a consumer must do for the certification to apply |
-| **Exclusions** | What it was explicitly *not* certified for |
-| Certifying party | Who listed it. Not the builder. |
-| Inspection record | Which inspections it passed, and when |
+| Identifier and **version** | Certifications attach to versions, never to "latest" |
+| **Scope of certification** | What it was checked to do, in plain language |
+| **Tier ceiling** | The highest tier this certification supports |
+| Data classes permitted | What it was checked to handle |
+| Tools and egress | Everything it can reach |
+| Tested configuration | The exact configuration checked, including versions |
+| **Conditions of use** | What a consumer must do for it to apply |
+| **Exclusions** | What it was explicitly **not** checked for |
+| Certifying party | Never the builder |
+| Inspection record | Which points it passed, and when |
 | **Surveillance interval and next review** | When it stops being trusted |
-| **Expiry** | Certifications expire. See below. |
+| **Expiry** | |
 
-### Consuming a certified reusable component
+> **GUIDANCE**
+> A certification that says "approved" without saying approved *for what* is
+> worse than nothing, because it invites use outside the conditions it was
+> checked under.
 
-This is the part that saves the time:
+> **REQUIREMENT 11.5 Consuming a certified component**
+> The consumer **MUST** confirm the certification exists, is current, and has
+> not expired; that the **version** consumed is the certified version; that
+> the use is within scope and violates no stated exclusion; that their tier
+> does not exceed the tier ceiling; that their data classes are permitted;
+> and that every condition of use is met. They then **MUST** inspect their
+> integration and **MUST NOT** re-review the component's internals.
 
-- [ ] The listing exists, is current, and has not expired
-- [ ] The **version** you are consuming is the listed version
-- [ ] Your use is **within the scope of certification** and violates no
-      stated exclusion
-- [ ] Your tier does not exceed the certification's tier ceiling
-- [ ] Your data classes are within those the certification authorizations
-- [ ] You have met every stated condition of use
-- [ ] **You inspect your integration**, not the component
+> **REQUIREMENT 11.6**
+> Use outside the certified terms **voids reliance on the certification**, and
+> the full path applies.
 
-That last line is the whole point. You inspect the wiring, the
-credentials you supply, the data you send, and what you do with what
-comes back. You do not re-review the component's internals.
+> **GUIDANCE**
+> Broader credential than the certification assumed, higher tier than its
+> ceiling, excluded data classes, or an uncertified version means you are not
+> consuming a certified component. You are consuming an unreviewed one.
 
-**Installing outside the listed terms voids reliance on the certification.**
-Borrowed directly, and it is the discipline that keeps this honest. If
-you use a certified reusable component with a broader credential than the certification
-assumed, in a higher tier than its ceiling, on data classes it excludes,
-or at an unlisted version, you are not consuming a certified reusable component. You
-are consuming an unreviewed one, and the full path applies.
+> **REQUIREMENT 11.7 Who may certify**
+> Certification authority **MUST NOT** rest with the builder. It sits with the
+> Final Decision Authority or a function it designates, and at Tier 3 the
+> certifying reviewer **MUST** be independent of the originating team.
 
----
+> **REQUIREMENT 11.8 Surveillance and expiry**
+> Every certification **MUST** carry a surveillance interval and an expiry
+> date.
 
-## The worked example
-
-Take the case this chapter was written for. One group builds a tool over
-compensation data, validates it thoroughly, and it works.
-
-**Without listing:** every other group that wants it re-enters intake.
-Each review re-examines the same tool. The originating group fields the
-same questions repeatedly. Adoption is slower than rebuilding, so people
-rebuild, and now there are four unreviewed copies.
-
-**With listing:**
-
-1. The originating group's build goes through the normal path once and
-   passes its inspections.
-2. The Decision Authority, or a designated certifying function, **lists** it: scope of
-   certification is "read-only aggregate compensation analysis over the
-   defined corpus," tier ceiling 3, data classes named, exclusions stated
-   explicitly, for instance no individual-level output and no use in
-   compensation *decisions* about identifiable people, which would land
-   in chapter 03's consequential-decisions trigger.
-3. Surveillance interval set, say quarterly, with a named owner.
-4. A second group builds an application that consumes it. Their
-   Statement of Need still records the need. Their design review covers
-   **their** integration: what credential they pass, what they display,
-   who sees it, what happens when it is wrong.
-5. They do not re-review the tool. They cite the certification.
-
-The second group's path shortens from a full review to an integration
-review. The originating group stops being an unpaid help desk. And
-critically, **the institution now knows how many things depend on that
-component**, which it did not know before, because the certification is
-referenced rather than copied.
-
-That last consequence is the one people miss. Listing produces a
-dependency graph as a byproduct.
-
----
-
-## Who may certify
-
-**Not the builder.** A component certified by the people who made it is a
-self-assessment, and the whole value here is that a consumer can rely on
-someone else's judgment.
-
-Certification authority sits with the Decision Authority, or with a certifying function the
-Decision Authority designates. The construction parallel is exact: independent
-inspection is engaged by the owner rather than the contractor, so the
-certifier is not paid by the party being certified.
-
-For Tier 3 certifications, the certifying reviewer must be independent of the
-originating team, per [chapter 09](09-roles.md).
-
----
-
-## Surveillance, and why certifications expire
-
-A listing with no surveillance becomes a historical claim that people
-treat as a current fact. This is the failure mode to design against,
-because it is comfortable and invisible.
-
-| Listing tier ceiling | Surveillance interval | Listing expiry |
+| Tier ceiling | Surveillance | Expiry |
 |---|---|---|
 | 1 | Annual | 24 months |
 | 2 | 6 months | 18 months |
 | 3 | Quarterly | 12 months |
 
-Surveillance re-checks the five things most likely to have decayed:
+> **LOCAL AMENDMENT REQUIRED**
+> These intervals are invented. Set your own, and only offer certification if
+> you can staff the surveillance.
 
-1. Is the listed version still the version in use?
-2. Have its dependencies acquired published vulnerabilities?
-3. Have its tool definitions or interface changed? For MCP components,
-   drift in a tool description after certification is the rug pull from
-   [chapter 06](06-inspections.md), and it invalidates the certification
-   immediately.
-4. Is the originating owner still present?
-5. Has the model or platform underneath it changed behavior?
+Surveillance re-checks the five things most likely to have decayed: whether
+the certified version is still in use; whether dependencies acquired
+published vulnerabilities; whether the interface or tool definitions changed;
+whether the originating owner still exists; and whether the model or platform
+underneath changed behavior.
 
-**When a certification lapses or is revoked, every consumer is notified.** This
-requires knowing who the consumers are, which is why consumption is
-recorded in the registry rather than being informal. A revoked listing
-with unknown consumers is an incident you cannot execute.
+> **REQUIREMENT 11.9**
+> Drift in a tool definition after certification **MUST** invalidate the
+> certification immediately.
 
----
+> **REQUIREMENT 11.10**
+> When a certification lapses or is revoked, **every consumer MUST be
+> notified**, which requires consumption to be recorded in the registry rather
+> than informal.
 
-## Certified pattern for patterns
+> **GUIDANCE**
+> A revoked certification with unknown consumers is an incident you cannot
+> execute.
 
-The stronger form, borrowed from how a factory-built design is approved
-once rather than per site.
+> **REQUIREMENT 11.11 Certified patterns**
+> Where a pattern recurs, the **pattern** itself **MAY** be certified, and
+> conforming instances then skip component review entirely. Classification
+> still runs in full per 11.3. Departure from the pattern means the pattern
+> does not apply and full component review resumes.
 
-Where an institution has a pattern that recurs, certify the **pattern**
-and let conforming instances self-certify:
+## Applicability
 
-- A standard retrieval-over-approved-corpus pattern
-- A standard read-only MCP server over an internal API
-- A standard summarize-and-route Agent Studio workflow
+Any reusable thing with a stable interface and a definable scope: a server and
+its tools, a retrieval index over a defined corpus, an Agent Studio
+subworkflow or template, an agent scaffold with known behavior, a credential
+pattern with fixed configuration, a validated dataset, or an authorization
+pattern.
 
-### Certification and classification are two different axes
+## Required evidence
 
-**This is the most important rule in the chapter, and an earlier edition
-of this model got it wrong.** That edition said a conforming instance
-enters at Tier 1 regardless of what its triggers would otherwise imply.
-That was a loophole, and it contradicted [chapter 03](03-classification.md)'s
-highest-wins rule directly. A certified scaffold could have carried
-student records, informed employment decisions, or held all three legs of
-the lethal trifecta, and still entered at Tier 1 because the scaffold had
-a certificate.
+The certification record with all 11.4 fields; per consumer, the confirmation
+checklist from 11.5 and a recorded dependency on the certification; and the
+surveillance history.
 
-The two things being judged are not the same thing:
+## Exceptions
 
-| Axis | Question | Reduced by certification? |
-|---|---|---|
-| **Component risk** | Is this thing built soundly? | **Yes.** That is what a certification is for. |
-| **Use risk** | What will this instance touch, decide, and affect? | **No. Never.** |
+None to 11.2. Certification never lowers a tier, and there is no exception
+path for that because it is the safeguard the chapter exists around.
 
-So the corrected rule:
+## Implementation guidance
 
-> A conforming instance **inherits the pattern's component-level findings
-> and skips repeated component review.** Classification still runs in
-> full against that instance's data classes, autonomy, blast radius, and
-> intended use. **Certification never lowers a tier.**
+**Why this works.** Nobody re-tests a fire-rated door assembly in every
+building. It was tested once against a published standard by a competent
+party and carries a mark. The official confirms the mark, confirms the
+installation matches the terms, and moves on.
 
-What this actually saves is large and is the point: no re-review of the
-component's internals, transport, auth model, tool definitions, or
-dependency posture. What it does not save, and must not, is the tier
-assessment of what you are pointing it at.
+The mechanism has four parts, and the fourth is the one that gets dropped:
+published criteria, testing by a competent independent party, a report stating
+the **scope** of what was certified, and **ongoing surveillance**.
 
-A worked contrast. A pattern-certified read-only MCP server over an internal
-API is pointed at two different corpora:
+> **VERIFICATION NOTE** (2026-08-04)
+> ICC Evaluation Service runs the full pattern for novel products where the
+> code is silent: it develops acceptance criteria, tests against them, issues
+> an evaluation report that building departments rely on, and conducts ongoing
+> inspection and surveillance ([ICC-ES](https://icc-es.org/)). The
+> surveillance part is why such a report is not a rubber stamp.
 
-- Over a **public course catalog**, serving one unit: Tier 1 or 2 on its
-  own triggers, component review skipped. Fast.
-- Over **student records**, staff-facing: **Tier 3** on data
-  classification, component review still skipped. The design review covers
-  the corpus, the access model, and who sees what, not the server.
+**The byproduct nobody expects.** Because certifications are referenced rather
+than copied, the institution learns how many things depend on a given
+component. Certification produces a dependency graph for free.
 
-Same certified component. Different tiers. Correctly.
+**The certified-pattern route is the strongest form.** It is the paved road
+from [principle 1.1](01-principles.md) with a certificate attached, and the
+most direct route to governance that speeds work up. The scaffold is an
+approved **component**. It is never an approved **use**.
 
-Departure from the pattern means the pattern does not apply, and full
-component review resumes on top of normal classification.
+Worked instance: [guide/02-running-example.md](../guide/02-running-example.md),
+stage 8, which shows consumption in both directions and a second consumer
+correctly landing at a *lower* tier than the original.
 
-This is still the paved road from [chapter 01](01-principles.md) with a
-certificate attached, and it is still the most direct route to governance
-that speeds work up. The scaffold is an approved *component*. It is never
-an approved *use*.
+## Sources and confidence
 
----
+> **VERIFICATION NOTE** (2026-08-04)
+> ICC-ES's evaluation-report mechanism including ongoing surveillance was
+> fetched and confirmed.
 
-## Honest accounting
+> **UNVERIFIED**
+> The code definitions of "listed," "labeled," and "approved agency"; the rule
+> that an official accepts a certification without retesting and inspects only
+> the installation; and state-level approval of factory-built designs. Shape
+> sound, details unconfirmed. See [SOURCES.md](../SOURCES.md).
 
-**Verified:** ICC-ES issues Evaluation Reports that building departments
-rely on, developed against Acceptance Criteria where the code is silent,
-with ongoing inspection and surveillance.
-
-**Unverified, described as industry practice:** the IBC definitions of
-listed, labeled, and approved agency; the rule that officials accept a
-listing and inspect only installation; state-level modular certified pattern.
-
-**Design judgment, not findings:** every interval and expiry number in
-this chapter, the tier-ceiling concept, the void-on-departure rule, and
-the claim that pattern-certified patterns should enter at Tier 1. None of
-this is measured. It is reasoned from how certification works in a domain
-that has run it for decades.
-
-**The risk in this chapter, stated plainly:** listing is the most
-gameable mechanism in this model. A listing granted casually, never
-surveilled, and cited widely is a single point of institutional trust
-with nobody looking at it, and it would be worse than the queue it
-replaced. If you adopt one thing from this chapter, adopt the
-surveillance interval and the expiry date. They are what make the rest
-safe.
+> **DESIGN JUDGMENT**
+> Every interval and expiry figure, the tier-ceiling concept, and the
+> void-on-departure rule are reasoned rather than measured.
+>
+> **This is the most gameable mechanism in the framework.** A certification
+> granted casually, never surveilled, and cited widely is a single point of
+> institutional trust with nobody looking at it, and it would be worse than
+> the queue it replaced. If you adopt one thing from this chapter, adopt the
+> surveillance interval and the expiry date. They are what make the rest safe.

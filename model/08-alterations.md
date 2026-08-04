@@ -1,154 +1,158 @@
-# 08. Alterations and Existing Work
+# 08. Alterations and Existing Systems
 
-Two problems every institution has. Changes to things already running,
-and the large pile of things that were built before any of this existed.
+## Purpose
 
-Construction has mature answers to both, and the second one is the more
-valuable import.
+Handles change to things already running, and the large population of
+capabilities built before the framework existed.
 
----
+## Failure this prevents
 
-## Part 1: Alterations
+Change that silently outruns its review. And the adoption failure that kills
+frameworks on contact: telling every existing builder that their work is now
+a violation.
 
-### Change records
+## Requirement
 
-A **change record** in construction is a formal instrument modifying the
-contract, signed by the owner, architect, and contractor, covering scope,
-cost, and schedule together. The discipline worth importing is that
-tri-party structure: a change is not something the builder decides alone,
-and it explicitly accounts for what the change costs.
-
-The lightweight version here: a change re-enters the process **at the
-stage where its risk actually changes**, and no earlier.
+> **REQUIREMENT 8.1**
+> A change **MUST** re-enter the process at the stage where its risk actually
+> changes, and no earlier.
 
 | Change | Re-enters at |
 |---|---|
 | Prompt wording, output formatting, non-functional refactor | Nowhere. Automated checks only. |
-| New tool, integration, or egress path | **H2 connections**, plus reclassification |
+| New tool, integration, or egress path | **H2**, plus reclassification |
 | Data classes widened | **Chapter 03**, then design review |
-| Autonomy increased, or a confirmation step removed | **H4 concealment** |
-| Audience widened | **Chapter 03**, then a CO amendment |
-| Model swapped within the same class | Automated checks, note in record |
-| Model swapped to a different capability class | H5 final |
-| Purpose changed | **Chapter 02.** This is a new project. |
+| Autonomy increased, or a confirmation step removed | **H4** |
+| Audience widened | **Chapter 03**, then an approval amendment |
+| Model swapped within the same capability class | Automated checks, note in record |
+| Model swapped to a different capability class | **H5** |
+| Purpose changed | **Chapter 02. This is a new project.** |
 
-The last row is the one that gets skipped. A capability repurposed for
-something its Statement of Need never described is a new building on an
-old foundation, and it should be treated as new work rather than as an
-alteration.
+> **GUIDANCE**
+> Three rows deserve attention because platforms will not tell you they
+> happened.
+>
+> *Removing a confirmation step* looks like a usability improvement and is a
+> change in autonomy tier.
+>
+> *Adding an integration* is the most common way a Tier 2 system silently
+> becomes Tier 3, because it is often the third leg of the lethal trifecta
+> arriving on its own. Egress inventory drift **SHOULD** alarm automatically
+> rather than depend on someone remembering this chapter.
+>
+> *Purpose change* is the row that gets skipped. A capability repurposed for
+> something its Statement of Need never described is new work on an old
+> foundation.
 
-**Two changes deserve special mention because platforms will not tell
-you they happened.**
+> **REQUIREMENT 8.2 Pre-existing systems**
+> Capabilities built before adoption are **pre-existing and permitted**.
+> Compliance is triggered by **alteration**, and applies to the altered
+> portion.
 
-*Removing a confirmation step* looks like a small usability
-improvement and is actually a change in autonomy tier. It re-enters at
-H4.
+> **GUIDANCE**
+> This is borrowed directly, and it is what makes adoption of a new edition
+> possible at all. Building codes do not retroactively condemn every existing
+> structure, because a code that did would never be adopted.
 
-*Adding an integration* is the most common way a Tier 2 system silently
-becomes Tier 3, because it is often the third leg of the lethal trifecta
-arriving on its own. Egress inventory drift should alarm automatically
-rather than depend on someone remembering this chapter.
+> **REQUIREMENT 8.3 Amnesty inventory**
+> Adoption **MUST** begin with an inventory in which every existing capability
+> receives a registry entry and a named owner, **with no penalty for having
+> existed**.
 
-### Requests for information
+> **GUIDANCE**
+> Any penalty attached to disclosure buys an inaccurate inventory, which is
+> worse than none because it gets believed. This is the single highest-value
+> step in adopting the framework.
 
-Covered in [chapter 04](04-design-review.md), but it earns a second mention
-here because it matters most during alterations. A builder unsure whether
-a change needs re-review must be able to ask cheaply and get a recorded
-answer quickly.
+> **REQUIREMENT 8.4**
+> Pre-existing capabilities **MUST** be classified so exposure is known, and
+> **MUST NOT** be required to satisfy their tier's gates retroactively.
 
-Absent that, people guess, and they guess toward not asking. Most
-governance failures that look like defiance are unanswered questions.
+> **REQUIREMENT 8.5 The unsafe list**
+> Immediate action **MUST** be required only for conditions that are actively
+> dangerous rather than merely non-conforming. The list **MUST** be short and
+> defensible.
 
-### Accepted defect lists
+Starting set:
 
-A **accepted defect list** near operational handover catalogs remaining defects:
-real, known, tracked, and not blocking occupancy. The useful property is
-that it is an honest list of accepted incompleteness rather than a
-pretense of perfection.
+- Credentials exposed, unscoped, or non-expiring
+- Data classes the institution forbids on that platform
+- The full lethal trifecta with no human in the path
+- No owner at all
 
-Have one per capability. Items that are real, known, and consciously
-deferred belong on a list with owners and dates, not in someone's head,
-and not silently converted into "known limitations" in the registry
-without anyone intending to fix them.
+> **GUIDANCE**
+> Every item added here is a retroactive demand on people who did nothing
+> wrong, and the credibility of the whole amnesty depends on the list being
+> obviously about danger rather than tidiness. **If your unsafe list has
+> fifteen items, it is a compliance programme wearing a safety costume, and it
+> will be read that way.**
 
----
+> **REQUIREMENT 8.6**
+> An unowned running capability **MUST** either receive an owner or be
+> switched off. There is no third resolution.
 
-## Part 2: Existing Work
+## Applicability
 
-Every institution adopting this already has AI capabilities running that
-never went through any of it. Keys issued informally, workflows built by
-people who have since left, MCP servers on someone's machine, retrieval
-systems over data nobody classified.
+8.1 applies to every capability holding production approval. 8.2 through 8.6
+apply during and after adoption to anything predating it.
 
-**How you handle this determines whether the model gets adopted or
-resented.** Get it wrong and the first act of your new governance regime
-is telling every existing builder that their work is now a violation.
+## Required evidence
 
-### The construction answer
+For alterations: the re-entry stage taken, and any reclassification. For
+pre-existing systems: a registry entry with named owner, an assigned tier,
+and the date inventoried.
 
-Existing buildings are **not** required to meet the current code. They
-are pre-existing: legal because they complied when built, or
-because they predate the requirement. The code applies when you
-**alter** the building, and typically only to the altered portion.
+## Exceptions
 
-This is not laxity. It is what makes adoption of a new code edition
-possible at all. A code that retroactively condemned every existing
-structure would never be adopted.
+> **REQUIREMENT 8.7 Accepted defect list**
+> Known defects **MAY** be deferred rather than fixed, provided they are
+> recorded with owners and dates rather than held in someone's head or
+> silently converted into "known limitations."
 
-### The rule
+> **REQUIREMENT 8.8 Clarification requests**
+> A builder unsure whether a change needs re-review **MUST** be able to ask
+> cheaply and receive a recorded answer quickly. See
+> [requirement 4.9](04-design-review.md).
 
-**Existing work is pre-existing. Compliance is triggered by
-alteration.**
+> **GUIDANCE**
+> Absent that, people guess, and they guess toward not asking. Most governance
+> failures that look like defiance are unanswered questions.
 
-1. **Inventory without penalty.** Run an amnesty. Every existing
-   capability gets a registry entry with a named owner and no
-   consequence for having existed. The goal is an accurate picture, and
-   any penalty attached to disclosure buys you an inaccurate one. This
-   is the single highest-value step in adopting this model.
-2. **Classify, but do not enforce.** Assign a tier so you know your
-   exposure. Do not require existing work to satisfy its tier's gates
-   retroactively.
-3. **Compliance on alteration.** The next time it is substantively
-   changed, the changed part enters at the appropriate stage per Part 1.
-4. **Immediate action only for the genuinely unsafe.** Not "does not
-   meet the code" but "is actively dangerous." A short list:
-   - Credentials exposed, unscoped, or non-expiring
-   - Data classes the institution's policy forbids on that platform
-   - The full lethal trifecta with no human in the path
-   - No owner at all
-5. **Orphans get owners or get switched off.** An unowned running
-   capability is the worst category in the inventory, and there are only
-   two honest resolutions.
+## Implementation guidance
 
-### Hazard abatement
+**Change records.** A construction change order is signed by owner, architect,
+and contractor together, covering scope, cost, and schedule as one instrument.
+The transferable discipline is that tri-party structure: a change is not
+something the builder decides alone, and it accounts for what the change
+costs.
 
-Construction has an analogue for step 4: some conditions in existing
-buildings must be corrected regardless of when they were built, because
-they are dangerous rather than merely outdated. Retrofit requirements
-for existing structures exist for exactly this class of problem.
-
-Keep that list **short and defensible.** Every item you add to it is a
-retroactive demand on people who did nothing wrong, and the credibility
-of the whole amnesty depends on the list being obviously about danger
-rather than about tidiness.
-
-If your unsafe list has fifteen items, it is a compliance program
-wearing a safety costume, and it will be read that way.
-
-### Sunset by attrition
-
-Most existing non-conforming work resolves itself, and you should expect
-that rather than driving it:
-
-- It gets changed, and complies on alteration
-- It stops being used, and the record review decommissions it
-- Its owner leaves, and it surfaces as an orphan
-
-The periodic record review in [chapter 07](07-production-approval.md)
-is what makes attrition work. Without it, non-conforming work is
-permanent, and "pre-existing" becomes a synonym for "never
+**Sunset by attrition.** Most pre-existing non-conforming work resolves
+itself, and you should expect that rather than driving it. It gets changed and
+complies on alteration; it stops being used and the record review
+decommissions it; or its owner leaves and it surfaces as an orphan. The
+periodic record review in [chapter 07](07-production-approval.md) is what
+makes attrition work. Without it, "pre-existing" becomes a synonym for "never
 looked at again."
 
-Report the ratio of conforming to non-conforming capabilities over time.
-It is the honest measure of whether adoption is real, and it is a much
-better metric than counting authorizations issued.
+> **GUIDANCE**
+> Report the ratio of conforming to non-conforming capabilities over time. It
+> is the honest measure of whether adoption is real, and a much better metric
+> than counting authorizations issued.
+
+Worked instance: [guide/02-running-example.md](../guide/02-running-example.md),
+stage 9, where an auto-send request was declined in its original form and
+approved in a narrower one that removed the harm path.
+
+## Sources and confidence
+
+> **DESIGN JUDGMENT**
+> The re-entry table is the substantive content of this chapter and is
+> reasoned rather than measured. The amnesty approach and the short unsafe
+> list are strategic judgments about adoption, informed by how building codes
+> handle existing structures.
+
+> **UNVERIFIED**
+> The treatment of existing buildings as lawfully non-conforming with
+> compliance triggered by alteration, and the change record and accepted
+> defect list instruments, are described from standard practice. Primary
+> sources could not be retrieved. See [SOURCES.md](../SOURCES.md).

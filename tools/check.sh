@@ -131,7 +131,25 @@ else
 fi
 
 # ---------------------------------------------------------------------------
-note "10. Source ledger freshness"
+note "10. Chapter grammar conformance"
+# Every normative chapter carries the same eight sections, so a reader can
+# find Purpose / Requirement across the whole model without reading linearly.
+gfail=0
+for f in model/0[1-9]*.md model/1[0-2]*.md; do
+  for s in "^## Purpose" "^## Failure this prevents" "^## Requirement" \
+           "^## Applicability" "^## Required evidence" "^## Exceptions" \
+           "^## Implementation guidance" "^## Sources and confidence"; do
+    grep -qE "$s" "$f" || { echo "  $f missing: ${s#^## }"; gfail=1; }
+  done
+done
+if [ "$gfail" -eq 0 ]; then
+  echo "  all $(ls model/0[1-9]*.md model/1[0-2]*.md | wc -l | tr -d ' ') chapters conform"
+else
+  bad "chapter grammar incomplete (see model/00-conventions.md)"
+fi
+
+# ---------------------------------------------------------------------------
+note "11. Source ledger freshness"
 # Platform behavior, regulations, CVEs, and protocol revisions all decay.
 # SOURCES.md records retrieval dates so decay is visible rather than silent.
 if [ -f SOURCES.md ]; then

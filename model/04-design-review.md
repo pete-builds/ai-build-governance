@@ -1,199 +1,160 @@
 # 04. Design Review
 
-In construction, design review (or plan examination) sits between the
-authorization application and the authorization. Somebody who did not draw the
-drawings reads them against the code and against what the project is
-supposed to accomplish. It happens before anyone breaks ground, because
-that is when changes are cheap.
+## Purpose
 
-Two things about real design review are worth stealing before anything
-else.
+Someone who did not produce the design reads it against the stated need,
+before build effort is sunk.
 
-**It is bounded.** A jurisdiction publishes a turnaround time. Review is
-a service with a deadline, not a queue of indefinite duration. A review
-process without a stated turnaround becomes a bottleneck, and a
-bottleneck becomes something people route around.
+## Failure this prevents
 
-**It checks against a published standard.** The reviewer is not
-expressing an opinion about whether they would have designed it this
-way. They are checking it against the code. That distinction is what
-separates design review from an architecture review board, and it is why
-this chapter is safe while the boards described in
-[appendix C](../reference/evidence-on-gates.md) frequently are not.
+A design nobody checked against the requirement. And its opposite failure,
+which this chapter works equally hard to prevent: a review queue that
+becomes the bottleneck.
 
----
+## Requirement
 
-## The Design Response
+> **REQUIREMENT 4.1**
+> Design review **MUST** answer one question: does this design deliver the
+> Statement of Need, within its tier, with bounded permissions, and with
+> understood failure behavior. It **MUST NOT** be a critique of how the
+> reviewer would have built it.
 
-The builder's deliverable at this stage is the **Design Response**: the
-*how*, answering the Statement of Need's *what*. It is the Basis of
-Design from chapter 02, and the reviewer's job is the Commissioning
-Authority's job: **does this design deliver what was asked for**, not
-"is this how I would build it."
+> **REQUIREMENT 4.2 Published turnaround**
+> Each tier **MUST** have a published turnaround time.
 
-Keep it short. Use
-[`templates/design-review.md`](../templates/design-review.md). Three pages
-maximum, and diagrams count against the limit.
-
-### Required content, all tiers
-
-**1. Data flow.** Where data originates, every system it passes
-through, where it comes to rest, and where it leaves the institution.
-This is the single most useful artifact in the packet, and drawing it
-honestly is often what reveals the tier was wrong.
-
-**2. Tool and permission inventory.** Every tool, integration, and
-credential, with the scope of each and a one-line justification. The
-question the reviewer is answering: could this do its job with less?
-
-**3. Egress inventory.** Every path by which data can leave: outbound
-requests, mail, webhooks, shared documents, model providers, logs
-shipped to third parties. Cross-check against the lethal trifecta
-trigger in chapter 03. Discovering an unlisted egress path during
-inspection is a finding, not a surprise.
-
-**4. Failure behavior.** What happens when the model is wrong, the
-upstream service is down, or the input is malicious. "It returns an
-error" is insufficient for anything that takes action; the question is
-what state the world is left in.
-
-**5. Human oversight point.** Where a person can see what happened and
-intervene. For anything above Tier 1 there must be at least one, and it
-must be a real point in the running system rather than a promise that
-someone will check the logs.
-
-**6. Decisions worth recording.** Any architecturally significant
-choice becomes an ADR, using the format from Michael Nygard's original
-2011 post: title, context, decision, status, consequences
-([Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)).
-Nygard's scoping rule is the useful part: record decisions that are
-"architecturally significant," and never delete a superseded one, mark
-it superseded. Use
-[`templates/adr.md`](../templates/adr.md).
-
-### Additional for Tier 2 and above
-
-**7. Pre-mortem.** Assume it has failed badly and embarrassingly.
-Write down how. Specifically: who could be harmed, what unfair outcomes
-are possible, and what assumptions are baked into the data or the
-prompt. This is bias and harm analysis done as an exercise rather than
-as a checkbox, and it has to be written by the builder rather than the
-reviewer, because the builder knows where the bodies are.
-
-**8. Prompt injection analysis.** Required for anything ingesting
-content the institution does not control. State where untrusted content
-enters, what the model can do once influenced, and what limits the
-damage. Note that treating this as solvable by instructions is itself a
-finding: the mitigations that work are structural, meaning reduced
-scope, removed egress, or a human in the path.
-
-### Additional for Tier 3
-
-**9. Independent reviewer's assessment**, from someone who does not
-report to the project. See chapter 09.
-
-**10. Explicit statement of what was considered and rejected**,
-including the do-nothing option and the non-AI option from chapter 02.
-At Tier 3 the institution is accepting real risk, and it deserves to
-know what it is buying instead of the alternatives.
-
----
-
-## How review is conducted
-
-### Timeboxes
-
-Publish them. Miss them and the review has failed, not the builder.
-
-| Tier | Target turnaround | If the deadline passes |
+| Tier | Turnaround | If the deadline passes |
 |---|---|---|
 | 1 | No review | n/a |
-| 2 | 3 working days | **Deemed approved.** Proceed and note it in the record. |
-| 3 | 10 working days | Escalates to the Decision Authority, who must either review it or waive to Tier 2 in writing. |
+| 2 | 3 working days | **Deemed approved.** Proceed and note it. |
+| 3 | 10 working days | Escalates to the Decision Authority, who **MUST** either review it or waive to Tier 2 in writing |
 
-The Tier 2 deemed-approval rule is deliberate and it is the most
-important sentence in this chapter. A review process with no
-consequence for its own delay will always slide toward being a
-bottleneck, and the bottleneck is what the evidence says does the
-damage. Making silence into approval puts the cost of slowness on the
-reviewing function rather than on the builder.
+> **LOCAL AMENDMENT REQUIRED**
+> These numbers are invented. Pick ones you can actually meet.
 
-If deemed approvals start happening often, that is a staffing signal,
-not a discipline problem.
+> **REQUIREMENT 4.3**
+> At Tier 2 the reviewer **advises**. The builder **MAY** proceed over an
+> unresolved objection provided the objection and the reason for proceeding
+> are recorded in a decision record. At Tier 3 the reviewer **MAY** block.
 
-### Tier 2 uses an advice process, not an approval
+> **REQUIREMENT 4.4 Design response contents**
+> The builder **MUST** provide, at all tiers above 1:
 
-For Tier 2, the reviewer advises. The builder may proceed over an
-unresolved objection provided the objection is **recorded in the ADR
-along with the reason for proceeding**. This is the architecture advice
-process: anyone may decide, provided they consult the affected parties
-and record the decision.
+| # | Item | Why |
+|---|---|---|
+| 1 | Data flow | Where data originates, every system it crosses, where it rests, where it leaves |
+| 2 | Tool and permission inventory | Every tool and credential with scope and justification |
+| 3 | Egress inventory | **Every** path by which data can leave |
+| 4 | Failure behavior | What state the world is left in when things break |
+| 5 | Human oversight point | Where a person can see and intervene, in the running system |
+| 6 | Decisions worth recording | Architecturally significant choices, as decision records |
 
-This will feel wrong to people used to approvals. The justification is
-empirical: DORA's research found external approval "had a negative
-impact on software delivery performance" and found "no evidence" that
-formal external review reduced change failure rates
-([DORA](https://dora.dev/capabilities/streamlining-change-approval/)).
-Recording the disagreement preserves the information the reviewer
-generated without paying the cost of a blocking gate.
+> **REQUIREMENT 4.5**
+> At Tier 2 and above the builder **MUST** additionally provide a
+> **pre-mortem** (how this failed, who was harmed, what unfair outcomes are
+> possible, what assumptions are baked in) and, for anything ingesting
+> content the institution does not control, a **prompt injection analysis**.
 
-Tier 3 is different. There, the reviewer can block, because at Tier 3
-the institution's own exposure is at stake rather than the team's.
+> **REQUIREMENT 4.6**
+> At Tier 3 the builder **MUST** additionally record the alternatives
+> considered and rejected, including the do-nothing and non-AI options, and
+> the independent reviewer's assessment.
 
-### Dispositions
-
-Borrow the submittal review stamps from construction (AIA A201
-practice), because they are more useful than approve/reject:
+> **REQUIREMENT 4.7 Dispositions**
+> Every review **MUST** close with one of four dispositions, and every
+> disposition other than Approved **MUST** name what would change it.
 
 | Disposition | Meaning |
 |---|---|
-| **Approved** | Proceed. |
-| **Approved as Noted** | Proceed, and make the noted changes. No re-review. |
-| **Revise and Resubmit** | Specific things must change and be re-reviewed. Name them. |
+| **Approved** | Proceed |
+| **Approved as Noted** | Proceed, make the noted changes, no re-review |
+| **Revise and Resubmit** | Named items must change and be re-reviewed |
 | **Rejected** | The approach will not work. Return to chapter 02. |
 
-"Approved as Noted" is the workhorse and should be the most common
-outcome by a wide margin. Most review findings are real but do not
-warrant another round trip. A review culture that cannot say "yes, and
-fix these three things" will produce either rubber stamps or queues.
+> **GUIDANCE**
+> "Approved as Noted" **should be the most common outcome by a wide margin.**
+> Most findings are real but do not warrant a round trip. A review culture
+> that cannot say "yes, and fix these three things" produces either rubber
+> stamps or queues.
 
-**Every disposition other than Approved must name what would change it.**
-A finding a builder cannot act on is not a finding.
+## Applicability
 
-### The RFI
+Tier 2: one peer who is not the builder. Tier 3: one reviewer who does not
+report to the builder or the builder's manager.
 
-Construction has a formal **request for information** for when the
-builder hits an ambiguity in the documents. Import it, and make it
-lightweight: a builder who is uncertain whether something needs
-re-review should be able to ask in a channel and get a recorded answer
-within a day.
+> **REQUIREMENT 4.8**
+> Design review **MUST NOT** require a meeting of more than three people. If
+> it does, this chapter has been implemented incorrectly.
 
-Without a cheap RFI path, builders resolve ambiguity by guessing, and
-they guess in the direction of not asking. Most governance failures
-that look like defiance are actually unanswered questions.
+Accessibility, security, and privacy review run **concurrently** with this,
+not after. See [chapter 10](10-concurrent-reviews.md).
 
----
+## Required evidence
 
-## What design review is not
+The design response, the recorded disposition with findings and resolutions,
+any unresolved objections proceeded over with their decision records, the
+authorization conditions produced, and where used, the note that the
+turnaround expired.
 
-**It is not a design critique.** If the design meets the need, is
-within tier, has bounded permissions, and its failure behavior is
-understood, it passes. Preferences about frameworks, structure, or
-style belong in code review, where they are cheap and non-blocking.
+## Exceptions
 
-**It is not a security assessment.** Security review is
-[chapter 06](06-inspections.md), it happens against the running system,
-and it is mostly automated. A reviewer reading a diagram cannot tell
-you whether the credentials are actually scoped correctly.
+Deemed approval under 4.2 is not an exception and needs no approval. It is a
+designed outcome. Frequent use is a **staffing signal**, not a discipline
+problem, and the rate **SHOULD** be tracked.
 
-**It is not a committee.** One reviewer for Tier 2, one independent
-reviewer for Tier 3. If design review requires a meeting with more than
-three people in it, this model has been implemented incorrectly.
+> **REQUIREMENT 4.9 Clarification requests**
+> A cheap, recorded path **MUST** exist for a builder to ask whether
+> something needs re-review, and **SHOULD** be answered within one working
+> day.
 
----
+> **GUIDANCE**
+> Without this, builders resolve ambiguity by guessing, and they guess in the
+> direction of not asking. Most governance failures that look like defiance
+> are unanswered questions.
 
-## Output
+## Implementation guidance
 
-A recorded disposition attached to the Statement of Need, plus a
-**authorization** if approved. The authorization, its conditions, and its expiry are
-[chapter 05](05-authorization-to-build.md).
+**Why the reviewer advises rather than approves at Tier 2.** DORA's research
+found external approval "had a negative impact on software delivery
+performance" and found "no evidence" that formal external review reduced
+change failure rates. Recording the disagreement preserves the information
+the reviewer generated without paying the cost of a blocking gate. Tier 3
+differs because the institution's own exposure is at stake rather than the
+team's.
+
+**Why the deemed-approval rule exists.** A review process with no consequence
+for its own delay always slides toward being a bottleneck, and the bottleneck
+is what the evidence says does the damage. Making silence into approval puts
+the cost of slowness on the reviewing function.
+
+> **REQUIREMENT 4.10**
+> Deemed approval under 4.2 grants **permission to proceed only**. It
+> **MUST NOT** be recorded as a compliance determination. See
+> [requirement 10.6](10-concurrent-reviews.md).
+
+**What this is not.** Not a security assessment: that happens against the
+running system in [chapter 06](06-inspections.md) and is mostly automated. A
+reviewer reading a diagram cannot tell you whether credentials are actually
+scoped correctly.
+
+**On item 3.** The egress inventory is the highest-value artifact in the
+packet. Drawing it honestly is frequently what reveals the tier was wrong,
+and an unlisted egress path discovered during inspection is a finding rather
+than a surprise.
+
+Template: [templates/design-review.md](../templates/design-review.md).
+Decision records: [templates/adr.md](../templates/adr.md).
+
+## Sources and confidence
+
+> **VERIFICATION NOTE** (2026-08-04)
+> The DORA quotes were fetched and verified verbatim. The decision record
+> format follows Michael Nygard's 2011 post, fetched and confirmed, including
+> its "architecturally significant" scoping rule and the mark-superseded
+> convention.
+
+> **DESIGN JUDGMENT**
+> The four dispositions are adapted from construction submittal review. The
+> turnaround numbers, the deemed-approval rule, and the three-person meeting
+> limit are reasoned, not measured. The deemed-approval mechanism resembles
+> the Rust RFC final comment period, which resolves to merge, close, or
+> postpone on a fixed clock.

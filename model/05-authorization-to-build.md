@@ -1,162 +1,155 @@
 # 05. Authorization to Build
 
-A building authorization is a narrow instrument, and its narrowness is what
-makes it useful. It says: *this* work, at *this* location, per *these*
-reviewed documents, subject to *these* inspections, and it **expires**.
+## Purpose
 
-Three properties are worth importing exactly.
+Authorizes construction of a specific capability, per reviewed documents,
+subject to named conditions and an expiry date. It does **not** authorize
+production operation, which is [chapter 07](07-production-approval.md).
 
-**An authorization authorizes construction, not occupancy.** Holding an authorization
-does not entitle you to move in. That requires a separate certificate,
-after inspections. Software governance almost never separates these, and
-collapsing them is why "it's approved" comes to mean "it's live."
+## Failure this prevents
 
-**An authorization carries conditions.** Approval is routinely conditional, and
-the conditions are enforceable rather than advisory.
+Authorization becoming a permanent entitlement. Institutions accumulate
+approved-but-abandoned projects, each holding a live credential, a budget
+line, and an unowned integration, and nothing ever asks whether they still
+exist.
 
-**An authorization expires.** Real authorizations lapse if work does not start, or does
-not progress, within a stated period. This is the mechanism that keeps
-an authorization from becoming a permanent entitlement, and it is the
-single most under-used idea in software governance.
+## Requirement
 
----
+> **REQUIREMENT 5.1**
+> An authorization to build **MUST NOT** confer permission to operate in
+> production. Those are separate acts with separate evidence and separate
+> signers.
 
-## What each tier authorizes
+> **GUIDANCE**
+> Collapsing them is why "it's approved" comes to mean "it's live." The
+> construction analogy keeps them apart deliberately: a building permit does
+> not entitle you to move in.
 
-### Tier 1: Self-Certified
+> **REQUIREMENT 5.2**
+> Every authorization **MUST** carry conditions, and each condition **MUST**
+> be verifiable at a named verification point. A condition nobody checks is
+> not a condition.
 
-Analogous to work that needs no authorization: painting, replacing a fixture.
-Real codes exempt this work explicitly rather than by omission, and the
-exemption list is published.
+> **REQUIREMENT 5.3**
+> Every authorization **MUST** expire.
 
-- **Self-certified.** The builder records the Statement of Need and
-  proceeds.
-- **Automated inspections still apply.** Exempt from review, not from
-  the checks that run in the pipeline.
-- **Occupancy self-issued**, valid only within declared scope.
-- **Any trigger crossing into Tier 2 voids it immediately.** The build
-  stops until the higher authorization is issued.
+| Event | Default |
+|---|---|
+| Work must begin within | 60 days of issue |
+| Authorization lapses if no verification point passes within | 180 days |
+| Tier 3 authorizations expire at | 12 months, renewable |
 
-Publish your Tier 1 exemptions as a list. An unpublished exemption is
-an invitation to argue.
+> **LOCAL AMENDMENT REQUIRED**
+> These intervals are invented. Set your own.
 
-### Tier 2: Standard Authorization
+> **REQUIREMENT 5.4 What each tier authorizes**
 
-- Peer design review with a published turnaround, per chapter 04
-- Automated inspections plus one human verification point (concealment, H4)
-- Occupancy issued by a peer who is not the builder
-- Conditions attached and recorded
+**Tier 1, self-certified.** The builder records the Statement of Need and
+proceeds. Automated checks still apply: exempt from review, not from
+verification. Self-issued approval is valid only within declared scope, and
+**any trigger crossing into Tier 2 voids it immediately.**
 
-### Tier 3: Independent Review
+> **REQUIREMENT 5.5**
+> Tier 1 exemptions **MUST** be published as a list. An unpublished exemption
+> is an invitation to argue.
 
-- Independent review by someone off the project
-- Full hold-point set with human sign-off at H1, H4, and H5
-- Occupancy issued by the Final Decision Authority
-- A named standing institutional owner is a precondition, not a
-  deliverable
-- Time-limited by default; renewal requires the record review from
-  chapter 07
+**Tier 2, standard.** Peer design review with published turnaround, automated
+checks plus one human verification point (H4), approval issued by a peer,
+conditions attached and recorded.
 
----
+**Tier 3, independent review.** Reviewer off the project, full verification
+set with human sign-off at H1, H4, and H5, approval issued by the Final
+Decision Authority, a named Standing Owner as a **precondition rather than a
+deliverable**, and time-limited by default.
 
-## Conditions of approval
-
-Conditions are how a reviewer says yes to something that is not yet
-safe. They are written into the authorization, and each must be verifiable at a
-named verification point. A condition nobody checks is a wish.
-
-Standard conditions worth having in every institution's amendments:
+> **REQUIREMENT 5.6 Standard conditions**
+> Institutions **SHOULD** carry these in their amendments:
 
 | Condition | Verified at |
 |---|---|
-| Budget cap set, with a hard stop rather than an alert | H1 |
+| Budget cap set as a hard stop rather than an alert | H1 |
 | Credential scoped to the declared minimum | H1 |
-| Key expiry set within institutional maximum | H1 |
+| Credential expiry within institutional maximum | H1 |
 | No secrets in source, config, or client files | H1 |
 | Egress limited to the declared inventory | H2 |
-| Tool definitions pinned; drift alarms | H2 |
+| Tool definitions pinned, drift alarmed | H2 |
 | Logging enabled and not caller-suppressible | H4 |
 | Human oversight point present and reachable | H4 |
-| Guardrails enabled on the paths that actually carry traffic | H5 |
+| Guardrails verified on the paths that carry traffic | H5 |
 | Registry entry complete with named owner | H5 |
 
-That last-but-one condition needs care, and it is the kind of thing
-[appendix B](../reference/platform-controls.md) exists to catch:
-guardrail coverage is frequently uneven across a platform's APIs. On
-LiteLLM the documented limitation is that the unified guardrail path does
-not extend to the Responses API, embeddings, or speech, and at least one
-real deployment's own gateway documentation states flatly that guardrails
-work only with Chat Completions. A condition reading "guardrails enabled"
-is therefore satisfiable while the traffic that matters flows down an
-unguarded path. Write conditions against the paths in the data flow
-diagram, not against a settings page, and **test the path rather than
-reading the setting.**
+> **GUIDANCE**
+> The guardrail condition needs care. Coverage is routinely uneven across a
+> platform's APIs, so a condition reading "guardrails enabled" is satisfiable
+> while the traffic that matters flows down an unguarded path. **Write
+> conditions against the paths in the data flow diagram, and test the path
+> rather than reading the setting.** Per-platform gaps are in the
+> [profiles](../reference/platform-profiles/).
 
----
+## Applicability
 
-## Expiry, and why it matters most
+All tiers. Tier 1 self-issues; Tiers 2 and 3 are issued by another party.
 
-| Authorization event | Default |
-|---|---|
-| Work must begin within | 60 days of issue |
-| Authorization lapses if no inspection passes within | 180 days |
-| Tier 3 authorizations expire at | 12 months, renewable |
+## Required evidence
 
-Lapsing is not a punishment. It is garbage collection. Institutions
-accumulate approved-but-abandoned projects, and each one is a live
-credential, a budget line, and an unowned integration. Expiry converts
-that silent accumulation into a scheduled question.
+The issued authorization naming the reviewed documents, its conditions each
+mapped to a verification point, its expiry dates, and the issuing party.
 
-The related move, and the one that does the most good in practice, is
-in [chapter 07](07-production-approval.md): pilots get a **temporary**
-production approval with a real expiry date. "Pilot" is otherwise
-the most durable state in institutional computing.
+## Exceptions
 
----
+> **REQUIREMENT 5.7 Recorded exceptions**
+> A documented, justified departure from a requirement **MAY** be granted by
+> a named authority. It **MUST** record which requirement, why compliance is
+> impractical, what compensating control applies, who granted it, and when it
+> will be revisited.
 
-## Stop work
+> **REQUIREMENT 5.8**
+> Recorded exceptions **MUST** be tracked in aggregate. **Repeated exceptions
+> against the same requirement are evidence the requirement is wrong**, not
+> evidence that builders are unruly.
 
-Real codes let a governance platform team order work stopped: for
-unauthorizationted work, for proceeding past an uninspected verification point, or for
-an immediate hazard.
+> **GUIDANCE**
+> Make this path respectable. A framework with no legitimate exception route
+> gets bypassed rather than amended, and then you have lost the control and
+> the information.
 
-The equivalent authority here should be narrow, fast, and rarely used.
-Grounds:
+## Implementation guidance
+
+**Stop-work.** The institution **MUST** name who may order work stopped, and
+it **SHOULD** be a small number of people reachable within a day. Grounds:
 
 - Work proceeding past a failed or skipped verification point
-- Data flowing that the authorization does not authorize, especially a class
-  the institution's policy forbids
+- Data flowing that the authorization does not cover, especially a prohibited
+  class
 - An active credential exposure
 - A capability operating outside its declared scope
 
 The action is proportionate and reversible where possible: disable the
-key, unpublish the tool, deactivate the workflow. Not "delete the
+credential, unpublish the tool, deactivate the workflow. Not "delete the
 project."
 
-**Whoever holds stop-work authority must be named in your amendments,
-and it must be a small number of people who can be reached quickly.**
-Emergency authority that requires a committee is not emergency
-authority. Equally, stop-work used routinely is a sign the earlier
-stages are not working, and it should be tracked as a defect in the
-process rather than a success of enforcement.
+> **GUIDANCE**
+> Emergency authority requiring a committee is not emergency authority.
+> Equally, stop-work used routinely means the earlier stages are not working,
+> and it **SHOULD** be tracked as a process defect rather than an enforcement
+> success.
 
----
+**On expiry.** Lapsing is not punishment, it is garbage collection. Expiry
+converts silent accumulation into a scheduled question. The related move that
+does the most practical good is in
+[chapter 07](07-production-approval.md): pilots get a time-limited production
+approval with a real date, because "pilot" is otherwise the most durable
+state in institutional computing.
 
-## Recorded Exceptions
+## Sources and confidence
 
-Construction allows a recorded exception: a documented, justified departure from
-the code, granted by a named authority, recorded permanently.
+> **DESIGN JUDGMENT**
+> Every interval in this chapter is invented. The separation of build
+> authorization from production approval, the conditions-tied-to-verification
+> structure, and the aggregate exception tracking are reasoned from
+> construction permitting practice.
 
-Have this, and make it respectable. A governance model with no legitimate
-exception path gets bypassed rather than amended, and then you have lost
-both the control and the information.
-
-A recorded exception records: which requirement, why compliance is impractical,
-what compensating control applies instead, who granted it, and when it
-will be revisited.
-
-Track recorded exceptions in aggregate. **Repeated recorded exceptions against the same
-requirement are evidence the requirement is wrong**, not evidence that
-builders are unruly. That feedback loop is how a model code improves
-between editions, and it is why chapter 01 asks you to delete gates that
-never catch anything.
+> **UNVERIFIED**
+> The construction permit properties this borrows, including lapse for
+> inactivity and conditional approval, are described from standard practice.
+> Primary code sources could not be retrieved. See [SOURCES.md](../SOURCES.md).

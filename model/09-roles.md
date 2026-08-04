@@ -1,217 +1,184 @@
-# 09. Roles
+# 09. Roles and Authority
 
-Construction assigns responsibility to named parties with defined
-liability. That precision is the point: when something fails, it is
+## Purpose
+
+Assigns responsibility to named parties, so that when something fails it is
 knowable who was accountable.
 
----
+## Failure this prevents
 
-## Final Decision Authority
+Ownership evaporating when a builder leaves. In an institution that builds
+with students, fellows, and fixed-term staff, this is not an edge case: it is
+the default trajectory of every project.
 
-The **Decision Authority** is the office that holds enforcement authority. The term
-comes from NFPA codes and is deliberately defined by *function* rather
-than job title, because local enforcement structures vary too much for a
-fixed title to work.
+## Requirement
 
-That is exactly why it suits universities, where structures differ
-wildly between institutions and often between units.
+> **REQUIREMENT 9.1 Final Decision Authority**
+> The institution **MUST** name the office that can refuse a build and be
+> obeyed. It **MUST** be reachable within one working day, **MUST** be able to
+> order stop-work, **SHOULD** be one or two named people with a documented
+> deputy, and **MUST NOT** be the builder. At Tier 3 it **MUST NOT** be a
+> party the builder reports to.
 
-**Your amendments document must name the Decision Authority.** Not the committee it
-reports to: the office that can say no and be obeyed. Requirements:
+> **GUIDANCE**
+> This role is called the *authority having jurisdiction* in the construction
+> analogy, defined by function rather than job title because local
+> enforcement structures differ too much for a fixed title to work. That is
+> exactly why it suits universities.
+>
+> If no such office exists, that is the finding. This framework cannot
+> substitute for it. A code with no decision authority is a style guide.
 
-- It can be reached in under a day
-- It can issue a stop-work action, per chapter 05
-- It is small. One or two named people with a documented deputy.
-- **It is not the same party as the builder.** At Tier 3 it must also not
-  be the party that reports to the builder.
-
-If no such office exists at your institution, that is the finding, and
-this model cannot substitute for it. A code with no Decision Authority is a style guide.
-
-### On not creating another committee
-
-Most institutions adopting this will already have an AI policy body: a
-council, a steering group, a task force. **Do not create a second one.**
-Those bodies set policy. This model is the operational layer beneath
-them, and the Decision Authority should be an operational office, not a deliberative
-one.
-
-The division that works:
+> **REQUIREMENT 9.2 No new committee**
+> The Decision Authority **MUST** be an operational office, not a
+> deliberative body. Where the institution already has an AI policy body, the
+> framework **MUST NOT** create a second one.
 
 | Layer | Answers | Typical body |
 |---|---|---|
-| Policy | What is permissible here at all | Existing AI council or equivalent |
-| Investment | What we fund | Existing IT governance or capital process |
-| **Operational** | **Does this specific build meet the code** | **The Decision Authority. This model.** |
+| Policy | What is permissible here at all | Existing AI council |
+| Investment | What gets funded | Existing IT governance process |
+| **Operational** | **Does this build meet the requirements** | **The Decision Authority** |
 
-An Decision Authority that meets monthly to discuss submissions has become a change
-advisory board, and [appendix C](../reference/evidence-on-gates.md)
-explains precisely why that is the failure mode to avoid.
+> **GUIDANCE**
+> A Decision Authority that meets monthly to discuss submissions has become
+> the review board this framework exists to avoid. See
+> [reference/evidence-on-gates.md](../reference/evidence-on-gates.md).
 
----
+> **REQUIREMENT 9.3 Responsible Builder**
+> Every capability above Tier 1 **MUST** have a named Responsible Builder who
+> signs the design response, asserting that they understand what the system
+> can reach and do, that the declared inventories are complete to the best of
+> their knowledge, and that they will be reachable when it misbehaves or have
+> named who will be.
 
-## The stamp: Design Professional of Record
+> **REQUIREMENT 9.4**
+> The institution **MUST NOT** attach personal legal liability to the
+> Responsible Builder signature.
 
-A professional engineer or registered architect **seals** drawings. The
-seal certifies that the work was performed under that person's
-"responsible charge," and it creates personal liability that generally
-survives the corporate form. Boards discipline licensees for "plan
-stamping," meaning sealing work they did not actually supervise.
-(Liability substance is well attested; the specific NCEES rule numbering
-was not verified.)
+> **GUIDANCE**
+> This is where the construction analogy breaks and it matters. A licensed
+> engineer's seal creates personal liability, and that is fair because
+> licensure, standardized examination, continuing education, disciplinary
+> boards, and professional insurance exist behind it. None of that
+> infrastructure exists for AI engineering. Borrowing the consequence without
+> the infrastructure would punish individuals for systemic failures and would
+> make people refuse to sign.
+>
+> What the signature buys is **a name to ask, not a person to blame.**
 
-The construction roles split usefully:
+> **REQUIREMENT 9.5 The two-signature rule**
+> Every capability above Tier 1 **MUST** carry two names.
 
-- **Design Professional of Record**: overall responsibility and
-  coordination
-- **Engineer of Record**: technical responsibility for a specific system
-
-### The software version
-
-Every capability above Tier 1 has a named **Responsible Builder** who
-signs the design response. Signing asserts three things:
-
-1. I understand what this system can reach and what it can do
-2. The declared inventories are complete to the best of my knowledge
-3. I will be reachable when it misbehaves, or I have named who will be
-
-The second is the load-bearing one. Nearly every serious failure in this
-domain traces to an undeclared capability: an egress path nobody listed,
-a credential scope nobody questioned, a tool nobody knew was connected.
-
-**Do not attach personal liability to this.** The construction analogy
-breaks here and it is important to say so. PE liability rests on
-licensure, standardized education, examination, and insurance. None of
-that exists for this work. Borrowing the *accountability* without the
-*professional infrastructure* would just mean punishing individuals for
-systemic failures, and it would make people refuse to sign.
-
-What the signature buys is a name to ask, not a person to blame.
-
----
-
-## The transient workforce problem
-
-This is the hardest structural problem in university AI governance and
-the place where the construction analogy fails most usefully.
-
-**A stamp cannot be held by someone who graduates.**
-
-Universities build with students, fellows, interns, and fixed-term
-staff. That is not a defect to be corrected: it is the institution doing
-its job, and short-tenure builders are frequently the best builders
-available. But it means any model implicitly assuming the builder will
-still be here has not accounted for its own workforce.
-
-Construction has no clean equivalent, because a licensed engineer's
-obligations persist. So the rule here is structural rather than borrowed:
-
-### The two-signature rule
-
-Everything above Tier 1 carries **two** names:
-
-| Role | Who | Persists? |
+| Role | May be fixed-term? | Persists after the builder leaves? |
 |---|---|---|
-| **Responsible Builder** | The person who built it. May be a student. | No |
-| **Standing Owner** | A continuing institutional role. May not be a fixed-term appointment. | **Yes** |
+| **Responsible Builder** | Yes | No |
+| **Standing Owner** | **No. MUST be a continuing appointment.** | **Yes** |
 
-The Standing Owner is not a formality and is not a co-author. They accept
-that when the builder leaves, this becomes theirs: to operate, to hand
-off, or to switch off. **A capability with no Standing Owner may not
-receive a production approval above Tier 1.**
+> **REQUIREMENT 9.6**
+> A capability without a Standing Owner **MUST NOT** receive production
+> approval above Tier 1.
 
-This will be unpopular, because it makes someone with a permanent role
-accept ongoing responsibility for work they did not do, and there are
-never enough of those people. That constraint is real, and it is
-information: **if no standing owner can be found, the institution does
-not actually have capacity to operate this thing.** Better to learn that
-at design review than at graduation.
+> **GUIDANCE**
+> This will be unpopular, because it asks someone with a permanent role to
+> accept ongoing responsibility for work they did not do, and there are never
+> enough of those people. **That constraint is information.** If no Standing
+> Owner can be found, the institution does not have capacity to operate the
+> thing, and it is better to learn that at design review than at graduation.
 
-### Handoff as a first-class deliverable
+> **REQUIREMENT 9.7 Independent reviewer**
+> At Tier 3, review **MUST** be performed by someone who does not report to
+> the builder or the builder's manager.
 
-Where a roll-on/roll-off model exists, use it, and make the record the
-handoff artifact rather than a conversation.
+> **GUIDANCE**
+> Borrowed from the construction practice of independent inspection engaged
+> by the owner rather than the contractor, so the inspector is not paid by
+> the party being inspected. Independence is a structural property. It cannot
+> be achieved by asking someone to be objective.
 
-- The registry entry, per chapter 07, is the handoff document. If it is
-  accurate, handoff is possible. If it is not, handoff is archaeology.
-- Overlap before departure, with the incoming operator running it while
-  the outgoing builder is still reachable. This is the equivalent of
-  commissioning: prove it works in the new hands, not just in the old.
-- **Departure is a trigger for record review**, not a calendar event.
+> **REQUIREMENT 9.8 Credential lifecycle**
+> Credentials issued to a fixed-term appointment **MUST** expire no later
+> than that appointment. Institutional work **MUST NOT** be performed on
+> personal accounts. Offboarding **MUST** revoke rather than merely stop
+> using, including group and shared-pool memberships.
 
-### Credential lifecycle
+> **GUIDANCE**
+> The expiry rule is the single most effective control available for a
+> transient workforce, and it is usually free to configure. Pool memberships
+> are the ones routinely missed at offboarding, because they are not visible
+> from the credential itself.
 
-Short tenure makes credential hygiene a governance problem rather than
-an IT chore:
+## Applicability
 
-- Credentials issued to a fixed-term person **expire no later than their
-  appointment**. This is the single most effective control available and
-  it is usually free to configure.
-- Prefer service-account credentials owned by the standing role over
-  personal credentials held by the builder, so departure does not break
-  the system and remaining employed does not perpetuate access.
-- Offboarding revokes, it does not merely stop using. Include pool and
-  group memberships, which are frequently missed because they are not
-  visible from the key.
-- Never authorization institutional work on personal accounts. Departure makes
-  personal-account work unrecoverable, which converts a person leaving
-  into a data loss event.
+All tiers for 9.1 and 9.2. Above Tier 1 for 9.3 through 9.6. Tier 3 for 9.7.
+All personnel for 9.8.
 
----
+## Required evidence
 
-## Special inspector
+| Artifact | Demonstrates |
+|---|---|
+| Named Decision Authority and deputy, published | 9.1 |
+| Responsible Builder signature on the design response | 9.3 |
+| Standing Owner acknowledgement on the production approval | 9.5, 9.6 |
+| Independent reviewer's confirmation of non-reporting relationship | 9.7 |
+| Credential expiry matching appointment end dates | 9.8 |
+| Departure-triggered record review | see below |
 
-At Tier 3, review is performed by someone **independent of the project**.
-This borrows the IBC's independent review concept, and specifically its
-best feature: the independent inspector is engaged by the **owner**, not
-by the contractor, so the person inspecting is not paid by the person
-being inspected.
+## Exceptions
 
-Translated: **the Tier 3 reviewer must not report to the builder or to
-the builder's manager.** Peers from another unit, a central platform or
-security function, or a rotating pool all work. What does not work is a
-reviewer whose performance evaluation the reviewed party influences.
+None for 9.6. A capability that cannot find a Standing Owner **MAY** proceed
+under a time-limited production approval as an explicitly labelled
+experiment, which is a different thing from an exception.
 
-Independence is a structural property. It cannot be achieved by asking
-someone to be objective.
+## Implementation guidance
 
----
+**Handover as a deliverable.** Where a roll-on, roll-off model exists, the
+registry entry **is** the handover document. If it is accurate, handover is
+possible. If it is not, handover is archaeology.
 
-## Governance platform team
+> **REQUIREMENT 9.9**
+> Departure of a Responsible Builder **MUST** trigger a record review, and
+> the incoming operator **SHOULD** run the system while the outgoing builder
+> is still reachable.
 
-The office that runs the process: maintains the code, publishes the
-turnaround times, keeps the registry, runs the automated checks, and
-holds the templates.
+**The Governance Platform Team.** The office that maintains the framework,
+publishes turnaround times, keeps the registry, runs the automated checks,
+and holds the templates. Its most important work is not enforcement.
 
-In practice this is a platform or enablement team, and its most important
-work is not enforcement at all. It is the paved road from
-[chapter 01](01-principles.md). **The governance platform team who spends their
-time reviewing is failing; the one who spends it making the compliant
-path the easy path is succeeding.**
+> **GUIDANCE**
+> A governance platform team that spends its time reviewing is failing. One
+> that spends it making the compliant path the easy path is succeeding. See
+> [principle 1.1](01-principles.md).
 
-Concretely, this office owns:
-
-- The templates and scaffolds, so compliance is the default
-- The automated checks at H1 through H5
-- The registry, and its reconciliation against reality
-- Published turnaround times, and being accountable for missing them
-- The recorded exception log, and noticing when repeated recorded exceptions mean the code is
-  wrong
-
----
-
-## Summary
+**Summary.**
 
 | Role | Count | Tenure | Cannot be |
 |---|---|---|---|
 | Final Decision Authority | 1 or 2 plus deputy | Continuing | The builder |
 | Responsible Builder | 1 per capability | Any | Anonymous |
-| Standing Owner | 1 per capability above Tier 1 | **Must be continuing** | Fixed-term |
-| Special Inspector | 1 per Tier 3 | Any | Reporting to the builder |
-| Building Official | 1 office | Continuing | Primarily a reviewer |
+| Standing Owner | 1 above Tier 1 | **Must be continuing** | Fixed-term |
+| Independent reviewer | 1 per Tier 3 | Any | Reporting to the builder |
+| Governance Platform Team | 1 office | Continuing | Primarily a reviewer |
 
-The two rows to argue about in your amendments are Standing Owner and
-Special Inspector, because both consume scarce continuing-staff capacity.
-That argument is worth having explicitly. Resolving it by quietly
-dropping the requirements means Tier 3 does not exist, and it is better
-to say that out loud than to discover it later.
+The two rows worth arguing about in your amendments are Standing Owner and
+independent reviewer, because both consume scarce continuing-staff capacity.
+Have that argument explicitly. Resolving it by quietly dropping the
+requirements means Tier 3 does not exist, and saying so is better than
+discovering it later.
+
+## Sources and confidence
+
+> **VERIFICATION NOTE** (2026-08-04)
+> The professional-seal liability substance is well attested. The specific
+> NCEES rule numbering could not be confirmed and is not cited.
+
+> **DESIGN JUDGMENT**
+> The two-signature rule is structural reasoning about a transient workforce,
+> not evidence. **No published higher-education practice on student-builder
+> credential lifecycle or knowledge transfer was located**, which is a genuine
+> gap in the literature rather than a gap in this search.
+
+> **UNVERIFIED**
+> The construction independent-inspection arrangement, including owner
+> engagement of the inspector, is described from standard practice; primary
+> sources could not be retrieved.

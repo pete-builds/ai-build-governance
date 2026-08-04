@@ -1,179 +1,147 @@
 # 01. Principles
 
-Seven rules. Everything else in this model is derived from them, and
-when a later chapter conflicts with one of these, the principle wins.
+## Purpose
 
----
+The seven rules everything else derives from. Where a later chapter
+conflicts with one of these, the principle wins.
 
-## 1. Governance by default beats governance by approval
+## Failure this prevents
 
-The most effective control is the one nobody has to remember. A
-template that ships with logging already wired, a project scaffold with
-secrets handling already correct, and a gateway key that already has a
-budget cap will produce more compliance than any policy document.
+Governance that only ever grows. Every incident adds a step, no step is ever
+removed, and eventually the framework is heavy enough that people route
+around it entirely. At that point you have lost both the control and the
+information.
 
-Platform engineering calls this the **paved road** or the **golden
-path**. The CNCF's platforms work frames it as "guardrails, not gates,"
-and Team Topologies describes the platform team's job as enabling
-governance by default rather than governance by gatekeeping. Netflix is
-generally credited with "paved road" and Spotify with "golden path,"
-the latter implemented through Backstage's software templates.
-(Attributions here are widely reported but were not pinned to a single
-dated primary post; see [appendix C](../reference/evidence-on-gates.md).)
+## Requirement
 
-The practical test: **if your governance model's first deliverable is a
-form rather than a template, you have built the wrong thing first.**
+> **REQUIREMENT 1.1 Default over approval**
+> Where a failure can be prevented by a default, a template, or an automated
+> check, the institution **SHOULD** do that instead of adding a review step.
+> A governance programme whose first deliverable is a form rather than a
+> template has built the wrong thing first.
 
-Corollary: every time you find yourself adding a review step, first ask
-whether the failure it catches could instead be made impossible, or at
-least made loud, by the default path.
-
----
-
-## 2. Gate on irreversibility, not on ceremony
-
-A gate is justified where an action is hard to undo or where evidence is
-about to become unavailable. It is not justified because a milestone
-feels important.
-
-Construction encodes this precisely. Inspections cluster before work
-gets **concealed**, because after the drywall goes up, verification
-costs an order of magnitude more. The rule is that work must not be
-covered, closed in, or concealed until it has been inspected and
-approved, and the governance platform team can order concealed work uncovered
-at the authorization holder's expense.
-
-Software has the same structure and almost never respects it:
+> **REQUIREMENT 1.2 Gate on irreversibility**
+> Gates **MUST** be placed where an action is hard to undo or where evidence
+> is about to become unavailable. They **MUST NOT** be placed at milestones
+> merely because a milestone feels significant.
 
 | Irreversible or evidence-destroying | Reversible |
 |---|---|
 | Granting a credential a scope | Merging code |
 | Writing to a system of record | Deploying to staging |
-| Sending mail to real people | Rendering a UI |
-| Training or fine-tuning on collected data | Changing a prompt |
+| Sending mail to real people | Rendering an interface |
+| Training on collected data | Changing a prompt |
 | Publishing a tool other agents will call | Adding a test |
-| Abstracting an agent behind a UI so its actions stop being visible | Refactoring |
+| Hiding an agent's actions behind automation | Refactoring |
 
 Gate the left column. Leave the right column alone.
 
-That last left-column row is the software equivalent of concealment,
-and chapter 06 makes it a formal verification point.
+> **REQUIREMENT 1.3 Every gate names its failure**
+> Each gate **MUST** record the specific failure it prevents, whether that
+> failure has occurred here, and how you would know the gate is working. A
+> gate that cannot answer the first question **MUST** be removed.
 
----
+> **REQUIREMENT 1.4 Human attention on intent**
+> Countable checks **MUST** be automated where the platform allows it. Human
+> review **SHOULD** be reserved for questions no automated check can answer:
+> whether the system should exist, whether a tool description is honest,
+> whether anyone will maintain it in a year.
 
-## 3. Every gate names the failure it prevents
+> **REQUIREMENT 1.5 No unenforceable claims**
+> The institution **MUST NOT** document a control its platform does not
+> enforce. Where a control depends on a person choosing correctly, it
+> **MUST** be labelled as process-enforced and either inspected or
+> explicitly accepted as a risk.
 
-A gate with no named failure mode is overhead wearing a lanyard.
+> **GUIDANCE**
+> This is the principle most often violated by accident, and
+> [reference/platform-controls.md](../reference/platform-controls.md) exists
+> to make it checkable. Documented false assurance is worse than an
+> acknowledged gap, because it stops people looking.
 
-When you add one, write down: what specifically goes wrong without it,
-whether it has ever actually gone wrong here, and how you would know
-the gate is working. If you cannot answer the first question, delete
-the gate. If you cannot answer the third, you have a ritual.
+> **REQUIREMENT 1.6 Adoption over mandate**
+> Requirements **SHOULD** be enforced by making the compliant path the
+> easiest path. Prohibitions **MUST** be limited to what law or
+> unacceptable risk actually requires, and the institution **MUST** be able
+> to say which.
 
-This cuts hard against the natural institutional response to an
-incident, which is to add approval. The evidence says that response
-backfires: adding process after an incident "will make things worse
-because this drives up lead times and batch sizes, creating a vicious
-cycle" ([DORA](https://dora.dev/capabilities/streamlining-change-approval/)).
+> **REQUIREMENT 1.7 The record is part of the deliverable**
+> A capability **MUST** have an accurate deployed system record, a named
+> owner, and a review date. Absent those it is ungoverned regardless of how
+> carefully it was reviewed on the way in.
 
-Review this list annually and delete gates that never caught anything.
-A code that only grows is a code that will be evaded.
+> **REQUIREMENT 1.8 Annual deletion**
+> The institution **MUST** review its gates at least annually and delete
+> those that have caught nothing. Deletions **SHOULD** be published.
 
----
+## Applicability
 
-## 4. Spend human review on intent, not arithmetic
+All chapters, all tiers, all adopting institutions. These are the rules the
+rest of the model is tested against, including by anyone proposing to amend
+it.
 
-Platforms are good at arithmetic and bad at intent. Budgets, rate
-limits, key expiry, model allowlists, and retention windows are
-enforced reliably because they are countable. Whether this system
-should exist, whether the data flowing through it should be, whether a
-tool description is honest, and whether anyone will maintain it in a
-year are enforced nowhere by nothing.
+## Required evidence
 
-So: automate every countable check, and stop congratulating yourself
-for governing them. Point the scarce human attention at the questions
-no machine will ever answer.
+| Artifact | Demonstrates |
+|---|---|
+| Gate register, each entry naming its failure mode | 1.3 |
+| Annual deletion review with published outcomes | 1.8 |
+| Platform control inventory distinguishing enforced from process | 1.5 |
+| Registry with owners and review dates | 1.7 |
 
-Concretely, a human reviewer should never be checking whether a budget
-was set. A script checks that. A human reviewer should be asking
-whether the thing is worth building.
+## Exceptions
 
----
+None. A recorded exception against a principle is a signal that the
+principle is wrong, and **SHOULD** be raised as an amendment rather than
+granted as an exception.
 
-## 5. Never document a control the platform does not enforce
+## Implementation guidance
 
-Writing "workflow changes are reviewed before production" when the
-platform has no publish gate does not create a review. It creates
-**documented false assurance**, which is worse than a known gap because
-it stops people looking.
+**On 1.1.** Platform engineering calls this the paved road or the golden
+path, and the argument is mechanical: defaults determine behavior. Netflix is
+generally credited with "paved road" and Spotify with "golden path."
 
-If a control depends entirely on a person choosing to do the right
-thing, label it as such, and then either inspect for it or accept the
-risk explicitly. Both are honest. Pretending is not.
+> **DESIGN JUDGMENT**
+> No rigorous measurement was located showing paved roads improve
+> *governance* outcomes specifically. The case is plausible and widely
+> adopted, not demonstrated. See
+> [reference/evidence-on-gates.md](../reference/evidence-on-gates.md).
 
-[Appendix B](../reference/platform-controls.md) is the worked example
-of this principle: an inventory of what three real platforms enforce
-versus what they leave to humans, including the places where the
-documentation is silent and the honest answer is "unverified."
+**On 1.2.** Building codes cluster inspections before work is concealed,
+because verification after drywall costs an order of magnitude more. The
+software equivalent is the moment a system stops showing its work, which
+chapter 06 makes a formal verification point.
 
----
+**On 1.3.** This cuts against the natural response to an incident, which is
+to add approval. DORA's research finds that response backfires: adding
+process "will make things worse because this drives up lead times and batch
+sizes, creating a vicious cycle."
 
-## 6. You cannot mandate, so make the right way the easy way
+**On 1.6.** A corporation can require compliance. A university largely
+cannot, and decentralized IT, unit budget autonomy, shared governance, and
+academic freedom are operating conditions rather than obstacles. This is why
+the framework is a model to adopt and amend rather than a policy to impose.
 
-A corporation can require compliance. A university largely cannot, and
-a model that assumes otherwise will be politely ignored. Decentralized
-IT, unit-level budget autonomy, shared governance, and academic freedom
-are not obstacles to route around. They are the operating conditions.
+## What these cost you
 
-The construction analogy is instructive here, and it is the reason this
-model is shaped as a *model code* rather than a policy. The ICC has no
-authority over anyone. It writes a model; jurisdictions adopt it, amend
-it, and enforce it themselves. Adoption is near-universal anyway,
-because the alternative is writing a building code from scratch.
+Stated because 1.3 demands it of every gate, and therefore of the framework.
 
-Apply the same logic internally. Make adoption obviously cheaper than
-the alternative: better templates, faster provisioning, real support,
-and a genuine answer when someone asks what they get for complying. Ban
-things only where the law or an unacceptable risk actually requires it,
-and be able to say which.
+- **Fewer gates means some bad things ship.** The model bets on fast
+  detection and reversibility over prevention, because the evidence says
+  heavyweight gating produces worse outcomes overall.
+- **Automation-first governance requires platform investment.** Without
+  capacity to build templates and checks you will end up with the forms
+  anyway. Say so rather than adopting something you cannot staff.
+- **Refusing to claim unenforceable controls makes your posture look worse
+  on paper.** It was always worse. The paper was wrong.
 
-A gate you cannot enforce teaches people that the whole code is
-optional. Prefer a smaller code you can actually hold.
+## Sources and confidence
 
----
+> **VERIFICATION NOTE** (2026-08-04)
+> The DORA quotes behind 1.2 and 1.3 were fetched and verified verbatim,
+> including the nuance that peer review is the endorsed substitute rather
+> than the absence of review.
 
-## 7. The record is part of the deliverable
-
-Construction distinguishes the drawings from the **deployed system record**:
-what was designed versus what was actually built. The second is the one
-you need when something fails at 2am, and it is the one that never gets
-made unless it is a condition of final payment.
-
-The same is true here. A capability with no registry entry, no named
-owner, and no record of what it can reach is not governed regardless of
-how carefully it was reviewed on the way in. Review is a moment;
-records are the only thing that persists.
-
-This has a specific consequence for institutions whose builders are
-students or other short-tenure contributors: **the record has to be
-good enough that the person who built it can leave.** Any model that
-implicitly relies on the builder still being around has not accounted
-for its own workforce. Chapter 09 addresses this directly.
-
----
-
-## What these principles cost you
-
-Being straight about the trade-offs, since principle 3 demands it:
-
-- **Fewer gates means some bad things ship.** This model accepts that,
-  because the evidence says heavyweight gating produces worse outcomes
-  overall, not better ones. It bets on fast detection and reversibility
-  over prevention.
-- **Automation-first governance requires platform investment.** If you
-  have no capacity to build templates and checks, you will end up with
-  the forms after all. Say so out loud rather than adopting a model you
-  cannot staff.
-- **Refusing to document unenforceable controls will make your posture
-  look worse on paper.** It is worse on paper. It was always worse; the
-  paper was wrong.
+> **DESIGN JUDGMENT**
+> The seven-principle structure, the irreversibility table, and the annual
+> deletion cadence are reasoned rather than measured.

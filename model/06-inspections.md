@@ -1,361 +1,256 @@
 # 06. Inspections
 
-This is the chapter that does the actual work.
+## Purpose
 
-Building inspection is not a review of intentions. An inspector looks at
-the physical thing, at a defined moment, against a published standard,
-and either passes it or does not. The sequencing is what makes it
-effective, and the sequencing follows one rule:
+Verifies the running system at defined points, chosen so that checking
+happens while the evidence is still visible.
 
-> Work must not be covered, closed in, or concealed until it has been
-> inspected and approved.
+## Failure this prevents
 
-If concealed work needs verifying, the governance platform team can require it
-uncovered, at the authorization holder's expense. That threat is what makes the
-schedule real.
+Verification attempted after the evidence is gone. Once a system has fifteen
+integrations nobody re-derives what it can reach; once an agent is behind a
+polished interface nobody can see what it did.
 
-Every verification point below exists because something is about to become
-invisible, expensive to check, or hard to undo.
+## Requirement
 
----
+> **REQUIREMENT 6.1 The do-not-conceal rule**
+> Work **MUST NOT** be covered, closed in, or concealed before it has been
+> inspected and approved. Where concealed work needs verifying, the
+> institution **MAY** require it uncovered at the builder's cost.
 
-## The five verification points
+This is the one construction term kept verbatim. The idea transfers exactly
+and no paraphrase is as memorable.
 
-Real inspection sequences run roughly: footing and foundation, then
-the stage where wiring and pipework go in ("rough-in"), then
-framing, then insulation and wall covering, then final. Framing is
-inspected only *after* the connections inside it have passed, because
-otherwise the frame hides them.
-
-That dependency structure is the part to copy.
+> **REQUIREMENT 6.2**
+> Every capability **MUST** pass five verification points in order.
 
 ```
-  H1  FOUNDATION      identity, secrets, credentials, budget
-       |              before any real data moves
-       v
-  H2  CONNECTIONS     tools, permissions, egress paths
-       |              before wiring to real systems
-       v
-  H3  FRAMING         end-to-end path visible
-       |              requires H1 and H2 passed
-       v
-  H4  CONCEALMENT     the do-not-conceal gate
-       |              before abstraction, autonomy, or a nice UI
-       v
-  H5  FINAL           real data, real guardrails, real records
-                      precondition for occupancy
+  H1  IDENTITY & CREDENTIALS    before any real data moves
+       |
+  H2  CONNECTIONS               tools, permissions, egress paths
+       |                        before wiring to real systems
+  H3  END-TO-END PATH           requires H1 and H2 passed
+       |
+  H4  PRE-CONCEALMENT           before behavior becomes hidden
+       |
+  H5  FINAL VERIFICATION        precondition for production approval
 ```
 
-| Verification point | Tier 1 | Tier 2 | Tier 3 |
+| Point | Tier 1 | Tier 2 | Tier 3 |
 |---|---|---|---|
-| H1 Identity and Credentials | Automated | Automated | Automated + human |
-| H2 Connections and Permissions | Automated | Automated | Automated + human |
-| H3 End-to-End Path | Automated | Automated | Automated |
-| H4 Pre-Concealment | Automated | **Human** | **Human** |
-| H5 Final Verification | Automated | Automated | **Human** |
-
-Most cells say automated. That is the design working. Human attention
-appears at concealment and at final sign-off for high-consequence work,
-which is where a machine genuinely cannot help.
-
----
-
-## H1: Identity and Credentials
-
-**Before any real data moves through the system.**
-
-Concealed here: how the thing authenticates and what it can spend.
-Credentials get embedded in configuration, CI, and developer machines
-very early, and after that they are extremely hard to inventory.
-
-Automated checks:
-
-- [ ] No secrets in source, config, or committed client files. Scan
-      history, not just the working tree.
-- [ ] Credential scope matches the declared minimum from design review.
-      Flag wildcard scopes explicitly.
-- [ ] Key expiry set, within the institutional maximum
-- [ ] Budget cap set as a hard stop, not a soft alert
-- [ ] Rate limits set
-- [ ] Model allowlist set rather than inherited default-all
-- [ ] Key is attributable to a service account or a named human, not a
-      shared team secret
-
-Human check at Tier 3:
-
-- [ ] Is the credential's scope actually the minimum, or the minimum
-      that was convenient? Ask what breaks if each permission is removed.
-
-Two platform-specific traps, drawn from
-[appendix B](../reference/platform-controls.md):
-
-> **REQUIREMENT**
-> Two classes of trap **MUST** be checked, because both are common and
-> neither is visible from the credential itself.
->
-> **Shared cost pools may be protected by nothing but their identifier.**
-> Where a gateway implements shared budgets by a name or tag, that string
-> can be the entire access control. Pool identifiers **MUST** be generated
-> with real entropy and treated as secrets, never chosen for readability.
->
-> **Privileged accounts may be exempt from the limits you just set.** You
-> **MUST** establish which of your controls have administrative exemptions,
-> and issue privileged credentials as their own recorded event.
+| H1 Identity and credentials | Automated | Automated | Automated + human |
+| H2 Connections | Automated | Automated | Automated + human |
+| H3 End-to-end path | Automated | Automated | Automated |
+| H4 Pre-concealment | Automated | **Human** | **Human** |
+| H5 Final | Automated | Automated | **Human** |
 
 > **GUIDANCE**
-> The specific behavior on your platform is a profile question, not a code
-> question. See [reference/platform-profiles/](../reference/platform-profiles/).
-> If nobody has written a profile for your stack, writing one is the first
-> useful thing to do.
+> Most cells say automated. That is the design working. Human attention
+> appears at pre-concealment, and at final sign-off for high-consequence
+> builds, which is where a machine genuinely cannot help.
 
----
+### H1: Identity and credentials
 
-## H2: Connections and Permissions
+> **REQUIREMENT 6.3**
+> Before any real data moves: no secrets in source, configuration, or
+> committed client files, checked against history rather than the working
+> tree; credential scope matching the declared minimum; expiry set within
+> institutional maximum; budget cap set as a hard stop; rate limits set;
+> model access set explicitly rather than inherited as default-all; and the
+> credential attributable to a named human or a service account rather than a
+> shared secret.
 
-**Before the system is wired to real systems of record.**
+> **REQUIREMENT 6.4**
+> Two classes of trap **MUST** be checked because neither is visible from the
+> credential: **shared cost pools protected by nothing but their identifier**,
+> whose identifiers **MUST** be generated with real entropy and treated as
+> secrets; and **privileged accounts exempt from the limits just set**, which
+> **MUST** be enumerated and issued as their own recorded event.
 
-Concealed here: the connection graph. Once a system has fifteen
-integrations, nobody re-derives what it can reach.
+### H2: Connections and permissions
 
-Automated checks:
+> **REQUIREMENT 6.5**
+> Before wiring to real systems of record: tool and integration inventory
+> matching design review with no extras; egress inventory matching with no
+> undeclared paths; **tool definitions pinned with drift alarmed**; no
+> credential passed through to a downstream service it was not issued for;
+> and private and link-local address ranges blocked for any server-supplied
+> URL the client will fetch.
 
-- [ ] Tool and integration inventory matches design review, with no extras
-- [ ] Egress inventory matches, with no undeclared outbound paths
-- [ ] Tool definitions **pinned by hash or version**, with drift alarms
-- [ ] Transport meets current standard (see the MCP checklist below)
-- [ ] No credential is passed through to a downstream service that was
-      not issued for it
-- [ ] Private and link-local address ranges blocked for any
-      server-supplied URL the client will fetch
-
-Human check at Tier 3:
-
-- [ ] Could an attacker who controls the untrusted input reach anything
-      in the egress inventory? Trace one concrete path end to end.
-
-### Protocol-specific inspection
-
-> **REQUIREMENT**
+> **REQUIREMENT 6.6**
 > Where a build exposes or consumes tools over a protocol, the inspection
-> **MUST** be pinned to a **stated protocol revision**, and the revision
-> **MUST** be recorded, exactly as an authorization records the code edition it was
-> reviewed under.
+> **MUST** be pinned to a stated protocol revision, and the revision **MUST**
+> be recorded.
+
+> **REQUIREMENT 6.7**
+> Tool descriptions **MUST** be reviewed in full, untruncated, by a human,
+> and **alongside the other servers the build will run with**.
 
 > **GUIDANCE**
-> Protocol revisions move fast enough to invalidate a checklist within
-> months. The full checklist lives in
-> [templates/inspection-mcp-server.md](../templates/inspection-mcp-server.md)
-> rather than here, so it can be re-pinned without amending the code, and so
-> this chapter stays about verification points rather than becoming a security
-> manual. Current protocol facts are in
-> [reference/platform-profiles/mcp.md](../reference/platform-profiles/mcp.md).
+> 6.7 is the one people skip because it feels paranoid, and it is the
+> documented attack. Descriptions can influence model behavior before any
+> tool is invoked, and one server's descriptions can influence behavior
+> toward another, so a server cannot be cleared in isolation. "We will review
+> it when something calls it" does not work.
+>
+> **Nobody is inspecting these for you.** Platform vendors state plainly that
+> they do not security-audit third-party servers, and registry presence
+> establishes who published something rather than whether it is safe.
+>
+> Full checklists live in the templates rather than here, so they can be
+> re-pinned without amending the framework:
+> [MCP server](../templates/inspection-mcp-server.md),
+> [gateway credential](../templates/inspection-gateway-key.md).
 
-Two properties generalize beyond any one protocol and belong in the code:
+### H3: End-to-end path
 
-> **REQUIREMENT**
-> **Tool definitions MUST be pinned, with drift alarmed.** A server that
-> revises a tool description after approval has voided the approval.
+> **REQUIREMENT 6.8**
+> H1 and H2 **MUST** be recorded as passed first. The path **MUST** be
+> exercised with synthetic data, failure behavior **MUST** be verified by
+> actually breaking a dependency rather than by assertion, errors **MUST**
+> surface rather than being swallowed, and real regulated data **MUST NOT**
+> be used in testing.
 
-> **REQUIREMENT**
-> **Tool descriptions MUST be reviewed in full, untruncated, by a human, and
-> alongside the other servers the build will run with.** Descriptions can
-> influence model behavior before any tool is invoked, and one server's
-> descriptions can influence behavior toward another, so a server cannot be
-> cleared in isolation.
+### H4: Pre-concealment verification
 
-> **GUIDANCE**
-> The second requirement is the one people skip because it feels
-> paranoid. It is the documented attack. "We will review it when something
-> calls it" does not work when the description loads at connection time.
+The most important point in the framework. It is the moment a system stops
+showing its work: an agent moved behind a clean interface, a confirmation
+step removed, tool calls chained without surfacing intermediates, or a move
+to a schedule so no human is present when it runs.
 
-**Nobody is inspecting these for you.** Platform vendors state plainly that
-they do not security-audit third-party servers, and registry presence
-establishes who published something rather than whether it is safe. It is a
-business license, not a production approval. That absence is the entire
-reason this verification point exists.
+> **REQUIREMENT 6.9**
+> Nothing **MAY** be concealed until its actions are observable and
+> reversible. Specifically: every consequential action logged with enough
+> context to reconstruct **why**; logging not suppressible by the caller; a
+> human able to see what the system did without developer access;
+> consequential actions reversible or gated on confirmation; the oversight
+> point from design review present in the running system; the rate of
+> consequential actions bounded; and for anything advisory, **the human
+> override rate measured**.
 
----
+> **REQUIREMENT 6.10**
+> Human sign-off **MUST** be obtained at Tier 2 and above.
 
-## H3: End-to-End Path
-
-**The end-to-end path exists and is visible. Requires H1 and H2 passed.**
-
-The dependency is the point: the frame hides the connections, so the
-connections are inspected first. Here, the working system hides its own
-component structure once it starts being treated as a black box.
-
-Automated checks:
-
-- [ ] H1 and H2 recorded as passed
-- [ ] End-to-end path exercised with synthetic data
-- [ ] Failure behavior matches what design review described, verified by
-      actually breaking a dependency rather than by assertion
-- [ ] Errors surface rather than being swallowed
-- [ ] No real regulated data used in testing
-
----
-
-## H4: Pre-Concealment Verification
-
-**The most important gate in this model.**
-
-In construction, this is the inspection before insulation and wall
-covering. Everything is about to disappear behind a finished surface.
-
-The software equivalent is the moment a system stops showing its work.
-That happens when you put an agent behind a clean UI, remove a
-confirmation step, chain tool calls without surfacing intermediate
-ones, or move it to a schedule so no human is present when it runs.
-
-**Nothing may be concealed until its actions are observable and
-reversible.**
-
-Checks:
-
-- [ ] Every consequential action is **logged with enough context to
-      reconstruct why it happened**: inputs, tool calls, outputs,
-      identity
-- [ ] Logging is **not suppressible by the caller.** Verify the
-      administrative setting that prevents suppression, not the intention.
-      Several gateways honor a per-request suppression flag unless an
-      administrator has explicitly disabled it; the flag name for your
-      platform is in its
-      [profile](../reference/platform-profiles/)
-- [ ] A human can see what the system did, after the fact, without
-      developer access
-- [ ] Consequential actions are reversible, or gated on confirmation
-- [ ] The oversight point from design review exists in the running system
-- [ ] Rate of consequential actions is bounded per unit time
-- [ ] For anything advisory: the **human override rate is measured**.
-      Unmeasured, an advisory system is a deciding system, as chapter 03
-      notes.
-
-Human sign-off required at Tier 2 and above. This is the one gate worth
-a person's time at every tier above minor works, because it is the
-transition from a system whose behavior is apparent to one whose
-behavior must be inferred.
-
-### Log enough to reconstruct, not everything
-
-Everything above demands observability, and observability creates a new
-dataset that **can be more sensitive than the system it observes.** A
-trace holding inputs, outputs, tool results, retrieved context, and
-identity is a concentrated copy of the very data the tier was assigned to
-protect, sitting somewhere nobody classified.
-
-An earlier edition of this model asked for the logging and never asked
-this question. The rule is **log enough to reconstruct the event**, not
-store every input and output.
-
-- [ ] **Field-level redaction** applied to the classes that need it, and
-      verified by inspecting an actual stored trace rather than by reading
-      a config
-- [ ] **Purpose-limited**: every field retained answers a question someone
-      will actually ask. Fields nobody can name a use for get dropped.
-- [ ] **Traces are classified at the level of the most sensitive data they
-      contain**, and access-controlled to that standard. A Tier 3 system's
-      traces are Tier 3 data.
-- [ ] **Retention set by data classification**, not by platform default
-- [ ] **Operational metrics separated from content-bearing records**, so
-      dashboards, alerting, and rate monitoring do not require access to
-      prompts and outputs
-- [ ] Who may read traces is a named list, reviewed at the same interval
-      as the capability
-
-The tension here is real and does not fully resolve. H4 exists so behavior
-can be reconstructed, and minimization removes material that might have
-been needed. Resolve it deliberately per capability and **record the
-choice**, rather than defaulting to logging everything because the
-platform does.
-
-Note the platform trap from [appendix B](../reference/platform-controls.md):
-where an Agent Studio retains execution data by default (336 hours on the
-reference platform) and its redaction mechanics are unverified, **assume
-every field a workflow touches is in that store** until you have looked.
-
-### When the platform has no publish gate
-
-> **REQUIREMENT**
-> Where the delivery platform provides **no technical approval step before
-> production**, this verification point is the only control that exists, and the
-> institution **MUST** record that fact rather than describing the review as
-> though a gate enforced it.
-
-> **REQUIREMENT**
-> In that situation, above Tier 1 the build **MUST** additionally:
-> maintain a named list of everyone holding edit access, reviewed at this
-> verification point; state and have the Standing Owner accept the **credential
-> exposure that edit access implies**; and implement change detection
-> **external to the platform**, because the platform will not tell you a
-> change went live.
-
-> **REQUIREMENT**
-> At least two compensating controls **MUST** be adopted above Tier 1.
-> Separate production and development environments, a smaller named group
-> with production edit access, export to version control with alerting on
-> diff, periodic reconciliation of live artifacts against the registry, and
-> a channel where publishes are announced are all acceptable.
+> **REQUIREMENT 6.11 Log enough to reconstruct, not everything**
+> Observability **MUST NOT** create an unmanaged copy of the data the tier
+> exists to protect. Field-level redaction **MUST** be applied where needed
+> and verified against an actual stored trace rather than a configuration
+> page; retained fields **MUST** each answer a question someone will ask;
+> traces **MUST** be classified at the level of their most sensitive content
+> and access-controlled to that standard; retention **MUST** follow data
+> classification rather than platform default; operational metrics **SHOULD**
+> be separated from content-bearing records; and who may read traces **MUST**
+> be a named, reviewed list.
 
 > **GUIDANCE**
-> This is not hypothetical. At least one widely used Agent Studio platform
-> has no publish gate at all, so edit access is production change authority,
-> and sharing an artifact conveys use of credentials never explicitly
-> shared. Verify your own platform before assuming otherwise:
-> [reference/platform-profiles/n8n.md](../reference/platform-profiles/n8n.md).
-> The full checklist is
-> [templates/inspection-agent-studio.md](../templates/inspection-agent-studio.md).
+> The tension between reconstructability and minimization is real and does
+> not fully resolve. Resolve it deliberately per capability and **record the
+> choice** rather than defaulting to logging everything because the platform
+> does. Platforms commonly retain execution data by default with undocumented
+> redaction behavior: assume every field the system touches is in that store
+> until you have looked.
 
----
+> **REQUIREMENT 6.12 Where no publish gate exists**
+> Where the delivery platform provides no technical approval step before
+> production, this point is the only control that exists, and the institution
+> **MUST** record that rather than describing the review as though a gate
+> enforced it. Above Tier 1 it **MUST** additionally maintain a named list of
+> everyone holding edit access, have the Standing Owner accept the credential
+> exposure that edit access implies, implement change detection **external to
+> the platform**, and adopt at least two compensating controls.
 
-## H5: Final Verification
+> **GUIDANCE**
+> Not hypothetical. At least one widely used Agent Studio platform has no
+> publish gate at all, so edit access is production change authority, and
+> sharing an artifact conveys use of credentials never explicitly shared.
+> Verify your own platform:
+> [profiles](../reference/platform-profiles/).
 
-**Before occupancy. Real data, real configuration.**
+### H5: Final verification
 
-Checks:
+> **REQUIREMENT 6.13**
+> Before production approval: all prior points passed and recorded;
+> exercised with real data at real scale; **guardrails verified on the paths
+> that actually carry traffic** rather than merely enabled; budget and rate
+> limits confirmed live under load; every authorization condition verified
+> individually; registry entry complete; **rollback exercised rather than
+> documented**; and someone other than the builder having operated it
+> successfully.
 
-- [ ] All prior verification points passed and recorded
-- [ ] Exercised with real data at real scale
-- [ ] **Guardrails verified on the paths that actually carry traffic**,
-      not merely enabled somewhere. Coverage is routinely uneven across a
-      platform's APIs, so a key with guardrails "enabled" can carry all its
-      real traffic down an unguarded path. **Test the path from the data
-      flow diagram. Do not read the setting.** Per-platform coverage gaps
-      are in the [profiles](../reference/platform-profiles/).
-- [ ] Budget and rate limits confirmed live under load
-- [ ] Authorization conditions each verified, individually
-- [ ] Registry entry complete: owner, operator, data classes, tools,
-      egress, tier, review date
-- [ ] Rollback exercised, not merely documented
-- [ ] Someone other than the builder has operated it successfully
+> **GUIDANCE**
+> An untested rollback is a hypothesis. Guardrail coverage is routinely
+> uneven across a platform's APIs, so a system with guardrails "enabled" can
+> carry all its real traffic down an unguarded path. **Test the path from the
+> data flow diagram. Do not read the setting.**
 
-Human sign-off at Tier 3.
+## Applicability
 
-The second-to-last item is the one people skip. An untested rollback is
-a hypothesis.
+All tiers, with the human involvement varying by tier per the table above.
+Pre-existing systems under [chapter 08](08-alterations.md) are not inspected
+retroactively except for the short unsafe list.
 
----
+## Required evidence
 
-## Conduct of inspections
+A recorded pass or fail per point, with date and signer where human sign-off
+applies, plus the protocol revision recorded under 6.6.
 
-**Inspections check the running system, never the description of it.**
-An inspection satisfied by a document is a review, and chapter 04
-already happened.
+> **REQUIREMENT 6.14**
+> Passes **MUST** be recorded, not only failures. The record that H4 passed
+> on a date with a named signer is what makes the alteration path in
+> [chapter 08](08-alterations.md) meaningful.
 
-**Automated checks run on every change, not once.** A verification point that
-fires once at the beginning verifies a state the system has since left.
-Where a check can run continuously, it should, and H1 and H2 in
-particular should be standing checks.
+## Exceptions
 
-**A failed inspection is a finding with a named remedy**, not a
-judgment. Name what would pass.
+A failed inspection is a finding with a named remedy, not a judgment. It
+**MUST** name what would pass.
 
-**Log the pass, not just the fail.** The record that H4 passed on a date
-with a named signer is what makes the alteration path in
-[chapter 08](08-alterations.md) meaningful.
+> **REQUIREMENT 6.15**
+> Inspections **MUST** verify the running system, never a description of it.
+> An inspection satisfied by a document is a review, and that already
+> happened.
 
-**Do not let inspection become review.** If human inspection load grows,
-the correct response is more automation or fewer Tier 3 projects, not a
-standing meeting. A recurring inspection meeting is a change advisory
-board that has not admitted it yet, and the evidence in
-[appendix C](../reference/evidence-on-gates.md) is specifically about
-what happens then.
+> **REQUIREMENT 6.16**
+> Automated checks **SHOULD** run on every change rather than once. H1 and H2
+> in particular **SHOULD** be standing checks, because a point that fires
+> once verifies a state the system has since left.
+
+## Implementation guidance
+
+**Why this sequence.** Real inspection schedules run foundation, then the
+stage where wiring and pipework go in ("rough-in"), then framing, then wall
+covering, then final. Framing is inspected only *after* the connections
+inside it pass, because otherwise the frame hides them. That dependency
+structure is the part worth copying, and 6.8 encodes it.
+
+> **REQUIREMENT 6.17**
+> Human inspection load **MUST NOT** be managed by convening a standing
+> meeting. Where it grows, the response is more automation or fewer Tier 3
+> projects.
+
+> **GUIDANCE**
+> A recurring inspection meeting is a change advisory board that has not
+> admitted it yet, and
+> [reference/evidence-on-gates.md](../reference/evidence-on-gates.md) is
+> specifically about what happens then.
+
+Worked instance: [guide/02-running-example.md](../guide/02-running-example.md),
+stage 6, where H1 caught a credential with access to every model and H3
+caught an error path that produced a plausible-looking wrong answer.
+
+## Sources and confidence
+
+> **VERIFICATION NOTE** (2026-08-04)
+> Tool-description attack classes, connection-time loading, and the named
+> vulnerabilities behind 6.7 were verified against published security
+> research and advisory databases. The vendor statement that MCP servers are
+> not security-audited was quoted verbatim. Details and dates:
+> [SOURCES.md](../SOURCES.md).
+
+> **DESIGN JUDGMENT**
+> Five verification points, and their placement, are modeled on real
+> inspection sequences. No evidence exists that five is the right number for
+> software.
+
+> **UNVERIFIED**
+> The construction inspection sequence and the concealment rule are described
+> from standard practice; primary code sources could not be retrieved.

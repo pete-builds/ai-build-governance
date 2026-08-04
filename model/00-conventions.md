@@ -98,9 +98,10 @@ If you only ever read **Purpose**, **Rule**, and **Requirements** across
 Part I, you have read the code.
 
 > **VERIFICATION NOTE** (2026-08-04)
-> Edition 2026.3 introduced this grammar. Chapters converted so far are
-> listed in [CHANGELOG.md](../CHANGELOG.md); the rest retain their earlier
-> structure and are being converted without changing their requirements.
+> All twelve normative chapters conform to this grammar as of edition 2026.4,
+> and `tools/check.sh` fails the build if one drifts. Requirements are
+> numbered by chapter, so `11.2` is the second requirement of chapter 11 and
+> can be cited directly in an amendment or an exception.
 
 ---
 

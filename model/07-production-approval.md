@@ -1,27 +1,27 @@
 # 07. Production Approval and Records
 
-Two ideas, and the institution's long-term health depends far more on
-the second than the first.
+## Purpose
 
----
+Authorizes a capability to operate, as an act separate from finishing it, and
+maintains an accurate record of what actually exists afterwards.
 
-## Part 1: Production Approval
+## Failure this prevents
 
-A building can be finished and still not legally occupiable. The
-production approval is a separate instrument issued after
-inspections, and without it, occupancy is unlawful regardless of how
-complete the building looks.
+Two failures. Software arriving in production by gradually being used more,
+with nobody having decided. And the slower one: nobody being able to answer
+what is running, what it can reach, who owns it, and who would notice if it
+broke.
 
-**Import the separation.** "It works" and "it may operate" are different
-events with different evidence and, importantly, **different signers**.
-Collapsing them is why so much software arrives in production by
-gradually being used more.
+## Requirement
 
-### Issuing a CO
+> **REQUIREMENT 7.1**
+> Production approval **MUST** be a separate act from completion, with its own
+> evidence and its own signer.
 
-Requires: H5 passed, every authorization condition individually verified, a
-complete registry entry, and a named owner and operator who have
-acknowledged the role.
+> **REQUIREMENT 7.2**
+> Production approval requires H5 passed, every authorization condition
+> verified individually, a complete registry entry, and a named owner and
+> operator who have acknowledged the role.
 
 | Tier | Issued by |
 |---|---|
@@ -29,175 +29,182 @@ acknowledged the role.
 | 2 | A peer who is not the builder |
 | 3 | The Final Decision Authority |
 
-The CO states what is authorized: which data classes, which population,
-which tools, which egress. **Operating outside that envelope is
-operating without a certificate**, and it is grounds for the stop-work
-action in chapter 05. This is what makes the scope statement enforceable
-rather than decorative.
+> **REQUIREMENT 7.3**
+> The approval **MUST** state the authorized envelope: which data classes,
+> which population, which tools, which egress paths, and what autonomy level.
+> **Operating outside that envelope is operating without approval** and is
+> grounds for stop-work.
 
-### Time-Limited Production Approval: the honest pilot
+> **REQUIREMENT 7.4**
+> The approval **SHOULD** list what is explicitly **not** authorized,
+> naming the near neighbours people will assume are included.
 
-A TCO is conditional and time-bound. Real ones are issued in fixed
-increments, only where the occupied portion is safe, and **continued
-occupancy after expiry is unlawful**.
+> **REQUIREMENT 7.5 Time-limited approval**
+> Pilots **MUST** receive a time-limited production approval carrying a real
+> expiry date. On that date exactly one of three things happens: it converts
+> to full approval; it is renewed **once** with outstanding conditions
+> restated and a named owner accountable; or **it is switched off.**
 
-This is the fix for the most durable object in institutional computing:
-the permanent pilot.
+> **GUIDANCE**
+> The third option must be genuinely available or the other two mean nothing.
+> Default suggestion: 90 days, renewable once for 90. A pilot needing more
+> than six months is unfunded production, and calling it that is more useful
+> to everyone. This is the fix for the most durable object in institutional
+> computing, the permanent pilot.
 
-**Every pilot gets a TCO with a real expiry date.** On that date exactly
-one of three things happens:
+> **LOCAL AMENDMENT REQUIRED**
+> The 90-day figure is invented and is probably the most arbitrary number in
+> the framework.
 
-1. It converts to a full CO, having met the remaining conditions
-2. The TCO is renewed once, with the outstanding conditions restated and
-   a named owner accountable for them
-3. **It is switched off**
+> **REQUIREMENT 7.6 Operational handover**
+> Approval **MUST** name a support commitment: who responds when it breaks,
+> during what hours, how they are reached, and expected response time.
 
-Option 3 has to be genuinely available or the other two mean nothing.
-The value here is not bureaucratic. It converts an indefinite drift into
-a scheduled decision, and it gives the operator a legitimate reason to
-ask for resources or permission to stop.
+> **GUIDANCE**
+> An AI capability with no named responder is not complete. It is abandoned in
+> advance.
 
-Suggested defaults: 90 days, renewable once for 90. A pilot needing more
-than six months is not a pilot; it is unfunded production, and calling it
-that is more useful to everyone.
+> **REQUIREMENT 7.7 Withheld completion**
+> The institution **SHOULD** withhold something until the record is complete.
+> The permanent credential, a production budget increase, an announcement, or
+> being marked complete on whatever dashboard people care about are all
+> acceptable.
 
-### Operational handover
+> **GUIDANCE**
+> This is the mechanism that makes record-keeping actually happen. Without it,
+> records are a request. With it, they are a condition of being finished.
 
-Construction marks **operational handover** as the point where the
-owner can use the work for its intended purpose. It matters because it
-triggers things: warranty periods begin, and retained payment is
-released.
-
-Import the trigger structure, because it puts consequences in the right
-place:
-
-- **Warranty** becomes an explicit support commitment. Who responds when
-  this breaks, during what hours, and for how long? An AI capability
-  with no named responder is not complete, it is abandoned in advance.
-- **Withheld completion** is the leverage. Hold something back until the records
-  are done. In construction it is money; here it might be the permanent
-  credential, the production budget increase, the public announcement,
-  or the project being marked complete on the dashboard people care
-  about.
-
-Withheld completion is the mechanism that makes Part 2 actually happen. Without
-it, records are a request. With it, they are a condition of being
-finished.
-
----
-
-## Part 2: Deployed System Record
-
-Construction distinguishes **deployed system records**, the contractor's field
-markups of what was really installed, from **deployed system record**, the
-design professional's clean final compilation. They are legally distinct
-documents, and the reason both exist is that what gets built is never
-exactly what was drawn.
-
-**The design documents describe intent. The record describes reality.
-Governance depends on the second.**
-
-A capability with no accurate record is ungoverned no matter how
-carefully it was reviewed on the way in. Review is a moment. The record
-is the only artifact that persists, and it is the only thing that
-answers the questions you will actually be asked:
-
-- What do we have running?
-- What can it reach?
-- Who owns it?
-- If it broke, who would notice?
-
-### The registry
-
-One entry per capability. Machine-readable, in version control, and
-generated from the platform wherever possible rather than typed.
+> **REQUIREMENT 7.8 The deployed system record**
+> Every capability **MUST** have one registry entry, machine-readable, in
+> version control, and generated from the platform wherever possible.
 
 | Field | Notes |
 |---|---|
 | Identifier | Stable, from the Statement of Need |
-| Name and description | Plain language, for someone unfamiliar |
-| Tier | Current, with date last classified |
-| Owner | Standing institutional role, not just a person |
+| Name and plain-language description | For someone unfamiliar |
+| Tier, and date last classified | |
+| Owner | Standing institutional role |
 | Operator | The person actually running it |
-| Data classes | As authorized by the CO |
-| Population and scale | Who it serves |
+| Data classes | As authorized |
+| Population and scale | |
 | Tools and integrations | With scopes |
 | Egress paths | Every one |
-| Platform and location | Where it runs |
-| CO status | Full, temporary with expiry, or lapsed |
-| Last record review | Date |
-| Next review due | Date |
-| Related ADRs | Links |
-| Known limitations | Plain language, including error behavior |
+| Platform and location | |
+| Approval status | Full, time-limited with expiry, or lapsed |
+| Last and next record review | |
+| Related decision records | |
+| **Known limitations** | Plain language, including error behavior |
 
-The last field is the one users benefit from most and the one most often
-omitted. A capability whose documented limitations are honest is one
-people can use safely.
+> **GUIDANCE**
+> The last field is the one users benefit from most and the one most often
+> omitted. A capability whose documented limitations are honest is one people
+> can use safely.
 
-### Keeping it true
+> **REQUIREMENT 7.9**
+> Anything that can be generated from the platform **SHOULD** be generated.
+> Generated fields cannot drift.
 
-A registry that is not maintained is worse than none, because it is
-consulted and believed.
-
-**Generate what you can.** Keys, budgets, active workflows, and
-registered tools can mostly be enumerated from the platforms. Anything
-generated cannot drift.
-
-**Reconcile on a schedule.** Compare the registry against reality and
-treat mismatches as findings:
+> **REQUIREMENT 7.10 Reconciliation**
+> The registry **MUST** be reconciled against reality on a schedule, and
+> mismatches treated as findings.
 
 | Mismatch | Meaning |
 |---|---|
-| In platform, not in registry | Unauthorizationted work. Chapter 08's existing-work path applies. |
+| In platform, not in registry | Unauthorized work. Chapter 08's pre-existing path applies. |
 | In registry, not in platform | Decommissioned without closing the record, or the record was aspirational |
-| Scope wider than the CO authorizes | Operating without a certificate |
+| Scope wider than authorized | Operating without approval |
 | Owner no longer employed | Orphan. Escalate immediately. |
 
-**Record what the platform cannot.** Some facts exist nowhere but the
-record. The clearest example, from
-[appendix B](../reference/platform-controls.md): where a gateway
-implements shared budget pools as tags, the platform does not store
-which team owns a pool. That mapping exists **only** where a human wrote
-it down. It is a pure deployed-system-record, and if the record is lost, the
-information is simply gone.
+> **REQUIREMENT 7.11 Periodic record review**
 
-### Periodic record review
-
-| Tier | Review interval |
+| Tier | Interval |
 |---|---|
 | 1 | Annually, or on any trigger change |
 | 2 | Every 6 months |
 | 3 | Quarterly |
 
-The review asks five questions, in this order:
+The review asks five questions in order: is it still used; is the record
+accurate; has the tier changed; does the owner still exist; and are its
+dependencies still supported.
 
-1. **Is it still used?** If not, decommission. This is the most valuable
-   possible outcome and should be recorded as a success.
-2. **Is the record accurate?**
-3. **Has the tier changed?** Re-run chapter 03's triggers.
-4. **Does the owner still exist?**
-5. **Are its dependencies still supported?** Model deprecations,
-   platform advisories, pinned versions with published vulnerabilities.
+> **GUIDANCE**
+> Question one is the most valuable. "No" means decommission, and that
+> **SHOULD** be recorded as a success.
+>
+> Question five has real teeth here. Models are retired on published
+> schedules, platforms publish advisories, and pinned components accumulate
+> known vulnerabilities. A capability correct at H5 decays without anyone
+> touching it.
 
-Question 5 has teeth in this domain. Models get retired on published
-schedules, gateway platforms publish security advisories, and pinned MCP
-components accumulate known vulnerabilities. A capability that was
-correct at H5 decays without anyone touching it.
+> **REQUIREMENT 7.12 Decommissioning**
+> Closing a record is part of the record. Credentials **MUST** be revoked
+> rather than merely unused; budget and pool membership removed; the tool or
+> workflow unpublished so nothing can still call it; data retained or
+> destroyed per policy with the choice stated; dependent systems identified
+> and notified; and the entry marked decommissioned with date and reason and
+> **kept**.
 
-### Decommissioning
+> **GUIDANCE**
+> Keep decommissioned entries. The history of what an institution tried and
+> retired is genuinely useful, not least for answering "why don't we just
+> build a thing that does X" for the fourth time.
 
-Closing a record is part of the record. Verify and note:
+## Applicability
 
-- [ ] Credentials revoked, not merely unused
-- [ ] Budget and pool membership removed
-- [ ] Tool or workflow unpublished so nothing can still call it
-- [ ] Data retained or destroyed per policy, with the choice stated
-- [ ] Dependent systems identified and notified
-- [ ] Registry entry marked decommissioned, with date and reason, and
-      **kept**
+All tiers. Tier 1 self-issues within declared scope.
 
-Keep decommissioned entries. Nygard's rule for decision records applies
-to capability records too: do not delete, mark superseded. The history of
-what an institution tried and retired is genuinely useful, not least for
-answering "why don't we just build a thing that does X" for the fourth
-time.
+## Required evidence
+
+The issued approval with its envelope and exclusions, the verified condition
+list, the support commitment, the registry entry, and for time-limited
+approvals the expiry date and renewal count.
+
+## Exceptions
+
+> **REQUIREMENT 7.13**
+> A capability **MAY** hold production approval while an affirmative
+> compliance determination is outstanding, provided the outstanding item is
+> named and dated on the approval. See
+> [requirement 10.6.4](10-concurrent-reviews.md).
+
+## Implementation guidance
+
+**Why records matter more than review.** Review is a moment. The record is the
+only artifact that persists, and it is what answers the questions you will
+actually be asked. A capability with no accurate record is ungoverned no
+matter how carefully it was reviewed on the way in.
+
+**Record what the platform cannot.** Some facts exist nowhere else. The
+clearest example: where a gateway implements shared budget pools by name, the
+platform may not store which team owns a pool. That mapping exists **only**
+where a human wrote it down, and if the record is lost the information is
+simply gone. See [platform profiles](../reference/platform-profiles/).
+
+**On transient builders.** The record has to be good enough that the person
+who built it can leave. Any framework implicitly relying on the builder still
+being around has not accounted for its own workforce. See
+[chapter 09](09-roles.md).
+
+Templates: [production approval](../templates/production-approval.md).
+Worked instance: [guide/02-running-example.md](../guide/02-running-example.md),
+stage 7, where withheld completion forced the registry entry and a
+renegotiated error target was recorded rather than quietly moved.
+
+## Sources and confidence
+
+> **DESIGN JUDGMENT**
+> Every interval here is invented, including the 90-day time-limited approval
+> and the three review cadences. The separation of approval from completion,
+> the withheld-completion mechanism, and the reconciliation table are reasoned
+> from construction closeout practice.
+>
+> **This framework bets heavily on the registry staying accurate**, and that
+> bet is untested. Whether a registry survives without enforcement is one of
+> the open empirical questions in
+> [SOURCES.md](../SOURCES.md).
+
+> **UNVERIFIED**
+> The distinction between contractor field markups and the designer's final
+> compilation, and the practices behind operational handover and withheld
+> completion, are described from standard construction contract practice.
+> Primary sources could not be retrieved.

@@ -2,12 +2,17 @@
 
 ## Purpose
 
-Prevents review becoming a relay of queues, in which accessibility waits
-for security, which waits for privacy, and the builder waits for all three
-in sequence. The complaint people actually have about institutional review
-is rarely that it happens. It is that it happens **serially**.
+Runs the accessibility, security, and privacy reviews alongside design review
+rather than after it.
 
-## Rule
+## Failure this prevents
+
+Review becoming a relay of queues, in which accessibility waits for security,
+which waits for privacy, and the builder waits for all three in sequence. The
+complaint people actually have about institutional review is rarely that it
+happens. It is that it happens **serially**.
+
+## Requirement
 
 > **REQUIREMENT**
 > Accessibility, security, and privacy review **MUST** run concurrently
@@ -86,7 +91,7 @@ accountability. It does not make a non-conforming system conforming.
 > 10.6.3. The code deliberately does not set these, because they depend on
 > staffing you have and obligations that bind you.
 
-## Evidence required
+## Required evidence
 
 | Artifact | Demonstrates |
 |---|---|
@@ -107,7 +112,7 @@ Deemed permission under 10.6 is not a recorded exception and needs no approval. 
 a designed outcome, and frequent use is a **staffing signal** rather than a
 discipline problem. Track the rate.
 
-## Implementation notes
+## Implementation guidance
 
 Borrowed from how building design review actually works: a submittal goes to
 building, structural, fire, mechanical, electrical, plumbing, and
