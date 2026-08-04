@@ -80,7 +80,7 @@ Tier 1. Silence is not an exemption.
 
 **Sequence the security engagement before design review.** A design
 reviewed and then rejected by the security office wastes both parties'
-time. See [chapter 11](11-concurrent-reviews.md), which runs security
+time. See [chapter 11](10-concurrent-reviews.md), which runs security
 concurrently rather than serially.
 
 **Decide deliberately where student records land.** Many schemes place
@@ -258,5 +258,5 @@ point.
 It also does not attempt to map onto NIST AI RMF or ISO/IEC 42001
 control identifiers inline, because doing so would make the chapter
 unreadable for the people who have to use it. That mapping lives in
-[appendix A](../appendix/a-framework-crosswalk.md), where auditors can
+[appendix A](../reference/framework-crosswalk.md), where auditors can
 find it and builders can ignore it.

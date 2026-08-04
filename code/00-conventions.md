@@ -1,0 +1,143 @@
+# 00. How to Read This Code
+
+Read this page once. It tells you which sentences bind you and which are
+just explanation, which is the thing model codes usually leave implicit and
+readers usually get wrong.
+
+---
+
+## Normative keywords
+
+Used as in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).
+
+| Word | Meaning |
+|---|---|
+| **MUST**, **MUST NOT** | Absolute. A build that violates one does not comply. |
+| **SHOULD**, **SHOULD NOT** | Strong default. Departing requires a recorded reason, and at Tier 3 a variance. |
+| **MAY** | Genuinely optional. No justification needed either way. |
+
+If a sentence in Part I contains none of these words, it is explanation
+and you can skip it without losing anything binding.
+
+---
+
+## Statement labels
+
+Every consequential passage carries a label, so you never have to infer
+whether you are reading a rule, an opinion, or a fact about a vendor.
+
+> **REQUIREMENT**
+> Binding. This is the code. A Tier 3 reviewer MUST be independent of the
+> builder.
+
+> **GUIDANCE**
+> Non-binding explanation of how to satisfy a requirement, or why it
+> exists. Ignore it if you have a better way.
+
+> **EXAMPLE**
+> Illustration only. Never a requirement, even when it looks like one.
+
+> **LOCAL AMENDMENT REQUIRED**
+> The code deliberately does not decide this. Your institution MUST fill
+> it in, and until it does, the surrounding requirement is incomplete.
+> Data classifications and review turnarounds are the main ones.
+
+> **DESIGN JUDGMENT**
+> A choice made on reasoning rather than evidence. Every specific number
+> in this code is one of these unless labelled otherwise. Change them
+> freely; they are not load-bearing.
+
+> **VERIFICATION NOTE**
+> A fact about a platform, standard, or regulation, with the date it was
+> checked. Facts decay. [SOURCES.md](../SOURCES.md) holds every retrieval
+> date and review-by date.
+
+> **UNVERIFIED**
+> Something the authors could not confirm from a primary source, stated so
+> you do not rely on it by accident. These are deliberate. Do not remove
+> them to make a section read better; `tools/check.sh` fails the build if
+> their count drops.
+
+**The most important label is the last one.** A governance document that
+cannot distinguish what it knows from what it assumes has no business
+asking anyone else for rigor.
+
+---
+
+## The three parts, and what binds
+
+| Part | Binds? | What it is |
+|---|---|---|
+| **Part I: the code** (`code/`) | **Yes**, once adopted and amended | Requirements. Short by design. |
+| **Part II: the handbook** (`handbook/`) | No | How to operate the code. Worked examples, paths, procedures. |
+| **Part III: reference** (`reference/`) | No | Evidence, framework crosswalks, platform profiles, glossary. Volatile. |
+| **Templates** (`templates/`) | The completed artifact is evidence | The actual paperwork. |
+
+You can adopt Part I without reading Parts II or III. That is the point of
+separating them.
+
+---
+
+## Chapter structure
+
+Every chapter in Part I follows the same eight-section grammar, so you can
+find what you need without reading linearly:
+
+| Section | Contains |
+|---|---|
+| **Purpose** | The one failure this chapter prevents |
+| **Rule** | The requirement in one or two sentences |
+| **Applicability** | Who and what it covers, and what it excludes |
+| **Requirements** | Numbered normative provisions |
+| **Evidence required** | What record demonstrates compliance |
+| **Exceptions and variances** | What may differ, and who approves |
+| **Implementation notes** | Non-binding explanation |
+| **Sources and confidence** | What is verified, what is judgment |
+
+If you only ever read **Purpose**, **Rule**, and **Requirements** across
+Part I, you have read the code.
+
+> **VERIFICATION NOTE** (2026-08-04)
+> Edition 2026.3 introduced this grammar. Chapters converted so far are
+> listed in [CHANGELOG.md](../CHANGELOG.md); the rest retain their earlier
+> structure and are being converted without changing their requirements.
+
+---
+
+## Where platform specifics live
+
+Part I states requirements in **platform-neutral verbs**:
+
+> **REQUIREMENT**
+> Logging MUST NOT be suppressible by the caller.
+
+The corresponding vendor fact lives in a platform profile in Part III:
+
+> **VERIFICATION NOTE** (2026-08-04)
+> On LiteLLM, a per-request `"no-log": true` suppresses logging unless an
+> administrator has set `global_disable_no_log_param`.
+
+This separation exists for three reasons. The requirement outlives the
+product. The profile can be re-verified on its own schedule without
+touching the code. And a reader running different platforms is not
+misled into thinking a finding about someone else's stack applies to
+theirs.
+
+**Platform profiles are findings about one product at one date. They do not
+generalize to a category**, however tempting that is.
+
+---
+
+## A note on the construction vocabulary
+
+This code borrows real mechanisms from building governance: permits, plan
+review, inspection hold points, concealment, occupancy, record drawings,
+listed products. The borrowing is functional rather than decorative, and
+[reference/glossary.md](../reference/glossary.md) gives the term-by-term
+mapping plus the four places the analogy genuinely breaks down.
+
+You do not need to know anything about building codes to use Part I. Where
+a construction term appears in a requirement, the requirement also states
+the thing plainly. If you ever have to translate a metaphor to work out
+what you are being asked to do, that is a defect in this document, and
+worth reporting.

@@ -96,7 +96,7 @@ tried, and so a future pass knows what to retry.
 | OMB M-25-21 PDF | 404 | Whether M-24-10 was actually rescinded, and the "High-Impact AI" category |
 | EUR-Lex operative text | Returned recitals only | Article 5, Annex III, Article 51 verbatim |
 | `eCFR.gov`, `GovInfo.gov` | Bot block, 404 | FERPA text (obtained from Cornell LII instead) |
-| `iccsafe.org`, `aia.org`, `ncees.org`, `dos.ny.gov` | Not retrievable | IBC inspection sequence and section numbers, listed/labeled definitions, AIA phase names, NCEES sealing rules, NYS I-Code baseline. **This is why chapter 06's construction framing and appendix D carry unverified labels.** |
+| `iccsafe.org`, `aia.org`, `ncees.org`, `dos.ny.gov` | Not retrievable | IBC inspection sequence and section numbers, listed/labeled definitions, AIA phase names, NCEES sealing rules, NYS I-Code baseline. **This is why chapter 06's construction framing and the glossary carry unverified labels.** |
 | `riba.org` Plan of Work | 403 | RIBA stage names (obtained via grounded search instead) |
 | `docs.litellm.ai/docs/proxy/mcp` | 404 | LiteLLM MCP gateway access control, logging, OAuth passthrough |
 | `it.cornell.edu/security-policy/data-types-...` | 404 on three URL variants | A citable public data-classification scheme |

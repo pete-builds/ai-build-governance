@@ -45,7 +45,7 @@ The division that works:
 | **Operational** | **Does this specific build meet the code** | **The AHJ. This model.** |
 
 An AHJ that meets monthly to discuss submissions has become a change
-advisory board, and [appendix C](../appendix/c-evidence-on-gates.md)
+advisory board, and [appendix C](../reference/evidence-on-gates.md)
 explains precisely why that is the failure mode to avoid.
 
 ---

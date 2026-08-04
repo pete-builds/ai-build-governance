@@ -19,7 +19,7 @@ expressing an opinion about whether they would have designed it this
 way. They are checking it against the code. That distinction is what
 separates plan review from an architecture review board, and it is why
 this chapter is safe while the boards described in
-[appendix C](../appendix/c-evidence-on-gates.md) frequently are not.
+[appendix C](../reference/evidence-on-gates.md) frequently are not.
 
 ---
 

@@ -80,19 +80,40 @@ if [ "$count" -lt 10 ]; then
 fi
 
 # ---------------------------------------------------------------------------
-note "6. Every chapter is reachable from the README"
-for f in docs/*.md; do
+note "6. Every file is reachable"
+for f in code/*.md handbook/*.md; do
   base=$(basename "$f")
-  grep -q "$base" README.md || bad "chapter not linked from README: $base"
+  grep -q "$base" README.md || bad "not linked from README: $f"
 done
-for f in templates/*.md appendix/*.md; do
+for f in templates/*.md reference/*.md reference/platform-profiles/*.md; do
   base=$(basename "$f")
-  grep -rq "$base" README.md docs/ appendix/ 2>/dev/null || bad "orphaned file, nothing links to it: $f"
+  grep -rq "$base" README.md code/ handbook/ reference/ templates/ 2>/dev/null \
+    || bad "orphaned file, nothing links to it: $f"
 done
-echo "  checked $(ls docs/*.md | wc -l | tr -d ' ') chapters, $(ls templates/*.md | wc -l | tr -d ' ') templates, $(ls appendix/*.md | wc -l | tr -d ' ') appendices"
+echo "  checked $(ls code/*.md | wc -l | tr -d ' ') code chapters, $(ls handbook/*.md | wc -l | tr -d ' ') handbook, $(ls reference/*.md reference/platform-profiles/*.md | wc -l | tr -d ' ') reference, $(ls templates/*.md | wc -l | tr -d ' ') templates"
 
 # ---------------------------------------------------------------------------
-note "7. Source ledger freshness"
+note "7. Vendor specifics kept out of Part I"
+# Part I states platform-neutral requirements. Product names and config keys
+# belong in reference/platform-profiles/. A bare mention in prose is fine;
+# a config key or version number is not.
+if grep -rnE 'global_disable_no_log_param|x-litellm-tags|EXECUTIONS_DATA_|upperbound_key_generate_params|LITELLM_KEY_ROTATION|/key/\{key\}/regenerate' \
+     code/*.md 2>/dev/null | grep -v '^code/00-conventions.md'; then
+  bad "vendor config detail in Part I: move it to reference/platform-profiles/"
+else
+  echo "  ok"
+fi
+
+# ---------------------------------------------------------------------------
+note "8. Statement labels present in Part I"
+labels=$(grep -rohE '\*\*(REQUIREMENT|GUIDANCE|EXAMPLE|LOCAL AMENDMENT REQUIRED|DESIGN JUDGMENT|VERIFICATION NOTE)\*\*' code/*.md 2>/dev/null | wc -l | tr -d ' ')
+echo "  labelled statements in Part I: $labels"
+if [ "$labels" -lt 5 ]; then
+  bad "expected labelled statements in Part I (see code/00-conventions.md)"
+fi
+
+# ---------------------------------------------------------------------------
+note "9. Source ledger freshness"
 # Platform behavior, regulations, CVEs, and protocol revisions all decay.
 # SOURCES.md records retrieval dates so decay is visible rather than silent.
 if [ -f SOURCES.md ]; then

@@ -139,7 +139,7 @@ prompt injection, memory poisoning, and tool interference. **Verified.**
 
 **The MCP specification** is itself a control source, and its normative
 MUSTs are the most directly actionable requirements in this whole
-appendix. See [appendix B](b-platform-controls.md).
+appendix. See [appendix B](platform-controls.md).
 
 ---
 
@@ -241,7 +241,7 @@ Then layer the chapter 03 triggers on top, taking the highest.
 ### Step 3: Delete what cannot be enforced
 
 This is where honesty pays. On this stack, per
-[appendix B](b-platform-controls.md):
+[appendix B](platform-controls.md):
 
 | Tempting control | Reality | What to write instead |
 |---|---|---|

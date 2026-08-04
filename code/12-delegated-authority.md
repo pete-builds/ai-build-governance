@@ -196,7 +196,7 @@ Where the parallel breaks: a contractor cannot act ten thousand times a
 second, and cannot be induced to misuse delegated authority by a
 carefully worded email. Delegation in an agentic system needs rate limits
 and a prompt-injection analysis, which no construction concept supplies.
-See [chapter 10](10-agentic-products.md).
+See [chapter 10](../handbook/03-agentic-products.md).
 
 ---
 

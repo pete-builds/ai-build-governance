@@ -78,7 +78,7 @@ specific failure mode of AI tools suggesting non-existent package names
 is widely discussed among practitioners, but **this model did not verify
 published research quantifying it.** Treat the control as cheap
 prudence, not as a response to a measured threat. See
-[appendix C](../appendix/c-evidence-on-gates.md).
+[appendix C](../reference/evidence-on-gates.md).
 
 ### A3. Tests that did not come from the same source as the bug (H3)
 
@@ -265,7 +265,7 @@ hold a temporary certificate that says so.
 
 ## Honest accounting of this chapter
 
-Per [appendix C](../appendix/c-evidence-on-gates.md), which requires this
+Per [appendix C](../reference/evidence-on-gates.md), which requires this
 model to say where it is guessing:
 
 **Evidence-backed:** the lethal trifecta as a forcing rule; the OWASP

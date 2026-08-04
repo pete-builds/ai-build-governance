@@ -81,7 +81,7 @@ Standard conditions worth having in every institution's amendments:
 | Registry entry complete with named owner | H5 |
 
 That last-but-one condition needs care, and it is the kind of thing
-[appendix B](../appendix/b-platform-controls.md) exists to catch:
+[appendix B](../reference/platform-controls.md) exists to catch:
 guardrail coverage is frequently uneven across a platform's APIs. On
 LiteLLM the documented limitation is that the unified guardrail path does
 not extend to the Responses API, embeddings, or speech, and at least one

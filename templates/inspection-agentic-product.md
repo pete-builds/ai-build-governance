@@ -13,7 +13,7 @@ result: pass | fail | pass with findings
 
 > For a product that plans and acts at runtime, was largely authored by
 > AI coding tools, or both. See
-> [chapter 10](../docs/10-agentic-products.md).
+> [chapter 10](../handbook/03-agentic-products.md).
 >
 > **Work both parts.** Part A covers code authored by AI agents, where
 > the failure is that nobody understands what shipped. Part B covers a

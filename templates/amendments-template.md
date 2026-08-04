@@ -1,7 +1,7 @@
 # [Institution] Amendments to the AI Building Code
 
 **Status:** Draft | Under review | **Adopted** (date)
-**Adopts edition:** 2026.2
+**Adopts edition:** 2026.3
 **Owner:** [name, role]
 **Last reviewed:** YYYY-MM-DD
 
@@ -88,7 +88,7 @@ committee.
 > not enforce. Fill this in honestly. Every row you cannot claim becomes an
 > inspection or an accepted risk.
 >
-> Start from [appendix B](../appendix/b-platform-controls.md), then verify
+> Start from [appendix B](../reference/platform-controls.md), then verify
 > against your own instance and license tier. Do not inherit its findings:
 > they are about specific products at a specific date.
 
@@ -181,7 +181,7 @@ capped at zero. Better to say so here than to discover it later.
 
 | Date | Edition | Change |
 |---|---|---|
-| | 2026.2 | Initial adoption |
+| | 2026.3 | Initial adoption |
 
 ---
 

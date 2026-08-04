@@ -19,7 +19,7 @@ governance by default rather than governance by gatekeeping. Netflix is
 generally credited with "paved road" and Spotify with "golden path,"
 the latter implemented through Backstage's software templates.
 (Attributions here are widely reported but were not pinned to a single
-dated primary post; see [appendix C](../appendix/c-evidence-on-gates.md).)
+dated primary post; see [appendix C](../reference/evidence-on-gates.md).)
 
 The practical test: **if your governance model's first deliverable is a
 form rather than a template, you have built the wrong thing first.**
@@ -111,7 +111,7 @@ If a control depends entirely on a person choosing to do the right
 thing, label it as such, and then either inspect for it or accept the
 risk explicitly. Both are honest. Pretending is not.
 
-[Appendix B](../appendix/b-platform-controls.md) is the worked example
+[Appendix B](../reference/platform-controls.md) is the worked example
 of this principle: an inventory of what three real platforms enforce
 versus what they leave to humans, including the places where the
 documentation is silent and the honest answer is "unverified."

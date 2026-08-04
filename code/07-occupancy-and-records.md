@@ -155,7 +155,7 @@ treat mismatches as findings:
 
 **Record what the platform cannot.** Some facts exist nowhere but the
 record. The clearest example, from
-[appendix B](../appendix/b-platform-controls.md): where a gateway
+[appendix B](../reference/platform-controls.md): where a gateway
 implements shared budget pools as tags, the platform does not store
 which team owns a pool. That mapping exists **only** where a human wrote
 it down. It is a pure as-built, and if the record is lost, the
