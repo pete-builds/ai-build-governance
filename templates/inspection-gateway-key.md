@@ -55,11 +55,12 @@ result: pass | fail | pass with findings
 ### Shared budget pools
 
 > Read carefully. Where a gateway implements shared pools as tags, the
-> tag string can be the **entire access control** on the pool, and
-> documentation for the reference platform indicates budget enforcement
-> is identical whether the tag arrives from the key or from a per-request
-> header. Nothing documented validates a tag or scopes it to a team at
-> key-creation time.
+> tag string can be the **entire access control** on the pool. On the
+> reference platform a tag can be attached from the key, from request
+> metadata, or via a request header, and **nothing documented validates a
+> tag or scopes it to a team at key-creation time.** The documentation is
+> also silent on whether enforcement is equivalent across those paths, so
+> design for the permissive case and test your own instance.
 
 - [ ] If this key draws on a shared pool: the pool identifier was
       **generated with real entropy**, not chosen to be readable
@@ -91,9 +92,12 @@ result: pass | fail | pass with findings
       that per-key guardrail control is commonly enterprise-gated.
 - [ ] **Coverage verified on the API paths that actually carry traffic.**
       This is the trap: guardrail coverage is uneven across a platform's
-      APIs. On the reference platform, guardrails do not apply to the
-      Responses API. A key with guardrails "enabled" can carry all its
-      real traffic down an unguarded path.
+      APIs. On the reference platform the documented limitation is that
+      the unified guardrail path does not extend to the Responses API,
+      embeddings, or speech, and at least one real deployment documents
+      flatly that guardrails work only with Chat Completions. A key with
+      guardrails "enabled" can carry all its real traffic down an
+      unguarded path. **Test the path, do not read the setting.**
 - [ ] Tested against the actual path in the plan-review data flow diagram
 - [ ] Behavior on a guardrail block is handled by the calling application
       rather than surfacing a raw error to a user

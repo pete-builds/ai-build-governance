@@ -9,10 +9,20 @@ date:
 result: pass | fail | pass with findings
 ---
 
-# Inspection: Automation / Agent Workflow
+# Inspection: Agent Studio Workflow
 
-> **Read this first.** On the platform this model was written against
-> (n8n), the documentation describes clicking Publish to make changes
+> **Platform class.** "Agent Studio" means a low-code environment where
+> people compose automations and agents visually, holding credentials to
+> institutional systems, with a publish action. The category is what
+> matters; the product is an implementation detail. At least one
+> university runs its n8n instance under exactly this name.
+>
+> **Read this first.** The findings below were verified against **n8n**
+> specifically and must not be assumed to hold for another Agent Studio.
+> Ask the same questions of yours, above all the publish-gate question,
+> which decides whether you have a technical control or only a human one.
+>
+> On n8n, the documentation describes clicking Publish to make changes
 > live in production, with **no reviewer, sign-off, or approval step
 > anywhere in the flow**. Changes limited to settings can republish
 > without a click at all.

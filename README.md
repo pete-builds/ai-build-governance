@@ -123,11 +123,17 @@ The chapters:
 | 07 | [Occupancy and Records](docs/07-occupancy-and-records.md) | Production release, TCOs, and the registry |
 | 08 | [Alterations and Existing Work](docs/08-alterations.md) | Change control, and the legacy retrofit path |
 | 09 | [Roles](docs/09-roles.md) | Who stamps, who inspects, and the graduating-student problem |
+| 10 | [Agentic Products](docs/10-agentic-products.md) | Getting an AI-built agent product into production |
+
+**If you came here with one specific question, it is probably chapter 10.**
+"We built an agent product with AI coding tools and we want it live" is
+the most common real request, and chapter 10 is the path. It adds no new
+gates; it maps onto the same hold points as everything else.
 
 The templates in [`templates/`](templates/) are the actual paperwork:
-need statement, plan review, three inspection checklists (MCP server,
-automation workflow, gateway key), an ADR, and a certificate of
-occupancy.
+need statement, plan review, four inspection checklists (MCP server,
+Agent Studio workflow, gateway key, agentic product), an ADR, and a
+certificate of occupancy.
 
 ---
 
@@ -182,7 +188,7 @@ and MCP stack is in
 ## Scope, and honest limits
 
 **In scope:** capabilities an institution builds or assembles itself.
-MCP servers and the tools they expose, automation and agent workflows,
+MCP servers and the tools they expose, Agent Studio automations and agents,
 gateway key and budget issuance, retrieval systems over institutional
 data, and AI-assisted development of any of the above.
 

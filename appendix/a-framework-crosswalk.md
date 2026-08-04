@@ -97,10 +97,12 @@ plausibly in scope where it offers systems to users in the EU.
 
 ### OMB guidance
 
-**M-24-10 is superseded.** It is the memorandum most AI governance
-write-ups still cite, and it required Chief AI Officers, AI governance
-boards, the "safety-impacting" and "rights-impacting" categories, minimum
-practices, and public AI use-case inventories.
+**M-24-10 is widely reported to be superseded**, and it is the memorandum
+most AI governance write-ups still cite. It required Chief AI Officers, AI
+governance boards, the "safety-impacting" and "rights-impacting"
+categories, minimum practices, and public AI use-case inventories. Read
+the verification note below before relying on the supersession: it is not
+confirmed by any primary source consulted for this model.
 
 The current instrument is **M-25-21**, "Accelerating Federal Use of AI
 through Innovation, Governance, and Public Trust", dated **2025-04-03**,
@@ -113,10 +115,13 @@ split with a single **"High-Impact AI"** category, and to reframe Chief
 AI Officers toward enabling adoption rather than compliance oversight.
 
 > **Verified:** the existence, titles, and dates of M-25-21 and M-25-22.
-> **Not verified:** the exact rescission language and the "High-Impact AI"
-> replacement, which come from secondary reporting because the memorandum
-> PDF could not be retrieved. A further memorandum, M-26-04, was
-> mentioned in search results and could not be confirmed to exist.
+> **Not verified:** the exact rescission language, the "High-Impact AI"
+> replacement, **and the fact of supersession itself.** The OMB listing
+> page confirms M-25-21 and M-25-22 exist but does not mention M-24-10 at
+> all, and the M-25-21 PDF could not be retrieved. An independent
+> verification pass reached the same dead end. A further memorandum,
+> M-26-04, was mentioned in search results and could not be confirmed to
+> exist.
 > **Universities are not bound by OMB memoranda.** They matter here only
 > because institutions frequently mirror federal structure, and because
 > citing a rescinded memorandum as current is an avoidable embarrassment.
@@ -194,7 +199,7 @@ between the domains, not an oversight in the analogy.
 
 ## Worked example
 
-A reference stack of a self-hosted LiteLLM gateway, an n8n instance, and
+A reference stack of a self-hosted AI gateway (LiteLLM), an Agent Studio (n8n), and
 a set of MCP servers, at a large decentralized research university. This
 is the shape of steps 1 through 3 of the adoption path in the README.
 

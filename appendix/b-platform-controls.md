@@ -48,12 +48,13 @@ statement about where this model has to put an inspection.
 ### The four gaps that change how you govern
 
 **1. Tag budgets are named, not validated.** Shared budget pools are
-implemented as tags. A tag is created with only a name, and the
-documentation states that budget enforcement is identical whether the
-tag arrives from the key's own `tags` field or from a per-request
-`metadata.tags` value or `x-litellm-tags` header. Nothing in the
+implemented as tags. A tag is created with only a name, and a tag can be
+attached from the key's own `tags` field, from a per-request
+`metadata.tags` value, or via an `x-litellm-tags` header. Nothing in the
 documentation describes validating a tag against an allowlist, scoping
-it to a team, or access-controlling it at key-creation time.
+it to a team, or access-controlling it at key-creation time, **and the
+documentation does not state whether enforcement is equivalent across
+those three attachment paths. It is silent.** The silence is the finding.
 
 The practical consequence: the tag string is the access control on the
 pool. Anyone who learns the identifier can draw against that budget by
@@ -128,7 +129,18 @@ should read the advisories directly and pin versions accordingly.
 
 ---
 
-## 2. n8n (workflow automation)
+## 2. Agent Studio platforms (worked example: n8n)
+
+**Read the class, then the instance.** "Agent Studio" is the category: a
+low-code environment where non-specialists compose automations and
+agents, holding credentials to institutional systems, with a visual
+builder and a publish action. The governance properties below follow
+from the *shape* of such tools more than from one vendor's choices,
+which is why the category is worth naming.
+
+But **every verified fact in this section is about n8n.** Do not
+generalize them. Use them as the questions to put to whatever Agent
+Studio you actually run, and record the answers.
 
 ### The finding that shapes everything
 
@@ -166,7 +178,7 @@ exfiltration are usually the same capability.
 | Workflow roles | Platform | see notes | Only two workflow-level roles: **Creator** (full rights including share, delete, export) and **Editor** (view, update, run, export, but cannot share or delete). |
 | Workflow sharing | Platform | Cloud (all plans) / **Ent** self-hosted | Not available on community self-hosted. |
 | External secrets managers | Platform | **Ent** | 1Password (self-hosted Connect only), AWS Secrets Manager, Azure Key Vault, GCP Secret Manager, HashiCorp Vault (not HCP-hosted), Infisical from v2.26.0. Enterprise self-hosted and enterprise cloud only. |
-| SSO | Platform | **Business / Ent** | SAML and OIDC. **No LDAP.** |
+| SSO | Platform | **Business / Ent** | SAML and OIDC. The documentation lists no LDAP option, though it does not affirmatively rule LDAP out. |
 | Execution data retention | Platform | OSS | `EXECUTIONS_DATA_MAX_AGE` defaults to 336 hours (14 days); `EXECUTIONS_DATA_PRUNE_MAX_COUNT` defaults to 10,000. Not license-gated. |
 | `n8n audit` command | Detective | OSS | A point-in-time **configuration risk scanner** covering credentials, database expressions, filesystem nodes, risky community and custom nodes, and unprotected webhooks. |
 

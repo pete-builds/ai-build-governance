@@ -236,10 +236,14 @@ a person's time at every tier above minor works, because it is the
 transition from a system whose behavior is apparent to one whose
 behavior must be inferred.
 
-### The workflow platform problem
+### The Agent Studio problem
 
-Where the automation platform has **no publish gate**, this hold point
-is the only control that exists.
+"Agent Studio" here means any low-code environment where people compose
+automations and agents visually and publish them, holding credentials to
+institutional systems. Where such a platform has **no publish gate**,
+this hold point is the only control that exists.
+
+The specifics below were verified against n8n. Verify your own.
 
 n8n's documentation describes clicking Publish to make changes live,
 with no reviewer, sign-off, or approval step in the flow, and changes
@@ -274,8 +278,11 @@ Checks:
 - [ ] Exercised with real data at real scale
 - [ ] **Guardrails verified on the paths that actually carry traffic**,
       not merely enabled somewhere. Coverage is uneven across platform
-      APIs: on LiteLLM, guardrails do not apply to the Responses API.
-      Test the path in the data flow diagram.
+      APIs. On LiteLLM the documented limitation is that the unified
+      guardrail path does not extend to the Responses API, embeddings, or
+      speech, and at least one real deployment documents flatly that
+      guardrails work only with Chat Completions. Test the path in the
+      data flow diagram rather than reading a settings page.
 - [ ] Budget and rate limits confirmed live under load
 - [ ] Permit conditions each verified, individually
 - [ ] Registry entry complete: owner, operator, data classes, tools,

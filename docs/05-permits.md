@@ -83,10 +83,14 @@ Standard conditions worth having in every institution's amendments:
 That last-but-one condition needs care, and it is the kind of thing
 [appendix B](../appendix/b-platform-controls.md) exists to catch:
 guardrail coverage is frequently uneven across a platform's APIs. On
-LiteLLM, for instance, guardrails do not extend to the Responses API. A
-condition reading "guardrails enabled" is satisfiable while the traffic
-that matters flows down an unguarded path. Write conditions against the
-paths in the data flow diagram, not against a settings page.
+LiteLLM the documented limitation is that the unified guardrail path does
+not extend to the Responses API, embeddings, or speech, and at least one
+real deployment's own gateway documentation states flatly that guardrails
+work only with Chat Completions. A condition reading "guardrails enabled"
+is therefore satisfiable while the traffic that matters flows down an
+unguarded path. Write conditions against the paths in the data flow
+diagram, not against a settings page, and **test the path rather than
+reading the setting.**
 
 ---
 
