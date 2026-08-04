@@ -6,7 +6,7 @@ production.** This is the most common real request, and chapters 01
 through 09 handled it only by implication. This chapter makes the path
 explicit.
 
-It adds **no new gates.** It maps onto the existing hold points. If this
+It adds **no new gates.** It maps onto the existing verification points. If this
 chapter turns into a parallel process with its own committee, it has
 been implemented wrong.
 
@@ -123,7 +123,7 @@ Run the triggers. Agent products fail classification most often on two:
 **Autonomy.** An agent that takes consequential action without
 per-action human approval is Tier 3. An agent that can modify its own
 instructions, tools, or permissions at runtime is Tier 3 **and needs
-explicit AHJ sign-off**, because nothing you approved stays approved.
+explicit Decision Authority sign-off**, because nothing you approved stays approved.
 
 **The lethal trifecta.** Agent products acquire all three legs
 routinely, because the useful ones read something external, touch
@@ -234,7 +234,7 @@ success criterion chapter 02 demanded, at no risk, before anything is
 irreversible.
 
 **Occupancy.** Agent products are the canonical case for a
-**temporary certificate of occupancy**: real expiry, one renewal, and a
+**time-limited production approval**: real expiry, one renewal, and a
 genuine possibility of being switched off. "Agent pilot" is otherwise
 the most permanent state in institutional computing.
 
@@ -259,7 +259,7 @@ all six:
 
 If any answer requires reading the source, the product is not ready. It
 is a prototype with users, which is a legitimate thing to be, and should
-hold a temporary certificate that says so.
+hold a time-limited approval that says so.
 
 ---
 

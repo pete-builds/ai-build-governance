@@ -106,7 +106,7 @@ deprecated on a published schedule, a dependency accumulates a
 vulnerability, an upstream tool description is revised.
 
 The construction sequence is fundamentally one-directional. This is why
-[chapter 07](../code/07-occupancy-and-records.md) makes periodic record
+[chapter 07](../model/07-production-approval.md) makes periodic record
 review mandatory rather than optional, and why several hold-point checks
 are specified as standing rather than one-time. A capability correct at
 final inspection decays on its own.

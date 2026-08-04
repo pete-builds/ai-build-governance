@@ -1,7 +1,7 @@
-# [Institution] Amendments to the AI Building Code
+# [Institution] Amendments to AI Build Governance
 
 **Status:** Draft | Under review | **Adopted** (date)
-**Adopts edition:** 2026.3
+**Adopts edition:** 2026.4
 **Owner:** [name, role]
 **Last reviewed:** YYYY-MM-DD
 
@@ -20,7 +20,7 @@
 
 ---
 
-## 1. Authority Having Jurisdiction
+## 1. Final Decision Authority
 
 > Name the office that can say no and be obeyed. Not the committee it
 > reports to. If no such office exists, that is your finding, and the model
@@ -28,9 +28,9 @@
 
 | Function | Holder |
 |---|---|
-| Plan review, Tier 2 | |
-| Plan review, Tier 3 (must not report to the builder) | |
-| Certificate of occupancy, Tier 3 | |
+| Design review, Tier 2 | |
+| Design review, Tier 3 (must not report to the builder) | |
+| Production approval, Tier 3 | |
 | Stop-work authority (small, reachable within a day) | |
 | Listing / certification authority (never the builder) | |
 | Escalation: security | |
@@ -51,14 +51,14 @@ committee.
 ## 2. Data classification mapping
 
 > Substitute your own levels verbatim. Include a genuinely prohibited
-> category if you have one; "not permitted" is not a tier.
+> category if you have one; "not authorizationted" is not a tier.
 
-| Our classification | Platform status | Permit tier |
+| Our classification | Platform status | Authorization tier |
 |---|---|---|
 | | | 1 |
 | | | 2 |
 | | | 3 |
-| | **Not allowed** | **Not permitted** |
+| | **Not allowed** | **Not authorizationted** |
 
 **Decisions to make explicitly rather than by default:**
 
@@ -68,7 +68,7 @@ committee.
       mid-tier because they are not identity-theft-enabling. That can be
       the wrong answer for AI systems, where the concern is exposure and
       inference. Decide, and write down which.
-- [ ] Does security engagement precede plan review for the top tier?
+- [ ] Does security engagement precede design review for the top tier?
 
 ## 3. Legal obligations that apply to us
 
@@ -106,12 +106,12 @@ committee.
 
 | Setting | Model default | Ours |
 |---|---|---|
-| Tier 2 plan review turnaround | 3 working days | |
-| Tier 3 plan review turnaround | 10 working days | |
+| Tier 2 design review turnaround | 3 working days | |
+| Tier 3 design review turnaround | 10 working days | |
 | Deemed approval at Tier 2 on missed turnaround | Yes (permission only, never a compliance determination) | |
 | Key / credential maximum lifetime | Institutional maximum | |
-| Permit lapse if no inspection passes | 180 days | |
-| Temporary certificate of occupancy | 90 days, one renewal | |
+| Authorization lapse if no inspection passes | 180 days | |
+| Temporary production approval | 90 days, one renewal | |
 | Record review: Tier 1 / 2 / 3 | Annual / 6 months / quarterly | |
 | Listing surveillance: Tier 1 / 2 / 3 ceiling | Annual / 6 months / quarterly | |
 | Listing expiry: Tier 1 / 2 / 3 ceiling | 24 / 18 / 12 months | |
@@ -141,7 +141,7 @@ capped at zero. Better to say so here than to discover it later.
 > adopted or resented.
 
 - [ ] Amnesty inventory date: __________
-- [ ] Existing work is lawfully non-conforming and complies on alteration
+- [ ] Existing work is pre-existing and complies on alteration
 - [ ] **The unsafe list**, short and defensible, requiring immediate action
       regardless of when it was built:
 
@@ -181,7 +181,7 @@ capped at zero. Better to say so here than to discover it later.
 
 | Date | Edition | Change |
 |---|---|---|
-| | 2026.3 | Initial adoption |
+| | 2026.4 | Initial adoption |
 
 ---
 

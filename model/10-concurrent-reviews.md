@@ -11,7 +11,7 @@ is rarely that it happens. It is that it happens **serially**.
 
 > **REQUIREMENT**
 > Accessibility, security, and privacy review **MUST** run concurrently
-> with plan review, against published standards, on one clock. They **MUST
+> with design review, against published standards, on one clock. They **MUST
 > NOT** be sequenced after it or after each other.
 
 ## Applicability
@@ -49,7 +49,7 @@ accountable for missing it.
 builder cannot act on is not a finding.
 
 **10.5** Disagreement between disciplines **MUST** be resolved by the
-Authority Having Jurisdiction, not by the builder. Making a builder mediate
+Final Decision Authority, not by the builder. Making a builder mediate
 between two institutional functions is how projects stall for months.
 
 **10.6 The permission and determination rule.** A missed turnaround **MAY**
@@ -73,9 +73,9 @@ and it does not transfer the obligation to the builder.
 NOT** be deemed for any build meeting the institution's escalation
 criteria. Those escalate and wait.
 
-**10.6.4** A capability **MAY** hold a certificate of occupancy while an
+**10.6.4** A capability **MAY** hold a production approval while an
 affirmative determination is outstanding, provided the outstanding item is
-**named and dated on the certificate**.
+**named and dated on the approval**.
 
 **10.7** Documentation of a known gap **MUST NOT** be recorded as
 satisfying the underlying obligation. Recording improves management and
@@ -95,23 +95,23 @@ accountability. It does not make a non-conforming system conforming.
 | Findings list with resolutions | 10.4 |
 | Affirmative determinations, signed, where required | 10.6.1, 10.6.2 |
 | "Proceeded on turnaround expiry" note, where used | 10.6 |
-| Outstanding determinations named on the certificate | 10.6.4 |
+| Outstanding determinations named on the approval | 10.6.4 |
 
-## Exceptions and variances
+## Exceptions and recorded exceptions
 
 A discipline **MAY** be waived where plainly not implicated, with a one-line
 recorded reason. "No user interface and no user-facing output" is a
 sufficient accessibility waiver. "We are in a hurry" is not.
 
-Deemed permission under 10.6 is not a variance and needs no approval. It is
+Deemed permission under 10.6 is not a recorded exception and needs no approval. It is
 a designed outcome, and frequent use is a **staffing signal** rather than a
 discipline problem. Track the rate.
 
 ## Implementation notes
 
-Borrowed from how building plan review actually works: a submittal goes to
+Borrowed from how building design review actually works: a submittal goes to
 building, structural, fire, mechanical, electrical, plumbing, and
-accessibility **at once**. Each checks against its own code. The permit
+accessibility **at once**. Each checks against its own code. The authorization
 issues when all clear. Nobody waits in the fire marshal's queue for the
 structural reviewer to finish.
 
@@ -130,9 +130,9 @@ The form worth remembering: **the clock can grant permission. It cannot
 grant absolution.**
 
 Practical guidance per discipline is in Part II:
-[accessibility](../handbook/04-accessibility.md) and
-[security and privacy review](../handbook/05-security-and-privacy-review.md).
-Worked instance in [the running example, stage 4](../handbook/02-running-example.md).
+[accessibility](../guide/04-accessibility.md) and
+[security and privacy review](../guide/05-security-and-privacy-review.md).
+Worked instance in [the running example, stage 4](../guide/02-running-example.md).
 
 ## Sources and confidence
 
@@ -144,11 +144,11 @@ Worked instance in [the running example, stage 4](../handbook/02-running-example
 
 > **DESIGN JUDGMENT**
 > The concurrency requirement, the permission-versus-determination split,
-> and the AHJ as tie-breaker are reasoned from how multi-discipline plan
+> and the Decision Authority as tie-breaker are reasoned from how multi-discipline plan
 > review works. No study was located comparing concurrent against serial
 > institutional review.
 
 > **UNVERIFIED**
-> The multi-discipline structure of building plan review is described from
+> The multi-discipline structure of building design review is described from
 > standard practice; primary code sources could not be retrieved. See the
 > known-unreachable list in [SOURCES.md](../SOURCES.md).

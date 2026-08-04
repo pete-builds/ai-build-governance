@@ -9,6 +9,89 @@ decide is a new edition. Wording and typo fixes are not.
 
 ---
 
+## Edition 2026.4 (2026-08-04)
+
+**Renamed, and the vocabulary inverted.** Previously this read as a building
+code with AI terminology inserted. It now reads as an AI governance framework
+that borrows building-code mechanisms. **No requirement changed in
+substance.**
+
+### Renamed
+
+"AI Build Governance" is now **AI Build Governance**. The directory `code/`
+is now `model/`, which also removes the ambiguity of a directory named
+`code/` in a software repository that contains no source code. `handbook/` is
+now `guide/`.
+
+### Plain language is now primary
+
+Construction terms appear only where they supply a concrete mental model,
+paired with the plain term on first use and then dropped. The full two-way
+mapping is in [model/00-conventions.md](model/00-conventions.md).
+
+| Was primary | Now primary |
+|---|---|
+| Authority Having Jurisdiction | Final Decision Authority |
+| Permit | Authorization to Build |
+| Plan review | Design review |
+| Certificate of occupancy | Production Approval |
+| Temporary certificate of occupancy | Time-Limited Production Approval |
+| Hold point | Verification point |
+| H1 Foundation, H2 Rough-in, H3 Framing | H1 Identity and Credentials, H2 Connections and Permissions, H3 End-to-End Path |
+| H4 Concealment, H5 Final | H4 Pre-Concealment Verification, H5 Final Verification |
+| Record drawings, as-builts | Deployed System Record |
+| Listed component | Certified Reusable Component |
+| Type approval | Certified Pattern |
+| Special inspection | Independent Review |
+| Substantial completion | Operational Handover |
+| Retainage | Withheld Completion |
+| Punch list | Accepted Defect List |
+| Change order | Change Record |
+| RFI | Clarification Request |
+| Variance | Recorded Exception |
+| Lawfully non-conforming | Pre-Existing System |
+| Building official | Governance Platform Team |
+
+**Kept deliberately:** the **do-not-conceal rule**. The name is vivid, the
+idea transfers exactly, and no plain paraphrase is as memorable.
+
+**Kept because already plain:** Statement of Need, Risk Classification, Tier
+1/2/3, Standing Owner, Responsible Builder, stop-work, alteration, registry.
+
+**Construction vocabulary is retained in `reference/`**, which is where the
+analogy is explained rather than used.
+
+### README rewritten
+
+Now opens with what this is, **what it is not**, why the analogy is used at
+all, which layers bind, and a "start here by role" table for eight reader
+types. The whole model appears as **eight plain-language steps before any
+construction mapping**.
+
+### Layers renamed to match their function
+
+Core Governance Model, Implementation Guide, Technical and Evidence
+References.
+
+### Chapter grammar
+
+The eight sections are now Purpose, Failure this prevents, Requirement,
+Applicability, Required evidence, Exceptions, Implementation guidance,
+Sources and confidence. Qualifications belong **next to the claims they
+affect**, not only in a closing section.
+
+> Chapter 10 is converted. The remaining chapters carry the new terminology
+> but retain their earlier internal structure, and are being converted
+> **without changing any requirement**. Stated here rather than implied.
+
+### New automated check
+
+`tools/check.sh` now fails if construction jargon appears unpaired outside
+`reference/`. The terminology mapping table and the glossary are exempt,
+since that is where those terms belong.
+
+---
+
 ## Edition 2026.3 (2026-08-04)
 
 A structural edit. **No requirement changed in substance.** External review
@@ -24,8 +107,8 @@ and the fix was editorial architecture rather than more content.
 
 | Part | Directory | Binds? |
 |---|---|---|
-| I, the code | `code/` | Yes, once adopted |
-| II, the handbook | `handbook/` | No |
+| I, the code | `model/` | Yes, once adopted |
+| II, the handbook | `guide/` | No |
 | III, reference | `reference/` | No |
 
 You can now adopt Part I without reading Parts II or III, which was always
@@ -40,7 +123,7 @@ the same thirteen chapters in order.
 
 ### Statements are labelled where they appear
 
-New [code/00-conventions.md](code/00-conventions.md) defines RFC 2119
+New [model/00-conventions.md](model/00-conventions.md) defines RFC 2119
 keywords and six statement labels: REQUIREMENT, GUIDANCE, EXAMPLE, LOCAL
 AMENDMENT REQUIRED, DESIGN JUDGMENT, VERIFICATION NOTE, plus the existing
 UNVERIFIED. The distinctions existed before but arrived at the end of long
@@ -49,7 +132,7 @@ chapters. They are now visible in the passage they apply to.
 ### Chapter grammar
 
 Part I chapters follow one eight-section structure: Purpose, Rule,
-Applicability, Requirements, Evidence required, Exceptions and variances,
+Applicability, Requirements, Evidence required, Exceptions and recorded exceptions,
 Implementation notes, Sources and confidence. Read only Purpose, Rule, and
 Requirements across Part I and you have read the code.
 
@@ -88,9 +171,9 @@ Studio material.
 
 ### One running example
 
-[handbook/02-running-example.md](handbook/02-running-example.md) carries a
+[guide/02-running-example.md](guide/02-running-example.md) carries a
 single system, an agent that triages emailed payment inquiries, through all
-ten stages: need, classification, plan review, concurrent reviews, permit,
+ten stages: need, classification, design review, concurrent reviews, authorization,
 H1 to H5, occupancy, reuse in both directions, alteration, and delegated
 authority. It is the fastest route to seeing how the mechanisms connect, and
 it demonstrates a case most people misclassify as Tier 2.
@@ -100,13 +183,13 @@ it demonstrates a case most people misclassify as Tier 2.
 Chapter 11 held the parallel-review principle, ADA applicability and
 deadlines, practical accessibility defects, security escalation criteria,
 privacy questions, and turnaround rules. That was two or three chapters of
-material. Now: [code/10](code/10-concurrent-reviews.md) holds the normative
-rule, and [handbook/04](handbook/04-accessibility.md) and
-[handbook/05](handbook/05-security-and-privacy-review.md) hold the practice.
+material. Now: [model/10](model/10-concurrent-reviews.md) holds the normative
+rule, and [guide/04](guide/04-accessibility.md) and
+[guide/05](guide/05-security-and-privacy-review.md) hold the practice.
 
 ### Also added
 
-[handbook/01-adoption.md](handbook/01-adoption.md), a seven-phase sequence
+[guide/01-adoption.md](guide/01-adoption.md), a seven-phase sequence
 ordered so the first thing shipped is a service rather than a requirement,
 with a sample operating model including the honest FTE cost and a list of
 what to expect to go wrong.
@@ -120,7 +203,7 @@ otherwise be invisible.
 ### Not changed
 
 No requirement was altered, added, or removed. Chapter renumbering:
-concurrent reviews 11 to 10, listed components 12 to 11, delegated authority
+concurrent reviews 11 to 10, certified reusable components 12 to 11, delegated authority
 13 to 12, and agentic products left Part I for the handbook, because it is a
 path rather than a rule.
 
@@ -131,7 +214,7 @@ path rather than a rule.
 Corrections following an independent external review. Three were
 substantive defects in the model, not presentation problems.
 
-### Fixed: type approval no longer overrides classification
+### Fixed: certified pattern no longer overrides classification
 
 **This was the most serious defect.** Edition 2026.1's chapter 12 said a
 conforming instance of an approved pattern "enters at Tier 1 regardless of
@@ -161,7 +244,7 @@ Chapter 11 now separates **administrative permission to proceed**, which a
 missed turnaround can grant at Tier 2, from a **compliance
 determination**, which only the accountable office can make
 affirmatively. Accessibility conformance and lawful-basis determinations
-are never deemed. A capability may hold a certificate of occupancy with an
+are never deemed. A capability may hold a production approval with an
 outstanding determination named and dated on it.
 
 Also corrected in the same chapter: the claim that documented
@@ -220,14 +303,14 @@ Initial release, plus same-day corrections from a full verification pass.
 ### Initial content
 
 Thirteen chapters, eight templates, four appendices. Statement of need,
-objective tier classification, timeboxed plan review, permits with expiry,
-five inspection hold points, certificate of occupancy, record drawings,
+objective tier classification, timeboxed design review, authorizations with expiry,
+five inspection verification points, production approval, deployed system record,
 alterations with a legacy amnesty path, roles, agentic products,
-concurrent reviews, listed components, delegated authority.
+concurrent reviews, certified reusable components, delegated authority.
 
 Design commitments: gates at irreversibility rather than at milestones;
 objective highest-wins tier triggers including the lethal trifecta;
-existing work lawfully non-conforming and complying on alteration; the
+existing work pre-existing and complying on alteration; the
 engineer's stamp borrowed for accountability but explicitly not for
 personal liability; a two-signature rule for transient builders.
 

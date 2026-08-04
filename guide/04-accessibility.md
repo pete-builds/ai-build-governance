@@ -2,7 +2,7 @@
 
 > **Part II: handbook. Non-binding.** The requirement that these reviews
 > run concurrently lives in
-> [code/10-concurrent-reviews.md](../code/10-concurrent-reviews.md). This
+> [model/10-concurrent-reviews.md](../model/10-concurrent-reviews.md). This
 > page is how to actually do one.
 
 ---
@@ -58,7 +58,7 @@ modification.
 
 **This model does not interpret any of that for you.** Your accessibility
 office and counsel decide what applies. What this model does is make sure
-the question is asked at plan review rather than discovered after launch,
+the question is asked at design review rather than discovered after launch,
 and that the answer is recorded.
 
 ### Why AI systems fail accessibility by default
@@ -86,12 +86,12 @@ artifact does not comply.
 
 ### Where it is checked
 
-| Hold point | Accessibility check |
+| Verification point | Accessibility check |
 |---|---|
-| Plan review | Does this have a user interface or produce user-facing content? If yes, accessibility review is engaged **now**, concurrently. |
-| H3 Framing | Automated checks in the pipeline: labels, contrast, keyboard path, heading structure |
-| H4 Concealment | Manual check of the paths automated tooling cannot see: screen reader on the primary task, keyboard-only completion |
-| H5 Final | Conformance statement recorded; known gaps on the punch list with owners and dates |
+| Design review | Does this have a user interface or produce user-facing content? If yes, accessibility review is engaged **now**, concurrently. |
+| H3 End-to-End Path | Automated checks in the pipeline: labels, contrast, keyboard path, heading structure |
+| H4 Pre-Concealment | Manual check of the paths automated tooling cannot see: screen reader on the primary task, keyboard-only completion |
+| H5 Final Verification | Conformance statement recorded; known gaps on the accepted defect list with owners and dates |
 
 Automated tooling catches a minority of WCAG failures. It is worth
 running, and it is not sufficient. The manual check at H4 is the real one.
@@ -113,7 +113,7 @@ document their way out of a legal duty.
 ## Where this sits
 
 The concurrency requirement and the rule that conformance is never deemed
-are in [code/10](../code/10-concurrent-reviews.md), requirements 10.6.1 and
+are in [model/10](../model/10-concurrent-reviews.md), requirements 10.6.1 and
 10.7. The running example shows two real accessibility defects being caught
 and fixed while still cheap: see
-[handbook/02, stage 4](02-running-example.md#stage-4-concurrent-reviews).
+[guide/02, stage 4](02-running-example.md#stage-4-concurrent-reviews).

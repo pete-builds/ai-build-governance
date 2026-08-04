@@ -9,7 +9,7 @@ expires:            # REQUIRED for temporary. Blank for full.
 registry_id:
 ---
 
-# Certificate of Occupancy
+# Production Approval
 
 > **"It works" and "it may operate" are different events with different
 > evidence and different signers.** This document is the second one.
@@ -57,13 +57,13 @@ registry_id:
 
 ## Prerequisites verified
 
-- [ ] H1 Foundation passed. Date: ______ By: ______
-- [ ] H2 Rough-in passed. Date: ______ By: ______
-- [ ] H3 Framing passed. Date: ______ By: ______
-- [ ] H4 Concealment passed. Date: ______ By: ______
-- [ ] H5 Final passed. Date: ______ By: ______
+- [ ] H1 Identity and Credentials passed. Date: ______ By: ______
+- [ ] H2 Connections and Permissions passed. Date: ______ By: ______
+- [ ] H3 End-to-End Path passed. Date: ______ By: ______
+- [ ] H4 Pre-Concealment passed. Date: ______ By: ______
+- [ ] H5 Final Verification passed. Date: ______ By: ______
 
-### Permit conditions
+### Authorization conditions
 
 > Each verified individually. Not as a block.
 
@@ -83,7 +83,7 @@ registry_id:
 
 ## Support commitment
 
-> Construction's substantial completion starts the warranty. An AI
+> Construction's operational handover starts the warranty. An AI
 > capability with no named responder is not complete, it is abandoned in
 > advance.
 
@@ -118,7 +118,7 @@ registry_id:
 
 ---
 
-## Retainage
+## Withheld completion
 
 > Hold something back until the records are done. This is the mechanism
 > that makes record-keeping actually happen. In construction it is money;
@@ -143,7 +143,7 @@ registry_id:
 |---|---|
 | 1 | Self, within declared scope |
 | 2 | A peer who is not the builder |
-| 3 | The Authority Having Jurisdiction |
+| 3 | The Final Decision Authority |
 
 ---
 

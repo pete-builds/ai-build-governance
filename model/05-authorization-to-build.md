@@ -1,20 +1,20 @@
-# 05. Permits
+# 05. Authorization to Build
 
-A building permit is a narrow instrument, and its narrowness is what
+A building authorization is a narrow instrument, and its narrowness is what
 makes it useful. It says: *this* work, at *this* location, per *these*
 reviewed documents, subject to *these* inspections, and it **expires**.
 
 Three properties are worth importing exactly.
 
-**A permit authorizes construction, not occupancy.** Holding a permit
+**An authorization authorizes construction, not occupancy.** Holding an authorization
 does not entitle you to move in. That requires a separate certificate,
 after inspections. Software governance almost never separates these, and
 collapsing them is why "it's approved" comes to mean "it's live."
 
-**A permit carries conditions.** Approval is routinely conditional, and
+**An authorization carries conditions.** Approval is routinely conditional, and
 the conditions are enforceable rather than advisory.
 
-**A permit expires.** Real permits lapse if work does not start, or does
+**An authorization expires.** Real authorizations lapse if work does not start, or does
 not progress, within a stated period. This is the mechanism that keeps
 an authorization from becoming a permanent entitlement, and it is the
 single most under-used idea in software governance.
@@ -23,9 +23,9 @@ single most under-used idea in software governance.
 
 ## What each tier authorizes
 
-### Tier 1: Minor Works
+### Tier 1: Self-Certified
 
-Analogous to work that needs no permit: painting, replacing a fixture.
+Analogous to work that needs no authorization: painting, replacing a fixture.
 Real codes exempt this work explicitly rather than by omission, and the
 exemption list is published.
 
@@ -35,23 +35,23 @@ exemption list is published.
   the checks that run in the pipeline.
 - **Occupancy self-issued**, valid only within declared scope.
 - **Any trigger crossing into Tier 2 voids it immediately.** The build
-  stops until the higher permit is issued.
+  stops until the higher authorization is issued.
 
 Publish your Tier 1 exemptions as a list. An unpublished exemption is
 an invitation to argue.
 
-### Tier 2: Standard Permit
+### Tier 2: Standard Authorization
 
-- Peer plan review with a published turnaround, per chapter 04
-- Automated inspections plus one human hold point (concealment, H4)
+- Peer design review with a published turnaround, per chapter 04
+- Automated inspections plus one human verification point (concealment, H4)
 - Occupancy issued by a peer who is not the builder
 - Conditions attached and recorded
 
-### Tier 3: Special Inspection
+### Tier 3: Independent Review
 
 - Independent review by someone off the project
 - Full hold-point set with human sign-off at H1, H4, and H5
-- Occupancy issued by the Authority Having Jurisdiction
+- Occupancy issued by the Final Decision Authority
 - A named standing institutional owner is a precondition, not a
   deliverable
 - Time-limited by default; renewal requires the record review from
@@ -62,8 +62,8 @@ an invitation to argue.
 ## Conditions of approval
 
 Conditions are how a reviewer says yes to something that is not yet
-safe. They are written into the permit, and each must be verifiable at a
-named hold point. A condition nobody checks is a wish.
+safe. They are written into the authorization, and each must be verifiable at a
+named verification point. A condition nobody checks is a wish.
 
 Standard conditions worth having in every institution's amendments:
 
@@ -96,11 +96,11 @@ reading the setting.**
 
 ## Expiry, and why it matters most
 
-| Permit event | Default |
+| Authorization event | Default |
 |---|---|
 | Work must begin within | 60 days of issue |
-| Permit lapses if no inspection passes within | 180 days |
-| Tier 3 permits expire at | 12 months, renewable |
+| Authorization lapses if no inspection passes within | 180 days |
+| Tier 3 authorizations expire at | 12 months, renewable |
 
 Lapsing is not a punishment. It is garbage collection. Institutions
 accumulate approved-but-abandoned projects, and each one is a live
@@ -108,23 +108,23 @@ credential, a budget line, and an unowned integration. Expiry converts
 that silent accumulation into a scheduled question.
 
 The related move, and the one that does the most good in practice, is
-in [chapter 07](07-occupancy-and-records.md): pilots get a **temporary**
-certificate of occupancy with a real expiry date. "Pilot" is otherwise
+in [chapter 07](07-production-approval.md): pilots get a **temporary**
+production approval with a real expiry date. "Pilot" is otherwise
 the most durable state in institutional computing.
 
 ---
 
 ## Stop work
 
-Real codes let a building official order work stopped: for
-unpermitted work, for proceeding past an uninspected hold point, or for
+Real codes let a governance platform team order work stopped: for
+unauthorizationted work, for proceeding past an uninspected verification point, or for
 an immediate hazard.
 
 The equivalent authority here should be narrow, fast, and rarely used.
 Grounds:
 
-- Work proceeding past a failed or skipped hold point
-- Data flowing that the permit does not authorize, especially a class
+- Work proceeding past a failed or skipped verification point
+- Data flowing that the authorization does not authorize, especially a class
   the institution's policy forbids
 - An active credential exposure
 - A capability operating outside its declared scope
@@ -142,20 +142,20 @@ process rather than a success of enforcement.
 
 ---
 
-## Variances
+## Recorded Exceptions
 
-Construction allows a variance: a documented, justified departure from
+Construction allows a recorded exception: a documented, justified departure from
 the code, granted by a named authority, recorded permanently.
 
 Have this, and make it respectable. A governance model with no legitimate
 exception path gets bypassed rather than amended, and then you have lost
 both the control and the information.
 
-A variance records: which requirement, why compliance is impractical,
+A recorded exception records: which requirement, why compliance is impractical,
 what compensating control applies instead, who granted it, and when it
 will be revisited.
 
-Track variances in aggregate. **Repeated variances against the same
+Track recorded exceptions in aggregate. **Repeated recorded exceptions against the same
 requirement are evidence the requirement is wrong**, not evidence that
 builders are unruly. That feedback loop is how a model code improves
 between editions, and it is why chapter 01 asks you to delete gates that

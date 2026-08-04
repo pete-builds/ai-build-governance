@@ -127,8 +127,8 @@ authority. You have an agent with a human's credentials and a historical
 record that someone once said yes.
 
 Standing consent is sometimes the right engineering answer. When it is,
-say so explicitly, record it as a variance under
-[chapter 05](05-permits.md), and note that the capability is now Tier 3
+say so explicitly, record it as a recorded exception under
+[chapter 05](05-authorization-to-build.md), and note that the capability is now Tier 3
 under chapter 03's autonomy trigger, because it takes consequential
 action without per-action approval. What is not acceptable is holding
 standing consent while describing the system as human-approved.
@@ -151,7 +151,7 @@ standing consent while describing the system as human-approved.
 
 ## What the record must contain
 
-Per [chapter 07](07-occupancy-and-records.md), if it is not recorded it
+Per [chapter 07](07-production-approval.md), if it is not recorded it
 did not happen. For each consequential action under delegated authority:
 
 | Field | Notes |
@@ -174,29 +174,29 @@ used.
 
 ## Where this is checked
 
-| Hold point | Check |
+| Verification point | Check |
 |---|---|
-| Plan review | Delegation model stated: which identity acts, whose authority, how approval is authenticated. Impersonation designs are a blocking finding. |
-| H1 Foundation | Agent's own credentials are scoped so they cannot exceed a delegating human's rights. No shared account standing in for people. |
-| H2 Rough-in | No token passthrough. Audience validation. Per-client consent on any proxy. Scopes minimized. |
-| H4 Concealment | Approval events are authenticated and recorded. Delegation chain is captured. Standing consent, if any, is declared and tiered accordingly. |
-| H5 Final | An approval and its resulting action have been traced end to end in the record by someone other than the builder. |
+| Design review | Delegation model stated: which identity acts, whose authority, how approval is authenticated. Impersonation designs are a blocking finding. |
+| H1 Identity and Credentials | Agent's own credentials are scoped so they cannot exceed a delegating human's rights. No shared account standing in for people. |
+| H2 Connections and Permissions | No token passthrough. Audience validation. Per-client consent on any proxy. Scopes minimized. |
+| H4 Pre-Concealment | Approval events are authenticated and recorded. Delegation chain is captured. Standing consent, if any, is declared and tiered accordingly. |
+| H5 Final Verification | An approval and its resulting action have been traced end to end in the record by someone other than the builder. |
 
 ---
 
 ## The construction parallel, and its limit
 
-Construction has this concept. A contractor performs work under a permit
+Construction has this concept. A contractor performs work under an authorization
 issued to an owner, and an authorized agent may sign on the owner's
 behalf where that authority is documented. The authority is delegated,
 bounded, and written down, and the party performing the work is not the
-same as the party whose authority permits it.
+same as the party whose authority authorizations it.
 
 Where the parallel breaks: a contractor cannot act ten thousand times a
 second, and cannot be induced to misuse delegated authority by a
 carefully worded email. Delegation in an agentic system needs rate limits
 and a prompt-injection analysis, which no construction concept supplies.
-See [chapter 10](../handbook/03-agentic-products.md).
+See [chapter 10](../guide/03-agentic-products.md).
 
 ---
 
@@ -214,7 +214,7 @@ retrieved, so no claim is made here about how it represents actor claims.
 
 **Design judgment, not findings:** the three questions; the requirement
 that approval be separable from execution; the treatment of standing
-consent as a variance plus an automatic Tier 3 trigger; and the contents
+consent as a recorded exception plus an automatic Tier 3 trigger; and the contents
 of the delegation record. These follow from the impersonation-versus-
 delegation distinction rather than being independently established.
 

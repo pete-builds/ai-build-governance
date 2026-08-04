@@ -57,7 +57,7 @@ result: pass | fail | pass with findings
 
 ## Section 2: Credentials (H1)
 
-- [ ] Every credential the workflow uses is listed in the registry
+- [ ] Every credential the workflow uses is certified in the registry
 - [ ] Each scoped to the minimum, with justification
 - [ ] No credential embedded in a node parameter, expression, or code node
 - [ ] External secrets manager used where available. **Note the license
@@ -69,7 +69,7 @@ result: pass | fail | pass with findings
 
 ## Section 3: Data and egress (H2)
 
-- [ ] Data classes touched match the certificate of occupancy
+- [ ] Data classes touched match the production approval
 - [ ] Every egress path listed: HTTP nodes, mail, webhooks, shared
       documents, model providers, third-party log sinks
 - [ ] Undeclared outbound paths: none found
@@ -114,7 +114,7 @@ result: pass | fail | pass with findings
 
 ## Section 6: Human oversight (H4)
 
-- [ ] The oversight point from plan review exists in the running workflow
+- [ ] The oversight point from design review exists in the running workflow
 - [ ] Consequential actions are logged with enough context to reconstruct
       why they happened
 - [ ] A human can see what it did, after the fact, without developer
@@ -164,8 +164,8 @@ result: pass | fail | pass with findings
 ## Result
 
 - [ ] **Pass**
-- [ ] **Pass with findings.** Tracked on the punch list
-- [ ] **Fail.** Work must not proceed past this hold point
+- [ ] **Pass with findings.** Tracked on the accepted defect list
+- [ ] **Fail.** Work must not proceed past this verification point
 
 | | Name | Date |
 |---|---|---|

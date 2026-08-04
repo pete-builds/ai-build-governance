@@ -12,7 +12,7 @@ result: pass | fail | pass with findings
 # Inspection: MCP Server
 
 > **Pin the spec revision.** Record which one you reviewed against,
-> exactly as a permit records the code edition. MCP is versioned by
+> exactly as an authorization records the code edition. MCP is versioned by
 > date-based revision strings and it moves fast: as of `2026-07-28` the
 > protocol became **stateless** (the `initialize` handshake and
 > `Mcp-Session-Id` were removed), and the spec's threat section formerly
@@ -77,7 +77,7 @@ result: pass | fail | pass with findings
       output
 - [ ] **Tool definitions pinned by hash or version**
 - [ ] **Drift alarm live.** A server revising a description after approval
-      is the rug pull, and it is the reason pinning is a permit condition
+      is the rug pull, and it is the reason pinning is a authorization condition
       rather than a suggestion.
 - [ ] Parameter lists reviewed for unused or free-text parameters that
       could carry smuggled data out
@@ -115,7 +115,7 @@ result: pass | fail | pass with findings
 - [ ] Private and link-local address ranges **blocked** for any
       server-supplied URL the client will fetch (SSRF; the spec has a
       dedicated section on this)
-- [ ] Egress destinations match the declared inventory from plan review
+- [ ] Egress destinations match the declared inventory from design review
 - [ ] Undeclared outbound paths: none found
 
 ## Section 7: Known vulnerabilities (H2)
@@ -176,7 +176,7 @@ result: pass | fail | pass with findings
 - [ ] **Pass with findings.** Non-blocking items tracked on the punch
       list
 - [ ] **Fail.** Blocking items above. Work must not proceed past this
-      hold point.
+      verification point.
 
 | | Name | Date |
 |---|---|---|

@@ -13,7 +13,7 @@ Used as in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).
 | Word | Meaning |
 |---|---|
 | **MUST**, **MUST NOT** | Absolute. A build that violates one does not comply. |
-| **SHOULD**, **SHOULD NOT** | Strong default. Departing requires a recorded reason, and at Tier 3 a variance. |
+| **SHOULD**, **SHOULD NOT** | Strong default. Departing requires a recorded reason, and at Tier 3 a recorded exception. |
 | **MAY** | Genuinely optional. No justification needed either way. |
 
 If a sentence in Part I contains none of these words, it is explanation
@@ -68,8 +68,8 @@ asking anyone else for rigor.
 
 | Part | Binds? | What it is |
 |---|---|---|
-| **Part I: the code** (`code/`) | **Yes**, once adopted and amended | Requirements. Short by design. |
-| **Part II: the handbook** (`handbook/`) | No | How to operate the code. Worked examples, paths, procedures. |
+| **Part I: the code** (`model/`) | **Yes**, once adopted and amended | Requirements. Short by design. |
+| **Part II: the handbook** (`guide/`) | No | How to operate the code. Worked examples, paths, procedures. |
 | **Part III: reference** (`reference/`) | No | Evidence, framework crosswalks, platform profiles, glossary. Volatile. |
 | **Templates** (`templates/`) | The completed artifact is evidence | The actual paperwork. |
 
@@ -90,7 +90,7 @@ find what you need without reading linearly:
 | **Applicability** | Who and what it covers, and what it excludes |
 | **Requirements** | Numbered normative provisions |
 | **Evidence required** | What record demonstrates compliance |
-| **Exceptions and variances** | What may differ, and who approves |
+| **Exceptions and recorded exceptions** | What may differ, and who approves |
 | **Implementation notes** | Non-binding explanation |
 | **Sources and confidence** | What is verified, what is judgment |
 
@@ -128,10 +128,62 @@ generalize to a category**, however tempting that is.
 
 ---
 
+## Terminology: plain language first
+
+**The primary vocabulary here is plain AI-governance language.** Construction
+terms are borrowed only where they supply a concrete mental model. Where one
+appears, it is paired with the plain term on first use in that document and
+then dropped.
+
+You never need to know anything about building codes to use this framework.
+
+| Plain term (primary) | Construction analogy | What it means |
+|---|---|---|
+| **Final Decision Authority** | authority having jurisdiction | The office that can say no and be obeyed |
+| **Authorization to Build** | permit | Approval to start work. Not approval to run. |
+| **Design Review** | plan review | Someone who is not the designer reads the design against the need |
+| **Independent Review** | special inspection | Tier 3 review by someone who does not report to the builder |
+| **Inspection / Verification Point** | hold point | A defined stage where work stops for checking |
+| **Pre-Concealment Verification (H4)** | concealment inspection | Checking before behavior becomes hidden behind automation or an interface |
+| **Production Approval** | certificate of occupancy | Authorization to operate. A separate act from finishing. |
+| **Time-Limited Production Approval** | temporary certificate of occupancy | Expiring approval. The honest form of "pilot." |
+| **Deployed System Record** | record drawings, as-builts | What actually exists, as opposed to what was designed |
+| **Certified Reusable Component** | listed and labeled product | Checked once, then consumed by others |
+| **Certified Pattern** | type approval | A whole pattern certified, so conforming instances skip component review |
+| **Operational Handover** | substantial completion | The point support obligations begin |
+| **Withheld Completion** | retainage | Holding something back until records are done |
+| **Accepted Defect List** | punch list | Known, owned, deferred defects |
+| **Change Record** | change order | A recorded, agreed modification |
+| **Clarification Request** | RFI | A cheap recorded question when the documents are ambiguous |
+| **Recorded Exception** | variance | A justified, approved departure from a requirement |
+| **Pre-Existing System** | lawfully non-conforming building | Something built before this framework, grandfathered until altered |
+| **Governance Platform Team** | building official | The office that runs the process and builds the automation |
+
+### Terms kept because they are already plain
+
+Statement of Need · Risk Classification · Tier 1, 2, 3 · Standing Owner ·
+Responsible Builder · Stop-work · Alteration · Registry
+
+### One construction term kept deliberately
+
+**The do-not-conceal rule.** Work must not be covered up before it has been
+checked. The name is vivid, the idea transfers exactly, and no plain
+paraphrase is as memorable. It stays.
+
+### The category names
+
+**Agent Studio** means any low-code platform where people compose and publish
+automations and agents. **AI gateway** means a model proxy that issues scoped
+credentials and enforces budgets. Both are categories. Specific products are
+worked examples in their [profiles](../reference/platform-profiles/), and
+findings about one product are never generalized to its category.
+
+---
+
 ## A note on the construction vocabulary
 
-This code borrows real mechanisms from building governance: permits, plan
-review, inspection hold points, concealment, occupancy, record drawings,
+This code borrows real mechanisms from building governance: authorizations, plan
+review, inspection verification points, concealment, occupancy, deployed system record,
 listed products. The borrowing is functional rather than decorative, and
 [reference/glossary.md](../reference/glossary.md) gives the term-by-term
 mapping plus the four places the analogy genuinely breaks down.

@@ -9,7 +9,7 @@ target_turnaround:    # T2: 3 working days. T3: 10 working days.
 disposition:          # Approved | Approved as Noted | Revise and Resubmit | Rejected
 ---
 
-# Design Response and Plan Review
+# Design Response and Design Review
 
 > **Three pages maximum, diagrams included.**
 >
@@ -192,9 +192,9 @@ disposition:          # Approved | Approved as Noted | Revise and Resubmit | Rej
 - [ ] **Rejected.** The approach will not work; return to Statement of
       Need
 
-## D4. Permit conditions
+## D4. Authorization conditions
 
-> Each condition must be verifiable at a named hold point. A condition
+> Each condition must be verifiable at a named verification point. A condition
 > nobody checks is a wish. Write conditions against the paths in A1, not
 > against a settings page.
 

@@ -1,7 +1,7 @@
 # 01. Adoption
 
 > **Part II: handbook. Non-binding.** How to stand this up at an
-> institution. The requirements are in [Part I](../code/).
+> institution. The requirements are in [Part I](../model/).
 
 The failure mode to design against is not under-adoption. It is adopting
 the paperwork without the platform work, which produces forms nobody can
@@ -15,7 +15,7 @@ Answer honestly, because three of these gate the rest.
 
 | Question | If no |
 |---|---|
-| Is there an office that can say no and be obeyed? | Stop. A code with no [Authority Having Jurisdiction](../code/09-roles.md) is a style guide. Fixing that is the whole first project. |
+| Is there an office that can say no and be obeyed? | Stop. A code with no [Final Decision Authority](../model/09-roles.md) is a style guide. Fixing that is the whole first project. |
 | Can you build templates and automated checks, not just write policy? | Adopt the inspections and skip intake for now. Without platform capacity you will end up with forms. |
 | Can you supply continuing-appointment Standing Owners? | Tier 3 is effectively capped at zero. Say so out loud and plan for time-boxed occupancy instead. |
 | Do you already have an AI policy body? | Good. **Do not create another one.** This sits beneath it. |
@@ -38,7 +38,7 @@ arrived before the help.
 
 ### Phase 1: Automated inspections, read-only
 
-Build the [H1](../code/06-inspections.md) checks against what you already
+Build the [H1](../model/06-inspections.md) checks against what you already
 run: credential expiry set, budgets hard-capped, model allowlists explicit,
 no wildcard scopes, no secrets in source.
 
@@ -49,15 +49,15 @@ the shape of your exposure.
 ### Phase 2: Amnesty inventory
 
 Register everything already running, with a named owner and **no penalty
-for having existed**. Per [chapter 08](../code/08-alterations.md), existing
-work is lawfully non-conforming and complies on alteration.
+for having existed**. Per [chapter 08](../model/08-alterations.md), existing
+work is pre-existing and complies on alteration.
 
 Any penalty attached to disclosure buys you an inaccurate inventory, which
 is worse than none because it gets believed. This is the single
 highest-value step in the whole adoption.
 
 Report the ratio of conforming to non-conforming over time. That is the
-honest adoption metric. Counting permits issued is not.
+honest adoption metric. Counting authorizations issued is not.
 
 ### Phase 3: Close your platform unknowns
 
@@ -72,26 +72,26 @@ enterprise-gated or simply absent. That is the point of the exercise.
 ### Phase 4: Intake, minimally
 
 Add the four fields that set tier to whatever intake you already have:
-declared data classes, permit tier, Standing Owner, and cost centre. Do not
+declared data classes, authorization tier, Standing Owner, and cost centre. Do not
 build a new intake system. Do not replace a working portfolio tracker.
 
 ### Phase 5: The concealment gate, new builds only
 
-Introduce [H4](../code/06-inspections.md) for new Tier 2 and Tier 3 work.
+Introduce [H4](../model/06-inspections.md) for new Tier 2 and Tier 3 work.
 **Do not apply retroactively.** This is the one gate worth a person's time,
 and introducing it alone, on new work only, is how it gets accepted.
 
 ### Phase 6: List your first component
 
 Take one finished, validated thing through
-[listing](../code/11-listed-components.md) end to end. One worked example
+[listing](../model/11-certified-components.md) end to end. One worked example
 demonstrates that this framework speeds reuse up rather than slowing builds
 down, which is the argument you will need to make repeatedly.
 
 ### Phase 7: Delete
 
 After two terms, delete every gate that never caught anything and **publish
-which ones those were**. [Principle 3](../code/01-principles.md) requires
+which ones those were**. [Principle 3](../model/01-principles.md) requires
 this and it is the step most likely to be skipped. A code that only grows
 is a code that will be evaded.
 
@@ -104,11 +104,11 @@ is a code that will be evaded.
 
 | Role | Who | Time |
 |---|---|---|
-| Authority Having Jurisdiction | Platform team lead plus a named deputy | Occasional |
-| Building official (runs the process) | One platform engineer, part time | Roughly 0.3 FTE |
-| Tier 2 plan review | Any technical lead not on the project | 1 to 2 hours per review |
+| Final Decision Authority | Platform team lead plus a named deputy | Occasional |
+| Governance platform team (runs the process) | One platform engineer, part time | Roughly 0.3 FTE |
+| Tier 2 design review | Any technical lead not on the project | 1 to 2 hours per review |
 | Tier 3 independent review | Rotating pool from other units | 2 to 3 hours per review |
-| Certifying function for listings | AHJ | A few hours per listing, plus surveillance |
+| Certifying function for certifications | Decision Authority | A few hours per listing, plus surveillance |
 | Accessibility, security, privacy | Existing offices, concurrent | Their own capacity |
 
 The 0.3 FTE is the honest cost of the automation and the registry, and it
@@ -128,20 +128,20 @@ the first, and treat it as a defect in the process rather than a delay in
 the project.
 
 **Deemed permission will be used and someone will call it a loophole.** It
-is not: [requirement 10.6](../code/10-concurrent-reviews.md) bounds it
+is not: [requirement 10.6](../model/10-concurrent-reviews.md) bounds it
 tightly and forbids it producing a compliance determination. Frequent use
 means you are understaffed, and the number is the argument for resourcing.
 
 **Someone will ask to skip classification for a certified component.** The
 answer is no, and
-[chapter 11](../code/11-listed-components.md) explains why: certification
+[chapter 11](../model/11-certified-components.md) explains why: certification
 reduces component review and never lowers a tier.
 
 **The registry will drift.** Generate what you can from the platforms;
 anything generated cannot drift. Reconcile on a schedule and treat
 mismatches as findings.
 
-**Listings will go stale and nobody will notice.** This is the most
+**Certifications will go stale and nobody will notice.** This is the most
 dangerous failure in the model, because a stale listing is trusted
 silently. The surveillance interval and the expiry date are what make
 listing safe rather than a rubber stamp. If you cannot staff surveillance,

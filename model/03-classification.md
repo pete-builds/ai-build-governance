@@ -7,7 +7,7 @@ consequences of failure differ. Classification happens early, drives
 everything downstream, and is determined by objective criteria rather
 than by how the designer feels about the project.
 
-Copy that. Classification here determines the permit tier, which
+Copy that. Classification here determines the authorization tier, which
 determines how much review and which inspections apply.
 
 **The design goal is that two different reviewers, given the same
@@ -21,11 +21,11 @@ be gamed.
 
 | Tier | Name | Review | Inspections | Occupancy |
 |---|---|---|---|---|
-| **1** | Minor Works | Self-certified | Automated only | Self-issued |
-| **2** | Standard Permit | Peer plan review, timeboxed | Automated + one human hold point | Issued by the operator's peer |
-| **3** | Special Inspection | Independent review by someone off the project | Full hold-point set, human sign-off | Issued by the Authority Having Jurisdiction |
+| **1** | Self-Certified | Self-certified | Automated only | Self-issued |
+| **2** | Standard Authorization | Peer design review, timeboxed | Automated + one human verification point | Issued by the operator's peer |
+| **3** | Independent Review | Independent review by someone off the project | Full hold-point set, human sign-off | Issued by the Final Decision Authority |
 
-Tier 3 borrows deliberately from the IBC's **special inspections**
+Tier 3 borrows deliberately from the IBC's **independent reviews**
 concept (Chapter 17 of the IBC, section numbering unverified), which
 requires certain high-consequence work to be inspected by an
 independent approved agency, and, critically, **hired by the owner
@@ -51,7 +51,7 @@ amendments document.
 | Public or already published | 1 |
 | Internal business data | 2 |
 | Regulated or specially protected (student records, health, financial, personnel) | 3 |
-| Classes your policy forbids on the platform | **Not permitted.** Not a tier. |
+| Classes your policy forbids on the platform | **Not authorizationted.** Not a tier. |
 
 That last row matters. Some things are not high-tier, they are
 prohibited, and a governance model needs a category for "no" that is
@@ -64,12 +64,12 @@ Many universities run a scheme with **four** operative levels rather than
 three, and the fourth is what makes it usable here. A representative
 mapping:
 
-| Institutional level | Typical contents | Platform status | Permit tier |
+| Institutional level | Typical contents | Platform status | Authorization tier |
 |---|---|---|---|
 | **Low Risk** | Published, public, intended for general release | Allowed | **1** |
 | **Moderate Risk** | The bulk of university business data. Frequently the default for anything not explicitly public. | Allowed | **2** |
-| **High Risk** | Identity-theft-enabling identifiers: national ID numbers, financial account numbers, driver's licence numbers | Requires security office engagement | **3**, with that engagement completed **before** plan review |
-| **Restricted** | Classes prohibited outright on the platform, commonly including passwords, payment card data, and protected health information | **Not allowed** | **Not permitted.** Return the Statement of Need. |
+| **High Risk** | Identity-theft-enabling identifiers: national ID numbers, financial account numbers, driver's licence numbers | Requires security office engagement | **3**, with that engagement completed **before** design review |
+| **Restricted** | Classes prohibited outright on the platform, commonly including passwords, payment card data, and protected health information | **Not allowed** | **Not authorizationted.** Return the Statement of Need. |
 
 Three amendments worth making when you adopt a scheme like this:
 
@@ -100,7 +100,7 @@ cite your own policy, rather than relying on the shape above.
 **On student data specifically:** the relevant hook in US law is the
 FERPA school official exception at
 [34 CFR 99.31(a)(1)](https://www.law.cornell.edu/cfr/text/34/99.31),
-which permits disclosure to a contractor or other outside party only
+which authorizations disclosure to a contractor or other outside party only
 where that party performs "an institutional service or function for
 which the agency or institution would otherwise use employees," is
 "under the direct control of the agency or institution with respect to
@@ -150,7 +150,7 @@ attacker can read.
 | Produces output a human reads and acts on | 1 |
 | Takes actions a human approves individually | 2 |
 | Takes consequential actions without per-action human approval | 3 |
-| Modifies its own instructions, tools, or permissions at runtime | **3, and requires explicit AHJ sign-off** |
+| Modifies its own instructions, tools, or permissions at runtime | **3, and requires explicit Decision Authority sign-off** |
 
 "Consequential" means an action that is hard to reverse, visible
 outside the team, or costs money.
@@ -194,7 +194,7 @@ is deciding.
 ### Trigger F: Unbounded cost
 
 Anything that can spend without a hard cap is Tier 2 minimum, and the
-cap is a condition of the permit rather than a recommendation. Gateways
+cap is a condition of the authorization rather than a recommendation. Gateways
 generally enforce budgets reliably, so this is a cheap trigger to
 satisfy, which is exactly why there is no excuse for skipping it.
 
@@ -233,7 +233,7 @@ Tier is not permanent, and this is where most governance models leak.
 
 The fourth is the most common. A pilot that quietly becomes
 infrastructure is the standard failure mode, and chapter 07's
-time-boxed **temporary certificate of occupancy** exists specifically
+time-boxed **time-limited production approval** exists specifically
 to force that conversation on a date rather than never.
 
 The fifth is the most dangerous, because nothing in any platform will

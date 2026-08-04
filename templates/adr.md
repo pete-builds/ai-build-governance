@@ -65,7 +65,7 @@
 
 ## Unresolved reviewer objection
 
-> Only if this ADR exists to record proceeding over a plan-review
+> Only if this ADR exists to record proceeding over a design-review
 > objection under the Tier 2 advice process. Delete if not applicable.
 >
 > This section is the mechanism that lets the advice process preserve the

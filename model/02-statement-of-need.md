@@ -43,7 +43,7 @@ Import that split exactly:
 |---|---|---|
 | Owner's Project Requirements | **Statement of Need** (this chapter) | The person with the problem |
 | Basis of Design | **Design Response** (chapter 04) | The person building it |
-| Commissioning Authority audit | **Plan review** (chapter 04) | Someone who is neither |
+| Commissioning Authority audit | **Design review** (chapter 04) | Someone who is neither |
 
 **The Statement of Need must be authored or signed by someone other
 than the builder.** This is the entire control. A need statement
@@ -104,7 +104,7 @@ own classification scheme. Not what it would be nice to have. What it
 needs.
 
 This is the field most often filled in optimistically, and it is the
-one that sets the permit tier. Chapter 03 treats an upgrade to this
+one that sets the authorization tier. Chapter 03 treats an upgrade to this
 field as an alteration requiring re-review, precisely because "we also
 gave it access to the student records" is how a Tier 1 project becomes
 a Tier 3 project without anyone noticing.
@@ -118,7 +118,7 @@ Two names, and they may not be the same person:
 
 If the second name is a student, an intern, or a fixed-term fellow, the
 project needs a standing institutional co-owner before it may proceed
-past plan review. See chapter 09. This is not a slight on short-tenure
+past design review. See chapter 09. This is not a slight on short-tenure
 contributors; it is an acknowledgment that they leave, which is the
 whole point of a fellowship.
 
@@ -199,4 +199,4 @@ A signed Statement of Need, filed in the registry, carrying:
 
 That record is the input to [chapter 03, Classification](03-classification.md),
 which uses the declared data, population, and capability to set the
-permit tier by objective trigger rather than by anyone's judgment.
+authorization tier by objective trigger rather than by anyone's judgment.

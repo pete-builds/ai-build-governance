@@ -1,13 +1,13 @@
 cff-version: 1.2.0
-title: "The AI Building Code: a governance model for how AI capabilities get built in higher education"
+title: "AI Build Governance: a framework for how institutions build AI capabilities, with mechanisms adapted from building codes"
 message: "If you adopt or cite this model, please cite it and state which edition you adopted."
 type: software
 authors:
   - family-names: Stergion
     given-names: Pete
-repository-code: "https://github.com/pete-builds/ai-building-code"
+repository-code: "https://github.com/pete-builds/ai-build-governance"
 license: CC-BY-4.0
-version: "2026.3"
+version: "2026.4"
 date-released: "2026-08-04"
 keywords:
   - AI governance

@@ -1,4 +1,4 @@
-# 12. Listed Components and Type Approval
+# 12. Certified Reusable Components and Certified Patterns
 
 **The problem this chapter exists for.** A group builds something good.
 Another group wants to use it. Under every governance model described so
@@ -45,7 +45,7 @@ no surveillance decays into a historical claim.
 
 `UNVERIFIED`, and worth flagging because the analogy leans on them: the
 IBC's verbatim definitions of **listed**, **labeled**, and **approved
-agency**; the precise rule that a building official accepts a listing
+agency**; the precise rule that a governance platform team accepts a certification
 without retesting and inspects only the installation; and the practice
 in many US states of approving a modular or factory-built design once at
 state level so local jurisdictions accept the factory-built portion
@@ -64,7 +64,7 @@ certification and only the integration is inspected.**
 This is the anti-queue mechanism. It is what turns governance from a toll
 booth into a supply of trusted parts.
 
-### What can be listed
+### What can be certified
 
 Anything reusable with a stable interface and a definable scope:
 
@@ -76,7 +76,7 @@ Anything reusable with a stable interface and a definable scope:
 - A validated dataset or feature view
 - An authentication or authorization pattern
 
-### What a listing must state
+### What a certification must state
 
 A listing is only as useful as its **scope of certification**. A mark
 that says "approved" without saying approved *for what* is worse than
@@ -85,20 +85,20 @@ under.
 
 | Field | Why |
 |---|---|
-| Identifier and version | Listings attach to versions, never to "latest" |
+| Identifier and version | Certifications attach to versions, never to "latest" |
 | **Scope of certification** | What it was tested to do, in plain language |
-| **Tier ceiling** | The highest permit tier this listing supports. A consumer at a higher tier does not inherit it. |
-| Data classes permitted | What it was certified to handle |
+| **Tier ceiling** | The highest authorization tier this listing supports. A consumer at a higher tier does not inherit it. |
+| Data classes authorizationted | What it was certified to handle |
 | Tools and egress | Everything it can reach, from its own inspection |
 | Tested configuration | The exact configuration certified, including versions |
-| **Conditions of use** | What a consumer must do for the listing to apply |
+| **Conditions of use** | What a consumer must do for the certification to apply |
 | **Exclusions** | What it was explicitly *not* certified for |
 | Certifying party | Who listed it. Not the builder. |
 | Inspection record | Which inspections it passed, and when |
 | **Surveillance interval and next review** | When it stops being trusted |
-| **Expiry** | Listings expire. See below. |
+| **Expiry** | Certifications expire. See below. |
 
-### Consuming a listed component
+### Consuming a certified reusable component
 
 This is the part that saves the time:
 
@@ -106,8 +106,8 @@ This is the part that saves the time:
 - [ ] The **version** you are consuming is the listed version
 - [ ] Your use is **within the scope of certification** and violates no
       stated exclusion
-- [ ] Your tier does not exceed the listing's tier ceiling
-- [ ] Your data classes are within those the listing permits
+- [ ] Your tier does not exceed the certification's tier ceiling
+- [ ] Your data classes are within those the certification authorizations
 - [ ] You have met every stated condition of use
 - [ ] **You inspect your integration**, not the component
 
@@ -115,11 +115,11 @@ That last line is the whole point. You inspect the wiring, the
 credentials you supply, the data you send, and what you do with what
 comes back. You do not re-review the component's internals.
 
-**Installing outside the listed terms voids reliance on the listing.**
+**Installing outside the listed terms voids reliance on the certification.**
 Borrowed directly, and it is the discipline that keeps this honest. If
-you use a listed component with a broader credential than the listing
+you use a certified reusable component with a broader credential than the certification
 assumed, in a higher tier than its ceiling, on data classes it excludes,
-or at an unlisted version, you are not consuming a listed component. You
+or at an unlisted version, you are not consuming a certified reusable component. You
 are consuming an unreviewed one, and the full path applies.
 
 ---
@@ -138,7 +138,7 @@ rebuild, and now there are four unreviewed copies.
 
 1. The originating group's build goes through the normal path once and
    passes its inspections.
-2. The AHJ, or a designated certifying function, **lists** it: scope of
+2. The Decision Authority, or a designated certifying function, **lists** it: scope of
    certification is "read-only aggregate compensation analysis over the
    defined corpus," tier ceiling 3, data classes named, exclusions stated
    explicitly, for instance no individual-level output and no use in
@@ -146,15 +146,15 @@ rebuild, and now there are four unreviewed copies.
    in chapter 03's consequential-decisions trigger.
 3. Surveillance interval set, say quarterly, with a named owner.
 4. A second group builds an application that consumes it. Their
-   Statement of Need still records the need. Their plan review covers
+   Statement of Need still records the need. Their design review covers
    **their** integration: what credential they pass, what they display,
    who sees it, what happens when it is wrong.
-5. They do not re-review the tool. They cite the listing.
+5. They do not re-review the tool. They cite the certification.
 
 The second group's path shortens from a full review to an integration
 review. The originating group stops being an unpaid help desk. And
 critically, **the institution now knows how many things depend on that
-component**, which it did not know before, because the listing is
+component**, which it did not know before, because the certification is
 referenced rather than copied.
 
 That last consequence is the one people miss. Listing produces a
@@ -162,23 +162,23 @@ dependency graph as a byproduct.
 
 ---
 
-## Who may list
+## Who may certify
 
 **Not the builder.** A component certified by the people who made it is a
 self-assessment, and the whole value here is that a consumer can rely on
 someone else's judgment.
 
-Listing authority sits with the AHJ, or with a certifying function the
-AHJ designates. The construction parallel is exact: independent
+Certification authority sits with the Decision Authority, or with a certifying function the
+Decision Authority designates. The construction parallel is exact: independent
 inspection is engaged by the owner rather than the contractor, so the
 certifier is not paid by the party being certified.
 
-For Tier 3 listings, the certifying reviewer must be independent of the
+For Tier 3 certifications, the certifying reviewer must be independent of the
 originating team, per [chapter 09](09-roles.md).
 
 ---
 
-## Surveillance, and why listings expire
+## Surveillance, and why certifications expire
 
 A listing with no surveillance becomes a historical claim that people
 treat as a current fact. This is the failure mode to design against,
@@ -196,19 +196,19 @@ Surveillance re-checks the five things most likely to have decayed:
 2. Have its dependencies acquired published vulnerabilities?
 3. Have its tool definitions or interface changed? For MCP components,
    drift in a tool description after certification is the rug pull from
-   [chapter 06](06-inspections.md), and it invalidates the listing
+   [chapter 06](06-inspections.md), and it invalidates the certification
    immediately.
 4. Is the originating owner still present?
 5. Has the model or platform underneath it changed behavior?
 
-**When a listing lapses or is revoked, every consumer is notified.** This
+**When a certification lapses or is revoked, every consumer is notified.** This
 requires knowing who the consumers are, which is why consumption is
 recorded in the registry rather than being informal. A revoked listing
 with unknown consumers is an incident you cannot execute.
 
 ---
 
-## Type approval for patterns
+## Certified pattern for patterns
 
 The stronger form, borrowed from how a factory-built design is approved
 once rather than per site.
@@ -235,7 +235,7 @@ The two things being judged are not the same thing:
 
 | Axis | Question | Reduced by certification? |
 |---|---|---|
-| **Component risk** | Is this thing built soundly? | **Yes.** That is what a listing is for. |
+| **Component risk** | Is this thing built soundly? | **Yes.** That is what a certification is for. |
 | **Use risk** | What will this instance touch, decide, and affect? | **No. Never.** |
 
 So the corrected rule:
@@ -250,13 +250,13 @@ component's internals, transport, auth model, tool definitions, or
 dependency posture. What it does not save, and must not, is the tier
 assessment of what you are pointing it at.
 
-A worked contrast. A type-approved read-only MCP server over an internal
+A worked contrast. A pattern-certified read-only MCP server over an internal
 API is pointed at two different corpora:
 
 - Over a **public course catalog**, serving one unit: Tier 1 or 2 on its
   own triggers, component review skipped. Fast.
 - Over **student records**, staff-facing: **Tier 3** on data
-  classification, component review still skipped. The plan review covers
+  classification, component review still skipped. The design review covers
   the corpus, the access model, and who sees what, not the server.
 
 Same certified component. Different tiers. Correctly.
@@ -279,11 +279,11 @@ with ongoing inspection and surveillance.
 
 **Unverified, described as industry practice:** the IBC definitions of
 listed, labeled, and approved agency; the rule that officials accept a
-listing and inspect only installation; state-level modular type approval.
+listing and inspect only installation; state-level modular certified pattern.
 
 **Design judgment, not findings:** every interval and expiry number in
 this chapter, the tier-ceiling concept, the void-on-departure rule, and
-the claim that type-approved patterns should enter at Tier 1. None of
+the claim that pattern-certified patterns should enter at Tier 1. None of
 this is measured. It is reasoned from how certification works in a domain
 that has run it for decades.
 

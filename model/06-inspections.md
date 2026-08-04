@@ -10,22 +10,22 @@ effective, and the sequencing follows one rule:
 > Work must not be covered, closed in, or concealed until it has been
 > inspected and approved.
 
-If concealed work needs verifying, the building official can require it
-uncovered, at the permit holder's expense. That threat is what makes the
+If concealed work needs verifying, the governance platform team can require it
+uncovered, at the authorization holder's expense. That threat is what makes the
 schedule real.
 
-Every hold point below exists because something is about to become
+Every verification point below exists because something is about to become
 invisible, expensive to check, or hard to undo.
 
 ---
 
-## The five hold points
+## The five verification points
 
 Real inspection sequences run roughly: footing and foundation, then
-under-slab and rough-in for plumbing, mechanical and electrical, then
+the stage where wiring and pipework go in ("rough-in"), then
 framing, then insulation and wall covering, then final. Framing is
-inspected only *after* the rough-ins inside it have passed, because
-otherwise the framing hides them.
+inspected only *after* the connections inside it have passed, because
+otherwise the frame hides them.
 
 That dependency structure is the part to copy.
 
@@ -33,7 +33,7 @@ That dependency structure is the part to copy.
   H1  FOUNDATION      identity, secrets, credentials, budget
        |              before any real data moves
        v
-  H2  ROUGH-IN        connections, tools, permissions, egress
+  H2  CONNECTIONS     tools, permissions, egress paths
        |              before wiring to real systems
        v
   H3  FRAMING         end-to-end path visible
@@ -46,13 +46,13 @@ That dependency structure is the part to copy.
                       precondition for occupancy
 ```
 
-| Hold point | Tier 1 | Tier 2 | Tier 3 |
+| Verification point | Tier 1 | Tier 2 | Tier 3 |
 |---|---|---|---|
-| H1 Foundation | Automated | Automated | Automated + human |
-| H2 Rough-in | Automated | Automated | Automated + human |
-| H3 Framing | Automated | Automated | Automated |
-| H4 Concealment | Automated | **Human** | **Human** |
-| H5 Final | Automated | Automated | **Human** |
+| H1 Identity and Credentials | Automated | Automated | Automated + human |
+| H2 Connections and Permissions | Automated | Automated | Automated + human |
+| H3 End-to-End Path | Automated | Automated | Automated |
+| H4 Pre-Concealment | Automated | **Human** | **Human** |
+| H5 Final Verification | Automated | Automated | **Human** |
 
 Most cells say automated. That is the design working. Human attention
 appears at concealment and at final sign-off for high-consequence work,
@@ -60,7 +60,7 @@ which is where a machine genuinely cannot help.
 
 ---
 
-## H1: Foundation
+## H1: Identity and Credentials
 
 **Before any real data moves through the system.**
 
@@ -72,7 +72,7 @@ Automated checks:
 
 - [ ] No secrets in source, config, or committed client files. Scan
       history, not just the working tree.
-- [ ] Credential scope matches the declared minimum from plan review.
+- [ ] Credential scope matches the declared minimum from design review.
       Flag wildcard scopes explicitly.
 - [ ] Key expiry set, within the institutional maximum
 - [ ] Budget cap set as a hard stop, not a soft alert
@@ -110,7 +110,7 @@ Two platform-specific traps, drawn from
 
 ---
 
-## H2: Rough-in
+## H2: Connections and Permissions
 
 **Before the system is wired to real systems of record.**
 
@@ -119,7 +119,7 @@ integrations, nobody re-derives what it can reach.
 
 Automated checks:
 
-- [ ] Tool and integration inventory matches plan review, with no extras
+- [ ] Tool and integration inventory matches design review, with no extras
 - [ ] Egress inventory matches, with no undeclared outbound paths
 - [ ] Tool definitions **pinned by hash or version**, with drift alarms
 - [ ] Transport meets current standard (see the MCP checklist below)
@@ -138,7 +138,7 @@ Human check at Tier 3:
 > **REQUIREMENT**
 > Where a build exposes or consumes tools over a protocol, the inspection
 > **MUST** be pinned to a **stated protocol revision**, and the revision
-> **MUST** be recorded, exactly as a permit records the code edition it was
+> **MUST** be recorded, exactly as an authorization records the code edition it was
 > reviewed under.
 
 > **GUIDANCE**
@@ -146,7 +146,7 @@ Human check at Tier 3:
 > months. The full checklist lives in
 > [templates/inspection-mcp-server.md](../templates/inspection-mcp-server.md)
 > rather than here, so it can be re-pinned without amending the code, and so
-> this chapter stays about hold points rather than becoming a security
+> this chapter stays about verification points rather than becoming a security
 > manual. Current protocol facts are in
 > [reference/platform-profiles/mcp.md](../reference/platform-profiles/mcp.md).
 
@@ -171,31 +171,31 @@ Two properties generalize beyond any one protocol and belong in the code:
 **Nobody is inspecting these for you.** Platform vendors state plainly that
 they do not security-audit third-party servers, and registry presence
 establishes who published something rather than whether it is safe. It is a
-business license, not a certificate of occupancy. That absence is the entire
-reason this hold point exists.
+business license, not a production approval. That absence is the entire
+reason this verification point exists.
 
 ---
 
-## H3: Framing
+## H3: End-to-End Path
 
 **The end-to-end path exists and is visible. Requires H1 and H2 passed.**
 
-The dependency is the point: framing hides the rough-ins, so the
-rough-ins are inspected first. Here, the working system hides its own
+The dependency is the point: the frame hides the connections, so the
+connections are inspected first. Here, the working system hides its own
 component structure once it starts being treated as a black box.
 
 Automated checks:
 
 - [ ] H1 and H2 recorded as passed
 - [ ] End-to-end path exercised with synthetic data
-- [ ] Failure behavior matches what plan review described, verified by
+- [ ] Failure behavior matches what design review described, verified by
       actually breaking a dependency rather than by assertion
 - [ ] Errors surface rather than being swallowed
 - [ ] No real regulated data used in testing
 
 ---
 
-## H4: Concealment
+## H4: Pre-Concealment Verification
 
 **The most important gate in this model.**
 
@@ -224,7 +224,7 @@ Checks:
 - [ ] A human can see what the system did, after the fact, without
       developer access
 - [ ] Consequential actions are reversible, or gated on confirmation
-- [ ] The oversight point from plan review exists in the running system
+- [ ] The oversight point from design review exists in the running system
 - [ ] Rate of consequential actions is bounded per unit time
 - [ ] For anything advisory: the **human override rate is measured**.
       Unmeasured, an advisory system is a deciding system, as chapter 03
@@ -277,14 +277,14 @@ every field a workflow touches is in that store** until you have looked.
 
 > **REQUIREMENT**
 > Where the delivery platform provides **no technical approval step before
-> production**, this hold point is the only control that exists, and the
+> production**, this verification point is the only control that exists, and the
 > institution **MUST** record that fact rather than describing the review as
 > though a gate enforced it.
 
 > **REQUIREMENT**
 > In that situation, above Tier 1 the build **MUST** additionally:
 > maintain a named list of everyone holding edit access, reviewed at this
-> hold point; state and have the Standing Owner accept the **credential
+> verification point; state and have the Standing Owner accept the **credential
 > exposure that edit access implies**; and implement change detection
 > **external to the platform**, because the platform will not tell you a
 > change went live.
@@ -307,13 +307,13 @@ every field a workflow touches is in that store** until you have looked.
 
 ---
 
-## H5: Final
+## H5: Final Verification
 
 **Before occupancy. Real data, real configuration.**
 
 Checks:
 
-- [ ] All prior hold points passed and recorded
+- [ ] All prior verification points passed and recorded
 - [ ] Exercised with real data at real scale
 - [ ] **Guardrails verified on the paths that actually carry traffic**,
       not merely enabled somewhere. Coverage is routinely uneven across a
@@ -322,7 +322,7 @@ Checks:
       flow diagram. Do not read the setting.** Per-platform coverage gaps
       are in the [profiles](../reference/platform-profiles/).
 - [ ] Budget and rate limits confirmed live under load
-- [ ] Permit conditions each verified, individually
+- [ ] Authorization conditions each verified, individually
 - [ ] Registry entry complete: owner, operator, data classes, tools,
       egress, tier, review date
 - [ ] Rollback exercised, not merely documented
@@ -341,7 +341,7 @@ a hypothesis.
 An inspection satisfied by a document is a review, and chapter 04
 already happened.
 
-**Automated checks run on every change, not once.** A hold point that
+**Automated checks run on every change, not once.** A verification point that
 fires once at the beginning verifies a state the system has since left.
 Where a check can run continuously, it should, and H1 and H2 in
 particular should be standing checks.

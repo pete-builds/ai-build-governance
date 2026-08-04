@@ -40,8 +40,8 @@ Construction encodes this precisely. Inspections cluster before work
 gets **concealed**, because after the drywall goes up, verification
 costs an order of magnitude more. The rule is that work must not be
 covered, closed in, or concealed until it has been inspected and
-approved, and the building official can order concealed work uncovered
-at the permit holder's expense.
+approved, and the governance platform team can order concealed work uncovered
+at the authorization holder's expense.
 
 Software has the same structure and almost never respects it:
 
@@ -57,7 +57,7 @@ Software has the same structure and almost never respects it:
 Gate the left column. Leave the right column alone.
 
 That last left-column row is the software equivalent of concealment,
-and chapter 06 makes it a formal hold point.
+and chapter 06 makes it a formal verification point.
 
 ---
 
@@ -144,7 +144,7 @@ optional. Prefer a smaller code you can actually hold.
 
 ## 7. The record is part of the deliverable
 
-Construction distinguishes the drawings from the **record drawings**:
+Construction distinguishes the drawings from the **deployed system record**:
 what was designed versus what was actually built. The second is the one
 you need when something fails at 2am, and it is the one that never gets
 made unless it is a condition of final payment.

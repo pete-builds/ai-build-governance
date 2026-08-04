@@ -6,9 +6,9 @@ knowable who was accountable.
 
 ---
 
-## Authority Having Jurisdiction
+## Final Decision Authority
 
-The **AHJ** is the office that holds enforcement authority. The term
+The **Decision Authority** is the office that holds enforcement authority. The term
 comes from NFPA codes and is deliberately defined by *function* rather
 than job title, because local enforcement structures vary too much for a
 fixed title to work.
@@ -16,7 +16,7 @@ fixed title to work.
 That is exactly why it suits universities, where structures differ
 wildly between institutions and often between units.
 
-**Your amendments document must name the AHJ.** Not the committee it
+**Your amendments document must name the Decision Authority.** Not the committee it
 reports to: the office that can say no and be obeyed. Requirements:
 
 - It can be reached in under a day
@@ -26,14 +26,14 @@ reports to: the office that can say no and be obeyed. Requirements:
   be the party that reports to the builder.
 
 If no such office exists at your institution, that is the finding, and
-this model cannot substitute for it. A code with no AHJ is a style guide.
+this model cannot substitute for it. A code with no Decision Authority is a style guide.
 
 ### On not creating another committee
 
 Most institutions adopting this will already have an AI policy body: a
 council, a steering group, a task force. **Do not create a second one.**
 Those bodies set policy. This model is the operational layer beneath
-them, and the AHJ should be an operational office, not a deliberative
+them, and the Decision Authority should be an operational office, not a deliberative
 one.
 
 The division that works:
@@ -42,9 +42,9 @@ The division that works:
 |---|---|---|
 | Policy | What is permissible here at all | Existing AI council or equivalent |
 | Investment | What we fund | Existing IT governance or capital process |
-| **Operational** | **Does this specific build meet the code** | **The AHJ. This model.** |
+| **Operational** | **Does this specific build meet the code** | **The Decision Authority. This model.** |
 
-An AHJ that meets monthly to discuss submissions has become a change
+An Decision Authority that meets monthly to discuss submissions has become a change
 advisory board, and [appendix C](../reference/evidence-on-gates.md)
 explains precisely why that is the failure mode to avoid.
 
@@ -118,14 +118,14 @@ Everything above Tier 1 carries **two** names:
 The Standing Owner is not a formality and is not a co-author. They accept
 that when the builder leaves, this becomes theirs: to operate, to hand
 off, or to switch off. **A capability with no Standing Owner may not
-receive a certificate of occupancy above Tier 1.**
+receive a production approval above Tier 1.**
 
 This will be unpopular, because it makes someone with a permanent role
 accept ongoing responsibility for work they did not do, and there are
 never enough of those people. That constraint is real, and it is
 information: **if no standing owner can be found, the institution does
 not actually have capacity to operate this thing.** Better to learn that
-at plan review than at graduation.
+at design review than at graduation.
 
 ### Handoff as a first-class deliverable
 
@@ -153,7 +153,7 @@ an IT chore:
 - Offboarding revokes, it does not merely stop using. Include pool and
   group memberships, which are frequently missed because they are not
   visible from the key.
-- Never permit institutional work on personal accounts. Departure makes
+- Never authorization institutional work on personal accounts. Departure makes
   personal-account work unrecoverable, which converts a person leaving
   into a data loss event.
 
@@ -162,7 +162,7 @@ an IT chore:
 ## Special inspector
 
 At Tier 3, review is performed by someone **independent of the project**.
-This borrows the IBC's special inspection concept, and specifically its
+This borrows the IBC's independent review concept, and specifically its
 best feature: the independent inspector is engaged by the **owner**, not
 by the contractor, so the person inspecting is not paid by the person
 being inspected.
@@ -177,7 +177,7 @@ someone to be objective.
 
 ---
 
-## Building official
+## Governance platform team
 
 The office that runs the process: maintains the code, publishes the
 turnaround times, keeps the registry, runs the automated checks, and
@@ -185,7 +185,7 @@ holds the templates.
 
 In practice this is a platform or enablement team, and its most important
 work is not enforcement at all. It is the paved road from
-[chapter 01](01-principles.md). **The building official who spends their
+[chapter 01](01-principles.md). **The governance platform team who spends their
 time reviewing is failing; the one who spends it making the compliant
 path the easy path is succeeding.**
 
@@ -195,7 +195,7 @@ Concretely, this office owns:
 - The automated checks at H1 through H5
 - The registry, and its reconciliation against reality
 - Published turnaround times, and being accountable for missing them
-- The variance log, and noticing when repeated variances mean the code is
+- The recorded exception log, and noticing when repeated recorded exceptions mean the code is
   wrong
 
 ---
@@ -204,7 +204,7 @@ Concretely, this office owns:
 
 | Role | Count | Tenure | Cannot be |
 |---|---|---|---|
-| Authority Having Jurisdiction | 1 or 2 plus deputy | Continuing | The builder |
+| Final Decision Authority | 1 or 2 plus deputy | Continuing | The builder |
 | Responsible Builder | 1 per capability | Any | Anonymous |
 | Standing Owner | 1 per capability above Tier 1 | **Must be continuing** | Fixed-term |
 | Special Inspector | 1 per Tier 3 | Any | Reporting to the builder |

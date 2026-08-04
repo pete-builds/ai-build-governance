@@ -1,12 +1,12 @@
-# 04. Plan Review
+# 04. Design Review
 
-In construction, plan review (or plan examination) sits between the
-permit application and the permit. Somebody who did not draw the
+In construction, design review (or plan examination) sits between the
+authorization application and the authorization. Somebody who did not draw the
 drawings reads them against the code and against what the project is
 supposed to accomplish. It happens before anyone breaks ground, because
 that is when changes are cheap.
 
-Two things about real plan review are worth stealing before anything
+Two things about real design review are worth stealing before anything
 else.
 
 **It is bounded.** A jurisdiction publishes a turnaround time. Review is
@@ -17,7 +17,7 @@ bottleneck becomes something people route around.
 **It checks against a published standard.** The reviewer is not
 expressing an opinion about whether they would have designed it this
 way. They are checking it against the code. That distinction is what
-separates plan review from an architecture review board, and it is why
+separates design review from an architecture review board, and it is why
 this chapter is safe while the boards described in
 [appendix C](../reference/evidence-on-gates.md) frequently are not.
 
@@ -32,7 +32,7 @@ Authority's job: **does this design deliver what was asked for**, not
 "is this how I would build it."
 
 Keep it short. Use
-[`templates/plan-review.md`](../templates/plan-review.md). Three pages
+[`templates/design-review.md`](../templates/design-review.md). Three pages
 maximum, and diagrams count against the limit.
 
 ### Required content, all tiers
@@ -109,7 +109,7 @@ Publish them. Miss them and the review has failed, not the builder.
 |---|---|---|
 | 1 | No review | n/a |
 | 2 | 3 working days | **Deemed approved.** Proceed and note it in the record. |
-| 3 | 10 working days | Escalates to the AHJ, who must either review it or waive to Tier 2 in writing. |
+| 3 | 10 working days | Escalates to the Decision Authority, who must either review it or waive to Tier 2 in writing. |
 
 The Tier 2 deemed-approval rule is deliberate and it is the most
 important sentence in this chapter. A review process with no
@@ -174,7 +174,7 @@ that look like defiance are actually unanswered questions.
 
 ---
 
-## What plan review is not
+## What design review is not
 
 **It is not a design critique.** If the design meets the need, is
 within tier, has bounded permissions, and its failure behavior is
@@ -187,7 +187,7 @@ and it is mostly automated. A reviewer reading a diagram cannot tell
 you whether the credentials are actually scoped correctly.
 
 **It is not a committee.** One reviewer for Tier 2, one independent
-reviewer for Tier 3. If plan review requires a meeting with more than
+reviewer for Tier 3. If design review requires a meeting with more than
 three people in it, this model has been implemented incorrectly.
 
 ---
@@ -195,5 +195,5 @@ three people in it, this model has been implemented incorrectly.
 ## Output
 
 A recorded disposition attached to the Statement of Need, plus a
-**permit** if approved. The permit, its conditions, and its expiry are
-[chapter 05](05-permits.md).
+**authorization** if approved. The authorization, its conditions, and its expiry are
+[chapter 05](05-authorization-to-build.md).

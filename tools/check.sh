@@ -81,16 +81,16 @@ fi
 
 # ---------------------------------------------------------------------------
 note "6. Every file is reachable"
-for f in code/*.md handbook/*.md; do
+for f in model/*.md guide/*.md; do
   base=$(basename "$f")
   grep -q "$base" README.md || bad "not linked from README: $f"
 done
 for f in templates/*.md reference/*.md reference/platform-profiles/*.md; do
   base=$(basename "$f")
-  grep -rq "$base" README.md code/ handbook/ reference/ templates/ 2>/dev/null \
+  grep -rq "$base" README.md model/ guide/ reference/ templates/ 2>/dev/null \
     || bad "orphaned file, nothing links to it: $f"
 done
-echo "  checked $(ls code/*.md | wc -l | tr -d ' ') code chapters, $(ls handbook/*.md | wc -l | tr -d ' ') handbook, $(ls reference/*.md reference/platform-profiles/*.md | wc -l | tr -d ' ') reference, $(ls templates/*.md | wc -l | tr -d ' ') templates"
+echo "  checked $(ls model/*.md | wc -l | tr -d ' ') model chapters, $(ls guide/*.md | wc -l | tr -d ' ') guide, $(ls reference/*.md reference/platform-profiles/*.md | wc -l | tr -d ' ') reference, $(ls templates/*.md | wc -l | tr -d ' ') templates"
 
 # ---------------------------------------------------------------------------
 note "7. Vendor specifics kept out of Part I"
@@ -98,7 +98,7 @@ note "7. Vendor specifics kept out of Part I"
 # belong in reference/platform-profiles/. A bare mention in prose is fine;
 # a config key or version number is not.
 if grep -rnE 'global_disable_no_log_param|x-litellm-tags|EXECUTIONS_DATA_|upperbound_key_generate_params|LITELLM_KEY_ROTATION|/key/\{key\}/regenerate' \
-     code/*.md 2>/dev/null | grep -v '^code/00-conventions.md'; then
+     model/*.md 2>/dev/null | grep -v '^model/00-conventions.md'; then
   bad "vendor config detail in Part I: move it to reference/platform-profiles/"
 else
   echo "  ok"
@@ -106,14 +106,32 @@ fi
 
 # ---------------------------------------------------------------------------
 note "8. Statement labels present in Part I"
-labels=$(grep -rohE '\*\*(REQUIREMENT|GUIDANCE|EXAMPLE|LOCAL AMENDMENT REQUIRED|DESIGN JUDGMENT|VERIFICATION NOTE)\*\*' code/*.md 2>/dev/null | wc -l | tr -d ' ')
+labels=$(grep -rohE '\*\*(REQUIREMENT|GUIDANCE|EXAMPLE|LOCAL AMENDMENT REQUIRED|DESIGN JUDGMENT|VERIFICATION NOTE)\*\*' model/*.md 2>/dev/null | wc -l | tr -d ' ')
 echo "  labelled statements in Part I: $labels"
 if [ "$labels" -lt 5 ]; then
   bad "expected labelled statements in Part I (see code/00-conventions.md)"
 fi
 
 # ---------------------------------------------------------------------------
-note "9. Source ledger freshness"
+note "9. Construction jargon left unpaired"
+# Plain AI-governance language is primary. Construction terms are allowed in
+# reference/ (where the analogy is explained) and in the glossary, and
+# elsewhere only when paired with the plain term. These are the ones that
+# were primary before edition 2026.4 and must not creep back.
+if grep -rniE '\bAHJ\b|certificate of occupancy|\bpunch list\b|\bretainage\b|listed component|\bplan review\b|\bhold point' \
+     model/ guide/ templates/ 2>/dev/null \
+   | grep -v '^model/00-conventions.md' \
+   | grep -v 'in the construction analogy' \
+   | grep -v 'analogous to' \
+   | grep -v 'called the' \
+   | grep -v 'analogy'; then
+  bad "unpaired construction jargon outside reference/ (see model/00-conventions.md)"
+else
+  echo "  ok"
+fi
+
+# ---------------------------------------------------------------------------
+note "10. Source ledger freshness"
 # Platform behavior, regulations, CVEs, and protocol revisions all decay.
 # SOURCES.md records retrieval dates so decay is visible rather than silent.
 if [ -f SOURCES.md ]; then

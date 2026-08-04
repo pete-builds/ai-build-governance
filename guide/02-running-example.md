@@ -23,7 +23,7 @@ at classification, **Tier 3**, and most people guess Tier 2.
 
 ## Stage 1: Statement of Need
 
-Chapter: [code/02-statement-of-need.md](../code/02-statement-of-need.md)
+Chapter: [model/02-statement-of-need.md](../model/02-statement-of-need.md)
 
 The finance office's operations manager writes it, **not** the person who
 wants to build it. That is the whole control.
@@ -36,7 +36,7 @@ wants to build it. That is the whole control.
 | **Done looks like** | Median first response under 1 working day, with staff still sending every reply. |
 | **Tolerance for wrong** | A misclassification costs a staff member 2 minutes to correct. A **wrong factual claim about someone's account** sent to them is a serious error. Acceptable rate for the first: under 10%. For the second: zero, which is why no reply sends without a human. |
 | **Data required** | Inquiry text (external, untrusted). Student financial account records. Institutional business data. |
-| **Owner / Operator** | Operations manager owns it. A fellow on a 9-month appointment will build it, so a **Standing Owner** is required before plan review, per [chapter 09](../code/09-roles.md). |
+| **Owner / Operator** | Operations manager owns it. A fellow on a 9-month appointment will build it, so a **Standing Owner** is required before design review, per [chapter 09](../model/09-roles.md). |
 
 ### The existing-tooling check
 
@@ -58,7 +58,7 @@ Four questions, and the third one nearly ended the project:
 
 ## Stage 2: Classification
 
-Chapter: [code/03-classification.md](../code/03-classification.md)
+Chapter: [model/03-classification.md](../model/03-classification.md)
 
 Triggers worked in order, **highest wins**:
 
@@ -94,9 +94,9 @@ accepted.
 
 ---
 
-## Stage 3: Plan Review
+## Stage 3: Design Review
 
-Chapter: [code/04-plan-review.md](../code/04-plan-review.md).
+Chapter: [model/04-design-review.md](../model/04-design-review.md).
 Tier 3, so an **independent reviewer** from outside the finance office, who
 does not report to the builder.
 
@@ -107,7 +107,7 @@ draft would be stored in the ticketing system, meaning account details
 would land in a second system with its own retention. That went to privacy
 review.
 
-**Tool inventory:** finance records lookup (read-only, listed component),
+**Tool inventory:** finance records lookup (read-only, certified reusable component),
 ticket read, draft-create. **No send capability.** The reviewer asked what
 breaks if draft-create is removed, establishing that it is load-bearing.
 
@@ -139,16 +139,16 @@ and confirm retention with privacy.
 
 ## Stage 4: Concurrent reviews
 
-Chapter: [code/10-concurrent-reviews.md](../code/10-concurrent-reviews.md).
-All three on the same clock as plan review, not after it.
+Chapter: [model/10-concurrent-reviews.md](../model/10-concurrent-reviews.md).
+All three on the same clock as design review, not after it.
 
 **Accessibility.** The staff approval interface is a user interface, so it
 is in scope. Found: the side-by-side record display used color alone to
 mark discrepancies, and the draft area was not reachable by keyboard.
-Both fixed before H5. See [handbook/04-accessibility.md](04-accessibility.md).
+Both fixed before H5. See [guide/04-accessibility.md](04-accessibility.md).
 
 **Security.** Cleared on question 1: standard gateway pattern, standard
-scaffold, a listed component. Escalated on one criterion only, that the
+scaffold, a certified reusable component. Escalated on one criterion only, that the
 tier is 3 on data classification, so the security office saw it. They asked
 one question, about whether the log sink held draft content, which fed the
 privacy finding.
@@ -167,11 +167,11 @@ retention accepted as it already governs the same data.
 
 ---
 
-## Stage 5: Permit
+## Stage 5: Authorization
 
-Chapter: [code/05-permits.md](../code/05-permits.md)
+Chapter: [model/05-authorization-to-build.md](../model/05-authorization-to-build.md)
 
-Tier 3 permit issued with conditions, each tied to a hold point:
+Tier 3 authorization issued with conditions, each tied to a verification point:
 
 | Condition | Verified at |
 |---|---|
@@ -185,38 +185,38 @@ Tier 3 permit issued with conditions, each tied to a hold point:
 | Keyboard path and non-color discrepancy marking | H5 |
 | Approval rate and override rate instrumented | H5 |
 
-Permit expires in 12 months. Work must begin within 60 days.
+Authorization expires in 12 months. Work must begin within 60 days.
 
 ---
 
 ## Stage 6: Inspections
 
-Chapter: [code/06-inspections.md](../code/06-inspections.md)
+Chapter: [model/06-inspections.md](../model/06-inspections.md)
 
-**H1 Foundation.** Automated, then a human check because Tier 3. Caught a
+**H1 Identity and Credentials.** Automated, then a human check because Tier 3. Caught a
 real problem: the gateway key had inherited the default model allowlist,
 meaning access to every model rather than the one budgeted. Fixed. Also
 confirmed the key's expiry matched the appointment end date.
 
-**H2 Rough-in.** The records component is listed, so **its internals were
+**H2 Connections and Permissions.** The records component is certified, so **its internals were
 not re-reviewed** (stage 8). What was inspected was the integration: the
 credential passed to it, and that the lookup could not be widened by
 message text. The human check traced one concrete injection path end to
 end and found it blocked.
 
-**H3 Framing.** Dependency deliberately broken to confirm the agent
+**H3 End-to-End Path.** Dependency deliberately broken to confirm the agent
 produces no draft when the lookup fails. It initially produced a draft
 saying "I was unable to retrieve your records," which was judged worse than
 nothing because it looked like a real reply. Changed to produce no draft.
 
-**H4 Concealment. The gate that mattered.** The build was about to move
+**H4 Pre-Concealment. The gate that mattered.** The build was about to move
 from a console the builder watched to a queue staff work through. Checks:
 every run logged with retrieved records and generated draft, logging not
 suppressible, a staff member can see what the agent did without developer
 access, and **the override rate instrumented before launch rather than
 after**. Human sign-off required and given.
 
-**H5 Final.** Real inquiries, real records, guardrails verified on the
+**H5 Final Verification.** Real inquiries, real records, guardrails verified on the
 actual API path rather than read from a settings page. Rollback exercised:
 the agent disabled, queue reverts to manual, confirmed by doing it. A staff
 member other than the builder operated it successfully.
@@ -225,10 +225,10 @@ member other than the builder operated it successfully.
 
 ## Stage 7: Occupancy
 
-Chapter: [code/07-occupancy-and-records.md](../code/07-occupancy-and-records.md)
+Chapter: [model/07-production-approval.md](../model/07-production-approval.md)
 
-**Temporary certificate of occupancy**, 90 days, because this is a pilot
-and saying so on the certificate is more honest than calling it one
+**Temporary production approval**, 90 days, because this is a pilot
+and saying so on the approval is more honest than calling it one
 informally.
 
 Authorized envelope, stated narrowly: inquiry classification and draft
@@ -240,11 +240,11 @@ aid or collections decisions.
 Support commitment named: who responds, during what hours, expected
 response time.
 
-**Retainage:** the fellow's project is not marked complete, and the
+**Withheld completion:** the fellow's project is not marked complete, and the
 permanent gateway credential is not issued, until the registry entry is
 finished. That is what makes the record actually happen.
 
-At 90 days: converted to a full certificate. Override rate measured at 12%,
+At 90 days: converted to a full production approval. Override rate measured at 12%,
 above the 10% target, so the classification prompt was revised and the
 target renegotiated to 15% with the operations manager's agreement. **That
 renegotiation is recorded**, because a target quietly moved is a target
@@ -254,7 +254,7 @@ that never existed.
 
 ## Stage 8: Reuse, in both directions
 
-Chapter: [code/11-listed-components.md](../code/11-listed-components.md)
+Chapter: [model/11-certified-components.md](../model/11-certified-components.md)
 
 **Consuming.** The records lookup was already listed by another unit: scope
 of certification "read-only single-account retrieval," tier ceiling 3,
@@ -263,17 +263,17 @@ project's use was within scope, so H2 skipped the component and inspected
 only the integration. **This saved the most time of anything in the
 process.**
 
-**Being consumed.** After the full certificate, the AHJ listed the
+**Being consumed.** After the full production approval, the Decision Authority listed the
 classification component itself. Scope: "inquiry classification into the
 defined taxonomy." Tier ceiling 3. **Exclusions: no drafting, no automated
 sending, no use in aid or collections decisions.** Surveillance quarterly.
 Expiry 12 months.
 
 Six weeks later a different office wanted to classify a different inquiry
-type. They cited the listing, wrote their own Statement of Need, and their
-plan review covered their corpus and their audience.
+type. They cited the certification, wrote their own Statement of Need, and their
+design review covered their corpus and their audience.
 
-> **REQUIREMENT** ([chapter 11](../code/11-listed-components.md))
+> **REQUIREMENT** ([chapter 11](../model/11-certified-components.md))
 > Their instance still classified independently. It reached **Tier 2**,
 > not Tier 3, because their data was internal business data rather than
 > student financial records. **Certification reduced their component
@@ -284,7 +284,7 @@ plan review covered their corpus and their audience.
 
 ## Stage 9: Alteration
 
-Chapter: [code/08-alterations.md](../code/08-alterations.md)
+Chapter: [model/08-alterations.md](../model/08-alterations.md)
 
 Four months in, the finance office asked for auto-send on inquiries the
 agent classifies with high confidence.
@@ -296,7 +296,7 @@ central mitigation, a human comparing the draft against the records, is
 exactly what would be removed.
 
 Outcome: **declined in that form**, and a narrower version approved
-instead. Auto-send permitted only for one inquiry category where the reply
+instead. Auto-send authorizationted only for one inquiry category where the reply
 contains no account-specific figures. That version keeps the trifecta but
 removes the harm path, and it re-entered at H4 with a fresh sign-off.
 
@@ -308,7 +308,7 @@ removes the harm path, and it re-entered at H4 with a fresh sign-off.
 
 ## Stage 10: Delegated authority
 
-Chapter: [code/12-delegated-authority.md](../code/12-delegated-authority.md)
+Chapter: [model/12-delegated-authority.md](../model/12-delegated-authority.md)
 
 The narrow auto-send raised the question the code exists for: whose
 authority sends the message?
@@ -327,7 +327,7 @@ person's own: they can send from that mailbox, so it can, for that
 category, and nothing more.
 
 Standing consent was considered and declined for the broader case. Had it
-been adopted, the code requires it be recorded as a variance and the
+been adopted, the code requires it be recorded as a recorded exception and the
 capability treated as Tier 3 on autonomy, which it already was.
 
 ---
@@ -341,12 +341,12 @@ capability treated as Tier 3 on autonomy, which it already was.
 |---|---|
 | Statement of need | Half a day, by the operations manager |
 | Classification | Under an hour |
-| Plan review, independent | Two hours reviewing, 10 working day turnaround |
+| Design review, independent | Two hours reviewing, 10 working day turnaround |
 | Concurrent reviews | Parallel, no added wall-clock |
 | Inspections H1 to H3 | Mostly automated |
 | H4 | One hour of human attention. The most valuable hour. |
 | H5 | Half a day including rollback exercise |
-| Registry entry | Two hours, forced by retainage |
+| Registry entry | Two hours, forced by withheld completion |
 
 Found by the process, in order of value:
 

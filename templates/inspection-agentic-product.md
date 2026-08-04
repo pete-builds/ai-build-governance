@@ -13,7 +13,7 @@ result: pass | fail | pass with findings
 
 > For a product that plans and acts at runtime, was largely authored by
 > AI coding tools, or both. See
-> [chapter 10](../handbook/03-agentic-products.md).
+> [chapter 10](../guide/03-agentic-products.md).
 >
 > **Work both parts.** Part A covers code authored by AI agents, where
 > the failure is that nobody understands what shipped. Part B covers a
@@ -89,7 +89,7 @@ Attesting human: ______________  Answer given: ______________
 - [ ] Acts with per-action human approval → Tier 2
 - [ ] Acts without per-action human approval → **Tier 3**
 - [ ] Can modify its own instructions, tools, or permissions at runtime →
-      **Tier 3 plus explicit AHJ sign-off**
+      **Tier 3 plus explicit Decision Authority sign-off**
 
 **Lethal trifecta:**
 
@@ -204,7 +204,7 @@ Shadow-stage result (accuracy, disagreement rate, notable failures):
 
 A person who did not build it answers all six. If any answer requires
 reading the source, this is a prototype with users, which is legitimate
-but should hold a **temporary** certificate of occupancy that says so.
+but should hold a **temporary** production approval that says so.
 
 | # | Question | Answer |
 |---|---|---|
@@ -228,7 +228,7 @@ Answered by (not the builder): ______________
 ## Result
 
 - [ ] **Pass**
-- [ ] **Pass with findings** (punch list)
+- [ ] **Pass with findings** (accepted defect list)
 - [ ] **Fail**
 
 | | Name | Date |

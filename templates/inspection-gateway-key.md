@@ -67,7 +67,7 @@ result: pass | fail | pass with findings
 - [ ] Pool identifier is treated as a secret and is not in a ticket
       subject, chat channel name, or repository
 - [ ] **Pool-to-owner mapping is recorded in the registry.** The platform
-      does not store which team owns a pool. This is a pure as-built: if
+      does not store which team owns a pool. This is a pure deployed-system-record: if
       the record is lost, the information is gone.
 - [ ] Someone is accountable for reviewing pool membership
 
@@ -98,7 +98,7 @@ result: pass | fail | pass with findings
       flatly that guardrails work only with Chat Completions. A key with
       guardrails "enabled" can carry all its real traffic down an
       unguarded path. **Test the path, do not read the setting.**
-- [ ] Tested against the actual path in the plan-review data flow diagram
+- [ ] Tested against the actual path in the design-review data flow diagram
 - [ ] Behavior on a guardrail block is handled by the calling application
       rather than surfacing a raw error to a user
 - [ ] Where the platform supports it, teams cannot disable their own

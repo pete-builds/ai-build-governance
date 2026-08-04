@@ -2,12 +2,12 @@
 
 > **Part II: handbook. Non-binding.** The requirement that these reviews
 > run concurrently lives in
-> [code/10-concurrent-reviews.md](../code/10-concurrent-reviews.md). This
+> [model/10-concurrent-reviews.md](../model/10-concurrent-reviews.md). This
 > page is how to actually do one.
 
 ---
 
-Two reviews, both concurrent with plan review, both deliberately narrow.
+Two reviews, both concurrent with design review, both deliberately narrow.
 
 ---
 
@@ -16,7 +16,7 @@ Two reviews, both concurrent with plan review, both deliberately narrow.
 Chapters 06 and the inspection templates already do most of the security
 work. What was missing was a **named touchpoint**, so this states it.
 
-**Concurrent with plan review**, security review answers three questions
+**Concurrent with design review**, security review answers three questions
 and nothing else:
 
 1. Does this fit an already-reviewed pattern, or is it novel?
@@ -56,7 +56,7 @@ Concurrent, and narrower than people assume. Three questions:
    Where student records are involved, the relevant hook in US law is the
    FERPA school official exception at
    [34 CFR 99.31(a)(1)](https://www.law.cornell.edu/cfr/text/34/99.31),
-   discussed in [chapter 03](../code/03-classification.md).
+   discussed in [chapter 03](../model/03-classification.md).
 3. **What is retained, where, and for how long?** Including the places
    people forget: execution logs, prompt and response logs, vector stores,
    and agent scratchpads. As [appendix B](../reference/platform-controls.md)
@@ -70,7 +70,7 @@ Concurrent, and narrower than people assume. Three questions:
 ## Why both are kept narrow
 
 A function that receives every build becomes the serial queue that
-[code/10](../code/10-concurrent-reviews.md) exists to prevent, and it will
+[model/10](../model/10-concurrent-reviews.md) exists to prevent, and it will
 be routed around rather than argued with. Narrow, published escalation
 criteria are what make escalation credible.
 
@@ -82,4 +82,4 @@ determinations rather than permissions. See requirement 10.6.
 The running example shows privacy review producing the single most valuable
 finding in that whole process, an unintended data spread across three
 retention regimes, without blocking anything:
-[handbook/02, stage 4](02-running-example.md#stage-4-concurrent-reviews).
+[guide/02, stage 4](02-running-example.md#stage-4-concurrent-reviews).

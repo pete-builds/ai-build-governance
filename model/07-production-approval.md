@@ -1,14 +1,14 @@
-# 07. Occupancy and Records
+# 07. Production Approval and Records
 
 Two ideas, and the institution's long-term health depends far more on
 the second than the first.
 
 ---
 
-## Part 1: Certificate of Occupancy
+## Part 1: Production Approval
 
 A building can be finished and still not legally occupiable. The
-certificate of occupancy is a separate instrument issued after
+production approval is a separate instrument issued after
 inspections, and without it, occupancy is unlawful regardless of how
 complete the building looks.
 
@@ -19,7 +19,7 @@ gradually being used more.
 
 ### Issuing a CO
 
-Requires: H5 passed, every permit condition individually verified, a
+Requires: H5 passed, every authorization condition individually verified, a
 complete registry entry, and a named owner and operator who have
 acknowledged the role.
 
@@ -27,7 +27,7 @@ acknowledged the role.
 |---|---|
 | 1 | Self-issued, within declared scope |
 | 2 | A peer who is not the builder |
-| 3 | The Authority Having Jurisdiction |
+| 3 | The Final Decision Authority |
 
 The CO states what is authorized: which data classes, which population,
 which tools, which egress. **Operating outside that envelope is
@@ -35,7 +35,7 @@ operating without a certificate**, and it is grounds for the stop-work
 action in chapter 05. This is what makes the scope statement enforceable
 rather than decorative.
 
-### Temporary Certificate of Occupancy: the honest pilot
+### Time-Limited Production Approval: the honest pilot
 
 A TCO is conditional and time-bound. Real ones are issued in fixed
 increments, only where the occupied portion is safe, and **continued
@@ -61,9 +61,9 @@ Suggested defaults: 90 days, renewable once for 90. A pilot needing more
 than six months is not a pilot; it is unfunded production, and calling it
 that is more useful to everyone.
 
-### Substantial completion
+### Operational handover
 
-Construction marks **substantial completion** as the point where the
+Construction marks **operational handover** as the point where the
 owner can use the work for its intended purpose. It matters because it
 triggers things: warranty periods begin, and retained payment is
 released.
@@ -74,22 +74,22 @@ place:
 - **Warranty** becomes an explicit support commitment. Who responds when
   this breaks, during what hours, and for how long? An AI capability
   with no named responder is not complete, it is abandoned in advance.
-- **Retainage** is the leverage. Hold something back until the records
+- **Withheld completion** is the leverage. Hold something back until the records
   are done. In construction it is money; here it might be the permanent
   credential, the production budget increase, the public announcement,
   or the project being marked complete on the dashboard people care
   about.
 
-Retainage is the mechanism that makes Part 2 actually happen. Without
+Withheld completion is the mechanism that makes Part 2 actually happen. Without
 it, records are a request. With it, they are a condition of being
 finished.
 
 ---
 
-## Part 2: Record Drawings
+## Part 2: Deployed System Record
 
-Construction distinguishes **as-builts**, the contractor's field
-markups of what was really installed, from **record drawings**, the
+Construction distinguishes **deployed system records**, the contractor's field
+markups of what was really installed, from **deployed system record**, the
 design professional's clean final compilation. They are legally distinct
 documents, and the reason both exist is that what gets built is never
 exactly what was drawn.
@@ -148,7 +148,7 @@ treat mismatches as findings:
 
 | Mismatch | Meaning |
 |---|---|
-| In platform, not in registry | Unpermitted work. Chapter 08's existing-work path applies. |
+| In platform, not in registry | Unauthorizationted work. Chapter 08's existing-work path applies. |
 | In registry, not in platform | Decommissioned without closing the record, or the record was aspirational |
 | Scope wider than the CO authorizes | Operating without a certificate |
 | Owner no longer employed | Orphan. Escalate immediately. |
@@ -158,7 +158,7 @@ record. The clearest example, from
 [appendix B](../reference/platform-controls.md): where a gateway
 implements shared budget pools as tags, the platform does not store
 which team owns a pool. That mapping exists **only** where a human wrote
-it down. It is a pure as-built, and if the record is lost, the
+it down. It is a pure deployed-system-record, and if the record is lost, the
 information is simply gone.
 
 ### Periodic record review
