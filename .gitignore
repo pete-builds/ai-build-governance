@@ -1,0 +1,11 @@
+.DS_Store
+*.swp
+*~
+.venv/
+__pycache__/
+node_modules/
+
+# Local working notes: keep institution-specific drafts out of the
+# public model. Fill in a copy of the templates elsewhere, not here.
+local/
+*.local.md
