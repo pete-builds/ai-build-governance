@@ -58,6 +58,45 @@ prohibited, and a governance model needs a category for "no" that is
 not merely "more review." The EU AI Act models this with a genuinely
 prohibited tier rather than a very-high-risk one.
 
+### Worked example: a four-level institutional scheme
+
+Many universities run a scheme with **four** operative levels rather than
+three, and the fourth is what makes it usable here. A representative
+mapping:
+
+| Institutional level | Typical contents | Platform status | Permit tier |
+|---|---|---|---|
+| **Low Risk** | Published, public, intended for general release | Allowed | **1** |
+| **Moderate Risk** | The bulk of university business data. Frequently the default for anything not explicitly public. | Allowed | **2** |
+| **High Risk** | Identity-theft-enabling identifiers: national ID numbers, financial account numbers, driver's licence numbers | Requires security office engagement | **3**, with that engagement completed **before** plan review |
+| **Restricted** | Classes prohibited outright on the platform, commonly including passwords, payment card data, and protected health information | **Not allowed** | **Not permitted.** Return the Statement of Need. |
+
+Three amendments worth making when you adopt a scheme like this:
+
+**Default to the second level, not the first.** Where institutional
+guidance says to treat data as Moderate when in doubt, a Statement of
+Need that leaves the data field blank classifies as **Tier 2**, not
+Tier 1. Silence is not an exemption.
+
+**Sequence the security engagement before design review.** A design
+reviewed and then rejected by the security office wastes both parties'
+time. See [chapter 11](11-concurrent-reviews.md), which runs security
+concurrently rather than serially.
+
+**Decide deliberately where student records land.** Many schemes place
+FERPA-protected education records in the *middle* level rather than the
+high one, because they are not identity-theft-enabling in the narrow
+sense. That is defensible as a data-security classification and can be
+the wrong answer for AI systems, where the concern is exposure and
+inference rather than identity theft. If you conclude student records
+warrant Tier 3 regardless of their classification, **write that
+amendment down explicitly** rather than leaving it to reviewer judgment.
+This is the single most consequential local decision in this chapter.
+
+`UNVERIFIED`: this table describes a common pattern rather than any one
+institution's published policy. Substitute your own levels verbatim, and
+cite your own policy, rather than relying on the shape above.
+
 **On student data specifically:** the relevant hook in US law is the
 FERPA school official exception at
 [34 CFR 99.31(a)(1)](https://www.law.cornell.edu/cfr/text/34/99.31),

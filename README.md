@@ -85,9 +85,12 @@ you have implemented the thing it was written to prevent.
    (occupancy type)          Not reviewer mood.
           |
           v
-  PLAN REVIEW                The design (the "how") is read against
-   (design vs. need)         the need. Timeboxed. By a peer.
-          |
+  PLAN REVIEW  <----+        The design (the "how") is read against
+   (design vs. need)|        the need. Timeboxed. By a peer.
+          |         |
+          |    CONCURRENT REVIEWS      Accessibility, security, privacy.
+          |     (ch 11)                In parallel, one clock, published
+          |                            standards. Never a relay.
           v
   PERMIT                     Authorization to build, with conditions,
    (Tier 1 / 2 / 3)          and an expiry date.
@@ -110,6 +113,12 @@ you have implemented the thing it was written to prevent.
                              Legacy work complies when altered.
 ```
 
+**The shortcut that matters most.** Consuming an already-certified
+component skips almost all of the above. You record the need, you inspect
+*your integration*, and you cite the listing. See
+[chapter 12](docs/12-listed-components.md). A governance model that makes
+reuse harder than rebuilding has failed, whatever else it gets right.
+
 The chapters:
 
 | # | Chapter | What it settles |
@@ -124,11 +133,24 @@ The chapters:
 | 08 | [Alterations and Existing Work](docs/08-alterations.md) | Change control, and the legacy retrofit path |
 | 09 | [Roles](docs/09-roles.md) | Who stamps, who inspects, and the graduating-student problem |
 | 10 | [Agentic Products](docs/10-agentic-products.md) | Getting an AI-built agent product into production |
+| 11 | [Concurrent Reviews](docs/11-concurrent-reviews.md) | Accessibility, security, and privacy, in parallel rather than in a relay |
+| 12 | [Listed Components](docs/12-listed-components.md) | Certify once, reuse everywhere. The anti-queue mechanism. |
+| 13 | [Delegated Authority](docs/13-delegated-authority.md) | An agent acting under a named human's authority |
 
-**If you came here with one specific question, it is probably chapter 10.**
+**If you came here with one specific question, it is probably chapter 10
+or chapter 12.**
+
 "We built an agent product with AI coding tools and we want it live" is
-the most common real request, and chapter 10 is the path. It adds no new
-gates; it maps onto the same hold points as everything else.
+the most common real request, and [chapter 10](docs/10-agentic-products.md)
+is the path. It adds no new gates; it maps onto the same hold points as
+everything else.
+
+"Another group already built and validated this, why am I in a queue to
+use it" is the most common *complaint*, and it is a fair one.
+[Chapter 12](docs/12-listed-components.md) is the answer: a component is
+certified once against published criteria by someone independent, and
+after that consumers inherit the certification and only the integration
+gets inspected. Nobody re-tests a fire-rated door in every building.
 
 The templates in [`templates/`](templates/) are the actual paperwork:
 need statement, plan review, four inspection checklists (MCP server,
@@ -189,8 +211,18 @@ and MCP stack is in
 
 **In scope:** capabilities an institution builds or assembles itself.
 MCP servers and the tools they expose, Agent Studio automations and agents,
-gateway key and budget issuance, retrieval systems over institutional
-data, and AI-assisted development of any of the above.
+agent products built with AI coding tools, gateway key and budget
+issuance, retrieval systems over institutional data, and AI-assisted
+development of any of the above. Also the accessibility, security, and
+privacy reviews that run alongside all of it.
+
+**Accessibility is in scope and is not optional.** For public
+universities in the United States it carries a statutory deadline, not a
+quality aspiration, and AI systems fail it by default: generated
+interfaces without keyboard paths, streaming output that breaks assistive
+technology, generated images without alternative text. If an agent
+produces content for users, it is producing content subject to the
+standard. See [chapter 11](docs/11-concurrent-reviews.md).
 
 **Out of scope:** classroom and academic-integrity policy, procurement
 of finished commercial products, research methodology, and anything
