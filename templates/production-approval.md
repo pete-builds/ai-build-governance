@@ -1,4 +1,13 @@
 ---
+title: "Template: Production Approval"
+parent: "Templates"
+nav_order: 8
+---
+
+> Copy this file. The metadata block below is part of the template:
+> fill it in at the top of your copy.
+
+```yaml
 id: CO-YYYY-NNN
 type: full | temporary
 statement_of_need: SON-YYYY-NNN
@@ -7,7 +16,7 @@ tier:
 issued:
 expires:            # REQUIRED for temporary. Blank for full.
 registry_id:
----
+```
 
 # Production Approval
 

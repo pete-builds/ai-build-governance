@@ -1,3 +1,8 @@
+---
+title: Changelog
+nav_order: 6
+---
+
 # Changelog
 
 Model codes ship as dated **editions**, and jurisdictions adopt a specific

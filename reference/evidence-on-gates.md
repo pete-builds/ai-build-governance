@@ -1,4 +1,8 @@
-# Appendix C: The Evidence on Gates
+---
+title: "Appendix C: The Evidence on Gates"
+parent: "Technical and Evidence References"
+nav_order: 3
+---
 
 This model makes a strong claim: that heavyweight approval gates make
 outcomes worse, and that governance should mostly be automated defaults

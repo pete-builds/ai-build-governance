@@ -1,4 +1,8 @@
-# [Institution] Amendments to AI Build Governance
+---
+title: "Template: Institutional Amendments"
+parent: "Templates"
+nav_order: 9
+---
 
 **Status:** Draft | Under review | **Adopted** (date)
 **Adopts edition:** 2026.4

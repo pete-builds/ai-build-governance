@@ -1,4 +1,8 @@
-# 12. Delegated Authority
+---
+title: "12. Delegated Authority"
+parent: "Core Governance Model"
+nav_order: 12
+---
 
 ## Purpose
 

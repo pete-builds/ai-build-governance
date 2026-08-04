@@ -1,4 +1,13 @@
 ---
+title: "Template: Design Review"
+parent: "Templates"
+nav_order: 2
+---
+
+> Copy this file. The metadata block below is part of the template:
+> fill it in at the top of your copy.
+
+```yaml
 id: PR-YYYY-NNN
 statement_of_need: SON-YYYY-NNN
 tier:
@@ -7,7 +16,7 @@ reviewer:             # must not be the builder. At Tier 3, must not report to t
 date_submitted:
 target_turnaround:    # T2: 3 working days. T3: 10 working days.
 disposition:          # Approved | Approved as Noted | Revise and Resubmit | Rejected
----
+```
 
 # Design Response and Design Review
 
@@ -115,7 +124,7 @@ disposition:          # Approved | Approved as Noted | Revise and Resubmit | Rej
 | What the model can do once influenced | |
 | What structurally limits the damage | |
 
-**Lethal trifecta check** (chapter 03):
+**Lethal trifecta check** (see [Risk Classification](../model/03-classification.md)):
 
 - [ ] Access to private data
 - [ ] Exposure to untrusted content

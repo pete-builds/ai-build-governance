@@ -1,4 +1,8 @@
-# 02. Statement of Need
+---
+title: "02. Statement of Need"
+parent: "Core Governance Model"
+nav_order: 2
+---
 
 ## Purpose
 

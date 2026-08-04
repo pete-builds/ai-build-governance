@@ -1,4 +1,13 @@
 ---
+title: "Template: Agentic Product Inspection"
+parent: "Templates"
+nav_order: 7
+---
+
+> Copy this file. The metadata block below is part of the template:
+> fill it in at the top of your copy.
+
+```yaml
 id: INSP-AGENT-YYYY-NNN
 capability:
 registry_id:
@@ -7,7 +16,7 @@ built_with:           # AI coding tools used, if any
 inspector:
 date:
 result: pass | fail | pass with findings
----
+```
 
 # Inspection: Agentic Product
 
@@ -81,7 +90,7 @@ Attesting human: ______________  Answer given: ______________
 
 # Part B: The product is an agent
 
-## B1. Classification (chapter 03)
+## B1. Classification (see [Risk Classification](../model/03-classification.md))
 
 **Autonomy:**
 

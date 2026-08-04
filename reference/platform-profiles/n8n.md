@@ -1,4 +1,8 @@
-# Platform profile: n8n (Agent Studio)
+---
+title: "Platform profile: n8n"
+parent: "Technical and Evidence References"
+nav_order: 12
+---
 
 > **VERIFICATION NOTE**
 > Verified against vendor documentation on **2026-08-04**. Re-verify before

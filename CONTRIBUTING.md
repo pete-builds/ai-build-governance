@@ -1,3 +1,8 @@
+---
+title: Contributing
+nav_order: 8
+---
+
 # Contributing
 
 This is a model code. It is meant to be adopted, amended, and argued

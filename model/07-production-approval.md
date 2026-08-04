@@ -1,4 +1,8 @@
-# 07. Production Approval and Records
+---
+title: "07. Production Approval and Records"
+parent: "Core Governance Model"
+nav_order: 7
+---
 
 ## Purpose
 

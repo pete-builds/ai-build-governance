@@ -1,4 +1,8 @@
-# 05. Authorization to Build
+---
+title: "05. Authorization to Build"
+parent: "Core Governance Model"
+nav_order: 5
+---
 
 ## Purpose
 

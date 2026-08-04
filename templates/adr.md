@@ -1,4 +1,8 @@
-# ADR-NNN: <short title of the decision>
+---
+title: "Template: Decision Record (ADR)"
+parent: "Templates"
+nav_order: 3
+---
 
 > Format follows Michael Nygard, "Documenting Architecture Decisions"
 > (2011): https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions

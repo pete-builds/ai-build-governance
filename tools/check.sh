@@ -81,13 +81,17 @@ fi
 
 # ---------------------------------------------------------------------------
 note "6. Every file is reachable"
+# index.md files are Jekyll section landing pages, reached by directory link
+# (model/, guide/) rather than by filename, so they are exempt.
 for f in model/*.md guide/*.md; do
   base=$(basename "$f")
-  grep -q "$base" README.md || bad "not linked from README: $f"
+  [ "$base" = "index.md" ] && continue
+  grep -q "$base" README.md index.md || bad "not linked from README or index: $f"
 done
 for f in templates/*.md reference/*.md reference/platform-profiles/*.md; do
   base=$(basename "$f")
-  grep -rq "$base" README.md model/ guide/ reference/ templates/ 2>/dev/null \
+  [ "$base" = "index.md" ] && continue
+  grep -rq "$base" README.md index.md model/ guide/ reference/ templates/ 2>/dev/null \
     || bad "orphaned file, nothing links to it: $f"
 done
 echo "  checked $(ls model/*.md | wc -l | tr -d ' ') model chapters, $(ls guide/*.md | wc -l | tr -d ' ') guide, $(ls reference/*.md reference/platform-profiles/*.md | wc -l | tr -d ' ') reference, $(ls templates/*.md | wc -l | tr -d ' ') templates"

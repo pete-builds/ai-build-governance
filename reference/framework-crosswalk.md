@@ -1,4 +1,8 @@
-# Appendix A: Framework Crosswalk
+---
+title: "Appendix A: Framework Crosswalk"
+parent: "Technical and Evidence References"
+nav_order: 2
+---
 
 Two purposes. Give you the mapping to answer "which control is this" when
 audit asks. And be honest about which framework details were verified

@@ -9,3 +9,9 @@ node_modules/
 # public model. Fill in a copy of the templates elsewhere, not here.
 local/
 *.local.md
+
+_site/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
+vendor/

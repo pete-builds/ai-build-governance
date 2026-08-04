@@ -1,4 +1,8 @@
-# 06. Inspections
+---
+title: "06. Inspections"
+parent: "Core Governance Model"
+nav_order: 6
+---
 
 ## Purpose
 

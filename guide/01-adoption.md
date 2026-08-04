@@ -1,4 +1,8 @@
-# 01. Adoption
+---
+title: "01. Adoption"
+parent: "Implementation Guide"
+nav_order: 1
+---
 
 > **Part II: handbook. Non-binding.** How to stand this up at an
 > institution. The requirements are in [Part I](../model/).

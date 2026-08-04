@@ -1,4 +1,13 @@
 ---
+title: "Template: MCP Server Inspection"
+parent: "Templates"
+nav_order: 5
+---
+
+> Copy this file. The metadata block below is part of the template:
+> fill it in at the top of your copy.
+
+```yaml
 id: INSP-MCP-YYYY-NNN
 capability:
 registry_id:
@@ -7,7 +16,7 @@ spec_revision_reviewed_against: "2026-07-28"
 inspector:
 date:
 result: pass | fail | pass with findings
----
+```
 
 # Inspection: MCP Server
 

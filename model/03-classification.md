@@ -1,4 +1,8 @@
-# 03. Risk Classification
+---
+title: "03. Risk Classification"
+parent: "Core Governance Model"
+nav_order: 3
+---
 
 ## Purpose
 

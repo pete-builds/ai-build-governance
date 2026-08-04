@@ -1,11 +1,20 @@
 ---
+title: "Template: Statement of Need"
+parent: "Templates"
+nav_order: 1
+---
+
+> Copy this file. The metadata block below is part of the template:
+> fill it in at the top of your copy.
+
+```yaml
 id: SON-YYYY-NNN
 status: draft | submitted | returned | approved | withdrawn
 date_submitted:
 owner:            # the person with the problem. Signs this.
 operator:         # who will run it in 18 months
 tier_assigned:    # filled in at classification, not by the author
----
+```
 
 # Statement of Need: <plain-language name>
 
@@ -93,8 +102,8 @@ tier_assigned:    # filled in at classification, not by the author
 | Standing Owner, if the operator is fixed-term | | must be continuing |
 
 > If the operator is a student, fellow, intern, or other fixed-term
-> appointment, a **Standing Owner** is required before this may pass plan
-> review. See chapter 09. If none can be found, the institution does not
+> appointment, a **Standing Owner** is required before this may pass design
+> review. See [Roles and Authority](../model/09-roles.md), requirement 9.5. If none can be found, the institution does not
 > have capacity to operate this, and that is the answer.
 
 ---

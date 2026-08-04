@@ -1,4 +1,8 @@
-# Platform profile: LiteLLM (self-hosted AI gateway)
+---
+title: "Platform profile: litellm"
+parent: "Technical and Evidence References"
+nav_order: 10
+---
 
 > **VERIFICATION NOTE**
 > Verified against vendor documentation on **2026-08-04**. Re-verify before

@@ -1,4 +1,8 @@
-# 00. How to Read This Code
+---
+title: "00. How to Read This Code"
+parent: "Core Governance Model"
+nav_order: 0
+---
 
 Read this page once. It tells you which sentences bind you and which are
 just explanation, which is the thing model codes usually leave implicit and

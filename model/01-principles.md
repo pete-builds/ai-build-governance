@@ -1,4 +1,8 @@
-# 01. Principles
+---
+title: "01. Principles"
+parent: "Core Governance Model"
+nav_order: 1
+---
 
 ## Purpose
 

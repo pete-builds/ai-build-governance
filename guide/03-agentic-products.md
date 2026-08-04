@@ -1,4 +1,8 @@
-# 10. Agentic Products
+---
+title: "10. Agentic Products"
+parent: "Implementation Guide"
+nav_order: 3
+---
 
 The case this chapter exists for: **a team has used AI coding tools to
 build an agent product, it works on their machine, and they want it in

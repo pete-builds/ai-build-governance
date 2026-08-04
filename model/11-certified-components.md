@@ -1,4 +1,8 @@
-# 11. Certified Reusable Components
+---
+title: "11. Certified Reusable Components"
+parent: "Core Governance Model"
+nav_order: 11
+---
 
 ## Purpose
 

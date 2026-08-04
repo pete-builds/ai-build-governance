@@ -1,0 +1,54 @@
+title: AI Build Governance
+description: >-
+  A governance framework for how institutions build AI capabilities, with
+  mechanisms adapted from building codes.
+url: "https://pete-builds.github.io"
+baseurl: "/ai-build-governance"
+
+remote_theme: just-the-docs/just-the-docs
+
+# jekyll-relative-links rewrites [text](file.md) to the rendered URL, so the
+# same links work when browsing on GitHub and when reading the built site.
+plugins:
+  - jekyll-remote-theme
+  - jekyll-relative-links
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+relative_links:
+  enabled: true
+  collections: false
+
+color_scheme: light
+search_enabled: true
+search:
+  heading_level: 3
+  previews: 3
+  tokenizer_separator: /[\s/]+/
+
+heading_anchors: true
+
+aux_links:
+  "View on GitHub":
+    - "https://github.com/pete-builds/ai-build-governance"
+aux_links_new_tab: true
+
+nav_external_links:
+  - title: Source ledger, with retrieval dates
+    url: https://github.com/pete-builds/ai-build-governance/blob/main/SOURCES.md
+
+footer_content: >-
+  Licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+  Adopt it, amend it, say where it came from.
+  This framework makes nobody compliant with anything.
+
+back_to_top: true
+back_to_top_text: "Back to top"
+
+exclude:
+  - tools/
+  - .github/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - LICENSE

@@ -1,4 +1,8 @@
-# Appendix B: What the Platform Enforces, and What a Human Has To
+---
+title: "Appendix B: What the Platform Enforces, and What a Human Has To"
+parent: "Technical and Evidence References"
+nav_order: 1
+---
 
 A governance model that assumes a control exists when the platform does
 not actually implement it is worse than no model at all, because it

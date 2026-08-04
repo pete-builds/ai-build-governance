@@ -1,4 +1,8 @@
-# 08. Alterations and Existing Systems
+---
+title: "08. Alterations and Existing Systems"
+parent: "Core Governance Model"
+nav_order: 8
+---
 
 ## Purpose
 

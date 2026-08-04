@@ -1,4 +1,8 @@
-# 10. Concurrent Reviews
+---
+title: "10. Concurrent Reviews"
+parent: "Core Governance Model"
+nav_order: 10
+---
 
 ## Purpose
 

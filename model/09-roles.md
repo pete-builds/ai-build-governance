@@ -1,4 +1,8 @@
-# 09. Roles and Authority
+---
+title: "09. Roles and Authority"
+parent: "Core Governance Model"
+nav_order: 9
+---
 
 ## Purpose
 

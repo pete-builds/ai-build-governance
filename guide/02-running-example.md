@@ -1,4 +1,8 @@
-# 02. Running Example: The Payment Inquiry Agent
+---
+title: "02. Running Example: The Payment Inquiry Agent"
+parent: "Implementation Guide"
+nav_order: 2
+---
 
 One system, carried through every stage. If you read one thing in this
 repository to understand how the pieces connect, read this.

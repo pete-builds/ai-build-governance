@@ -1,4 +1,8 @@
-# Platform profile: MCP (Model Context Protocol)
+---
+title: "Platform profile: mcp"
+parent: "Technical and Evidence References"
+nav_order: 11
+---
 
 > **VERIFICATION NOTE**
 > Verified against vendor documentation on **2026-08-04**. Re-verify before

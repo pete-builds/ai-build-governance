@@ -1,3 +1,9 @@
+---
+title: README
+nav_exclude: true
+search_exclude: true
+---
+
 # AI Build Governance
 
 **Edition 2026.4** · [Changelog](CHANGELOG.md) · [Source ledger](SOURCES.md) · [How to read this](model/00-conventions.md)

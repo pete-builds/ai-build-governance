@@ -1,4 +1,8 @@
-# 04. Design Review
+---
+title: "04. Design Review"
+parent: "Core Governance Model"
+nav_order: 4
+---
 
 ## Purpose
 

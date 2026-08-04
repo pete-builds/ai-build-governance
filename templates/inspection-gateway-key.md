@@ -1,4 +1,13 @@
 ---
+title: "Template: Gateway Credential Inspection"
+parent: "Templates"
+nav_order: 4
+---
+
+> Copy this file. The metadata block below is part of the template:
+> fill it in at the top of your copy.
+
+```yaml
 id: INSP-KEY-YYYY-NNN
 capability:
 registry_id:
@@ -8,7 +17,7 @@ key_identifier:       # never the key value
 inspector:
 date:
 result: pass | fail | pass with findings
----
+```
 
 # Inspection: AI Gateway Key
 

@@ -1,4 +1,8 @@
-# Appendix D: Glossary, and Where the Analogy Breaks
+---
+title: "Appendix D: Glossary, and Where the Analogy Breaks"
+parent: "Technical and Evidence References"
+nav_order: 4
+---
 
 ---
 
