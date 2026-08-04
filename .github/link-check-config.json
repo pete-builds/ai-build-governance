@@ -1,0 +1,29 @@
+{
+  "//": "Several cited sources block automated fetching. They were verified by hand on the dates in SOURCES.md, so a bot 403 here is not evidence of a dead source.",
+  "ignorePatterns": [
+    { "pattern": "^https://iso\\.org" },
+    { "pattern": "^https://www\\.iso\\.org" },
+    { "pattern": "^https://library\\.educause\\.edu" },
+    { "pattern": "^https://www\\.riba\\.org" },
+    { "pattern": "^https://iccsafe\\.org" },
+    { "pattern": "^https://www\\.iccsafe\\.org" },
+    { "pattern": "^https://icc-es\\.org" },
+    { "pattern": "^https://eur-lex\\.europa\\.eu" },
+    { "pattern": "^https://www\\.ecfr\\.gov" }
+  ],
+  "replacementPatterns": [],
+  "httpHeaders": [
+    {
+      "urls": ["https://"],
+      "headers": {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "User-Agent": "Mozilla/5.0 (compatible; ai-building-code link check)"
+      }
+    }
+  ],
+  "timeout": "20s",
+  "retryOn429": true,
+  "retryCount": 2,
+  "fallbackRetryDelay": "30s",
+  "aliveStatusCodes": [200, 206, 301, 302, 303, 307, 308, 403, 429]
+}

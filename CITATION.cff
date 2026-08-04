@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+title: "The AI Building Code: a governance model for how AI capabilities get built in higher education"
+message: "If you adopt or cite this model, please cite it and state which edition you adopted."
+type: software
+authors:
+  - family-names: Stergion
+    given-names: Pete
+repository-code: "https://github.com/pete-builds/ai-building-code"
+license: CC-BY-4.0
+version: "2026.2"
+date-released: "2026-08-04"
+keywords:
+  - AI governance
+  - higher education
+  - build governance
+  - model context protocol
+  - platform engineering
+  - accessibility
+abstract: >
+  A governance model for how AI capabilities get built at a university, as
+  distinct from how AI gets used. Structured as a model building code
+  intended to be adopted with local amendments the way a jurisdiction
+  adopts an I-Code. It borrows working mechanisms from construction
+  governance: a statement of need before design, occupancy classification
+  by objective trigger, plan review against the stated need, permits that
+  carry conditions and expire, inspections at defined hold points before
+  work is concealed, a certificate of occupancy distinct from completion,
+  record drawings, and certification of reusable components so that
+  consumers inherit a listing rather than re-entering review.
+
+  Its central design commitment is that gates belong at points of
+  irreversibility rather than at milestones, following published research
+  finding that external heavyweight change approval correlates with worse
+  delivery performance without reducing change failure rates. Human review
+  is therefore reserved for questions no automated check can answer, and
+  the model declines to document any control its target platforms do not
+  actually enforce.

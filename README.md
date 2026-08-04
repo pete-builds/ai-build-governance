@@ -1,6 +1,13 @@
 # The AI Building Code
 
+**Edition 2026.2** · [Changelog](CHANGELOG.md) · [Source ledger](SOURCES.md) · [Amendments template](templates/amendments-template.md)
+
 **A governance model for how AI capabilities get built at a university.**
+
+> Model codes ship as dated editions and jurisdictions adopt a specific
+> one. This does the same, so your amendments can name the edition they
+> adopt. Edition 2026.2 corrects three substantive defects found in external
+> review; the [changelog](CHANGELOG.md) says what they were.
 
 Most institutional AI governance answers the question *may I use this?*
 This one answers a different question: *how does something get built,
@@ -152,10 +159,19 @@ certified once against published criteria by someone independent, and
 after that consumers inherit the certification and only the integration
 gets inspected. Nobody re-tests a fire-rated door in every building.
 
-The templates in [`templates/`](templates/) are the actual paperwork:
-need statement, plan review, four inspection checklists (MCP server,
-Agent Studio workflow, gateway key, agentic product), an ADR, and a
-certificate of occupancy.
+The templates are the actual paperwork:
+
+| Template | Used at |
+|---|---|
+| [Statement of Need](templates/statement-of-need.md) | Intake, chapter 02 |
+| [Plan Review](templates/plan-review.md) | Chapter 04, builder and reviewer halves |
+| [ADR](templates/adr.md) | Any architecturally significant decision |
+| [Inspection: MCP server](templates/inspection-mcp-server.md) | H2, pinned to a spec revision |
+| [Inspection: Agent Studio workflow](templates/inspection-agent-studio.md) | H4, where no publish gate exists |
+| [Inspection: gateway key](templates/inspection-gateway-key.md) | H1, mostly automatable |
+| [Inspection: agentic product](templates/inspection-agentic-product.md) | Chapter 10, both halves |
+| [Certificate of Occupancy](templates/certificate-of-occupancy.md) | Chapter 07, full or temporary |
+| [Amendments template](templates/amendments-template.md) | Your institution's adopting instrument |
 
 ---
 
@@ -199,7 +215,15 @@ adopt it wholesale without reading it.
    the automated hold points on what you are already running. Intake
    discipline is slower to pay off and easier to resent.
 5. **Publish your amendments** where your builders will actually read
-   them.
+   them. Start from [`templates/amendments-template.md`](templates/amendments-template.md),
+   which is structured as a delta against a named edition so you can see
+   what changed when a new one ships.
+
+**Before you rely on any platform claim in here, check its date.**
+[SOURCES.md](SOURCES.md) groups every citation by how fast it decays and
+records when each was retrieved and when it needs re-checking. Protocol
+revisions and vendor documentation move fast enough to invalidate an
+inspection checklist within months, and appendix B says so explicitly.
 
 A worked example of steps 1 through 3 for a self-hosted LiteLLM, n8n,
 and MCP stack is in

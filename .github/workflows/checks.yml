@@ -1,0 +1,31 @@
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  # Platform docs, regulations, CVEs, and protocol revisions decay whether
+  # or not anyone commits. A weekly run makes that decay visible.
+  schedule:
+    - cron: "37 13 * * 1"
+  workflow_dispatch:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Structural and style checks
+        run: ./tools/check.sh
+
+      - name: External link check
+        # Cited sources going dead is a real failure mode for this repo:
+        # several sources were already unreachable during research. This
+        # reports without failing the build, because a source being
+        # temporarily 403 or rate-limited is not a defect in the model.
+        continue-on-error: true
+        run: |
+          npx --yes markdown-link-check --quiet \
+            --config .github/link-check-config.json \
+            $(find . -name '*.md' -not -path './.git/*') || true

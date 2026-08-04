@@ -117,10 +117,14 @@ artifact does not comply.
 Automated tooling catches a minority of WCAG failures. It is worth
 running, and it is not sufficient. The manual check at H4 is the real one.
 
-**Recording matters as much as fixing.** A capability with known,
-documented accessibility gaps and a remediation plan is in a defensible
-position. The same capability with undocumented gaps is not, and the
-difference is entirely paperwork.
+**Recording helps, and it does not cure.** A capability with known,
+documented accessibility gaps and a remediation plan is far better
+managed, and it gives the institution something to act on. But be precise
+about what documentation achieves: it improves management and
+accountability. **It does not make a non-conforming system conforming.**
+The underlying obligation is substantive and survives being written down
+carefully. A model that implied otherwise would be teaching people to
+document their way out of a legal duty.
 
 ---
 
@@ -185,9 +189,9 @@ The mechanism, borrowed from plan review and from
 
 - **One submittal, several reviewers, one clock.** All disciplines receive
   the design response at the same moment.
-- **Published turnarounds per discipline**, and the same deemed-approval
-  rule: if a discipline misses its turnaround at Tier 2, it is deemed
-  cleared, and that is a staffing signal rather than a discipline problem.
+- **Published turnarounds per discipline**, with a limit on what silence
+  can mean. See the next section: a missed turnaround can grant permission
+  to proceed, and it can never manufacture a compliance determination.
 - **Each discipline's findings name what would resolve them**, per
   chapter 04's rule that a finding a builder cannot act on is not a
   finding.
@@ -198,6 +202,45 @@ The mechanism, borrowed from plan review and from
 A single reviewer may hold several disciplines at a small institution.
 That is fine and normal. What matters is that the standards are published
 and the reviews happen on one clock, not that there are separate people.
+
+---
+
+## What a missed turnaround can and cannot do
+
+Timeboxed review is defensible. **Deemed compliance is not**, and an
+earlier edition of this model blurred them.
+
+The deemed-approval rule in [chapter 04](04-plan-review.md) rests on
+evidence about *change approval and delivery performance*. That evidence
+says nothing about statutory obligations, and a legal duty does not lapse
+because a reviewer had a backlog. So the two things silence can produce
+are strictly separated:
+
+| | **Administrative permission to proceed** | **Compliance determination** |
+|---|---|---|
+| What it means | The build may continue to the next stage | The obligation is satisfied |
+| Can a missed turnaround produce it? | **Yes**, at Tier 2 | **Never** |
+| Who can produce it? | The reviewing function, or the clock | Only the accountable office, affirmatively |
+| Recorded as | "Proceeded on turnaround expiry, date" | A signed determination |
+
+Consequences worth stating explicitly:
+
+- **Accessibility conformance is never deemed.** A missed turnaround from
+  the accessibility office lets the build proceed. It does not make the
+  build conformant, and it does not transfer the obligation to the builder
+  or to this document.
+- **Privacy and lawful-basis determinations are never deemed.** Whether a
+  use satisfies FERPA or institutional policy is a determination by the
+  office that owns it, made affirmatively or not at all.
+- **Security clearance can be deemed at Tier 2 only**, and never for a
+  build meeting the escalation criteria above. Those escalate and wait.
+- **A capability may hold a certificate of occupancy while an affirmative
+  determination is still outstanding.** Say so on the certificate, name
+  the outstanding item, and put a date on it. That is honest and
+  manageable. Implying the determination exists is neither.
+
+The general form: **the clock can grant permission. It cannot grant
+absolution.**
 
 ---
 

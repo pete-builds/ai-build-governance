@@ -236,6 +236,44 @@ a person's time at every tier above minor works, because it is the
 transition from a system whose behavior is apparent to one whose
 behavior must be inferred.
 
+### Log enough to reconstruct, not everything
+
+Everything above demands observability, and observability creates a new
+dataset that **can be more sensitive than the system it observes.** A
+trace holding inputs, outputs, tool results, retrieved context, and
+identity is a concentrated copy of the very data the tier was assigned to
+protect, sitting somewhere nobody classified.
+
+An earlier edition of this model asked for the logging and never asked
+this question. The rule is **log enough to reconstruct the event**, not
+store every input and output.
+
+- [ ] **Field-level redaction** applied to the classes that need it, and
+      verified by inspecting an actual stored trace rather than by reading
+      a config
+- [ ] **Purpose-limited**: every field retained answers a question someone
+      will actually ask. Fields nobody can name a use for get dropped.
+- [ ] **Traces are classified at the level of the most sensitive data they
+      contain**, and access-controlled to that standard. A Tier 3 system's
+      traces are Tier 3 data.
+- [ ] **Retention set by data classification**, not by platform default
+- [ ] **Operational metrics separated from content-bearing records**, so
+      dashboards, alerting, and rate monitoring do not require access to
+      prompts and outputs
+- [ ] Who may read traces is a named list, reviewed at the same interval
+      as the capability
+
+The tension here is real and does not fully resolve. H4 exists so behavior
+can be reconstructed, and minimization removes material that might have
+been needed. Resolve it deliberately per capability and **record the
+choice**, rather than defaulting to logging everything because the
+platform does.
+
+Note the platform trap from [appendix B](../appendix/b-platform-controls.md):
+where an Agent Studio retains execution data by default (336 hours on the
+reference platform) and its redaction mechanics are unverified, **assume
+every field a workflow touches is in that store** until you have looked.
+
 ### The Agent Studio problem
 
 "Agent Studio" here means any low-code environment where people compose

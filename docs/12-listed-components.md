@@ -220,15 +220,54 @@ and let conforming instances self-certify:
 - A standard read-only MCP server over an internal API
 - A standard summarize-and-route Agent Studio workflow
 
-An instance that conforms to an approved pattern enters at **Tier 1**
-regardless of what tier the pattern's ceiling would otherwise imply,
-because the pattern carries the review. Departure from the pattern means
-the pattern does not apply and normal classification resumes.
+### Certification and classification are two different axes
 
-This is the paved road from [chapter 01](01-principles.md) with a
-certificate attached, and it is the most direct route to governance that
-speeds work up rather than slowing it down. The scaffold *is* the
-approval.
+**This is the most important rule in the chapter, and an earlier edition
+of this model got it wrong.** That edition said a conforming instance
+enters at Tier 1 regardless of what its triggers would otherwise imply.
+That was a loophole, and it contradicted [chapter 03](03-classification.md)'s
+highest-wins rule directly. A certified scaffold could have carried
+student records, informed employment decisions, or held all three legs of
+the lethal trifecta, and still entered at Tier 1 because the scaffold had
+a certificate.
+
+The two things being judged are not the same thing:
+
+| Axis | Question | Reduced by certification? |
+|---|---|---|
+| **Component risk** | Is this thing built soundly? | **Yes.** That is what a listing is for. |
+| **Use risk** | What will this instance touch, decide, and affect? | **No. Never.** |
+
+So the corrected rule:
+
+> A conforming instance **inherits the pattern's component-level findings
+> and skips repeated component review.** Classification still runs in
+> full against that instance's data classes, autonomy, blast radius, and
+> intended use. **Certification never lowers a tier.**
+
+What this actually saves is large and is the point: no re-review of the
+component's internals, transport, auth model, tool definitions, or
+dependency posture. What it does not save, and must not, is the tier
+assessment of what you are pointing it at.
+
+A worked contrast. A type-approved read-only MCP server over an internal
+API is pointed at two different corpora:
+
+- Over a **public course catalog**, serving one unit: Tier 1 or 2 on its
+  own triggers, component review skipped. Fast.
+- Over **student records**, staff-facing: **Tier 3** on data
+  classification, component review still skipped. The plan review covers
+  the corpus, the access model, and who sees what, not the server.
+
+Same certified component. Different tiers. Correctly.
+
+Departure from the pattern means the pattern does not apply, and full
+component review resumes on top of normal classification.
+
+This is still the paved road from [chapter 01](01-principles.md) with a
+certificate attached, and it is still the most direct route to governance
+that speeds work up. The scaffold is an approved *component*. It is never
+an approved *use*.
 
 ---
 
