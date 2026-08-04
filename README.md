@@ -34,7 +34,7 @@ compliance**, which is the situation most universities are actually in.
   they get enforced at 4pm on a Thursday when something ships.
 - **Not validated by adoption.** Nobody has run it yet. It is a design
   hypothesis with a documented argument, and
-  [reference/evidence-on-gates.md](reference/evidence-on-gates.md) lists
+  [Appendix C: The Evidence on Gates](reference/evidence-on-gates.md) lists
   every place it reasons rather than measures.
 - **Not a committee.** If adopting it produces a new standing board, it has
   been implemented backwards.
@@ -215,7 +215,7 @@ about n8n are not generalized; see its
 4. **Start with inspections, not intake.** Automated checks on what you
    already run pay off fastest and are least resented.
 
-Full sequence in [guide/01-adoption.md](guide/01-adoption.md). Record your
+Full sequence in [Adoption](guide/01-adoption.md). Record your
 adoption with the [amendments template](templates/amendments-template.md),
 which is a delta against a named edition so you can see what changed when a
 new one ships.
@@ -235,7 +235,7 @@ the United States it carries a statutory deadline. AI systems fail it by
 default: generated interfaces without keyboard paths, streaming output that
 breaks assistive technology, generated images without alternative text. If
 an agent produces content for people, that content is subject to the
-standard. See [guide/04-accessibility.md](guide/04-accessibility.md).
+standard. See [Accessibility](guide/04-accessibility.md).
 
 **Out of scope:** classroom and academic-integrity policy, procurement of
 finished commercial products, research methodology, and anything touching
@@ -248,4 +248,4 @@ standing to govern them.
 
 [CC BY 4.0](LICENSE). Adopt it, amend it, say where it came from.
 Contributions welcome, especially amendments from practice and corrections to
-borrowed source material. See [CONTRIBUTING.md](CONTRIBUTING.md).
+borrowed source material. See [CONTRIBUTING](CONTRIBUTING.md).

@@ -47,7 +47,7 @@ the default trajectory of every project.
 > **GUIDANCE**
 > A Decision Authority that meets monthly to discuss submissions has become
 > the review board this framework exists to avoid. See
-> [reference/evidence-on-gates.md](../reference/evidence-on-gates.md).
+> [Appendix C: The Evidence on Gates](../reference/evidence-on-gates.md).
 
 > **REQUIREMENT 9.3 Responsible Builder**
 > Every capability above Tier 1 **MUST** have a named Responsible Builder who

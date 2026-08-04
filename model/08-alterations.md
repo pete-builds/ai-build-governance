@@ -143,7 +143,7 @@ looked at again."
 > is the honest measure of whether adoption is real, and a much better metric
 > than counting authorizations issued.
 
-Worked instance: [guide/02-running-example.md](../guide/02-running-example.md),
+Worked instance: [Running Example: The Payment Inquiry Agent](../guide/02-running-example.md),
 stage 9, where an auto-send request was declined in its original form and
 approved in a narrower one that removed the harm path.
 
@@ -159,4 +159,4 @@ approved in a narrower one that removed the harm path.
 > The treatment of existing buildings as lawfully non-conforming with
 > compliance triggered by alteration, and the change record and accepted
 > defect list instruments, are described from standard practice. Primary
-> sources could not be retrieved. See [SOURCES.md](../SOURCES.md).
+> sources could not be retrieved. See [the source ledger](../SOURCES.md).

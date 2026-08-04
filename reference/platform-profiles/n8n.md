@@ -8,13 +8,13 @@ nav_order: 12
 > Verified against vendor documentation on **2026-08-04**. Re-verify before
 > relying on any row: these products change fast and several controls have
 > moved between license tiers historically. Retrieval and review-by dates
-> are in [SOURCES.md](../../SOURCES.md).
+> are in [the source ledger](../../SOURCES.md).
 >
 > **This is a finding about one product at one date. It does not
 > generalize to the product category.** Ask the same questions of whatever
 > you actually run, and record your own answers.
 >
-> Read [platform-controls.md](../platform-controls.md) first for what the
+> Read [Appendix B: What the Platform Enforces, and What a Human Has To](../platform-controls.md) first for what the
 > Enforcement and Tier columns mean.
 
 ---

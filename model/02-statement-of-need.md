@@ -121,8 +121,8 @@ becomes Tier 3 unnoticed.
 exists" is the highest-value outcome the whole process can produce and
 **SHOULD** be recorded as a success rather than a failed intake.
 
-Template: [templates/statement-of-need.md](../templates/statement-of-need.md).
-Worked instance: [guide/02-running-example.md](../guide/02-running-example.md),
+Template: [Template: Statement of Need](../templates/statement-of-need.md).
+Worked instance: [Running Example: The Payment Inquiry Agent](../guide/02-running-example.md),
 stage 1, where the prior-art check surfaced a non-AI fix that shipped first.
 
 ## Sources and confidence
@@ -136,4 +136,4 @@ stage 1, where the prior-art check surfaced a non-AI fix that shipped first.
 > **UNVERIFIED**
 > The owner-requirements and basis-of-design split is attributed to building
 > commissioning practice associated with ASHRAE Guideline 0. The guideline
-> text could not be retrieved. See [SOURCES.md](../SOURCES.md).
+> text could not be retrieved. See [the source ledger](../SOURCES.md).

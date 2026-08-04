@@ -53,7 +53,7 @@ whether you are reading a rule, an opinion, or a fact about a vendor.
 
 > **VERIFICATION NOTE**
 > A fact about a platform, standard, or regulation, with the date it was
-> checked. Facts decay. [SOURCES.md](../SOURCES.md) holds every retrieval
+> checked. Facts decay. [the source ledger](../SOURCES.md) holds every retrieval
 > date and review-by date.
 
 > **UNVERIFIED**
@@ -190,7 +190,7 @@ findings about one product are never generalized to its category.
 This code borrows real mechanisms from building governance: authorizations, plan
 review, inspection verification points, concealment, occupancy, deployed system record,
 listed products. The borrowing is functional rather than decorative, and
-[reference/glossary.md](../reference/glossary.md) gives the term-by-term
+[Appendix D: Glossary, and Where the Analogy Breaks](../reference/glossary.md) gives the term-by-term
 mapping plus the four places the analogy genuinely breaks down.
 
 You do not need to know anything about building codes to use Part I. Where

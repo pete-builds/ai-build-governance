@@ -6,7 +6,7 @@ nav_order: 5
 
 > **Part II: handbook. Non-binding.** The requirement that these reviews
 > run concurrently lives in
-> [model/10-concurrent-reviews.md](../model/10-concurrent-reviews.md). This
+> [Concurrent Reviews](../model/10-concurrent-reviews.md). This
 > page is how to actually do one.
 
 ---

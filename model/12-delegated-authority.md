@@ -157,7 +157,7 @@ cannot be induced to misuse delegated authority by a carefully worded email.
 Delegation in an agentic system needs rate limits and an injection analysis,
 which no construction concept supplies.
 
-Worked instance: [guide/02-running-example.md](../guide/02-running-example.md),
+Worked instance: [Running Example: The Payment Inquiry Agent](../guide/02-running-example.md),
 stage 10, where a service-account design was caught and revised to delegation.
 
 ## Sources and confidence

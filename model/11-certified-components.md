@@ -190,7 +190,7 @@ from [principle 1.1](01-principles.md) with a certificate attached, and the
 most direct route to governance that speeds work up. The scaffold is an
 approved **component**. It is never an approved **use**.
 
-Worked instance: [guide/02-running-example.md](../guide/02-running-example.md),
+Worked instance: [Running Example: The Payment Inquiry Agent](../guide/02-running-example.md),
 stage 8, which shows consumption in both directions and a second consumer
 correctly landing at a *lower* tier than the original.
 
@@ -204,7 +204,7 @@ correctly landing at a *lower* tier than the original.
 > The code definitions of "listed," "labeled," and "approved agency"; the rule
 > that an official accepts a certification without retesting and inspects only
 > the installation; and state-level approval of factory-built designs. Shape
-> sound, details unconfirmed. See [SOURCES.md](../SOURCES.md).
+> sound, details unconfirmed. See [the source ledger](../SOURCES.md).
 
 > **DESIGN JUDGMENT**
 > Every interval and expiry figure, the tier-ceiling concept, and the

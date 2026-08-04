@@ -27,7 +27,7 @@ at classification, **Tier 3**, and most people guess Tier 2.
 
 ## Stage 1: Statement of Need
 
-Chapter: [model/02-statement-of-need.md](../model/02-statement-of-need.md)
+Chapter: [Statement of Need](../model/02-statement-of-need.md)
 
 The finance office's operations manager writes it, **not** the person who
 wants to build it. That is the whole control.
@@ -62,7 +62,7 @@ Four questions, and the third one nearly ended the project:
 
 ## Stage 2: Classification
 
-Chapter: [model/03-classification.md](../model/03-classification.md)
+Chapter: [Risk Classification](../model/03-classification.md)
 
 Triggers worked in order, **highest wins**:
 
@@ -100,7 +100,7 @@ accepted.
 
 ## Stage 3: Design Review
 
-Chapter: [model/04-design-review.md](../model/04-design-review.md).
+Chapter: [Design Review](../model/04-design-review.md).
 Tier 3, so an **independent reviewer** from outside the finance office, who
 does not report to the builder.
 
@@ -143,13 +143,13 @@ and confirm retention with privacy.
 
 ## Stage 4: Concurrent reviews
 
-Chapter: [model/10-concurrent-reviews.md](../model/10-concurrent-reviews.md).
+Chapter: [Concurrent Reviews](../model/10-concurrent-reviews.md).
 All three on the same clock as design review, not after it.
 
 **Accessibility.** The staff approval interface is a user interface, so it
 is in scope. Found: the side-by-side record display used color alone to
 mark discrepancies, and the draft area was not reachable by keyboard.
-Both fixed before H5. See [guide/04-accessibility.md](04-accessibility.md).
+Both fixed before H5. See [Accessibility](04-accessibility.md).
 
 **Security.** Cleared on question 1: standard gateway pattern, standard
 scaffold, a certified reusable component. Escalated on one criterion only, that the
@@ -173,7 +173,7 @@ retention accepted as it already governs the same data.
 
 ## Stage 5: Authorization
 
-Chapter: [model/05-authorization-to-build.md](../model/05-authorization-to-build.md)
+Chapter: [Authorization to Build](../model/05-authorization-to-build.md)
 
 Tier 3 authorization issued with conditions, each tied to a verification point:
 
@@ -195,7 +195,7 @@ Authorization expires in 12 months. Work must begin within 60 days.
 
 ## Stage 6: Inspections
 
-Chapter: [model/06-inspections.md](../model/06-inspections.md)
+Chapter: [Inspections](../model/06-inspections.md)
 
 **H1 Identity and Credentials.** Automated, then a human check because Tier 3. Caught a
 real problem: the gateway key had inherited the default model allowlist,
@@ -229,7 +229,7 @@ member other than the builder operated it successfully.
 
 ## Stage 7: Occupancy
 
-Chapter: [model/07-production-approval.md](../model/07-production-approval.md)
+Chapter: [Production Approval and Records](../model/07-production-approval.md)
 
 **Temporary production approval**, 90 days, because this is a pilot
 and saying so on the approval is more honest than calling it one
@@ -258,7 +258,7 @@ that never existed.
 
 ## Stage 8: Reuse, in both directions
 
-Chapter: [model/11-certified-components.md](../model/11-certified-components.md)
+Chapter: [Certified Reusable Components](../model/11-certified-components.md)
 
 **Consuming.** The records lookup was already listed by another unit: scope
 of certification "read-only single-account retrieval," tier ceiling 3,
@@ -288,7 +288,7 @@ design review covered their corpus and their audience.
 
 ## Stage 9: Alteration
 
-Chapter: [model/08-alterations.md](../model/08-alterations.md)
+Chapter: [Alterations and Existing Systems](../model/08-alterations.md)
 
 Four months in, the finance office asked for auto-send on inquiries the
 agent classifies with high confidence.
@@ -312,7 +312,7 @@ removes the harm path, and it re-entered at H4 with a fresh sign-off.
 
 ## Stage 10: Delegated authority
 
-Chapter: [model/12-delegated-authority.md](../model/12-delegated-authority.md)
+Chapter: [Delegated Authority](../model/12-delegated-authority.md)
 
 The narrow auto-send raised the question the code exists for: whose
 authority sends the message?

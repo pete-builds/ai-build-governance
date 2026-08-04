@@ -156,4 +156,4 @@ state in institutional computing.
 > **UNVERIFIED**
 > The construction permit properties this borrows, including lapse for
 > inactivity and conditional approval, are described from standard practice.
-> Primary code sources could not be retrieved. See [SOURCES.md](../SOURCES.md).
+> Primary code sources could not be retrieved. See [the source ledger](../SOURCES.md).

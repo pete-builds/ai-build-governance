@@ -123,4 +123,4 @@ gap stays visible:
 `tools/check.sh` verifies this file exists. It cannot verify the dates are
 honest. Re-verification is a human act, and the review dates above are the
 commitment. When you re-verify, update the retrieved date and record it in
-[CHANGELOG.md](CHANGELOG.md).
+[the changelog](CHANGELOG.md).

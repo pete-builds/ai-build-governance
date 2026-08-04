@@ -193,4 +193,4 @@ capped at zero. Better to say so here than to discover it later.
 > the internal specifics. Adoption reports, turnaround performance,
 > exception rates, and failure cases are the most valuable contribution the
 > model can receive, because it is otherwise a design hypothesis. See
-> [CONTRIBUTING.md](../CONTRIBUTING.md).
+> [CONTRIBUTING](../CONTRIBUTING.md).

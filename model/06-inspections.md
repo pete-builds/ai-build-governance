@@ -234,10 +234,10 @@ structure is the part worth copying, and 6.8 encodes it.
 > **GUIDANCE**
 > A recurring inspection meeting is a change advisory board that has not
 > admitted it yet, and
-> [reference/evidence-on-gates.md](../reference/evidence-on-gates.md) is
+> [Appendix C: The Evidence on Gates](../reference/evidence-on-gates.md) is
 > specifically about what happens then.
 
-Worked instance: [guide/02-running-example.md](../guide/02-running-example.md),
+Worked instance: [Running Example: The Payment Inquiry Agent](../guide/02-running-example.md),
 stage 6, where H1 caught a credential with access to every model and H3
 caught an error path that produced a plausible-looking wrong answer.
 
@@ -248,7 +248,7 @@ caught an error path that produced a plausible-looking wrong answer.
 > vulnerabilities behind 6.7 were verified against published security
 > research and advisory databases. The vendor statement that MCP servers are
 > not security-audited was quoted verbatim. Details and dates:
-> [SOURCES.md](../SOURCES.md).
+> [the source ledger](../SOURCES.md).
 
 > **DESIGN JUDGMENT**
 > Five verification points, and their placement, are modeled on real

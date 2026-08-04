@@ -160,4 +160,4 @@ Worked instance in [the running example, stage 4](../guide/02-running-example.md
 > **UNVERIFIED**
 > The multi-discipline structure of building design review is described from
 > standard practice; primary code sources could not be retrieved. See the
-> known-unreachable list in [SOURCES.md](../SOURCES.md).
+> known-unreachable list in [the source ledger](../SOURCES.md).

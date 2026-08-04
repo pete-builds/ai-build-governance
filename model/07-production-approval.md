@@ -190,7 +190,7 @@ being around has not accounted for its own workforce. See
 [chapter 09](09-roles.md).
 
 Templates: [production approval](../templates/production-approval.md).
-Worked instance: [guide/02-running-example.md](../guide/02-running-example.md),
+Worked instance: [Running Example: The Payment Inquiry Agent](../guide/02-running-example.md),
 stage 7, where withheld completion forced the registry entry and a
 renegotiated error target was recorded rather than quietly moved.
 
@@ -205,7 +205,7 @@ renegotiated error target was recorded rather than quietly moved.
 > **This framework bets heavily on the registry staying accurate**, and that
 > bet is untested. Whether a registry survives without enforcement is one of
 > the open empirical questions in
-> [SOURCES.md](../SOURCES.md).
+> [the source ledger](../SOURCES.md).
 
 > **UNVERIFIED**
 > The distinction between contractor field markups and the designer's final

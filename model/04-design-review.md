@@ -145,8 +145,8 @@ packet. Drawing it honestly is frequently what reveals the tier was wrong,
 and an unlisted egress path discovered during inspection is a finding rather
 than a surprise.
 
-Template: [templates/design-review.md](../templates/design-review.md).
-Decision records: [templates/adr.md](../templates/adr.md).
+Template: [Template: Design Review](../templates/design-review.md).
+Decision records: [Template: Decision Record (ADR)](../templates/adr.md).
 
 ## Sources and confidence
 

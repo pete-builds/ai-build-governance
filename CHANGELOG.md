@@ -32,7 +32,7 @@ now `guide/`.
 
 Construction terms appear only where they supply a concrete mental model,
 paired with the plain term on first use and then dropped. The full two-way
-mapping is in [model/00-conventions.md](model/00-conventions.md).
+mapping is in [How to Read This Code](model/00-conventions.md).
 
 | Was primary | Now primary |
 |---|---|
@@ -137,7 +137,7 @@ the same thirteen chapters in order.
 
 ### Statements are labelled where they appear
 
-New [model/00-conventions.md](model/00-conventions.md) defines RFC 2119
+New [How to Read This Code](model/00-conventions.md) defines RFC 2119
 keywords and six statement labels: REQUIREMENT, GUIDANCE, EXAMPLE, LOCAL
 AMENDMENT REQUIRED, DESIGN JUDGMENT, VERIFICATION NOTE, plus the existing
 UNVERIFIED. The distinctions existed before but arrived at the end of long
@@ -161,9 +161,9 @@ Part I now states platform-neutral requirements. Product names, config keys,
 and version numbers live in `reference/platform-profiles/`, split per
 product so each can be re-verified on its own schedule:
 
-- [litellm.md](reference/platform-profiles/litellm.md)
-- [n8n.md](reference/platform-profiles/n8n.md)
-- [mcp.md](reference/platform-profiles/mcp.md)
+- [Platform profile: litellm](reference/platform-profiles/litellm.md)
+- [Platform profile: n8n](reference/platform-profiles/n8n.md)
+- [Platform profile: mcp](reference/platform-profiles/mcp.md)
 
 Chapter 06 was the worst offender and is the biggest beneficiary. It opened
 with an elegant five-hold-point model and then dropped into MCP revisions,
@@ -185,7 +185,7 @@ Studio material.
 
 ### One running example
 
-[guide/02-running-example.md](guide/02-running-example.md) carries a
+[Running Example: The Payment Inquiry Agent](guide/02-running-example.md) carries a
 single system, an agent that triages emailed payment inquiries, through all
 ten stages: need, classification, design review, concurrent reviews, authorization,
 H1 to H5, occupancy, reuse in both directions, alteration, and delegated
@@ -203,7 +203,7 @@ rule, and [guide/04](guide/04-accessibility.md) and
 
 ### Also added
 
-[guide/01-adoption.md](guide/01-adoption.md), a seven-phase sequence
+[Adoption](guide/01-adoption.md), a seven-phase sequence
 ordered so the first thing shipped is a service rather than a requirement,
 with a sample operating model including the honest FTE cost and a list of
 what to expect to go wrong.
@@ -287,7 +287,7 @@ The review's fair criticism was that the lifecycle controls did not match
 content that depends on fast-moving platform behavior.
 
 - **Dated editions** and this changelog
-- **[SOURCES.md](SOURCES.md)**, a source ledger grouped by decay rate with
+- **[the source ledger](SOURCES.md)**, a source ledger grouped by decay rate with
   retrieval dates and review-by dates, plus a known-unreachable list and
   the open empirical questions
 - **[tools/check.sh](tools/check.sh)**, runnable locally and in CI. Every
@@ -297,7 +297,7 @@ content that depends on fast-moving platform behavior.
 - **CI workflow** with a weekly schedule, since sources decay whether or
   not anyone commits
 - **[CITATION.cff](CITATION.cff)**
-- **[templates/amendments-template.md](templates/amendments-template.md)**
+- **[Template: Institutional Amendments](templates/amendments-template.md)**
   so an adopting institution starts from a structure rather than a blank page
 
 ### Acknowledged, not fixed
@@ -364,4 +364,4 @@ If you adopt an edition, say which one, and publish your amendments. The
 [amendments template](templates/amendments-template.md) has a field for
 it. Adoption reports and amendments from practice are the most valuable
 contributions this project can receive; see
-[CONTRIBUTING.md](CONTRIBUTING.md).
+[CONTRIBUTING](CONTRIBUTING.md).

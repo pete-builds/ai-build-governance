@@ -59,7 +59,7 @@ Gate the left column. Leave the right column alone.
 
 > **GUIDANCE**
 > This is the principle most often violated by accident, and
-> [reference/platform-controls.md](../reference/platform-controls.md) exists
+> [Appendix B: What the Platform Enforces, and What a Human Has To](../reference/platform-controls.md) exists
 > to make it checkable. Documented false assurance is worse than an
 > acknowledged gap, because it stops people looking.
 
@@ -109,7 +109,7 @@ generally credited with "paved road" and Spotify with "golden path."
 > No rigorous measurement was located showing paved roads improve
 > *governance* outcomes specifically. The case is plausible and widely
 > adopted, not demonstrated. See
-> [reference/evidence-on-gates.md](../reference/evidence-on-gates.md).
+> [Appendix C: The Evidence on Gates](../reference/evidence-on-gates.md).
 
 **On 1.2.** Building codes cluster inspections before work is concealed,
 because verification after drywall costs an order of magnitude more. The
