@@ -58,33 +58,6 @@ Everything else is detail in service of those eight.
 
 ---
 
-## Why the construction analogy
-
-Because the built environment solved this exact problem at scale, for
-public safety, across thousands of independent jurisdictions, **without
-central command authority**. That last part is why it fits universities
-better than corporate governance models do.
-
-Four mechanisms are borrowed because they do real work:
-
-| Mechanism | What it gives us |
-|---|---|
-| **A model code adopted with local amendments** | Authorship separated from authority. Nobody is forced to adopt, and almost everyone does, because writing your own is worse. |
-| **Verification before work is concealed** | Check while evidence is still visible. This is the single most useful idea in the analogy and it keeps its original name: the **do-not-conceal rule**. |
-| **Approval to occupy, distinct from completion** | "It works" and "it may operate" are different events with different signers. |
-| **Certification of reusable products** | Nobody re-tests a fire-rated door in every building. Certify once, inspect the installation. |
-
-**The vocabulary here is plain AI-governance language.** Construction terms
-appear only where they add a concrete mental model, paired with the plain
-term on first use, and then dropped. The full two-way mapping, and the four
-places the analogy genuinely breaks down, are in the
-[glossary](reference/glossary.md).
-
-If you ever have to translate a metaphor to work out what you are being
-asked to do, that is a defect in this document. Please report it.
-
----
-
 ## Three layers, and what binds you
 
 | | Layer | Binds? | What it is |
@@ -219,6 +192,23 @@ Full sequence in [Adoption](guide/01-adoption.md). Record your
 adoption with the [amendments template](templates/amendments-template.md),
 which is a delta against a named edition so you can see what changed when a
 new one ships.
+
+---
+
+## Where the mechanisms came from
+
+Four of the mechanisms here are adapted from how the built environment governs
+construction: a model code adopted with local amendments, verification before
+work is concealed, approval to occupy as an act distinct from completion, and
+certification of reusable products. That domain solved this problem at scale,
+for public safety, across thousands of independent jurisdictions, **without
+central command authority**, which is why it fits universities.
+
+The vocabulary here is plain AI-governance language. The
+[glossary](reference/glossary.md) has the two-way mapping and the four places
+the analogy breaks down. **You never need to know anything about building codes
+to use this framework.** If you have to translate a metaphor to work out what
+you are being asked to do, that is a defect worth reporting.
 
 ---
 
