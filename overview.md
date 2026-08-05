@@ -1,143 +1,191 @@
 ---
-title: The model on one page
+title: Executive summary
 nav_order: 2
 ---
 
-# The model on one page
+# Executive summary
 
-Everything binding, condensed. Print it, hand it to a committee, put it on a
-wall. Chapter numbers link to the requirement that actually binds.
-
-Edition **2026.6**. Full text: [core governance model](model/). Every page:
-[contents](contents.md). Every requirement: [index](reference/requirement-index.md).
+**The whole argument, including the parts that count against it.** If you are
+deciding whether the framework is worth your time, read this rather than the
+chapters. The paragraph below is the short version.
 
 ---
 
-## Start here, not at step 1
-
-**Can you reuse something already certified?** If yes, confirm the
-certification is current, that your version matches, that your tier does not
-exceed its ceiling, and that you break no stated exclusion. Then inspect
-**only your integration** and skip the component entirely
-([chapter 11](model/11-certified-components.md)).
-
-This is the shortest path through the framework and the one most likely to be
-missed, because it is the only path that gets faster the more the institution
-governs. If reuse is harder than rebuilding at your institution, nothing else
-on this page will save you.
+**In short.** Universities set AI policy and have nothing underneath it that turns
+policy into a decision anyone can make on a Tuesday, so everything between
+"someone has an idea" and "it is running in production affecting real people" gets
+decided ad hoc or not at all. This supplies that layer: thirteen chapters of
+numbered requirements an institution adopts and amends for itself, built to one
+rule, that **gates belong where an action becomes hard to reverse rather than
+where a project hits a milestone**. Three risk tiers, five verification points,
+and a reuse path that gets faster the more the institution governs. Free under
+CC BY 4.0, no vendor dependency, and nobody has piloted it.
 
 ---
 
-## If you are building something new: the sequence
+## The problem it addresses
 
-| # | Do this | Chapter | The failure it prevents |
-|:--|:--|:--|:--|
-| 1 | **Establish the need** before choosing a solution | [02](model/02-statement-of-need.md) | Building the wrong thing, solution-first |
-| 2 | **Classify** from stated triggers, highest wins | [03](model/03-classification.md) | Risk decided by reviewer mood |
-| 3 | **Review the design** against the need, timeboxed | [04](model/04-design-review.md) | A design nobody read against the requirement |
-| 4 | **Authorize the build**, with conditions and an expiry | [05](model/05-authorization-to-build.md) | Approval becoming a permanent entitlement |
-| 5 | **Verify** at five points, before behavior is hidden | [06](model/06-inspections.md) | Verification after the evidence is gone |
-| 6 | **Approve for production** as an act separate from finishing | [07](model/07-production-approval.md) | Shipping treated as approval |
-| 7 | **Record what exists**, not what was planned | [07](model/07-production-approval.md) | Nobody knowing what is running |
-| 8 | **Reassess when it changes**, and on an interval when it does not | [08](model/08-alterations.md) | Change that silently outruns its review |
+AI capabilities are increasingly built by people who have never been near a
+software delivery organization. A staff member wires together an automation on a
+low-code platform. A department ships an agent it built with AI coding tools. A
+program office issues a gateway credential with a budget attached. Each of those
+is a production change, made by someone who never encountered a change process,
+against data that belongs to students and employees.
 
-## Running throughout, not stages
+The platforms underneath do not reliably supply the boundary people assume is
+there. On n8n specifically, verified against its own documentation, **edit access
+to a workflow is production change authority**: there is no separate publish
+step, and a settings-only change republishes automatically. Editors also acquire
+the practical use of credentials that were never shared with them. That is a
+finding about n8n at a date, not a claim about low-code platforms generally, and
+the point is that nobody had checked. Whatever your stack does, the honest first
+move is to find out, then write down only what it actually enforces.
 
-| | Chapter | Why it is not a step |
-|:--|:--|:--|
-| **Principles** | [01](model/01-principles.md) | Nine rules the rest is tested against. Where a chapter conflicts, the principle wins. |
-| **Roles and authority** | [09](model/09-roles.md) | Someone must hold this from before step 1 until decommissioning |
-| **Concurrent reviews** | [10](model/10-concurrent-reviews.md) | Accessibility, security, and privacy run **alongside**, never as a relay of queues |
-| **Certified components** | [11](model/11-certified-components.md) | Both an output of finishing and the entry point above |
-| **Delegated authority** | [12](model/12-delegated-authority.md) | Applies whenever an agent acts for a human, at any stage |
-| **Third-party components** | [13](model/13-third-party.md) | Applies whenever a build depends on something you do not operate |
+## Why the obvious answer makes it worse
 
----
+The reflex, especially after an incident, is a review board that sits in front of
+deployment. The published evidence says that backfires.
 
-## The tiers
+DORA's research on change approval finds that external approval approaches "have
+a negative impact on software delivery performance," and that "no evidence was
+found to support the hypothesis that a more formal, external review process was
+associated with lower change fail rates"
+([DORA](https://dora.dev/capabilities/streamlining-change-approval/)). It also
+names the trap directly: adding process "will make things worse because this
+drives up lead times and batch sizes, creating a vicious cycle."
 
-| Tier | Design review | Verification | Production approval |
-|:--|:--|:--|:--|
-| **1** | Self-certified | Automated only | Self-issued |
-| **2** | Peer review, timeboxed | Automated plus one human point | Issued by a peer |
-| **3** | Independent reviewer, off the project | Full set, human sign-off | Final Decision Authority |
+Read the nuance, because it is the design constraint rather than a license to
+skip review. DORA does not say review is useless. It endorses **peer review at
+check-in plus automation** as the substitute, and reframes the review body "from
+gatekeeper to process architect and information beacon."
 
-**Six triggers, worked in order. Highest wins. Never lower a tier because most
-answers were low** ([chapter 03](model/03-classification.md)).
+That settles the shape: automated checks on everything countable, peer review
+close to the work, independent review reserved for genuinely high-consequence
+builds, and gates placed at irreversibility rather than at ceremony. If adopting
+this produces a new standing committee, it has been implemented backwards.
 
-| | Trigger | Tier 3 when |
-|:--|:--|:--|
-| A | Data classification *(substitute your own scheme)* | Regulated or specially protected data. A forbidden class is **not permitted**, which is not a tier. |
-| B | **Lethal trifecta**: private data, untrusted content, external communication | All three. The remedy is usually to remove a leg. |
-| C | Autonomy | Consequential action with no per-action approval. Self-modifying tools or permissions: Tier 3 plus explicit sign-off. |
-| D | Blast radius | The whole institution, or anyone outside it positioned to be harmed |
-| E | **Consequential decisions about people**: admission, grading, aid, hiring, promotion, discipline, accommodation, service access | Always. "It is only advisory" does not work. If the override rate is not measured, assume it decides. |
-| F | Unbounded cost | Tier 2 minimum with no hard cap. The cap is an authorization condition. |
+## Where the mechanisms came from
 
----
+Four mechanisms here are adapted from how the built environment governs
+construction: a model code adopted with local amendments, verification before work
+is concealed, approval to occupy as an act distinct from completion, and
+certification of reusable products. That domain solved this exact problem at
+scale, for public safety, across thousands of independent jurisdictions, **without
+central command authority**. That last part is why it fits universities, which
+cannot mandate compliance on a decentralized campus.
 
-## The five verification points
+The chapters themselves use plain AI-governance language, and the
+[glossary](reference/glossary.md) carries the mapping and the four places the
+analogy breaks down. **You never need to know anything about building codes to use
+this framework.** What that claim does not cover: the chapters assume a reader
+comfortable with normative standards language, and
+[how to read this](model/00-conventions.md) says so plainly.
 
-Each must pass in order. H3 requires H1 and H2 recorded as passed.
+## What it does instead
 
-| | Point | Checked before |
-|:--|:--|:--|
-| **H1** | Identity and credentials | any real data moves |
-| **H2** | Connections, permissions, egress | wiring to real systems of record |
-| **H3** | End-to-end path | going further, using synthetic data and a genuinely broken dependency |
-| **H4** | **Pre-concealment** | behavior becomes hidden behind an interface, a schedule, or a removed confirmation step |
-| **H5** | Final verification | production approval, with rollback **exercised** rather than documented |
+**It asks about reuse first.** If a component has already been certified and
+fits your case, you confirm the certification and inspect only your integration.
+That is the shortest route through the framework and the only one that gets
+faster the more the institution governs. If reuse is harder than rebuilding
+where you work, nothing else here will save you.
 
-**H4 is the most important gate in the framework.** Human sign-off is required
-there at Tier 2 and above. Most other cells are automated, and that is the
-design working rather than a gap.
+**Classification is mechanical, not a judgment call.** Six stated triggers,
+worked in order, highest wins, and never lowered because most answers came back
+low. The forcing rule is the combination of private data, untrusted content, and
+the ability to communicate externally. All three together is the top tier, and
+the usual remedy is to remove one of the three rather than to add review.
 
----
+**Three tiers, and most work lands in the lowest two.** Tier 1 is self-certified
+with automated checks. Tier 2 is timeboxed peer review with one human
+verification point. Tier 3, reserved for genuinely consequential builds, gets an
+independent reviewer and sign-off from the office that can say no.
 
-## The artifacts
+**Verification happens at five points, and one of them carries the weight.**
+Identity, connections, the end-to-end path, then **pre-concealment**, which is
+the check that runs before behavior disappears behind an interface, a schedule,
+or a removed confirmation step. That is the gate the framework would keep if it
+could keep only one. The last point requires rollback to have been exercised
+rather than documented.
 
-The completed artifact is the evidence. Nothing here is satisfied by a
-description of itself.
+**Evidence is the completed artifact, never a description of one.** A statement
+of need, a design review, an authorization with an expiry, inspection records, a
+production approval, and a record of what is actually running.
 
-Statement of Need · Design Review · Decision record · Authorization to Build ·
-Inspection records H1 to H5 · Production Approval · Deployed System Record
-(registry entry) · Certification, where a component is reused ·
-Recorded exceptions · [Templates for all of them](templates/)
+The tables for all of this are on one page in the
+[quick reference](quick-ref.md). The whole thing worked end to end on a single
+system is in the [running example](guide/02-running-example.md), which is the
+fastest way to see how the pieces connect.
 
----
+## What adopting it costs
 
-## What this framework refuses to do
+1. **Name your Final Decision Authority.** The office that can say no and be
+   obeyed. If no such office exists, that is the finding, and this framework
+   cannot substitute for it.
+2. **Establish which governance pattern you already are.** Directive, Guided,
+   Federated, or Autonomous. Each fails at adopting this differently, and
+   [adoption](guide/01-adoption.md) names the failure signal for each. Federated
+   institutions should take certification early rather than last.
+3. **Map the tiers to your own data classification.** Every
+   `LOCAL AMENDMENT REQUIRED` label marks a decision deliberately left to you.
+4. **Delete what you cannot enforce.** A documented control your platform does
+   not implement is worse than an acknowledged gap, because it stops people
+   looking.
+5. **Start with verification, not intake.** Automated checks on what you already
+   run pay off fastest and are least resented. Intake first reads as a new form.
+6. **Publish the five numbers** in
+   [requirement 1.9](model/01-principles.md). They are what would tell anyone,
+   including you, whether this is working rather than merely running. Nobody has
+   published them yet.
 
-- **It will not put a review board in front of your deploys.** Gates sit at
-  irreversibility, not at milestones. A recurring inspection meeting is a
-  change advisory board that has not admitted it yet.
+The recurring cost is the part most likely to be underestimated. Certifications
+carry surveillance intervals and expiry dates, and third-party dependencies
+carry re-check intervals. Both are real staffing, and both **fail silently**
+rather than visibly when they lapse. An institution that cannot staff them
+should say so and set its tier ceilings accordingly.
+
+## What it refuses to do
+
+- **It will not put a review board in front of your deploys.** A recurring
+  inspection meeting is a change advisory board that has not admitted it yet.
 - **It will not document a control your platform does not enforce.**
-  Documented false assurance is worse than an acknowledged gap, because it
-  stops people looking.
 - **It will not let a certification lower a tier.** Certification reduces
-  component review. Classification always runs in full.
-- **It will not let a missed deadline produce a compliance determination.** A
-  turnaround expiry can grant permission to proceed. Accessibility conformance
-  and lawful-basis findings are never deemed.
+  component review. Classification always runs in full against your instance.
+- **It will not let a missed deadline produce a compliance determination.** An
+  expired review turnaround can grant permission to proceed. Accessibility
+  conformance and lawful-basis findings are never deemed.
 - **It will not make you compliant with anything.** Where law applies, it cites
   the provision and stops.
 
+## What is not known
+
+Stated here rather than buried, because the framework asks the same of anyone
+adopting it.
+
+**Nobody has run this.** It is a design hypothesis with a documented argument.
+Adoption reports, turnaround performance, exception rates, and failure cases are
+the most valuable contribution anyone could make. Whether governance of this kind
+reduces actual harm is unmeasured by anyone, not just here.
+
+**Some claims are unverified and labelled as such.** ISO/IEC 42001's control
+structure is paywalled, and several construction primary sources would not load,
+which is why the chapters borrowing that vocabulary carry `UNVERIFIED` labels.
+[Appendix C](reference/evidence-on-gates.md) lists every place the framework
+reasons rather than measures. Start there if you are deciding whether this is any
+good.
+
+**Every specific number is a design judgment.** Turnaround times, expiry
+intervals, review cadences. Change them freely. They are not load-bearing.
+
+**Certification is the most gameable mechanism here.** One granted casually and
+never surveilled would be worse than the queue it replaces.
+[Chapter 11](model/11-certified-components.md) says so itself.
+
 ---
 
-## Adopting it
+## Where to go next
 
-1. **Name your Final Decision Authority.** The office that can say no and be
-   obeyed. If none exists, that is the finding.
-2. **Establish which governance pattern you already are**, because each fails
-   at this differently ([adoption](guide/01-adoption.md)).
-3. **Map the tiers to your own data classification.** Every
-   `LOCAL AMENDMENT REQUIRED` label is a decision left to you.
-4. **Delete what you cannot enforce.**
-5. **Start with inspections, not intake.** Automated checks on what you already
-   run pay off fastest and are least resented.
-6. **Publish the five numbers** in
-   [requirement 1.9](model/01-principles.md), because nobody has, and they are
-   what would tell anyone whether this works.
-
-Record your adoption as a delta against this edition using the
-[amendments template](templates/amendments-template.md).
+The [home page](index.md) routes by what you are trying to do. The
+[running example](guide/02-running-example.md) is the fastest orientation for
+anyone building. The requirements themselves are the
+[core governance model](model/), and reading only Purpose and Requirement across
+the thirteen chapters is a supported way through.

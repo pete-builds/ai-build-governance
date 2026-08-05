@@ -1,25 +1,24 @@
 ---
 title: Contents
-nav_order: 3
+nav_order: 4
 ---
 
 # Contents
 
-Every page in the framework, with how long each layer takes to read. Generated
-from the source files by `tools/build-nav.pl`, so it cannot fall out of step.
+Every page in the framework, grouped by layer. Generated from the source files by
+`tools/build-nav.pl`, so it cannot fall out of step with what it describes.
 
+**New to this?** Read the [executive summary](overview.md).
+**Want the whole model condensed?** Use the [quick reference](quick-ref.md).
 **Looking for a specific requirement by number?** Use the
 [requirement index](reference/requirement-index.md).
-**Want the whole model condensed?** Use
-[the model on one page](overview.md).
 
-| Layer | Pages | Words | Reading time | Binds? |
-|:--|--:|--:|--:|:--|
-| [Core Governance Model](model/) | 14 | 19507 | 98 min | **Yes**, once adopted |
-| [Implementation Guide](guide/) | 6 | 9250 | 46 min | No |
-| [Technical and Evidence References](reference/) | 8 | 10223 | 51 min | No |
-| [Templates](templates/) | 10 | 10514 | 53 min | The completed artifact is the evidence |
-| | | **49494** | **247 min** | |
+| Layer | Pages | Binds? |
+|:--|--:|:--|
+| [Core Governance Model](model/) | 14 | **Yes**, once adopted |
+| [Implementation Guide](guide/) | 6 | No |
+| [Technical and Evidence References](reference/) | 8 | No |
+| [Templates](templates/) | 10 | The completed artifact is the evidence |
 
 **You do not need to read all of it.** The model is the only layer that binds,
 and reading only Purpose and Requirement across it is a deliberate and
@@ -40,8 +39,6 @@ is the part that differs between them.
 
 - No numbered requirements. Conventions and reading guidance.
 
-1739 words, about 9 min.
-
 ### [01. Principles](model/01-principles.md)
 
 - **Where gates belong** (1.1 to 1.3)
@@ -49,15 +46,11 @@ is the part that differs between them.
 - **Getting adopted, and staying adopted** (1.6 to 1.7)
 - **Shrinking, and proving it works** (1.8 to 1.9)
 
-1417 words, about 7 min.
-
 ### [02. Statement of Need](model/02-statement-of-need.md)
 
 - **What the need must state** (2.1 to 2.3)
 - **Check whether it already exists** (2.4 to 2.5)
 - **Ownership, and grounds for return** (2.6 to 2.7)
-
-984 words, about 5 min.
 
 ### [03. Risk Classification](model/03-classification.md)
 
@@ -66,8 +59,6 @@ is the part that differs between them.
 - **Trigger F: Unbounded cost** (3.5 to 3.7)
 - Opening requirement (3.0, 3.1)
 
-1647 words, about 8 min.
-
 ### [04. Design Review](model/04-design-review.md)
 
 - **Who reviews, and how long they get** (4.1 to 4.3)
@@ -75,16 +66,12 @@ is the part that differs between them.
 - **Dispositions, and what follows** (4.7 to 4.8)
 - **Asking a question cheaply** (4.9 to 4.10)
 
-1097 words, about 5 min.
-
 ### [05. Authorization to Build](model/05-authorization-to-build.md)
 
 - **What an authorization is** (5.1 to 5.3)
 - **What each tier authorizes** (5.4 to 5.5)
 - **Standard conditions** (5.6)
 - **Exceptions, and lapse** (5.7 to 5.8)
-
-959 words, about 5 min.
 
 ### [06. Inspections](model/06-inspections.md)
 
@@ -95,8 +82,6 @@ is the part that differs between them.
 - **H5: Final verification** (6.13 to 6.17)
 - Opening requirement (6.1, 6.2)
 
-1809 words, about 9 min.
-
 ### [07. Production Approval and Records](model/07-production-approval.md)
 
 - **Approval is a separate act** (7.1 to 7.4)
@@ -105,15 +90,11 @@ is the part that differs between them.
 - **The deployed system record** (7.8 to 7.10)
 - **Review, decommissioning, and closure** (7.11 to 7.13)
 
-1381 words, about 7 min.
-
 ### [08. Alterations and Existing Systems](model/08-alterations.md)
 
 - **When a change re-enters** (8.1)
 - **Systems that predate the framework** (8.2 to 8.6)
 - **Change that arrives without anyone changing anything** (8.9 to 8.8)
-
-1493 words, about 7 min.
 
 ### [09. Roles and Authority](model/09-roles.md)
 
@@ -122,15 +103,11 @@ is the part that differs between them.
 - **Independent review** (9.7)
 - **Credentials, and departure** (9.8 to 9.9)
 
-1294 words, about 6 min.
-
 ### [10. Concurrent Reviews](model/10-concurrent-reviews.md)
 
 - **One submittal, one clock** (10.1 to 10.5)
 - **Permission versus determination** (10.6 to 10.7)
 - Opening requirement (10.0)
-
-1101 words, about 6 min.
 
 ### [11. Certified Reusable Components](model/11-certified-components.md)
 
@@ -140,16 +117,12 @@ is the part that differs between them.
 - **Who certifies, and keeping it alive** (11.7 to 11.10)
 - **Certified patterns** (11.11)
 
-1510 words, about 8 min.
-
 ### [12. Delegated Authority](model/12-delegated-authority.md)
 
 - **An agent inherits, never exceeds** (12.1 to 12.3)
 - **Approval must reach a person** (12.4 to 12.5)
 - **What is never permitted** (12.6)
 - **The record** (12.7)
-
-1475 words, about 7 min.
 
 ### [13. Third-Party Capabilities](model/13-third-party.md)
 
@@ -158,8 +131,6 @@ is the part that differs between them.
 - **Who can change your production behavior** (13.4 to 13.5)
 - **Egress and classification** (13.6 to 13.7)
 - **Keeping it checked** (13.8 to 13.10)
-
-1601 words, about 8 min.
 
 ---
 
@@ -177,8 +148,6 @@ Non-binding. The numbering is not a reading order; see the
 - What to expect to go wrong
 - Recording your adoption
 
-1785 words, about 9 min.
-
 ### [02. Running Example: The Payment Inquiry Agent](guide/02-running-example.md)
 
 - Stage 1: Statement of Need
@@ -193,8 +162,6 @@ Non-binding. The numbering is not a reading order; see the
 - Stage 10: Delegated authority
 - What the whole path cost
 
-2610 words, about 13 min.
-
 ### [03. Agentic Products](guide/03-agentic-products.md)
 
 - Separate the two risks, because people conflate them
@@ -204,21 +171,15 @@ Non-binding. The numbering is not a reading order; see the
 - What "done" means
 - Honest accounting of this chapter
 
-2057 words, about 10 min.
-
 ### [04. Accessibility](guide/04-accessibility.md)
 
 - Where this sits
-
-831 words, about 4 min.
 
 ### [05. Security and Privacy Review](guide/05-security-and-privacy-review.md)
 
 - Security review
 - Privacy review
 - Why both are kept narrow
-
-502 words, about 3 min.
 
 ### [06. MCP Approvals](guide/06-mcp-approvals.md)
 
@@ -228,8 +189,6 @@ Non-binding. The numbering is not a reading order; see the
 - Route C: you are connecting to a vendor or third-party remote server
 - Approval routing, condensed
 - Where this leaves the open questions
-
-1465 words, about 7 min.
 
 ---
 
@@ -274,7 +233,8 @@ A completed template is the evidence that a requirement was satisfied.
 ## Everything else
 
 - [Home](index.md)
-- [The model on one page](overview.md)
+- [Executive summary](overview.md), the argument and the limits
+- [Quick reference](quick-ref.md), everything binding on one printable page
 - [Changelog](CHANGELOG.md), what each edition changed and what was wrong before
 - [Source ledger](SOURCES.md), retrieval and review-by dates
 - [Contributing](CONTRIBUTING.md)

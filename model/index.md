@@ -1,6 +1,6 @@
 ---
 title: "Core Governance Model"
-nav_order: 4
+nav_order: 5
 has_children: true
 ---
 
@@ -67,6 +67,7 @@ inherits its inspection and reviews only the integration. That is the fastest
 path the model offers, and the only one that gets faster as the institution
 governs more.
 
-If nothing suitable is certified, work the sequence. See
-[the model on one page](../overview.md) for the whole thing condensed, including
-the tier triggers and the five verification points.
+If nothing suitable is certified, work the sequence. See the
+[quick reference](../quick-ref.md) for the whole thing condensed onto one page,
+including the tier triggers and the five verification points, and the
+[executive summary](../overview.md) for why any of it is shaped this way.

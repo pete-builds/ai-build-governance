@@ -24,9 +24,6 @@ sub slug {                      # kramdown-compatible heading anchor
   return $s;
 }
 
-sub words { my $f = shift; open my $h,'<',$f or return 0; local $/; my $t=<$h>; close $h;
-            $t =~ s/^---.*?---//s; my @w = split /\s+/, $t; return scalar grep { /\S/ } @w; }
-
 sub title_of {                  # front-matter title
   my $f = shift; open my $h,'<',$f or return $f;
   while (my $l = <$h>) { if ($l =~ /^title:\s*"?(.*?)"?\s*$/) { close $h; return $1 } }
@@ -82,39 +79,31 @@ my @profiles  = sort glob 'reference/platform-profiles/*.md';
 my @templates = sort glob 'templates/*.md';
 @templates    = grep { $_ !~ m{/index\.md$} } @templates;
 
-my $wm = 0; $wm += words($_) for @model;
-my $wg = 0; $wg += words($_) for @guide;
-my $wr = 0; $wr += words($_) for (@appendix, @profiles);
-my $wt = 0; $wt += words($_) for @templates;
-my $wall = $wm + $wg + $wr + $wt;
-my $mins = sub { my $n = int($_[0]/200 + 0.5); $n < 1 ? 1 : $n };
-
 # ---------------------------------------------------------------------------
 # contents.md
 
 my $c = <<"HEAD";
 ---
 title: Contents
-nav_order: 3
+nav_order: 4
 ---
 
 # Contents
 
-Every page in the framework, with how long each layer takes to read. Generated
-from the source files by `tools/build-nav.pl`, so it cannot fall out of step.
+Every page in the framework, grouped by layer. Generated from the source files by
+`tools/build-nav.pl`, so it cannot fall out of step with what it describes.
 
+**New to this?** Read the [executive summary](overview.md).
+**Want the whole model condensed?** Use the [quick reference](quick-ref.md).
 **Looking for a specific requirement by number?** Use the
 [requirement index](reference/requirement-index.md).
-**Want the whole model condensed?** Use
-[the model on one page](overview.md).
 
-| Layer | Pages | Words | Reading time | Binds? |
-|:--|--:|--:|--:|:--|
-| [Core Governance Model](model/) | @{[scalar @model]} | $wm | @{[$mins->($wm)]} min | **Yes**, once adopted |
-| [Implementation Guide](guide/) | @{[scalar @guide]} | $wg | @{[$mins->($wg)]} min | No |
-| [Technical and Evidence References](reference/) | @{[scalar @appendix + scalar @profiles]} | $wr | @{[$mins->($wr)]} min | No |
-| [Templates](templates/) | @{[scalar @templates]} | $wt | @{[$mins->($wt)]} min | The completed artifact is the evidence |
-| | | **$wall** | **@{[$mins->($wall)]} min** | |
+| Layer | Pages | Binds? |
+|:--|--:|:--|
+| [Core Governance Model](model/) | @{[scalar @model]} | **Yes**, once adopted |
+| [Implementation Guide](guide/) | @{[scalar @guide]} | No |
+| [Technical and Evidence References](reference/) | @{[scalar @appendix + scalar @profiles]} | No |
+| [Templates](templates/) | @{[scalar @templates]} | The completed artifact is the evidence |
 
 **You do not need to read all of it.** The model is the only layer that binds,
 and reading only Purpose and Requirement across it is a deliberate and
@@ -152,14 +141,14 @@ for my $f (@model) {
   } else {
     $c .= "- No numbered requirements. Conventions and reading guidance.\n";
   }
-  $c .= sprintf "\n%d words, about %d min.\n\n", words($f), $mins->(words($f));
+  $c .= "\n";
 }
 
 $c .= "---\n\n## Implementation Guide\n\nNon-binding. The numbering is not a reading order; see the\n[audience table](guide/).\n\n";
 for my $f (@guide) {
   $c .= sprintf "### [%s](%s)\n\n", title_of($f), $f;
   $c .= sprintf "- %s\n", join "\n- ", @{h2s($f)} if @{h2s($f)};
-  $c .= sprintf "\n%d words, about %d min.\n\n", words($f), $mins->(words($f));
+  $c .= "\n";
 }
 
 $c .= "---\n\n## Technical and Evidence References\n\nNon-binding and the most volatile layer. Check retrieval dates in the\n[source ledger](SOURCES.md) before relying on anything here.\n\n";
@@ -172,7 +161,7 @@ $c .= "\n---\n\n## Templates\n\nA completed template is the evidence that a requ
 $c .= sprintf "- [%s](%s)\n", title_of($_), $_ for @templates;
 
 $c .= "\n---\n\n## Everything else\n\n";
-$c .= "- [Home](index.md)\n- [The model on one page](overview.md)\n- [Changelog](CHANGELOG.md), what each edition changed and what was wrong before\n- [Source ledger](SOURCES.md), retrieval and review-by dates\n- [Contributing](CONTRIBUTING.md)\n";
+$c .= "- [Home](index.md)\n- [Executive summary](overview.md), the argument and the limits\n- [Quick reference](quick-ref.md), everything binding on one printable page\n- [Changelog](CHANGELOG.md), what each edition changed and what was wrong before\n- [Source ledger](SOURCES.md), retrieval and review-by dates\n- [Contributing](CONTRIBUTING.md)\n";
 
 # ---------------------------------------------------------------------------
 # reference/requirement-index.md

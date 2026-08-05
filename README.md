@@ -6,28 +6,42 @@ search_exclude: true
 
 # AI Build Governance
 
-**Edition 2026.6** · [**The model on one page**](overview.md) · [Contents](contents.md) · [Requirement index](reference/requirement-index.md) · [Changelog](CHANGELOG.md) · [Source ledger](SOURCES.md) · [How to read this](model/00-conventions.md)
+**A governance framework for how institutions build AI capabilities, as distinct
+from how people use them.**
 
-**How long is this?** 49,000 words across 38 pages, about 4 hours end to end.
-The only layer that binds is the model, at 95 minutes, and reading just Purpose
-and Requirement across it is a supported way through.
-[Contents](contents.md) has the per-layer breakdown.
+Most universities have a body that sets AI policy and nothing underneath it that
+turns policy into a decision anyone can make on a Tuesday. Between the moment
+someone has an idea and the moment it is running in production affecting real
+people, six questions go unanswered: who established that this was needed, how
+serious are the consequences, who reviewed the design against that need, what was
+verified and when, who approved it going live, and where is it written down that
+it exists. This framework answers those six. It is thirteen chapters of numbered
+requirements that an institution adopts and amends for itself, in the way a state
+adopts a model building code and writes its own amendments. Free under CC BY 4.0,
+no vendor dependency, and **nobody has piloted it**.
 
-A governance framework for **how institutions build AI capabilities**, with
-mechanisms adapted from building codes.
+## New here?
+
+Read the [**executive summary**](overview.md). It is the whole argument,
+including the parts that count against it, and it opens with a short version if
+that is all you want. Then either:
+
+- [**The running example**](guide/02-running-example.md) carries one system, an
+  agent that triages emailed payment inquiries, through every stage end to end.
+  Fastest way to see how the pieces connect, and it demonstrates a case most
+  people misclassify.
+- [**Quick reference**](quick-ref.md) is everything binding condensed onto one
+  printable page: the sequence, the tiers, the triggers, the verification points.
 
 ---
 
-## What this is
+**Edition 2026.6** · [Contents](contents.md) · [Requirement index](reference/requirement-index.md) · [Changelog](CHANGELOG.md) · [Source ledger](SOURCES.md) · [How to read this](model/00-conventions.md)
 
-An operating model for the decisions between "someone has an idea" and "it
-is running in production affecting real people." It covers establishing
-need, classifying risk, reviewing designs, verifying systems, approving
-production, recording what exists, and reusing what has already been
-checked.
+**You do not need to read all of it.** The only layer that binds is the model,
+and reading just Purpose and Requirement across its thirteen chapters is a
+supported way through. [Contents](contents.md) lists every page.
 
-It is written for a decentralized institution that **cannot simply mandate
-compliance**, which is the situation most universities are actually in.
+---
 
 ## What this is not
 
@@ -35,50 +49,13 @@ compliance**, which is the situation most universities are actually in.
   chatbot, or what students may submit. Those are governed elsewhere.
 - **Not a compliance certification.** Adopting it makes you compliant with
   nothing. Where law applies, this cites the provision and stops.
-- **Not an ethics framework.** It assumes you have principles and asks how
-  they get enforced at 4pm on a Thursday when something ships.
-- **Not validated by adoption.** Nobody has run it yet. It is a design
-  hypothesis with a documented argument, and
-  [Appendix C: The Evidence on Gates](reference/evidence-on-gates.md) lists
-  every place it reasons rather than measures.
-- **Not a committee.** If adopting it produces a new standing board, it has
-  been implemented backwards.
+- **Not an ethics framework.** It assumes you have principles and asks how they
+  get enforced at 4pm on a Thursday when something ships.
+- **Not a committee.** If adopting it produces a new standing board, it has been
+  implemented backwards.
 
----
-
-## The whole thing
-
-Plain language, no analogy. Chapter numbers so you can go straight to what
-binds.
-
-**Before anything else: can you reuse something already checked?** If a
-certified component fits, you confirm the certification and inspect **only your
-integration** ([ch 11](model/11-certified-components.md)). That is the shortest
-path here, and the only one that gets faster the more the institution governs.
-If reuse is harder than rebuilding where you work, nothing else on this page
-will save you.
-
-If you are building something new, the sequence is eight steps:
-
-1. **Establish the need** before choosing a solution ([ch 02](model/02-statement-of-need.md))
-2. **Classify the consequences** against stated triggers, highest wins, rather than by reviewer judgment ([ch 03](model/03-classification.md))
-3. **Review the design** without creating a queue ([ch 04](model/04-design-review.md))
-4. **Authorize the build**, with conditions and an expiry ([ch 05](model/05-authorization-to-build.md))
-5. **Verify the system** before important behavior becomes hidden ([ch 06](model/06-inspections.md))
-6. **Approve it for production** as a separate act from finishing it ([ch 07](model/07-production-approval.md))
-7. **Record what actually exists**, not what was planned ([ch 07](model/07-production-approval.md))
-8. **Reassess it when it changes**, and on an interval when it does not ([ch 08](model/08-alterations.md))
-
-Five chapters are **not** stages in that sequence. They are standing
-arrangements that apply the whole way through: the
-[principles](model/01-principles.md) everything is tested against,
-[roles and authority](model/09-roles.md),
-[concurrent reviews](model/10-concurrent-reviews.md),
-[delegated authority](model/12-delegated-authority.md) wherever an agent acts
-for a human, and [third-party capabilities](model/13-third-party.md) wherever a
-build depends on something you do not operate.
-
-Everything else is detail in service of those.
+The [executive summary](overview.md) states the limits in full, including that
+nobody has run this yet and which claims remain unverified.
 
 ---
 
@@ -95,52 +72,14 @@ Everything else is detail in service of those.
 
 ---
 
-## Start here by role
-
-| You are | Read | Skip |
-|---|---|---|
-| **An institutional leader** | This page, [principles](model/01-principles.md), [adoption](guide/01-adoption.md) | All of Layer III, all verification detail |
-| **An institution considering adoption** | [Adoption](guide/01-adoption.md), [amendments template](templates/amendments-template.md), [classification](model/03-classification.md) | Layer III except the [platform profile](reference/platform-profiles/) for your own stack |
-| **An AI platform team** | [Classification](model/03-classification.md), [inspections](model/06-inspections.md), [certified components](model/11-certified-components.md), [MCP approvals](guide/06-mcp-approvals.md), [platform profiles](reference/platform-profiles/) | Statement of need, roles |
-| **A builder with something to ship** | [Running example](guide/02-running-example.md) first, then [statement of need](model/02-statement-of-need.md), [design review](model/04-design-review.md), [agentic products](guide/03-agentic-products.md) | Roles, certified components, Layer III |
-| **Connecting a vendor or third-party tool server** | [MCP approvals](guide/06-mcp-approvals.md), then [third-party capabilities](model/13-third-party.md) | The rest of the sequence until you know which route you are on |
-| **A security or privacy reviewer** | [Security and privacy review](guide/05-security-and-privacy-review.md), [inspections](model/06-inspections.md), [platform profiles](reference/platform-profiles/) | Statement of need, alterations |
-| **An accessibility reviewer** | [Accessibility](guide/04-accessibility.md), [concurrent reviews](model/10-concurrent-reviews.md) | Everything else |
-| **An auditor** | [Production approval and records](model/07-production-approval.md), [framework crosswalk](reference/framework-crosswalk.md), [conventions](model/00-conventions.md) | The guide |
-| **Deciding whether this is any good** | [Evidence on gates](reference/evidence-on-gates.md) first | The pitch. Start with the limits. |
-
-**Fastest orientation:** the [running example](guide/02-running-example.md)
-carries one system, an agent that triages emailed payment inquiries, through
-every stage end to end. It is the shortest route to seeing how the pieces
-connect, and it demonstrates a case most people misclassify.
-
----
-
-## The one thing this framework refuses to do
-
-**It will not put a review board in front of your deploys.**
-
-DORA's published research on change approval finds that external approval
-approaches "have a negative impact on software delivery performance," and
-that "no evidence was found to support the hypothesis that a more formal,
-external review process was associated with lower change fail rates"
-([DORA](https://dora.dev/capabilities/streamlining-change-approval/)). It
-also names the trap institutions fall into after an incident: adding process
-"will make things worse because this drives up lead times and batch sizes,
-creating a vicious cycle."
-
-Read the nuance, because it is the design constraint. DORA does not say
-review is useless. It endorses **peer review at check-in plus automation**
-as the substitute, and reframes the review body "from gatekeeper to process
-architect and information beacon."
-
-So: automated checks on everything countable, peer review close to the work,
-independent review only for genuinely high-consequence builds, and gates at
-**irreversibility** rather than at ceremony.
-
----
-
 ## Layer I: Core Governance Model
+
+**Chapters 02 through 08 are a sequence**, one capability from idea to
+production. **The other six are standing arrangements** that apply the whole way
+through, and reading those as stages is most of why the model looks heavier than
+it is. [The model index](model/) groups them that way. **Chapter 11 is an entry
+point rather than a last step**, because consuming an already certified component
+is the fastest path through all of this.
 
 | # | Chapter | The failure it prevents |
 |---|---|---|
@@ -160,6 +99,9 @@ independent review only for genuinely high-consequence builds, and gates at
 | 13 | [Third-Party Capabilities](model/13-third-party.md) | Inspecting a component you do not run, and filing it as though you had |
 
 ## Layer II: Implementation Guide
+
+Different audiences, and the numbering is not a reading order. The
+[guide index](guide/) has the by-role table.
 
 | Chapter | For |
 |---|---|
@@ -205,54 +147,6 @@ about n8n are not generalized; see its
 
 ---
 
-## Adopting this
-
-1. **Name your Final Decision Authority.** The office that can say no and be
-   obeyed. If none exists, that is the finding, and this cannot substitute
-   for it.
-2. **Establish which governance pattern you already are.** Directive, Guided,
-   Federated, or Autonomous. Each one fails at adopting this differently, and
-   [Adoption](guide/01-adoption.md) names the failure signal to watch for in
-   each. Federated institutions should take certification early rather than
-   last.
-3. **Map the tiers to your own data classification.** Every
-   `LOCAL AMENDMENT REQUIRED` label marks a decision left deliberately to
-   you.
-4. **Delete what you cannot enforce.** A documented control your platform
-   does not implement is worse than an acknowledged gap.
-5. **Start with inspections, not intake.** Automated checks on what you
-   already run pay off fastest and are least resented.
-6. **Publish the five numbers** in
-   [requirement 1.9](model/01-principles.md). They are what would tell anyone,
-   including you, whether this is working rather than merely running. Nobody has
-   published them yet.
-
-Full sequence in [Adoption](guide/01-adoption.md). Record your
-adoption with the [amendments template](templates/amendments-template.md),
-which is a delta against a named edition so you can see what changed when a
-new one ships.
-
----
-
-## Where the mechanisms came from
-
-Four of the mechanisms here are adapted from how the built environment governs
-construction: a model code adopted with local amendments, verification before
-work is concealed, approval to occupy as an act distinct from completion, and
-certification of reusable products. That domain solved this problem at scale,
-for public safety, across thousands of independent jurisdictions, **without
-central command authority**, which is why it fits universities.
-
-The vocabulary here is plain AI-governance language. The
-[glossary](reference/glossary.md) has the two-way mapping and the four places
-the analogy breaks down. **You never need to know anything about building codes
-to use this framework.** Note what that claim does not cover: the chapters
-assume a reader comfortable with normative standards language, and
-[how to read this](model/00-conventions.md) says so plainly. If you have to translate a metaphor to work out what
-you are being asked to do, that is a defect worth reporting.
-
----
-
 ## Scope
 
 **In scope:** capabilities an institution builds or assembles itself. MCP
@@ -272,6 +166,24 @@ standard. See [Accessibility](guide/04-accessibility.md).
 finished commercial products, research methodology, and anything touching
 faculty academic freedom. Those are governed elsewhere by bodies with
 standing to govern them.
+
+---
+
+## Adopting this
+
+Six steps, what each one costs, and the recurring work most institutions
+underestimate: see [what adopting it costs](overview.md) in the executive
+summary, then [Adoption](guide/01-adoption.md) for the full sequence. Record your
+adoption with the [amendments template](templates/amendments-template.md), which
+is a delta against a named edition so you can see what changed when a new one
+ships.
+
+Four of the mechanisms here are adapted from how the built environment governs
+construction, for reasons the [executive summary](overview.md) sets out and the
+[glossary](reference/glossary.md) maps term by term. **You never need to know
+anything about building codes to use this framework.** If you have to translate a
+metaphor to work out what you are being asked to do, that is a defect worth
+reporting.
 
 ---
 

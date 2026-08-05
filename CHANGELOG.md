@@ -1,6 +1,6 @@
 ---
 title: Changelog
-nav_order: 8
+nav_order: 9
 ---
 
 # Changelog
@@ -11,6 +11,108 @@ edition they adopt.
 
 Edition numbering is `YYYY.N`. Anything that changes what a reviewer would
 decide is a new edition. Wording and typo fixes are not.
+
+---
+
+## Unreleased
+
+**A front-door restructure.** No requirement changed, no chapter was added or
+removed, and no gate moved, so this is not an edition. It fixes the entry
+experience, which was the part of this repository least subjected to its own
+standards.
+
+### Fixed: the front matter had become three diverged copies of itself
+
+`README.md`, `index.md`, and `overview.md` each carried "what this is", "what
+this is not", the eight-step sequence, the three-layer table, the DORA argument,
+the origin of the borrowed mechanisms, and the adoption steps. The "start here by
+role" table existed in **three** places, `README.md`, `index.md`, and
+`guide/index.md`, with different rows in each.
+
+It had already produced a factual error. `README.md` and `index.md` both said
+**five** chapters are standing arrangements rather than stages. It is six, and
+the one they dropped was chapter 11, the chapter this model calls its entry
+point. Nothing caught it because no check compares two prose statements of the
+same fact, and there is no good way to add one. The fix is to stop stating the
+fact twice.
+
+Each front-door page now has one job:
+
+| Page | Job |
+|:--|:--|
+| `README.md` | The GitHub front door: what it is, and the map of every page |
+| `index.md` | The site landing page: what it is, and which reader you are |
+| `overview.md` | **The executive summary.** The argument, in prose |
+| `quick-ref.md` | **New.** Everything binding, condensed onto one printable page |
+| `contents.md` | Generated page inventory with reading times |
+
+**This did not make the front matter shorter**, and the plan for it predicted
+that it would. The four front pages grew slightly, because the executive summary
+is genuinely new writing rather than relocated text. What changed is that each
+fact has one home, and that the shortest route to "should I care about this" is
+now one opening paragraph rather than a README that buried its argument below the
+navigation. Single-sourcing was the goal. Brevity was a prediction that did not
+hold, and saying so is cheaper than pretending otherwise.
+
+### Changed: `overview.md` is the executive summary, not the reference card
+
+It was titled "The model on one page" and it was a set of tables: tiers,
+triggers, verification points, artifacts. That is the right artifact for someone
+already committed and close to useless for someone deciding whether to spend four
+hours. Nothing in the repository argued, in prose, why any of this exists.
+
+`overview.md` keeps its filename so existing links and bookmarks land on the
+better introduction. The tables moved to the new
+[quick reference](quick-ref.md) unchanged. Two inbound links whose surrounding
+text promised the condensed tables were retargeted there:
+`model/index.md` and the generated line in `contents.md`. The link in
+`model/00-conventions.md`, which points a reader without a standards background
+at the most approachable page, now names the executive summary, which is more
+accurate than what it said before.
+
+The changelog entry for edition 2026.5 still calls `overview.md` "the model on
+one page", because that is what shipped then and history is not rewritten here.
+
+### Fixed: the README stated the price before the product
+
+The first content after the heading was a six-link navigation bar, then "49,000
+words across 38 pages, about 4 hours end to end", and only after that what the
+framework is. The first thing a new reader learned was the cost.
+
+### Removed: the front pages no longer advertise their own length
+
+This reverses a decision edition 2026.6 made deliberately and defended in this
+changelog, on the grounds that a contents page and reading times "make the size
+visible and navigable. They do not make it smaller." Making the size visible was
+right. Putting it on the front door, and then timing each individual page in its
+own opening line, read as a warning label rather than as navigation, and it is a
+strange thing for a document to say about itself.
+
+The figures are gone entirely, including from the generated
+[contents](contents.md) page, which had carried a word count and a reading
+estimate for every layer and for each of the twenty chapters individually. The
+contents page still lists every page and how many sit in each layer, because that
+is navigation rather than a verdict on the reader's afternoon.
+
+What survives is the useful half of the disclosure, and it appears on every front
+page: the model is the only layer that binds, and reading only Purpose and
+Requirement across the thirteen chapters is a supported way through.
+
+`tools/build-nav.pl` no longer computes word counts at all. The `words` helper and
+the reading-time function are deleted rather than left unused, so this cannot creep
+back in through a regeneration.
+
+### Added: routing by reader question rather than by job title
+
+The known weakness recorded against edition 2026.5 was that thirteen chapters is
+more than most people will read, and that a restructure around reader questions
+would help. `index.md` now routes on "setting this up", "you built something and
+want it live", "you want to use something someone else built", and "reviewing
+someone else's build", rather than on a nine-row table of job titles. The
+by-title table survives once, in `guide/index.md`, which already had the best
+version of it.
+
+This is a navigation layer, not a restructure. The chapters did not move.
 
 ---
 

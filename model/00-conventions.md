@@ -159,8 +159,8 @@ You never need to know anything about building codes to use this framework.
 > without background. The model assumes a reader who is comfortable with
 > normative standards language, has some exposure to institutional governance,
 > and can follow a security or architecture argument. A capable manager without
-> that background will find the front page and
-> [the model on one page](../overview.md) approachable and the chapters
+> that background will find the front page and the
+> [executive summary](../overview.md) approachable and the chapters
 > demanding, and that is a real gap rather than a failure of effort on their
 > part.
 >
