@@ -61,7 +61,7 @@ will save you.
 If you are building something new, the sequence is eight steps:
 
 1. **Establish the need** before choosing a solution ([ch 02](model/02-statement-of-need.md))
-2. **Classify the consequences** using objective triggers, not judgment ([ch 03](model/03-classification.md))
+2. **Classify the consequences** against stated triggers, highest wins, rather than by reviewer judgment ([ch 03](model/03-classification.md))
 3. **Review the design** without creating a queue ([ch 04](model/04-design-review.md))
 4. **Authorize the build**, with conditions and an expiry ([ch 05](model/05-authorization-to-build.md))
 5. **Verify the system** before important behavior becomes hidden ([ch 06](model/06-inspections.md))
@@ -246,7 +246,9 @@ central command authority**, which is why it fits universities.
 The vocabulary here is plain AI-governance language. The
 [glossary](reference/glossary.md) has the two-way mapping and the four places
 the analogy breaks down. **You never need to know anything about building codes
-to use this framework.** If you have to translate a metaphor to work out what
+to use this framework.** Note what that claim does not cover: the chapters
+assume a reader comfortable with normative standards language, and
+[how to read this](model/00-conventions.md) says so plainly. If you have to translate a metaphor to work out what
 you are being asked to do, that is a defect worth reporting.
 
 ---

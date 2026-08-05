@@ -59,7 +59,7 @@ institution governs more.
 Building something new is eight steps:
 
 1. **Establish the need** before choosing a solution ([02](model/02-statement-of-need.md))
-2. **Classify the consequences** using objective triggers, not judgment ([03](model/03-classification.md))
+2. **Classify the consequences** against stated triggers, highest wins, rather than by reviewer judgment ([03](model/03-classification.md))
 3. **Review the design** without creating a queue ([04](model/04-design-review.md))
 4. **Authorize the build**, with conditions and an expiry ([05](model/05-authorization-to-build.md))
 5. **Verify the system** before important behavior becomes hidden ([06](model/06-inspections.md))

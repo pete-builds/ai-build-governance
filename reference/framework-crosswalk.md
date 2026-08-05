@@ -190,7 +190,7 @@ satisfies, to who or what enforces it. **This is the table to build from.**
 | Authority Having Jurisdiction | Named Final Decision Authority | 09 | NIST GOVERN (accountability structures); OMB CAIO analogue | Institutional charter |
 | Statement of need / Owner's Project Requirements | Statement of Need | 02 | NIST MAP (context, purpose, beneficiaries); ISO 42001 A.5 impact assessment *(unverified id)* | Human. Intake process. |
 | Feasibility study | Existing-tooling and do-nothing check | 02 | NIST MAP | Human |
-| Occupancy classification | Risk tiers via objective triggers | 03 | EU AI Act tiering; NIST MAP (risk categorization); OMB High-Impact AI analogue | Human, from declared inputs. Partly automatable. |
+| Occupancy classification | Risk tiers via stated triggers | 03 | EU AI Act tiering; NIST MAP (risk categorization); OMB High-Impact AI analogue | Human, from declared inputs. Partly automatable. |
 | Prohibited construction | The "not permitted" category | 03 | EU AI Act Article 5 prohibited practices | Policy. Should be platform-enforced where possible. |
 | Basis of Design | Design Response | 04 | NIST MAP, MEASURE | Human |
 | Plan review / Commissioning Authority audit | Timeboxed peer or independent review | 04 | NIST GOVERN, MEASURE; ISO 42001 A.6 life cycle *(unverified id)* | Human. Timeboxed with deemed approval. |

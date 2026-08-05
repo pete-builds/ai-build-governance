@@ -153,6 +153,29 @@ then dropped.
 
 You never need to know anything about building codes to use this framework.
 
+> **What "plain language" does and does not mean here.** It means no unexplained
+> construction metaphor, and no term used in a requirement without being stated
+> plainly in the same requirement. It does **not** mean this reads easily
+> without background. The model assumes a reader who is comfortable with
+> normative standards language, has some exposure to institutional governance,
+> and can follow a security or architecture argument. A capable manager without
+> that background will find the front page and
+> [the model on one page](../overview.md) approachable and the chapters
+> demanding, and that is a real gap rather than a failure of effort on their
+> part.
+>
+> The gap is largest where several chapters bear on one project at once, which
+> is what the [running example](../guide/02-running-example.md) exists to show
+> and the only place it is shown. If you are learning this rather than auditing
+> it, read that first and come back.
+>
+> New vocabulary is the other cost. Final Decision Authority, Standing Owner,
+> Authorization to Build, Deployed System Record, certified reusable component,
+> delegated authority, pre-concealment, deemed permission, and surveillance
+> interval are each defined where introduced, and accumulate faster than any one
+> definition suggests. The
+> [glossary](../reference/glossary.md) collects them.
+
 | Plain term (primary) | Construction analogy | What it means |
 |---|---|---|
 | **Final Decision Authority** | authority having jurisdiction | The office that can say no and be obeyed |

@@ -33,7 +33,7 @@ on this page will save you.
 | # | Do this | Chapter | The failure it prevents |
 |:--|:--|:--|:--|
 | 1 | **Establish the need** before choosing a solution | [02](model/02-statement-of-need.md) | Building the wrong thing, solution-first |
-| 2 | **Classify** from objective triggers, highest wins | [03](model/03-classification.md) | Risk decided by reviewer mood |
+| 2 | **Classify** from stated triggers, highest wins | [03](model/03-classification.md) | Risk decided by reviewer mood |
 | 3 | **Review the design** against the need, timeboxed | [04](model/04-design-review.md) | A design nobody read against the requirement |
 | 4 | **Authorize the build**, with conditions and an expiry | [05](model/05-authorization-to-build.md) | Approval becoming a permanent entitlement |
 | 5 | **Verify** at five points, before behavior is hidden | [06](model/06-inspections.md) | Verification after the evidence is gone |

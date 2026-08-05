@@ -6,13 +6,13 @@ nav_order: 3
 
 ## Purpose
 
-Assigns every capability a tier, from objective triggers, before any design
+Assigns every capability a tier from stated triggers, before any design
 review happens. The tier determines how much review applies and which
 verification points are required.
 
 ## Failure this prevents
 
-Risk assessed by reviewer mood. Without objective triggers, tiering drifts,
+Risk assessed by reviewer mood. Without stated triggers, tiering drifts,
 gets argued over, and is negotiated toward whatever the builder wanted.
 
 > **REQUIREMENT 3.0 Design goal**

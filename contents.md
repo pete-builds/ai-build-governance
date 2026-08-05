@@ -15,11 +15,11 @@ from the source files by `tools/build-nav.pl`, so it cannot fall out of step.
 
 | Layer | Pages | Words | Reading time | Binds? |
 |:--|--:|--:|--:|:--|
-| [Core Governance Model](model/) | 14 | 19294 | 96 min | **Yes**, once adopted |
+| [Core Governance Model](model/) | 14 | 19507 | 98 min | **Yes**, once adopted |
 | [Implementation Guide](guide/) | 6 | 9250 | 46 min | No |
 | [Technical and Evidence References](reference/) | 8 | 10223 | 51 min | No |
 | [Templates](templates/) | 10 | 10514 | 53 min | The completed artifact is the evidence |
-| | | **49281** | **246 min** | |
+| | | **49494** | **247 min** | |
 
 **You do not need to read all of it.** The model is the only layer that binds,
 and reading only Purpose and Requirement across it is a deliberate and
@@ -40,7 +40,7 @@ is the part that differs between them.
 
 - No numbered requirements. Conventions and reading guidance.
 
-1526 words, about 8 min.
+1739 words, about 9 min.
 
 ### [01. Principles](model/01-principles.md)
 
