@@ -1,6 +1,6 @@
 ---
 title: "Technical and Evidence References"
-nav_order: 6
+nav_order: 7
 has_children: true
 ---
 
@@ -26,6 +26,11 @@ OMB guidance, marking verification status per claim.
 [Appendix E](capability-taxonomy.md) classifies capabilities by what they
 functionally do, as a **cross-check** on tier classification that can raise a
 question and never lower a tier.
+
+The [**requirement index**](requirement-index.md) lists all 131 numbered
+requirements with a link to each. It is generated from the chapters, so it
+cannot fall out of step with them. Use it when you have a number and need the
+provision, which is the situation anyone amending this framework is in.
 
 This layer also keeps the construction vocabulary, because it is where the
 analogy is explained rather than used. The [glossary](glossary.md) has the

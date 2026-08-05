@@ -18,6 +18,8 @@ information.
 
 ## Requirement
 
+### Where gates belong
+
 > **REQUIREMENT 1.1 Default over approval**
 > Where a failure can be prevented by a default, a template, or an automated
 > check, the institution **SHOULD** do that instead of adding a review step.
@@ -45,6 +47,8 @@ Gate the left column. Leave the right column alone.
 > failure has occurred here, and how you would know the gate is working. A
 > gate that cannot answer the first question **MUST** be removed.
 
+### What humans do, and what the platform must
+
 > **REQUIREMENT 1.4 Human attention on intent**
 > Countable checks **MUST** be automated where the platform allows it. Human
 > review **SHOULD** be reserved for questions no automated check can answer:
@@ -63,6 +67,8 @@ Gate the left column. Leave the right column alone.
 > to make it checkable. Documented false assurance is worse than an
 > acknowledged gap, because it stops people looking.
 
+### Getting adopted, and staying adopted
+
 > **REQUIREMENT 1.6 Adoption over mandate**
 > Requirements **SHOULD** be enforced by making the compliant path the
 > easiest path. Prohibitions **MUST** be limited to what law or
@@ -73,6 +79,8 @@ Gate the left column. Leave the right column alone.
 > A capability **MUST** have an accurate deployed system record, a named
 > owner, and a review date. Absent those it is ungoverned regardless of how
 > carefully it was reviewed on the way in.
+
+### Shrinking, and proving it works
 
 > **REQUIREMENT 1.8 Annual deletion**
 > The institution **MUST** review its gates at least annually and delete

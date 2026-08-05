@@ -18,6 +18,8 @@ broke.
 
 ## Requirement
 
+### Approval is a separate act
+
 > **REQUIREMENT 7.1**
 > Production approval **MUST** be a separate act from completion, with its own
 > evidence and its own signer.
@@ -43,6 +45,8 @@ broke.
 > The approval **SHOULD** list what is explicitly **not** authorized,
 > naming the near neighbours people will assume are included.
 
+### Time-limited approval
+
 > **REQUIREMENT 7.5 Time-limited approval**
 > Pilots **MUST** receive a time-limited production approval carrying a real
 > expiry date. On that date exactly one of three things happens: it converts
@@ -59,6 +63,8 @@ broke.
 > **LOCAL AMENDMENT REQUIRED**
 > The 90-day figure is invented and is probably the most arbitrary number in
 > the framework.
+
+### Handover, and what is withheld
 
 > **REQUIREMENT 7.6 Operational handover**
 > Approval **MUST** name a support commitment: who responds when it breaks,
@@ -77,6 +83,8 @@ broke.
 > **GUIDANCE**
 > This is the mechanism that makes record-keeping actually happen. Without it,
 > records are a request. With it, they are a condition of being finished.
+
+### The deployed system record
 
 > **REQUIREMENT 7.8 The deployed system record**
 > Every capability **MUST** have one registry entry, machine-readable, in
@@ -118,6 +126,8 @@ broke.
 | In registry, not in platform | Decommissioned without closing the record, or the record was aspirational |
 | Scope wider than authorized | Operating without approval |
 | Owner no longer employed | Orphan. Escalate immediately. |
+
+### Review, decommissioning, and closure
 
 > **REQUIREMENT 7.11 Periodic record review**
 

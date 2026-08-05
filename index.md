@@ -11,10 +11,12 @@ A governance framework for **how institutions build AI capabilities**.
 {: .fs-6 .fw-300 }
 
 [The model on one page](overview.md){: .btn .btn-primary .mr-2 }
+[Contents](contents.md){: .btn .mr-2 }
 [Start with the running example](guide/02-running-example.md){: .btn .mr-2 }
 [How to read this](model/00-conventions.md){: .btn }
 
-**Edition 2026.5.**
+**Edition 2026.6.** 49,000 words, about 4 hours end to end. The only layer that
+binds is the model, at 95 minutes.
 {: .fs-3 }
 
 ---
@@ -96,9 +98,9 @@ Everything else is detail in service of those.
 
 | Layer | Binds? | What it is |
 |:------|:-------|:-----------|
-| [**Core Governance Model**](model/) | **Yes**, once adopted and amended | Thirteen chapters. 203 MUST, SHOULD, and MAY statements across 119 numbered requirements, each citable. |
+| [**Core Governance Model**](model/) | **Yes**, once adopted and amended | Thirteen chapters, **131 numbered requirements**, each citable and indexed. |
 | [**Implementation Guide**](guide/) | No | How to operate it. Worked example, deployment paths, procedures. |
-| [**Technical and Evidence References**](reference/) | No | Vendor findings, legal references, [crosswalks](reference/framework-crosswalk.md), [evidence](reference/evidence-on-gates.md), the [capability taxonomy](reference/capability-taxonomy.md), open questions. Volatile. |
+| [**Technical and Evidence References**](reference/) | No | Vendor findings, legal references, [crosswalks](reference/framework-crosswalk.md), [evidence](reference/evidence-on-gates.md), the [capability taxonomy](reference/capability-taxonomy.md), the [requirement index](reference/requirement-index.md), open questions. Volatile. |
 | [**Templates**](templates/) | The completed artifact is the evidence | The actual paperwork. |
 
 **You can adopt the model without reading the other two layers.**

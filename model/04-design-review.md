@@ -17,6 +17,8 @@ becomes the bottleneck.
 
 ## Requirement
 
+### Who reviews, and how long they get
+
 > **REQUIREMENT 4.1**
 > Design review **MUST** answer one question: does this design deliver the
 > Statement of Need, within its tier, with bounded permissions, and with
@@ -40,6 +42,8 @@ becomes the bottleneck.
 > unresolved objection provided the objection and the reason for proceeding
 > are recorded in a decision record. At Tier 3 the reviewer **MAY** block.
 
+### What the builder submits
+
 > **REQUIREMENT 4.4 Design response contents**
 > The builder **MUST** provide, at all tiers above 1:
 
@@ -62,6 +66,8 @@ becomes the bottleneck.
 > At Tier 3 the builder **MUST** additionally record the alternatives
 > considered and rejected, including the do-nothing and non-AI options, and
 > the independent reviewer's assessment.
+
+### Dispositions, and what follows
 
 > **REQUIREMENT 4.7 Dispositions**
 > Every review **MUST** close with one of four dispositions, and every
@@ -104,6 +110,8 @@ turnaround expired.
 Deemed approval under 4.2 is not an exception and needs no approval. It is a
 designed outcome. Frequent use is a **staffing signal**, not a discipline
 problem, and the rate **SHOULD** be tracked.
+
+### Asking a question cheaply
 
 > **REQUIREMENT 4.9 Clarification requests**
 > A cheap, recorded path **MUST** exist for a builder to ask whether

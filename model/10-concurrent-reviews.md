@@ -18,10 +18,79 @@ happens. It is that it happens **serially**.
 
 ## Requirement
 
-> **REQUIREMENT**
+> **REQUIREMENT 10.0 The concurrency rule**
 > Accessibility, security, and privacy review **MUST** run concurrently
 > with design review, against published standards, on one clock. They **MUST
 > NOT** be sequenced after it or after each other.
+
+### One submittal, one clock
+
+> **REQUIREMENT 10.1**
+> One submittal, several reviewers, one clock. Every engaged discipline
+> **MUST** receive the design response at the same time.
+
+> **REQUIREMENT 10.2**
+> Each discipline **MUST** review against a **published standard**, not a
+> preference. A reviewer with no standard to cite is offering an opinion, and
+> the institution **SHOULD** either publish the standard or drop the review.
+
+> **REQUIREMENT 10.3**
+> Each discipline **MUST** publish a turnaround time and **MUST** be
+> accountable for missing it.
+
+> **REQUIREMENT 10.4**
+> Every finding **MUST** name what would resolve it. A finding the builder
+> cannot act on is not a finding.
+
+> **REQUIREMENT 10.5**
+> Disagreement between disciplines **MUST** be resolved by the Final Decision
+> Authority, not by the builder. Making a builder mediate between two
+> institutional functions is how projects stall for months.
+
+### Permission versus determination
+
+**The clock can grant permission. It cannot grant absolution.** This is the
+distinction an earlier edition got wrong, and it is the most important thing in
+the chapter.
+
+> **REQUIREMENT 10.6 The permission and determination rule**
+> A missed turnaround **MAY** produce administrative permission to proceed. It
+> **MUST NOT** produce a compliance determination.
+
+| | Administrative permission to proceed | Compliance determination |
+|---|---|---|
+| Means | The build may continue to the next stage | The obligation is satisfied |
+| A missed turnaround can produce it? | **Yes**, at Tier 2 | **Never** |
+| Who can produce it | The reviewing function, or the clock | Only the accountable office, affirmatively |
+| Recorded as | "Proceeded on turnaround expiry, date" | A signed determination |
+
+> **REQUIREMENT 10.6.1**
+> Accessibility conformance **MUST NOT** be deemed. A missed turnaround lets
+> the build proceed; it does not make the build conformant, and it does not
+> transfer the obligation to the builder.
+
+> **REQUIREMENT 10.6.2**
+> Privacy and lawful-basis determinations **MUST NOT** be deemed.
+
+> **REQUIREMENT 10.6.3**
+> Security clearance **MAY** be deemed at Tier 2 only, and **MUST NOT** be
+> deemed for any build meeting the institution's escalation criteria. Those
+> escalate and wait.
+
+> **REQUIREMENT 10.6.4**
+> A capability **MAY** hold a production approval while an affirmative
+> determination is outstanding, provided the outstanding item is **named and
+> dated on the approval**.
+
+> **REQUIREMENT 10.7**
+> Documentation of a known gap **MUST NOT** be recorded as satisfying the
+> underlying obligation. Recording improves management and accountability. It
+> does not make a non-conforming system conforming.
+
+> **LOCAL AMENDMENT REQUIRED**
+> Turnaround time per discipline, and the security escalation criteria under
+> 10.6.3. The model deliberately does not set these, because they depend on
+> staffing you have and obligations that bind you.
 
 ## Applicability
 
@@ -41,60 +110,6 @@ A discipline is engaged only where implicated:
 > normal. What matters is that the standards are published and the reviews
 > share a clock, not that there are separate people.
 
-## Requirements
-
-**10.1** One submittal, several reviewers, one clock. Every engaged
-discipline **MUST** receive the design response at the same time.
-
-**10.2** Each discipline **MUST** review against a **published standard**,
-not a preference. A reviewer with no standard to cite is offering an
-opinion, and the institution **SHOULD** either publish the standard or drop
-the review.
-
-**10.3** Each discipline **MUST** publish a turnaround time and **MUST** be
-accountable for missing it.
-
-**10.4** Every finding **MUST** name what would resolve it. A finding the
-builder cannot act on is not a finding.
-
-**10.5** Disagreement between disciplines **MUST** be resolved by the
-Final Decision Authority, not by the builder. Making a builder mediate
-between two institutional functions is how projects stall for months.
-
-**10.6 The permission and determination rule.** A missed turnaround **MAY**
-produce administrative permission to proceed. It **MUST NOT** produce a
-compliance determination.
-
-| | Administrative permission to proceed | Compliance determination |
-|---|---|---|
-| Means | The build may continue to the next stage | The obligation is satisfied |
-| A missed turnaround can produce it? | **Yes**, at Tier 2 | **Never** |
-| Who can produce it | The reviewing function, or the clock | Only the accountable office, affirmatively |
-| Recorded as | "Proceeded on turnaround expiry, date" | A signed determination |
-
-**10.6.1** Accessibility conformance **MUST NOT** be deemed. A missed
-turnaround lets the build proceed; it does not make the build conformant,
-and it does not transfer the obligation to the builder.
-
-**10.6.2** Privacy and lawful-basis determinations **MUST NOT** be deemed.
-
-**10.6.3** Security clearance **MAY** be deemed at Tier 2 only, and **MUST
-NOT** be deemed for any build meeting the institution's escalation
-criteria. Those escalate and wait.
-
-**10.6.4** A capability **MAY** hold a production approval while an
-affirmative determination is outstanding, provided the outstanding item is
-**named and dated on the approval**.
-
-**10.7** Documentation of a known gap **MUST NOT** be recorded as
-satisfying the underlying obligation. Recording improves management and
-accountability. It does not make a non-conforming system conforming.
-
-> **LOCAL AMENDMENT REQUIRED**
-> Turnaround time per discipline, and the security escalation criteria under
-> 10.6.3. The code deliberately does not set these, because they depend on
-> staffing you have and obligations that bind you.
-
 ## Required evidence
 
 | Artifact | Demonstrates |
@@ -106,15 +121,16 @@ accountability. It does not make a non-conforming system conforming.
 | "Proceeded on turnaround expiry" note, where used | 10.6 |
 | Outstanding determinations named on the approval | 10.6.4 |
 
-## Exceptions and recorded exceptions
+## Exceptions
 
 A discipline **MAY** be waived where plainly not implicated, with a one-line
 recorded reason. "No user interface and no user-facing output" is a
 sufficient accessibility waiver. "We are in a hurry" is not.
 
-Deemed permission under 10.6 is not a recorded exception and needs no approval. It is
-a designed outcome, and frequent use is a **staffing signal** rather than a
-discipline problem. Track the rate.
+Deemed permission under 10.6 is not a recorded exception and needs no
+approval. It is a designed outcome, and frequent use is a **staffing signal**
+rather than a discipline problem. Track the rate, which
+[requirement 1.9](01-principles.md) requires you to publish.
 
 ## Implementation guidance
 
@@ -133,10 +149,7 @@ function rather than on the builder is the point.
 But it is bounded deliberately. The evidence behind deemed approval concerns
 **change approval and delivery performance**. It says nothing about
 statutory duties, and a legal obligation does not lapse because a reviewer
-had a backlog. An earlier edition of this code blurred that and was wrong.
-
-The form worth remembering: **the clock can grant permission. It cannot
-grant absolution.**
+had a backlog. An earlier edition of this model blurred that and was wrong.
 
 Practical guidance per discipline is in the implementation guide:
 [accessibility](../guide/04-accessibility.md) and
@@ -153,9 +166,9 @@ Worked instance in [the running example, stage 4](../guide/02-running-example.md
 
 > **DESIGN JUDGMENT**
 > The concurrency requirement, the permission-versus-determination split,
-> and the Decision Authority as tie-breaker are reasoned from how multi-discipline plan
-> review works. No study was located comparing concurrent against serial
-> institutional review.
+> and the Decision Authority as tie-breaker are reasoned from how
+> multi-discipline construction design review works. No study was located
+> comparing concurrent against serial institutional review.
 
 > **UNVERIFIED**
 > The multi-discipline structure of building design review is described from

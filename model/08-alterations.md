@@ -17,6 +17,8 @@ a violation.
 
 ## Requirement
 
+### When a change re-enters
+
 > **REQUIREMENT 8.1**
 > A change **MUST** re-enter the process at the stage where its risk actually
 > changes, and no earlier.
@@ -47,6 +49,8 @@ a violation.
 > *Purpose change* is the row that gets skipped. A capability repurposed for
 > something its Statement of Need never described is new work on an old
 > foundation.
+
+### Systems that predate the framework
 
 > **REQUIREMENT 8.2 Pre-existing systems**
 > Capabilities built before adoption are **pre-existing and permitted**.

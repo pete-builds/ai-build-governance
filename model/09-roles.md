@@ -17,6 +17,8 @@ the default trajectory of every project.
 
 ## Requirement
 
+### The Final Decision Authority
+
 > **REQUIREMENT 9.1 Final Decision Authority**
 > The institution **MUST** name the office that can refuse a build and be
 > obeyed. It **MUST** be reachable within one working day, **MUST** be able to
@@ -48,6 +50,8 @@ the default trajectory of every project.
 > A Decision Authority that meets monthly to discuss submissions has become
 > the review board this framework exists to avoid. See
 > [Appendix C: The Evidence on Gates](../reference/evidence-on-gates.md).
+
+### The Responsible Builder
 
 > **REQUIREMENT 9.3 Responsible Builder**
 > Every capability above Tier 1 **MUST** have a named Responsible Builder who
@@ -90,6 +94,8 @@ the default trajectory of every project.
 > Owner can be found, the institution does not have capacity to operate the
 > thing, and it is better to learn that at design review than at graduation.
 
+### Independent review
+
 > **REQUIREMENT 9.7 Independent reviewer**
 > At Tier 3, review **MUST** be performed by someone who does not report to
 > the builder or the builder's manager.
@@ -99,6 +105,8 @@ the default trajectory of every project.
 > by the owner rather than the contractor, so the inspector is not paid by
 > the party being inspected. Independence is a structural property. It cannot
 > be achieved by asking someone to be objective.
+
+### Credentials, and departure
 
 > **REQUIREMENT 9.8 Credential lifecycle**
 > Credentials issued to a fixed-term appointment **MUST** expire no later

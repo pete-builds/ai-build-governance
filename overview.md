@@ -8,7 +8,8 @@ nav_order: 2
 Everything binding, condensed. Print it, hand it to a committee, put it on a
 wall. Chapter numbers link to the requirement that actually binds.
 
-Edition **2026.5**. Full text: [core governance model](model/).
+Edition **2026.6**. Full text: [core governance model](model/). Every page:
+[contents](contents.md). Every requirement: [index](reference/requirement-index.md).
 
 ---
 

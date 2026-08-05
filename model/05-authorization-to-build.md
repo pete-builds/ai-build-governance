@@ -19,6 +19,8 @@ exist.
 
 ## Requirement
 
+### What an authorization is
+
 > **REQUIREMENT 5.1**
 > An authorization to build **MUST NOT** confer permission to operate in
 > production. Those are separate acts with separate evidence and separate
@@ -46,6 +48,8 @@ exist.
 > **LOCAL AMENDMENT REQUIRED**
 > These intervals are invented. Set your own.
 
+### What each tier authorizes
+
 > **REQUIREMENT 5.4 What each tier authorizes**
 
 **Tier 1, self-certified.** The builder records the Statement of Need and
@@ -65,6 +69,8 @@ conditions attached and recorded.
 set with human sign-off at H1, H4, and H5, approval issued by the Final
 Decision Authority, a named Standing Owner as a **precondition rather than a
 deliverable**, and time-limited by default.
+
+### Standard conditions
 
 > **REQUIREMENT 5.6 Standard conditions**
 > Institutions **SHOULD** carry these in their amendments:
@@ -100,6 +106,8 @@ The issued authorization naming the reviewed documents, its conditions each
 mapped to a verification point, its expiry dates, and the issuing party.
 
 ## Exceptions
+
+### Exceptions, and lapse
 
 > **REQUIREMENT 5.7 Recorded exceptions**
 > A documented, justified departure from a requirement **MAY** be granted by

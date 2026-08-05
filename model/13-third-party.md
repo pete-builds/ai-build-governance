@@ -28,6 +28,8 @@ review covers what it actually does at runtime.
 
 ## Requirement
 
+### Scope
+
 > **REQUIREMENT 13.1 What this chapter covers**
 > This chapter applies where a capability the institution builds or assembles
 > **depends at runtime on a component the institution does not operate**. It
@@ -39,6 +41,8 @@ review covers what it actually does at runtime.
 > for what. Buying a finished analytics product is procurement. Wiring that
 > product's tool server into an agent you built is this chapter, because the
 > thing in production is yours and the component is not.
+
+### Inspect the boundary, not the component
 
 > **REQUIREMENT 13.2 You cannot inspect what you do not run**
 > Where the institution cannot inspect a component's internals, it **MUST NOT**
@@ -74,6 +78,8 @@ review covers what it actually does at runtime.
 > itself, or by an independent party the institution accepts. That is a
 > different act from believing the operator.
 
+### Who can change your production behavior
+
 > **REQUIREMENT 13.4 Name who holds change authority**
 > Connecting a component the institution does not operate **transfers
 > production change authority over the dependent capability to that
@@ -101,6 +107,8 @@ review covers what it actually does at runtime.
 > question a drift alarm raises is "cut it off now?", and the answer arrives at
 > whatever hour the alarm does. Find out beforehand whether anyone can.
 
+### Egress and classification
+
 > **REQUIREMENT 13.6 The boundary is an egress path**
 > The component's operator **MUST** appear in the egress inventory from
 > [design review](04-design-review.md) as a destination in its own right, and
@@ -120,6 +128,8 @@ review covers what it actually does at runtime.
 > alteration table already routes a new integration to H2 plus
 > reclassification, and this is the case it most often misses because the
 > integration arrived as a procurement rather than as engineering work.
+
+### Keeping it checked
 
 > **REQUIREMENT 13.8 Re-check on an interval, because nothing else will**
 > Every third-party dependency above Tier 1 **MUST** carry a named re-check

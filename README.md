@@ -6,7 +6,12 @@ search_exclude: true
 
 # AI Build Governance
 
-**Edition 2026.5** · [**The model on one page**](overview.md) · [Changelog](CHANGELOG.md) · [Source ledger](SOURCES.md) · [How to read this](model/00-conventions.md)
+**Edition 2026.6** · [**The model on one page**](overview.md) · [Contents](contents.md) · [Requirement index](reference/requirement-index.md) · [Changelog](CHANGELOG.md) · [Source ledger](SOURCES.md) · [How to read this](model/00-conventions.md)
+
+**How long is this?** 49,000 words across 38 pages, about 4 hours end to end.
+The only layer that binds is the model, at 95 minutes, and reading just Purpose
+and Requirement across it is a supported way through.
+[Contents](contents.md) has the per-layer breakdown.
 
 A governance framework for **how institutions build AI capabilities**, with
 mechanisms adapted from building codes.
@@ -190,6 +195,7 @@ independent review only for genuinely high-consequence builds, and gates at
 | [Evidence on gates](reference/evidence-on-gates.md) | What is known, what is contested, where this is guessing |
 | [Glossary](reference/glossary.md) | Two-way term mapping, and where the analogy breaks |
 | [Functional capability taxonomy](reference/capability-taxonomy.md) | Six functions as a **cross-check** on classification, never a second axis |
+| [Requirement index](reference/requirement-index.md) | All 131 requirements by number. Generated, so it cannot drift. |
 
 **On "Agent Studio":** used throughout as the generic category for low-code
 platforms where people compose and publish automations and agents. **n8n is

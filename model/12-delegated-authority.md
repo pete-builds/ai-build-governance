@@ -19,6 +19,8 @@ distinction between them.
 
 ## Requirement
 
+### An agent inherits, never exceeds
+
 > **REQUIREMENT 12.1**
 > Agents **MUST** delegate. Agents **MUST NOT** impersonate.
 
@@ -54,6 +56,8 @@ has... it is indistinguishable from B," and **delegation** as the case where
 > authentication does not fix it, because the authority being exercised is the
 > agent's.
 
+### Approval must reach a person
+
 > **REQUIREMENT 12.4 Approval authenticated to a person**
 > Where approval is claimed as a control, the approver **MUST** authenticate
 > through the institution's identity system at approval time; the approval
@@ -81,6 +85,8 @@ has... it is indistinguishable from B," and **delegation** as the case where
 > authority; you have an agent with a human's credentials and a historical
 > record that someone once said yes.
 
+### What is never permitted
+
 > **REQUIREMENT 12.6 Prohibited patterns**
 > The following **MUST NOT** be used:
 
@@ -93,6 +99,8 @@ has... it is indistinguishable from B," and **delegation** as the case where
 | Standing consent presented as per-action approval | See 12.5 |
 | Approval inside the agent's own trust boundary | If the agent can influence the approval record, the approval is not independent |
 | Identity checked only at the front door | Authorization must be enforced where the action happens |
+
+### The record
 
 > **REQUIREMENT 12.7 The record**
 > Each consequential action **MUST** record the acting identity (the agent,

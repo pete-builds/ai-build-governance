@@ -1,6 +1,6 @@
 ---
 title: Changelog
-nav_order: 7
+nav_order: 8
 ---
 
 # Changelog
@@ -11,6 +11,108 @@ edition they adopt.
 
 Edition numbering is `YYYY.N`. Anything that changes what a reviewer would
 decide is a new edition. Wording and typo fixes are not.
+
+---
+
+## Edition 2026.6 (2026-08-05)
+
+**A readability edition, and a correction.** No requirement changed in
+substance. It is an edition rather than a wording pass because eleven
+requirements became citable that were not, one previously unnumbered
+requirement acquired a number, and a published count was wrong.
+
+### Corrected: edition 2026.5 published the wrong requirement count
+
+Edition 2026.5 said **119 numbered requirements**. The real figure was **130**,
+and it is now **131**. This was not a counting slip. It was the symptom of the
+defect below.
+
+### Fixed: chapter 10 had been formatted differently for three editions
+
+Chapter 10 numbered its requirements as inline bold text, `**10.1**`, while the
+other twelve chapters used `> **REQUIREMENT 10.1**`. It was the reference
+implementation of the chapter grammar when that grammar was introduced in
+2026.3, and it kept the older convention while everything converted around it.
+
+Three consequences, none of them visible from reading the chapter:
+
+- **Eleven requirements were invisible to every count**, which is where the
+  wrong figure came from.
+- **The grammar check could not see it.** Check 10 greps for `^## Requirement`,
+  which matches `## Requirements` as a prefix, so the chapter passed while
+  carrying a heading no other chapter had. It also still carried
+  `## Exceptions and recorded exceptions`, the pre-2026.4 name.
+- **One requirement had no number at all.** The opening concurrency rule was an
+  unnumbered `> **REQUIREMENT**` block, so the single most important statement
+  in the chapter could not be cited in an amendment. It is now **10.0**,
+  following the precedent chapter 03 already set with 3.0.
+
+Chapter 10 is now formatted like the other twelve. **No requirement text
+changed**, and 10.1 through 10.7 keep their numbers.
+
+### Fixed: ten of thirteen chapters were a wall of requirements
+
+Every chapter stated its requirements as a flat run of blockquotes under one
+heading. Chapter 06 stacked **seventeen** that way, chapter 07 thirteen.
+Nothing to scan, no anchor to link to, and no way to cite a group of related
+provisions.
+
+All thirteen chapters now group their requirements under subsection headings,
+which is 42 new headings and **no change to any requirement**. Chapter 06 reads
+H1 through H5 as before; chapter 01 now reads "Where gates belong," "What
+humans do, and what the platform must," "Getting adopted, and staying adopted,"
+"Shrinking, and proving it works."
+
+### New: a table of contents, because this is a document
+
+The repository was navigable and the document was not. There was no single page
+listing what exists, and nothing told a reader how long any of it takes.
+
+- **[Contents](contents.md)** lists every page, the requirement groupings inside
+  each chapter, and **word counts and reading time per layer**. The honest
+  headline is 49,000 words and about four hours end to end, of which the only
+  binding layer is 95 minutes.
+- **[Requirement index](reference/requirement-index.md)** lists all 131
+  requirements by number, each linked to the subsection it sits in. The
+  [amendments template](templates/amendments-template.md) has always recorded an
+  adoption as a delta keyed to requirement numbers, and until now there was
+  nowhere to look a number up.
+
+**Both are generated** by `tools/build-nav.pl`, for the reason
+[requirement 7.9](model/07-production-approval.md) gives about registries:
+anything that can be generated should be, because generated content cannot
+drift. Editing them by hand fails the build.
+
+### New: three checks, because all three defects above were invisible
+
+`tools/check.sh` now runs fourteen.
+
+- **12. One requirement format across every chapter.** Catches inline-bold
+  numbering and the two pre-2026.4 section headings that the prefix-matching
+  grammar check cannot see.
+- **13. Requirement-heavy chapters are subdivided.** More than six requirements
+  requires at least two subsections.
+- **14. Generated navigation is current.** Fails if the contents page or the
+  requirement index no longer matches the chapters.
+
+Every check in this suite exists because the corresponding mistake was made
+here, and these three are no exception.
+
+### Counts
+
+| | 2026.5 as published | 2026.5 actual | 2026.6 |
+|---|---|---|---|
+| Numbered requirements | 119 | 130 | **131** |
+| Requirement subsection headings | 12 | 12 | **54** |
+| Checks in `tools/check.sh` | 11 | 11 | **14** |
+| MUST, SHOULD, and MAY statements | 203 | 203 | **204** |
+
+### Acknowledged, not fixed
+
+**Four hours is still four hours.** A contents page and reading times make the
+length honest rather than shorter. The single-file printable build that would
+let an institution attach a whole edition to its adopting instrument does not
+exist yet.
 
 ---
 

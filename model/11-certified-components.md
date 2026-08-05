@@ -23,6 +23,8 @@ because it punishes reuse specifically.
 
 ## Requirement
 
+### What certification does, and does not do
+
 > **REQUIREMENT 11.1**
 > A component **MAY** be certified once, against published criteria, by a
 > party independent of the builder. Consumers then inherit the certification
@@ -61,6 +63,8 @@ because it punishes reuse specifically.
 >
 > Same component. Different tiers. Correctly.
 
+### What a certification must state
+
 > **REQUIREMENT 11.4 What a certification must state**
 
 | Field | Why |
@@ -83,6 +87,8 @@ because it punishes reuse specifically.
 > worse than nothing, because it invites use outside the conditions it was
 > checked under.
 
+### Consuming a certified component
+
 > **REQUIREMENT 11.5 Consuming a certified component**
 > The consumer **MUST** confirm the certification exists, is current, and has
 > not expired; that the **version** consumed is the certified version; that
@@ -99,6 +105,8 @@ because it punishes reuse specifically.
 > Broader credential than the certification assumed, higher tier than its
 > ceiling, excluded data classes, or an uncertified version means you are not
 > consuming a certified component. You are consuming an unreviewed one.
+
+### Who certifies, and keeping it alive
 
 > **REQUIREMENT 11.7 Who may certify**
 > Certification authority **MUST NOT** rest with the builder. It sits with the
@@ -137,6 +145,8 @@ underneath changed behavior.
 > **GUIDANCE**
 > A revoked certification with unknown consumers is an incident you cannot
 > execute.
+
+### Certified patterns
 
 > **REQUIREMENT 11.11 Certified patterns**
 > Where a pattern recurs, the **pattern** itself **MAY** be certified, and

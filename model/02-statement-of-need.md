@@ -18,6 +18,8 @@ cheaper and more common: building something that already exists.
 
 ## Requirement
 
+### What the need must state
+
 > **REQUIREMENT 2.1**
 > Every capability above Tier 1 **MUST** have a Statement of Need that is
 > **authored or signed by someone other than the builder**.
@@ -46,6 +48,8 @@ who wants to build the thing is a proposal in disguise.
 > need statement that has not confronted its own tolerable error rate is
 > not finished.
 
+### Check whether it already exists
+
 > **REQUIREMENT 2.4 Prior-art check**
 > Four questions **MUST** be answered in writing before design begins:
 > whether the vendor already publishes an official integration; whether an
@@ -55,6 +59,8 @@ who wants to build the thing is a proposal in disguise.
 > **REQUIREMENT 2.5**
 > Where the answer to any 2.4 question is yes, the Statement of Need
 > **MUST** state why building anyway is justified.
+
+### Ownership, and grounds for return
 
 > **REQUIREMENT 2.6 Standing Owner**
 > Where the named operator holds a fixed-term appointment, a Standing Owner

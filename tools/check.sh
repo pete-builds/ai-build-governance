@@ -163,6 +163,56 @@ else
 fi
 
 # ---------------------------------------------------------------------------
+note "12. One requirement format across every chapter"
+# Chapter 10 numbered its requirements as inline bold **10.1** while the other
+# twelve used the blockquote form. It went unnoticed for three editions, it made
+# those eleven requirements invisible to every count, and the prefix-matching
+# grammar check above could not see it. Also catches the pre-2026.4 section
+# headings, which that chapter still carried.
+fmt=0
+if grep -rnE '^\*\*[0-9]+\.[0-9]+' model/*.md 2>/dev/null; then
+  bad "inline-bold requirement numbering: use > **REQUIREMENT n.n**"; fmt=1
+fi
+if grep -rn '^## Requirements$' model/*.md 2>/dev/null; then
+  bad "'## Requirements' is the pre-2026.4 heading: the section is '## Requirement'"; fmt=1
+fi
+if grep -rn '^## Exceptions and recorded exceptions$' model/*.md 2>/dev/null; then
+  bad "'## Exceptions and recorded exceptions' is the pre-2026.4 heading: use '## Exceptions'"; fmt=1
+fi
+[ "$fmt" -eq 0 ] && echo "  ok, $(grep -rohE '\*\*REQUIREMENT [0-9]+\.[0-9.]+' model/*.md | wc -l | tr -d ' ') numbered requirements in one format"
+
+# ---------------------------------------------------------------------------
+note "13. Requirement-heavy chapters are subdivided"
+# Ten of thirteen chapters once stacked every requirement under a single
+# heading with no subsections. Chapter 06 stacked seventeen. Nothing to scan,
+# nothing to link to, and no way to cite a group of related provisions.
+dense=0
+for f in model/0[1-9]*.md model/1[0-3]*.md; do
+  r=$(grep -c '\*\*REQUIREMENT [0-9]' "$f")
+  s=$(grep -c '^### ' "$f")
+  if [ "$r" -gt 6 ] && [ "$s" -lt 2 ]; then
+    echo "  $f: $r requirements, $s subsections"
+    dense=1
+  fi
+done
+if [ "$dense" -eq 0 ]; then
+  echo "  ok, every chapter over 6 requirements has subsections"
+else
+  bad "requirement wall: add ### groupings (more than 6 requirements needs at least 2)"
+fi
+
+# ---------------------------------------------------------------------------
+note "14. Generated navigation is current"
+# contents.md and the requirement index are generated, for the reason
+# requirement 7.9 gives: generated content cannot drift. If these are stale the
+# document describes a structure it no longer has.
+if perl tools/build-nav.pl --check; then
+  echo "  ok, contents.md and the requirement index match the sources"
+else
+  bad "generated navigation is stale: run perl tools/build-nav.pl"
+fi
+
+# ---------------------------------------------------------------------------
 printf '\n'
 if [ "$fail" -eq 0 ]; then
   echo "All checks passed."

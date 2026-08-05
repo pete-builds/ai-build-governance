@@ -1,6 +1,6 @@
 ---
 title: Contributing
-nav_order: 9
+nav_order: 10
 ---
 
 # Contributing
@@ -68,7 +68,7 @@ particulars is what makes it adoptable by the next one.
   that leaves numbers out of positional order. An amendment or an
   exception record citing `8.7` must still mean the same provision three
   editions later.
-- **Run `./tools/check.sh` before opening a pull request.** Eleven checks,
+- **Run `./tools/check.sh` before opening a pull request.** Fourteen checks,
   each of which exists because that exact mistake was made here. If you
   add a chapter, confirm the conformance glob covers it: it has silently
   needed widening before.

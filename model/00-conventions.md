@@ -106,7 +106,7 @@ If you only ever read **Purpose** and **Requirement** across the model, you
 have read the model.
 
 > **VERIFICATION NOTE** (2026-08-05)
-> All thirteen normative chapters conform to this grammar as of edition 2026.5,
+> All thirteen normative chapters conform to this grammar as of edition 2026.6,
 > and `tools/check.sh` fails the build if one drifts. The eight headings above
 > are the exact strings the check looks for.
 
