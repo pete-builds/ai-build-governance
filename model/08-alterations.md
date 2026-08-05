@@ -95,16 +95,64 @@ Starting set:
 > An unowned running capability **MUST** either receive an owner or be
 > switched off. There is no third resolution.
 
+### Change that arrives without anyone changing anything
+
+Everything above is triggered by an act. Requirement 8.1 asks where a change
+re-enters, and something has to have been changed for the question to be
+asked at all. A capability can also stop behaving as it was approved to behave
+while nobody touches it.
+
+> **REQUIREMENT 8.9 Behavior is re-verified on an interval, not only on change**
+> Above Tier 1, a capability's approved behavior **MUST** be re-verified on a
+> stated interval regardless of whether it has been altered. The check
+> **MUST** be a defined set of cases with a recorded expected result and a
+> recorded threshold for action, exercised against the running system.
+
+> **GUIDANCE**
+> This is the gap the alteration table cannot cover, and it is not
+> hypothetical: the provider substitutes a model behind the same name, a
+> retrieval corpus fills up with newer documents that outrank the ones the
+> answers were validated against, an upstream field starts arriving empty, a
+> refusal boundary moves. In each case the system's behavior changed, its
+> configuration did not, and no requirement above fires.
+>
+> Keep the case set small and keep the ones that would embarrass you. Ten cases
+> re-run monthly with a recorded threshold is worth more than a hundred nobody
+> runs, and the threshold is the part people omit: a check with no stated
+> action point produces a chart rather than a decision.
+
+> **REQUIREMENT 8.10 Version substitution you did not perform**
+> Where the institution does not control which model or component version
+> serves a capability, it **MUST** record that the version is uncontrolled, and
+> **MUST** treat a detected substitution as an alteration entering at the row
+> in 8.1 the substitution corresponds to. Where the platform permits pinning a
+> version, above Tier 1 the institution **SHOULD** pin it.
+
+> **GUIDANCE**
+> The order here matters. Pin if you can, because prevention beats detection.
+> Where you cannot, the honest record is "we do not control this," which is
+> [principle 1.5](01-principles.md) applied to a control the institution would
+> like to have and does not. Writing "model version: pinned" because a
+> configuration field contains a version string, when the provider maps that
+> string onto whatever it currently serves, is documented false assurance.
+>
+> Third-party components reached across an institutional boundary have the same
+> problem in a sharper form, and [chapter 13](13-third-party.md) handles it.
+
 ## Applicability
 
 8.1 applies to every capability holding production approval. 8.2 through 8.6
-apply during and after adoption to anything predating it.
+apply during and after adoption to anything predating it. 8.9 and 8.10 apply
+above Tier 1 to anything holding production approval, including pre-existing
+systems, which are the population most likely to have drifted furthest.
 
 ## Required evidence
 
 For alterations: the re-entry stage taken, and any reclassification. For
 pre-existing systems: a registry entry with named owner, an assigned tier,
-and the date inventoried.
+and the date inventoried. For 8.9: the case set, the recorded threshold, and
+the dated results of each run. For 8.10: whether the version is pinned or
+recorded as uncontrolled.
 
 ## Exceptions
 

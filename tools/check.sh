@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Pre-push checks for The AI Building Code.
+# Pre-push checks for AI Build Governance.
 # Runnable locally and in CI. Exits non-zero on any failure.
 #
 #   ./tools/check.sh
@@ -97,23 +97,23 @@ done
 echo "  checked $(ls model/*.md | wc -l | tr -d ' ') model chapters, $(ls guide/*.md | wc -l | tr -d ' ') guide, $(ls reference/*.md reference/platform-profiles/*.md | wc -l | tr -d ' ') reference, $(ls templates/*.md | wc -l | tr -d ' ') templates"
 
 # ---------------------------------------------------------------------------
-note "7. Vendor specifics kept out of Part I"
-# Part I states platform-neutral requirements. Product names and config keys
+note "7. Vendor specifics kept out of the model"
+# The model states platform-neutral requirements. Product names and config keys
 # belong in reference/platform-profiles/. A bare mention in prose is fine;
 # a config key or version number is not.
 if grep -rnE 'global_disable_no_log_param|x-litellm-tags|EXECUTIONS_DATA_|upperbound_key_generate_params|LITELLM_KEY_ROTATION|/key/\{key\}/regenerate' \
      model/*.md 2>/dev/null | grep -v '^model/00-conventions.md'; then
-  bad "vendor config detail in Part I: move it to reference/platform-profiles/"
+  bad "vendor config detail in the model: move it to reference/platform-profiles/"
 else
   echo "  ok"
 fi
 
 # ---------------------------------------------------------------------------
-note "8. Statement labels present in Part I"
+note "8. Statement labels present in the model"
 labels=$(grep -rohE '\*\*(REQUIREMENT|GUIDANCE|EXAMPLE|LOCAL AMENDMENT REQUIRED|DESIGN JUDGMENT|VERIFICATION NOTE)\*\*' model/*.md 2>/dev/null | wc -l | tr -d ' ')
-echo "  labelled statements in Part I: $labels"
+echo "  labelled statements in the model: $labels"
 if [ "$labels" -lt 5 ]; then
-  bad "expected labelled statements in Part I (see code/00-conventions.md)"
+  bad "expected labelled statements in the model (see model/00-conventions.md)"
 fi
 
 # ---------------------------------------------------------------------------
@@ -139,7 +139,7 @@ note "10. Chapter grammar conformance"
 # Every normative chapter carries the same eight sections, so a reader can
 # find Purpose / Requirement across the whole model without reading linearly.
 gfail=0
-for f in model/0[1-9]*.md model/1[0-2]*.md; do
+for f in model/0[1-9]*.md model/1[0-3]*.md; do
   for s in "^## Purpose" "^## Failure this prevents" "^## Requirement" \
            "^## Applicability" "^## Required evidence" "^## Exceptions" \
            "^## Implementation guidance" "^## Sources and confidence"; do
@@ -147,7 +147,7 @@ for f in model/0[1-9]*.md model/1[0-2]*.md; do
   done
 done
 if [ "$gfail" -eq 0 ]; then
-  echo "  all $(ls model/0[1-9]*.md model/1[0-2]*.md | wc -l | tr -d ' ') chapters conform"
+  echo "  all $(ls model/0[1-9]*.md model/1[0-3]*.md | wc -l | tr -d ' ') chapters conform"
 else
   bad "chapter grammar incomplete (see model/00-conventions.md)"
 fi

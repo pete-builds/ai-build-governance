@@ -1,5 +1,5 @@
 ---
-title: "00. How to Read This Code"
+title: "00. How to Read This"
 parent: "Core Governance Model"
 nav_order: 0
 ---
@@ -20,8 +20,8 @@ Used as in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).
 | **SHOULD**, **SHOULD NOT** | Strong default. Departing requires a recorded reason, and at Tier 3 a recorded exception. |
 | **MAY** | Genuinely optional. No justification needed either way. |
 
-If a sentence in Part I contains none of these words, it is explanation
-and you can skip it without losing anything binding.
+If a sentence in the core governance model contains none of these words, it is
+explanation and you can skip it without losing anything binding.
 
 ---
 
@@ -68,55 +68,66 @@ asking anyone else for rigor.
 
 ---
 
-## The three parts, and what binds
+## The three layers, and what binds
 
-| Part | Binds? | What it is |
+| Layer | Binds? | What it is |
 |---|---|---|
-| **Part I: the code** (`model/`) | **Yes**, once adopted and amended | Requirements. Short by design. |
-| **Part II: the handbook** (`guide/`) | No | How to operate the code. Worked examples, paths, procedures. |
-| **Part III: reference** (`reference/`) | No | Evidence, framework crosswalks, platform profiles, glossary. Volatile. |
+| **Core Governance Model** (`model/`) | **Yes**, once adopted and amended | Requirements. Short by design. |
+| **Implementation Guide** (`guide/`) | No | How to operate the model. Worked examples, paths, procedures. |
+| **Technical and Evidence References** (`reference/`) | No | Evidence, framework crosswalks, platform profiles, glossary. Volatile. |
 | **Templates** (`templates/`) | The completed artifact is evidence | The actual paperwork. |
 
-You can adopt Part I without reading Parts II or III. That is the point of
-separating them.
+You can adopt the model without reading the guide or the references. That is
+the point of separating them.
+
+**One name per thing.** These three are called layers throughout. Editions
+2026.3 and 2026.4 also called them Parts I, II, and III, and the changelog
+still does where it describes what those editions changed.
 
 ---
 
 ## Chapter structure
 
-Every chapter in Part I follows the same eight-section grammar, so you can
+Every chapter in the model follows the same eight-section grammar, so you can
 find what you need without reading linearly:
 
 | Section | Contains |
 |---|---|
-| **Purpose** | The one failure this chapter prevents |
-| **Rule** | The requirement in one or two sentences |
+| **Purpose** | What this chapter is for |
+| **Failure this prevents** | The specific thing that goes wrong without it |
+| **Requirement** | Numbered normative provisions |
 | **Applicability** | Who and what it covers, and what it excludes |
-| **Requirements** | Numbered normative provisions |
-| **Evidence required** | What record demonstrates compliance |
-| **Exceptions and recorded exceptions** | What may differ, and who approves |
-| **Implementation notes** | Non-binding explanation |
+| **Required evidence** | What record demonstrates compliance |
+| **Exceptions** | What may differ, and who approves |
+| **Implementation guidance** | Non-binding explanation |
 | **Sources and confidence** | What is verified, what is judgment |
 
-If you only ever read **Purpose**, **Rule**, and **Requirements** across
-Part I, you have read the code.
+If you only ever read **Purpose** and **Requirement** across the model, you
+have read the model.
 
-> **VERIFICATION NOTE** (2026-08-04)
-> All twelve normative chapters conform to this grammar as of edition 2026.4,
-> and `tools/check.sh` fails the build if one drifts. Requirements are
-> numbered by chapter, so `11.2` is the second requirement of chapter 11 and
-> can be cited directly in an amendment or an exception.
+> **VERIFICATION NOTE** (2026-08-05)
+> All thirteen normative chapters conform to this grammar as of edition 2026.5,
+> and `tools/check.sh` fails the build if one drifts. The eight headings above
+> are the exact strings the check looks for.
+
+Requirements are numbered by chapter, so `11.2` is the second requirement of
+chapter 11 and can be cited directly in an amendment or an exception.
+
+> **A requirement is never renumbered.** Editions add requirements by appending
+> a number within the chapter, even where that leaves them out of positional
+> order, because an amendment or an exception record citing `8.7` must still
+> mean the same provision three editions later.
 
 ---
 
 ## Where platform specifics live
 
-Part I states requirements in **platform-neutral verbs**:
+The model states requirements in **platform-neutral verbs**:
 
 > **REQUIREMENT**
 > Logging MUST NOT be suppressible by the caller.
 
-The corresponding vendor fact lives in a platform profile in Part III:
+The corresponding vendor fact lives in a platform profile in the references:
 
 > **VERIFICATION NOTE** (2026-08-04)
 > On LiteLLM, a per-request `"no-log": true` suppresses logging unless an
@@ -187,13 +198,16 @@ findings about one product are never generalized to its category.
 
 ## A note on the construction vocabulary
 
-This code borrows real mechanisms from building governance: authorizations, plan
-review, inspection verification points, concealment, occupancy, deployed system record,
-listed products. The borrowing is functional rather than decorative, and
-[Appendix D: Glossary, and Where the Analogy Breaks](../reference/glossary.md) gives the term-by-term
-mapping plus the four places the analogy genuinely breaks down.
+This model borrows real mechanisms from building governance: authorizations,
+design review by someone other than the designer, verification points before
+work is concealed, approval to operate as an act distinct from completion, a
+record of what was actually built, and certification of reusable products. The
+borrowing is functional rather than decorative, and
+[Appendix D: Glossary, and Where the Analogy Breaks](../reference/glossary.md)
+gives the term-by-term mapping plus the four places the analogy genuinely
+breaks down.
 
-You do not need to know anything about building codes to use Part I. Where
+You do not need to know anything about building codes to use the model. Where
 a construction term appears in a requirement, the requirement also states
 the thing plainly. If you ever have to translate a metaphor to work out
 what you are being asked to do, that is a defect in this document, and

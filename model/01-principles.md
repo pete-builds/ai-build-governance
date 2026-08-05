@@ -6,7 +6,7 @@ nav_order: 1
 
 ## Purpose
 
-The seven rules everything else derives from. Where a later chapter
+The nine rules everything else derives from. Where a later chapter
 conflicts with one of these, the principle wins.
 
 ## Failure this prevents
@@ -78,6 +78,36 @@ Gate the left column. Leave the right column alone.
 > The institution **MUST** review its gates at least annually and delete
 > those that have caught nothing. Deletions **SHOULD** be published.
 
+> **REQUIREMENT 1.9 Measure the governance system itself**
+> The institution **MUST** publish, on a stated interval, the numbers that show
+> whether this framework is working rather than merely running. At minimum:
+>
+> | Number | What it tells you |
+> |---|---|
+> | Ratio of conforming to non-conforming capabilities, over time | Whether adoption is real. Rising is the only acceptable direction. |
+> | Review turnaround against the stated turnaround | Whether the gates have become a queue |
+> | Recorded exceptions granted, by requirement | Which requirement is wrong. A requirement excepted routinely is a defect, not a discipline problem. |
+> | Approvals produced by turnaround expiry rather than by a decision | Whether deemed approval has quietly become the normal path |
+> | Gates that caught nothing this period | The input to 1.8 |
+
+> **GUIDANCE**
+> Counting authorizations issued is not on this list, and neither is any
+> measure of governance activity. Activity metrics rise when the framework is
+> failing, because a framework people are routing around and a framework people
+> are using both generate paperwork.
+>
+> The fourth row is the one that will be uncomfortable, and it is the reason it
+> is here. Deemed approval exists so a silent reviewer cannot block work
+> indefinitely, and it is also the mechanism most likely to become the default
+> path while everyone believes review is happening. If most Tier 2 approvals are
+> arriving by expiry, that is not a compliance finding against builders. It is
+> a staffing finding against the institution.
+>
+> Publishing these internally is the requirement. Publishing them externally is
+> not required and would be the single most valuable contribution any adopting
+> institution could make, because **nobody has done it**. This framework is a
+> design hypothesis, and these five numbers are what would test it.
+
 ## Applicability
 
 All chapters, all tiers, all adopting institutions. These are the rules the
@@ -92,6 +122,7 @@ it.
 | Annual deletion review with published outcomes | 1.8 |
 | Platform control inventory distinguishing enforced from process | 1.5 |
 | Registry with owners and review dates | 1.7 |
+| Published effectiveness numbers, with dates | 1.9 |
 
 ## Exceptions
 
@@ -147,5 +178,8 @@ Stated because 1.3 demands it of every gate, and therefore of the framework.
 > than the absence of review.
 
 > **DESIGN JUDGMENT**
-> The seven-principle structure, the irreversibility table, and the annual
-> deletion cadence are reasoned rather than measured.
+> The nine-principle structure, the irreversibility table, and the annual
+> deletion cadence are reasoned rather than measured. So is the choice of the
+> five numbers in 1.9: they are the measures whose absence would let this
+> framework look healthy while failing, which is a different question from
+> which measures best predict outcomes. Nobody knows the answer to that one.

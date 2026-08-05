@@ -47,11 +47,11 @@ reader running a different stack is not misled.
 
 **Findings in a profile are about that product at that date.** They do not
 generalize to the category, however tempting that is. The requirement in
-Part I is stated as a platform-neutral verb; the profile supplies the
+The model states a platform-neutral verb; the profile supplies the
 vendor fact.
 
 > **EXAMPLE**
-> Part I says logging MUST NOT be suppressible by the caller. The LiteLLM
+> The model says logging MUST NOT be suppressible by the caller. The LiteLLM
 > profile says to check `global_disable_no_log_param`. If you run something
 > else, the requirement still binds and you write your own profile row.
 

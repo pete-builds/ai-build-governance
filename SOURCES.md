@@ -1,6 +1,6 @@
 ---
 title: Source ledger
-nav_order: 7
+nav_order: 8
 ---
 
 # Source Ledger
@@ -86,6 +86,14 @@ Findings and practice. Stable, but confirm the pages still exist.
 | [Trail of Bits, line jumping](https://blog.trailofbits.com/2025/04/21/jumping-the-line-how-mcp-servers-can-attack-you-before-you-ever-use-them/) | `tools/list` loads before invocation. **Fetched once, not re-verified.** | 2026-08-04 | 2027-08 |
 | [IT@Cornell governance](https://it.cornell.edu/itgovernance) | A published university governance structure with a policy layer and no operational layer | 2026-08-04 | 2027-08 |
 | [UC AI Council](https://ai.universityofcalifornia.edu/) | Covers "development and deployment"; **defines no named risk tiers** | 2026-08-04 | 2027-08 |
+| *ITIL AI Governance* white paper, PeopleCert, v1.0, November 2025. Supplied to this project as a PDF; no stable public URL confirmed. | The four governance patterns and ten characteristics in [Adoption](guide/01-adoption.md), and the six functional capabilities in [Appendix E](reference/capability-taxonomy.md). **Secondary source for ISO/IEC 38500:2024**, whose activity names are taken from it. | 2026-08-05 | 2027-08 |
+
+> **On the ITIL white paper.** Read as a document, not as evidence. Its own
+> need-establishing statistics are vendor-published survey figures and are
+> **not** cited anywhere in this model, consistent with the refusals below. Its
+> risk-level matrix mapping capabilities against risks is asserted without a
+> stated method and is deliberately not reproduced. What was taken is
+> vocabulary and a diagnostic structure, both attributed at the point of use.
 
 ---
 
@@ -97,6 +105,7 @@ tried, and so a future pass knows what to retry.
 | Source | Status | What it would settle |
 |---|---|---|
 | `iso.org` ISO/IEC 42001 catalogue | 403, and standard is paywalled | Annex A control count and numbering. **Never cite an Annex A ID from this model.** |
+| `iso.org` ISO/IEC 38500:2024 catalogue | Not retrieved, and standard is paywalled | The four governance activity names and their clause numbers. Currently taken from a secondary source. **Never cite a 38500 clause from this model.** |
 | `library.educause.edu` | 403 | Higher-ed prior art. Section 1 of the report is thin because of this. |
 | OMB M-25-21 PDF | 404 | Whether M-24-10 was actually rescinded, and the "High-Impact AI" category |
 | EUR-Lex operative text | Returned recitals only | Article 5, Annex III, Article 51 verbatim |

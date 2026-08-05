@@ -182,8 +182,8 @@ result: pass | fail | pass with findings
 ## Result
 
 - [ ] **Pass**
-- [ ] **Pass with findings.** Non-blocking items tracked on the punch
-      list
+- [ ] **Pass with findings.** Non-blocking items tracked on the accepted
+      defect list
 - [ ] **Fail.** Blocking items above. Work must not proceed past this
       verification point.
 

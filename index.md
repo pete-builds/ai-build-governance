@@ -10,8 +10,12 @@ nav_order: 1
 A governance framework for **how institutions build AI capabilities**.
 {: .fs-6 .fw-300 }
 
-[Start with the running example](guide/02-running-example.md){: .btn .btn-primary .mr-2 }
+[The model on one page](overview.md){: .btn .btn-primary .mr-2 }
+[Start with the running example](guide/02-running-example.md){: .btn .mr-2 }
 [How to read this](model/00-conventions.md){: .btn }
+
+**Edition 2026.5.**
+{: .fs-3 }
 
 ---
 
@@ -42,20 +46,33 @@ compliance**, which is the situation most universities are actually in.
 
 ---
 
-## The whole thing in eight steps
+## The whole thing
 
-Plain language, no analogy. This is the model.
+**Start by asking whether you can reuse something already checked.** If a
+certified component fits, confirm the certification and inspect **only your
+integration** ([chapter 11](model/11-certified-components.md)). It is the
+shortest path through the framework and the only one that gets faster as the
+institution governs more.
 
-1. **Establish the need** before choosing a solution
-2. **Classify the consequences** using objective triggers, not judgment
-3. **Review the design** without creating a queue
-4. **Verify the system** before important behavior becomes hidden
-5. **Approve it for production** as a separate act from finishing it
-6. **Record what actually exists**, not what was planned
-7. **Reassess it when it changes**: data, tools, audience, autonomy, purpose
-8. **Reuse certified components** instead of reviewing them repeatedly
+Building something new is eight steps:
 
-Everything else is detail in service of those eight.
+1. **Establish the need** before choosing a solution ([02](model/02-statement-of-need.md))
+2. **Classify the consequences** using objective triggers, not judgment ([03](model/03-classification.md))
+3. **Review the design** without creating a queue ([04](model/04-design-review.md))
+4. **Authorize the build**, with conditions and an expiry ([05](model/05-authorization-to-build.md))
+5. **Verify the system** before important behavior becomes hidden ([06](model/06-inspections.md))
+6. **Approve it for production** as a separate act from finishing it ([07](model/07-production-approval.md))
+7. **Record what actually exists**, not what was planned ([07](model/07-production-approval.md))
+8. **Reassess when it changes**, and on an interval when it does not ([08](model/08-alterations.md))
+
+Five chapters are standing arrangements rather than stages, true throughout:
+[principles](model/01-principles.md),
+[roles](model/09-roles.md),
+[concurrent reviews](model/10-concurrent-reviews.md),
+[delegated authority](model/12-delegated-authority.md), and
+[third-party capabilities](model/13-third-party.md).
+
+Everything else is detail in service of those.
 
 ---
 
@@ -65,7 +82,8 @@ Everything else is detail in service of those eight.
 |:--------|:-----|:-----|
 | **An institutional leader** | This page, [principles](model/01-principles.md), [adoption](guide/01-adoption.md) | The whole reference layer, all verification detail |
 | **Considering adoption** | [Adoption](guide/01-adoption.md), [amendments template](templates/amendments-template.md), [risk classification](model/03-classification.md) | Reference, except the [platform profile](reference/platform-profiles/litellm.md) for your own stack |
-| **An AI platform team** | [Risk classification](model/03-classification.md), [inspections](model/06-inspections.md), [certified components](model/11-certified-components.md) | Statement of need, roles |
+| **An AI platform team** | [Risk classification](model/03-classification.md), [inspections](model/06-inspections.md), [certified components](model/11-certified-components.md), [MCP approvals](guide/06-mcp-approvals.md) | Statement of need, roles |
+| **Connecting a vendor tool server** | [MCP approvals](guide/06-mcp-approvals.md), then [third-party capabilities](model/13-third-party.md) | The rest, until you know your route |
 | **A builder with something to ship** | [Running example](guide/02-running-example.md), then [statement of need](model/02-statement-of-need.md), [design review](model/04-design-review.md), [agentic products](guide/03-agentic-products.md) | Roles, certified components, reference |
 | **A security or privacy reviewer** | [Security and privacy review](guide/05-security-and-privacy-review.md), [inspections](model/06-inspections.md), [platform profiles](reference/platform-profiles/mcp.md) | Statement of need, alterations |
 | **An accessibility reviewer** | [Accessibility](guide/04-accessibility.md), [concurrent reviews](model/10-concurrent-reviews.md) | Everything else |
@@ -78,9 +96,9 @@ Everything else is detail in service of those eight.
 
 | Layer | Binds? | What it is |
 |:------|:-------|:-----------|
-| [**Core Governance Model**](model/) | **Yes**, once adopted and amended | Requirements. 183 MUST, SHOULD, and MAY statements, numbered and citable. |
+| [**Core Governance Model**](model/) | **Yes**, once adopted and amended | Thirteen chapters. 203 MUST, SHOULD, and MAY statements across 119 numbered requirements, each citable. |
 | [**Implementation Guide**](guide/) | No | How to operate it. Worked example, deployment paths, procedures. |
-| [**Technical and Evidence References**](reference/) | No | Vendor findings, legal references, crosswalks, evidence, open questions. Volatile. |
+| [**Technical and Evidence References**](reference/) | No | Vendor findings, legal references, [crosswalks](reference/framework-crosswalk.md), [evidence](reference/evidence-on-gates.md), the [capability taxonomy](reference/capability-taxonomy.md), open questions. Volatile. |
 | [**Templates**](templates/) | The completed artifact is the evidence | The actual paperwork. |
 
 **You can adopt the model without reading the other two layers.**

@@ -105,6 +105,12 @@ and no paraphrase is as memorable.
 > re-pinned without amending the framework:
 > [MCP server](../templates/inspection-mcp-server.md),
 > [gateway credential](../templates/inspection-gateway-key.md).
+>
+> **Where the institution does not operate the server, this point cannot be
+> satisfied as written**, and running the checklist anyway produces a record
+> that verifies almost nothing. [Chapter 13](13-third-party.md) states what
+> replaces it, and [MCP approvals](../guide/06-mcp-approvals.md) walks the
+> decision between the two.
 
 ### H3: End-to-end path
 

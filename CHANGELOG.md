@@ -1,6 +1,6 @@
 ---
 title: Changelog
-nav_order: 6
+nav_order: 7
 ---
 
 # Changelog
@@ -14,6 +14,230 @@ decide is a new edition. Wording and typo fixes are not.
 
 ---
 
+## Edition 2026.5 (2026-08-05)
+
+**Three requirement areas added and a structural hole closed.** This edition
+changes what a reviewer would decide, so it is an edition rather than a wording
+pass. It was prompted by comparing this model against the *ITIL AI Governance*
+white paper (PeopleCert, November 2025), which covers ground this model did not
+and vice versa.
+
+### New: third-party capabilities have a chapter
+
+**The hole:** the model governed what an institution builds and what it
+certifies internally. It said nothing about a component the institution
+**depends on at runtime and does not operate**, which is neither a build nor
+the procurement of a finished product. Since scope explicitly excluded
+procurement, such components fell between two stools and had no requirement
+attached to them at all.
+
+Worse, the available instrument was actively misleading. Every verification
+point in chapter 06 assumes the institution controls the artifact it is
+checking. Run over a vendor-operated server, the same checklist produces a
+document that looks like an inspection and verifies almost nothing.
+
+New [chapter 13](model/13-third-party.md), ten requirements. The load-bearing
+ones:
+
+- **13.2** You cannot inspect what you do not run, so inspect the **boundary**
+  instead, and do not record an inspection of the component.
+- **13.3** Self-attestation is not certification. Vendor documentation, a trust
+  page, a commissioned compliance report, and registry presence are all
+  explicitly excluded. Requirement 11.7 already said certification authority
+  cannot rest with the builder, and for a third-party component the operator
+  **is** the builder, so this was that rule failing in the one case it was
+  written for. **No exception path**, because permitting one would void the
+  certification mechanism generally.
+- **13.4** Connecting a component you do not operate transfers production change
+  authority to its operator. Record that and have the Standing Owner accept it.
+  This is requirement 6.12 pointed outward.
+- **13.5** For a component you operate, pinning **prevents** change. For one you
+  do not, pinning only **detects** it. Above Tier 1 there must therefore be a
+  revocation path, and it must be **exercised** rather than documented.
+- **13.7** A third-party dependency never lowers a tier, and the operator
+  assuming risk is not a control the institution holds.
+
+Also new: [MCP approvals](guide/06-mcp-approvals.md), which routes the three
+real cases (you build it, you self-host someone else's, they operate it) and
+names the distinction that actually matters, which is not who wrote the code but
+**who can change what runs without asking you**. And a
+[third-party boundary inspection template](templates/inspection-third-party-mcp.md)
+whose most useful section is section 8, "what this inspection did NOT verify."
+
+### New: behavior that changes without anyone changing anything
+
+**The defect:** chapter 08 was triggered entirely by an act. Requirement 8.1
+asks where a change re-enters, and something had to be changed for the question
+to arise. The drift the model already covered was **configuration** drift:
+pinned tool definitions, egress inventory, generated registry fields. A
+capability whose behavior degrades while nobody touches it, because a provider
+substituted a model behind the same name, or a retrieval corpus filled with
+documents that outrank the validated ones, or an upstream field started
+arriving empty, fired no requirement anywhere.
+
+- **8.9** Above Tier 1, approved behavior is re-verified on an interval
+  regardless of alteration, against a defined case set with a recorded
+  threshold for action. The threshold is the part people omit, and a check with
+  no action point produces a chart rather than a decision.
+- **8.10** Where the institution does not control which version serves a
+  capability, it records that the version is uncontrolled and treats a detected
+  substitution as an alteration. Pin where the platform allows it. Writing
+  "version: pinned" because a config field holds a version string, when the
+  provider maps that string onto whatever it currently serves, is documented
+  false assurance.
+
+### New: the framework has to measure itself
+
+**The defect:** two scattered GUIDANCE statements suggested reporting the
+conforming-to-non-conforming ratio, and the repository stated in three places
+that it remains a hypothesis until someone reports turnaround performance,
+exception rates, and failure cases. Nothing required an adopting institution to
+measure any of it. A governance system with no measurement cannot tell the
+difference between working and being ignored.
+
+**Requirement 1.9** names five numbers to publish on an interval. The
+uncomfortable one is the count of approvals produced by turnaround expiry rather
+than by a decision: deemed approval exists so a silent reviewer cannot block
+work indefinitely, and it is also the mechanism most likely to become the normal
+path while everyone believes review is happening. Counting authorizations issued
+is explicitly **not** on the list, because activity metrics rise when a
+framework is failing.
+
+### New: which governance pattern are you already?
+
+The model asserts on its front page that it is written for an institution that
+cannot mandate compliance, and never asked an adopter to check whether that
+describes them. A Directive institution adopting this will bolt these gates onto
+an existing approval queue and produce exactly the outcome the DORA evidence
+warns about.
+
+[Adoption](guide/01-adoption.md) now opens with a four-pattern diagnostic
+(Directive, Guided, Federated, Autonomous) and, for each, **the signal that your
+adoption is failing**. Federated institutions are told to take certification
+early rather than last. The axes, pattern names, and ten characteristics are
+adapted from the ITIL white paper and attributed there; the failure signals and
+the mapping are ours.
+
+### New: two reference additions
+
+- **[Appendix E](reference/capability-taxonomy.md)**, a six-function taxonomy
+  (Creation, Curation, Clarification, Cognition, Communication, Coordination)
+  as a **cross-check** on classification. It can raise a question and never
+  lower a tier, the same rule as 11.2. The source publishes a risk matrix
+  scoring each function against each risk; it is asserted with no stated
+  method and is **deliberately not reproduced**.
+- **ISO/IEC 38500:2024** added to [Appendix A](reference/framework-crosswalk.md).
+  It is the only framework on that page that speaks to authority and delegation
+  rather than risk, which is what chapters 09 and 12 are about. Marked **not
+  verified**: the standard is paywalled and its activity names currently come
+  from a secondary source.
+
+**Not imported from that white paper:** its need-establishing survey statistics,
+which are vendor-published figures of exactly the genre this project already
+refuses; its risk matrix; and its maturity ladder, which is the device most
+likely to produce the standing board the README refuses in writing.
+
+### Structure: the chapter list was lying about itself
+
+Thirteen chapters in one numbered list reads as thirteen sequential stages. Only
+seven are. [The model index](model/index.md) now separates **the sequence**
+(02 through 08) from **standing arrangements** (01, 09, 10, 11, 12, 13), which
+required no renumbering.
+
+**The eight-step summary on the front page omitted authorization to build
+entirely.** It also silently dropped four other chapters while presenting itself
+as "the whole thing." It now has chapter numbers on every step, includes
+chapter 05, and names the five standing arrangements separately.
+
+**Reuse was step 8 of 8 and chapter 11 of 13**, while this repository's own notes
+call it the best idea here and the anti-queue mechanism. It is now the **entry
+point**: the first question is whether a certified component fits, because that
+is the only path that gets faster the more the institution governs.
+
+New **[the model on one page](overview.md)**: the sequence, the tiers, all six
+triggers, the five verification points, the artifact list, and the refusals.
+Thirty-plus documents and nothing you could hand to a committee was a real gap.
+
+The implementation guide's numbering is not a reading order, and its sidebar
+presented adoption (for institutions) before the running example (for builders)
+while the front page twice told builders to start with the example.
+[Its index](guide/index.md) is now an audience routing table. Files were **not**
+renumbered, to avoid breaking links.
+
+### Fixed: one name per thing
+
+The front page called the three layers **Layers**; seven other files called them
+**Parts I, II, and III**, including the conventions page that defines the
+structure. Edition 2026.4 renamed them to layers and missed everything except
+the README. Standardized on **layer** everywhere, except in this changelog's
+own 2026.3 and 2026.4 entries, which are dated records of what those editions
+did and correctly use the term of their time.
+
+### Fixed: defects found while doing the above
+
+- **The conventions page stated the wrong chapter grammar.** It listed the
+  pre-2026.4 section names (Rule, Requirements, Evidence required, Exceptions
+  and recorded exceptions, Implementation notes) while every chapter and
+  `tools/check.sh` used the current eight. The page defining the grammar was
+  the only place still describing the old one.
+- **Chapter 01 called itself seven principles and contained eight.** Now nine,
+  and correct in both places it says so.
+- **`tools/check.sh` would have silently skipped chapter 13.** Its conformance
+  glob stopped at `model/1[0-2]*.md`, so a new chapter would have passed
+  unchecked. This is the second time a check has needed widening for content it
+  was written before, and it is worth noting that the check suite has the same
+  decay problem as the citations.
+- **Chapter 00 was titled "How to Read This Code."** After 2026.4 renamed the
+  project away from "The AI Building Code" and `code/` to `model/`, "this Code"
+  reinvited exactly the software-source ambiguity that rename removed.
+- **`CITATION.cff` still described the model in pre-2026.4 vocabulary**: permits,
+  hold points, certificate of occupancy, record drawings, listing. It is a
+  user-facing file and no check covered it.
+- **The 2026.4 changelog entry read "AI Build Governance is now AI Build
+  Governance,"** a search-and-replace casualty that erased the old name from the
+  one sentence whose entire job was recording it.
+- Residual **"listing"** vocabulary in the adoption guide and amendments
+  template, and **"punch list"** in the MCP inspection template, where a line
+  break had hidden it from the jargon check.
+- Stale cross-references: **"Principle 3"** and **"principle 5"** in two files,
+  from a numbering scheme that no longer exists. Now 1.8 and 1.5.
+- The framework crosswalk's "this model" column still said **AHJ**, **permit
+  tier**, and **production authorization**.
+
+### Requirement numbering is now a stated policy
+
+Requirements are **never renumbered**. New ones are appended within their
+chapter even where that leaves them out of positional order, which is why
+chapter 08 now runs 8.1 to 8.6, then 8.9 and 8.10, then 8.7 and 8.8. An
+amendment or exception record citing `8.7` has to mean the same provision three
+editions later, and that matters more than reading tidily.
+
+### Counts
+
+| | 2026.4 | 2026.5 |
+|---|---|---|
+| Normative chapters | 12 | **13** |
+| Numbered requirements | 106 | **119** |
+| MUST, SHOULD, and MAY statements | 183 | **203** |
+| Labelled statements in the model | 88 | **99** |
+| `UNVERIFIED` labels in model, guide, references, and templates | 19 | **23** |
+| Guide chapters | 5 | **6** |
+| Templates | 9 | **10** |
+
+### Acknowledged, not fixed
+
+**Thirteen chapters is more than most people will read, and this edition added
+one.** The grouping and the one-page overview are the mitigation, and they are a
+mitigation rather than a fix. The alternative was extending chapters 06 and 11
+with third-party requirements, which would have muddied two chapters that
+currently each carry one clean idea. That trade is a judgment call and it could
+be revisited.
+
+Still unvalidated by adoption. Requirement 1.9 now at least names what
+validation would look like.
+
+---
+
 ## Edition 2026.4 (2026-08-04)
 
 **Renamed, and the vocabulary inverted.** Previously this read as a building
@@ -23,7 +247,7 @@ substance.**
 
 ### Renamed
 
-"AI Build Governance" is now **AI Build Governance**. The directory `code/`
+"The AI Building Code" is now **AI Build Governance**. The directory `code/`
 is now `model/`, which also removes the ambiguity of a directory named
 `code/` in a software repository that contains no source code. `handbook/` is
 now `guide/`.

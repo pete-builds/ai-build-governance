@@ -6,7 +6,7 @@ search_exclude: true
 
 # AI Build Governance
 
-**Edition 2026.4** · [Changelog](CHANGELOG.md) · [Source ledger](SOURCES.md) · [How to read this](model/00-conventions.md)
+**Edition 2026.5** · [**The model on one page**](overview.md) · [Changelog](CHANGELOG.md) · [Source ledger](SOURCES.md) · [How to read this](model/00-conventions.md)
 
 A governance framework for **how institutions build AI capabilities**, with
 mechanisms adapted from building codes.
@@ -41,20 +41,39 @@ compliance**, which is the situation most universities are actually in.
 
 ---
 
-## The whole thing in eight steps
+## The whole thing
 
-Plain language, no analogy. This is the model.
+Plain language, no analogy. Chapter numbers so you can go straight to what
+binds.
 
-1. **Establish the need** before choosing a solution
-2. **Classify the consequences** using objective triggers, not judgment
-3. **Review the design** without creating a queue
-4. **Verify the system** before important behavior becomes hidden
-5. **Approve it for production** as a separate act from finishing it
-6. **Record what actually exists**, not what was planned
-7. **Reassess it when it changes**: data, tools, audience, autonomy, purpose
-8. **Reuse certified components** instead of reviewing them repeatedly
+**Before anything else: can you reuse something already checked?** If a
+certified component fits, you confirm the certification and inspect **only your
+integration** ([ch 11](model/11-certified-components.md)). That is the shortest
+path here, and the only one that gets faster the more the institution governs.
+If reuse is harder than rebuilding where you work, nothing else on this page
+will save you.
 
-Everything else is detail in service of those eight.
+If you are building something new, the sequence is eight steps:
+
+1. **Establish the need** before choosing a solution ([ch 02](model/02-statement-of-need.md))
+2. **Classify the consequences** using objective triggers, not judgment ([ch 03](model/03-classification.md))
+3. **Review the design** without creating a queue ([ch 04](model/04-design-review.md))
+4. **Authorize the build**, with conditions and an expiry ([ch 05](model/05-authorization-to-build.md))
+5. **Verify the system** before important behavior becomes hidden ([ch 06](model/06-inspections.md))
+6. **Approve it for production** as a separate act from finishing it ([ch 07](model/07-production-approval.md))
+7. **Record what actually exists**, not what was planned ([ch 07](model/07-production-approval.md))
+8. **Reassess it when it changes**, and on an interval when it does not ([ch 08](model/08-alterations.md))
+
+Five chapters are **not** stages in that sequence. They are standing
+arrangements that apply the whole way through: the
+[principles](model/01-principles.md) everything is tested against,
+[roles and authority](model/09-roles.md),
+[concurrent reviews](model/10-concurrent-reviews.md),
+[delegated authority](model/12-delegated-authority.md) wherever an agent acts
+for a human, and [third-party capabilities](model/13-third-party.md) wherever a
+build depends on something you do not operate.
+
+Everything else is detail in service of those.
 
 ---
 
@@ -77,8 +96,9 @@ Everything else is detail in service of those eight.
 |---|---|---|
 | **An institutional leader** | This page, [principles](model/01-principles.md), [adoption](guide/01-adoption.md) | All of Layer III, all verification detail |
 | **An institution considering adoption** | [Adoption](guide/01-adoption.md), [amendments template](templates/amendments-template.md), [classification](model/03-classification.md) | Layer III except the [platform profile](reference/platform-profiles/) for your own stack |
-| **An AI platform team** | [Classification](model/03-classification.md), [inspections](model/06-inspections.md), [certified components](model/11-certified-components.md), [platform profiles](reference/platform-profiles/) | Statement of need, roles |
+| **An AI platform team** | [Classification](model/03-classification.md), [inspections](model/06-inspections.md), [certified components](model/11-certified-components.md), [MCP approvals](guide/06-mcp-approvals.md), [platform profiles](reference/platform-profiles/) | Statement of need, roles |
 | **A builder with something to ship** | [Running example](guide/02-running-example.md) first, then [statement of need](model/02-statement-of-need.md), [design review](model/04-design-review.md), [agentic products](guide/03-agentic-products.md) | Roles, certified components, Layer III |
+| **Connecting a vendor or third-party tool server** | [MCP approvals](guide/06-mcp-approvals.md), then [third-party capabilities](model/13-third-party.md) | The rest of the sequence until you know which route you are on |
 | **A security or privacy reviewer** | [Security and privacy review](guide/05-security-and-privacy-review.md), [inspections](model/06-inspections.md), [platform profiles](reference/platform-profiles/) | Statement of need, alterations |
 | **An accessibility reviewer** | [Accessibility](guide/04-accessibility.md), [concurrent reviews](model/10-concurrent-reviews.md) | Everything else |
 | **An auditor** | [Production approval and records](model/07-production-approval.md), [framework crosswalk](reference/framework-crosswalk.md), [conventions](model/00-conventions.md) | The guide |
@@ -132,16 +152,18 @@ independent review only for genuinely high-consequence builds, and gates at
 | 10 | [Concurrent Reviews](model/10-concurrent-reviews.md) | Review as a relay of queues |
 | 11 | [Certified Reusable Components](model/11-certified-components.md) | Reuse being harder than rebuilding |
 | 12 | [Delegated Authority](model/12-delegated-authority.md) | An agent exceeding the human it acts for |
+| 13 | [Third-Party Capabilities](model/13-third-party.md) | Inspecting a component you do not run, and filing it as though you had |
 
 ## Layer II: Implementation Guide
 
 | Chapter | For |
 |---|---|
-| [01 Adoption](guide/01-adoption.md) | Standing this up without creating a committee |
+| [01 Adoption](guide/01-adoption.md) | Standing this up without creating a committee, and which governance pattern you already are |
 | [02 Running example](guide/02-running-example.md) | One system, end to end |
 | [03 Agentic products](guide/03-agentic-products.md) | "We built an agent with AI coding tools and want it live" |
 | [04 Accessibility](guide/04-accessibility.md) | Obligations, why AI fails them by default, what to check |
 | [05 Security and privacy review](guide/05-security-and-privacy-review.md) | Running those without becoming the bottleneck |
+| [06 MCP approvals](guide/06-mcp-approvals.md) | Building a tool server, and connecting to one you did not build |
 
 ## Templates
 
@@ -151,7 +173,8 @@ independent review only for genuinely high-consequence builds, and gates at
 | [Design Review](templates/design-review.md) | [Chapter 04](model/04-design-review.md), builder and reviewer halves |
 | [ADR](templates/adr.md) | Any architecturally significant decision |
 | [Inspection: gateway key](templates/inspection-gateway-key.md) | H1. Automate this one. |
-| [Inspection: MCP server](templates/inspection-mcp-server.md) | H2. Pin it to a protocol revision. |
+| [Inspection: MCP server](templates/inspection-mcp-server.md) | H2, for a server you operate. Pin it to a protocol revision. |
+| [Inspection: third-party server boundary](templates/inspection-third-party-mcp.md) | [Chapter 13](model/13-third-party.md), for a server you do not operate |
 | [Inspection: Agent Studio workflow](templates/inspection-agent-studio.md) | H4, where no publish gate exists |
 | [Inspection: agentic product](templates/inspection-agentic-product.md) | [Guide 03](guide/03-agentic-products.md), both halves |
 | [Production Approval](templates/production-approval.md) | [Chapter 07](model/07-production-approval.md), full or time-limited |
@@ -166,6 +189,7 @@ independent review only for genuinely high-consequence builds, and gates at
 | [Framework crosswalk](reference/framework-crosswalk.md) | NIST AI RMF, ISO/IEC 42001, EU AI Act, OMB, with verification status per claim |
 | [Evidence on gates](reference/evidence-on-gates.md) | What is known, what is contested, where this is guessing |
 | [Glossary](reference/glossary.md) | Two-way term mapping, and where the analogy breaks |
+| [Functional capability taxonomy](reference/capability-taxonomy.md) | Six functions as a **cross-check** on classification, never a second axis |
 
 **On "Agent Studio":** used throughout as the generic category for low-code
 platforms where people compose and publish automations and agents. **n8n is
@@ -180,13 +204,22 @@ about n8n are not generalized; see its
 1. **Name your Final Decision Authority.** The office that can say no and be
    obeyed. If none exists, that is the finding, and this cannot substitute
    for it.
-2. **Map the tiers to your own data classification.** Every
+2. **Establish which governance pattern you already are.** Directive, Guided,
+   Federated, or Autonomous. Each one fails at adopting this differently, and
+   [Adoption](guide/01-adoption.md) names the failure signal to watch for in
+   each. Federated institutions should take certification early rather than
+   last.
+3. **Map the tiers to your own data classification.** Every
    `LOCAL AMENDMENT REQUIRED` label marks a decision left deliberately to
    you.
-3. **Delete what you cannot enforce.** A documented control your platform
+4. **Delete what you cannot enforce.** A documented control your platform
    does not implement is worse than an acknowledged gap.
-4. **Start with inspections, not intake.** Automated checks on what you
+5. **Start with inspections, not intake.** Automated checks on what you
    already run pay off fastest and are least resented.
+6. **Publish the five numbers** in
+   [requirement 1.9](model/01-principles.md). They are what would tell anyone,
+   including you, whether this is working rather than merely running. Nobody has
+   published them yet.
 
 Full sequence in [Adoption](guide/01-adoption.md). Record your
 adoption with the [amendments template](templates/amendments-template.md),

@@ -1,6 +1,6 @@
 ---
 title: "Technical and Evidence References"
-nav_order: 5
+nav_order: 6
 has_children: true
 ---
 
@@ -18,6 +18,14 @@ fast enough to invalidate an inspection checklist within months.
 
 Platform profiles are **findings about one product at one date.** They do not
 generalize to the product category.
+
+Two appendices here are lenses rather than evidence, and both are explicitly
+subordinate to the model. [Appendix A](framework-crosswalk.md) maps this
+framework onto NIST AI RMF, ISO/IEC 42001, ISO/IEC 38500, the EU AI Act, and
+OMB guidance, marking verification status per claim.
+[Appendix E](capability-taxonomy.md) classifies capabilities by what they
+functionally do, as a **cross-check** on tier classification that can raise a
+question and never lower a tier.
 
 This layer also keeps the construction vocabulary, because it is where the
 analogy is explained rather than used. The [glossary](glossary.md) has the

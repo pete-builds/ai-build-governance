@@ -4,7 +4,7 @@ parent: "Implementation Guide"
 nav_order: 4
 ---
 
-> **Part II: handbook. Non-binding.** The requirement that these reviews
+> **Implementation guide. Non-binding.** The requirement that these reviews
 > run concurrently lives in
 > [Concurrent Reviews](../model/10-concurrent-reviews.md). This
 > page is how to actually do one.

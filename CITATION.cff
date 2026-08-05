@@ -7,8 +7,8 @@ authors:
     given-names: Pete
 repository-code: "https://github.com/pete-builds/ai-build-governance"
 license: CC-BY-4.0
-version: "2026.4"
-date-released: "2026-08-04"
+version: "2026.5"
+date-released: "2026-08-05"
 keywords:
   - AI governance
   - higher education
@@ -17,16 +17,18 @@ keywords:
   - platform engineering
   - accessibility
 abstract: >
-  A governance model for how AI capabilities get built at a university, as
-  distinct from how AI gets used. Structured as a model building code
-  intended to be adopted with local amendments the way a jurisdiction
-  adopts an I-Code. It borrows working mechanisms from construction
-  governance: a statement of need before design, occupancy classification
-  by objective trigger, plan review against the stated need, permits that
-  carry conditions and expire, inspections at defined hold points before
-  work is concealed, a certificate of occupancy distinct from completion,
-  record drawings, and certification of reusable components so that
-  consumers inherit a listing rather than re-entering review.
+  A governance model for how AI capabilities get built at an institution, as
+  distinct from how AI gets used. Structured as a model framework intended to
+  be adopted with local amendments, the way a jurisdiction adopts a model
+  building code. It borrows working mechanisms from construction governance:
+  a statement of need before design, risk classification by objective
+  trigger, design review against the stated need, authorizations that carry
+  conditions and expire, verification points before behavior is concealed,
+  production approval as an act distinct from completion, a record of what
+  was actually deployed, and certification of reusable components so that
+  consumers inherit a certification rather than re-entering review. It also
+  covers runtime dependencies on components the institution does not
+  operate, where inspection has to move to the boundary.
 
   Its central design commitment is that gates belong at points of
   irreversibility rather than at milestones, following published research

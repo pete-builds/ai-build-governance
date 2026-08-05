@@ -1,6 +1,6 @@
 ---
 title: Contributing
-nav_order: 8
+nav_order: 9
 ---
 
 # Contributing
@@ -25,7 +25,15 @@ of the borrowed material is not decoration here: the whole argument
 rests on the analogy being real rather than decorative.
 
 **3. Reference implementations.** If you have mapped this to a stack
-other than the one in the appendix, that mapping is worth publishing.
+other than the one in the
+[framework crosswalk](reference/framework-crosswalk.md), that mapping is
+worth publishing.
+
+**4. The five numbers.** [Requirement 1.9](model/01-principles.md) names
+what would tell anyone whether this framework works. Nobody has published
+them. If you adopt this and report them, that single contribution is worth
+more than every other kind on this list combined, because it is the only
+one that could falsify the design.
 
 ## What this repository is not
 
@@ -36,7 +44,7 @@ amendments document, kept wherever your institution keeps internal
 process. Keeping this repository free of any single institution's
 particulars is what makes it adoptable by the next one.
 
-## Ground rules for changes to the code text
+## Ground rules for changes to the model text
 
 - **Every normative claim carries a citation.** If a section asserts
   that a framework requires something, cite the framework, the document
@@ -56,6 +64,17 @@ particulars is what makes it adoptable by the next one.
   heavy to follow than by being too permissive. Contributions that
   remove a step, merge two artifacts, or automate a manual check are
   held to a lower bar than contributions that add one.
+- **Never renumber a requirement.** Append within the chapter, even where
+  that leaves numbers out of positional order. An amendment or an
+  exception record citing `8.7` must still mean the same provision three
+  editions later.
+- **Run `./tools/check.sh` before opening a pull request.** Eleven checks,
+  each of which exists because that exact mistake was made here. If you
+  add a chapter, confirm the conformance glob covers it: it has silently
+  needed widening before.
+- **Do not remove an `UNVERIFIED` label to make a section read better.**
+  The check fails if the count drops, deliberately. Every one of them is
+  a place someone declined to assert something they could not confirm.
 
 ## Style
 

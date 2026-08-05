@@ -193,7 +193,15 @@ highest-wins are cruder and harder to argue with.
 
 **Certification does not lower a tier.** A certified reusable component
 reduces *component* review only. See
-[chapter 11](11-certified-components.md).
+[chapter 11](11-certified-components.md). Neither does a component coming from
+outside the institution: see [chapter 13](13-third-party.md), and note that
+connecting one frequently supplies the external-communication leg of trigger B.
+
+**A cross-check, if a tier feels wrong.**
+[Appendix E](../reference/capability-taxonomy.md) classifies capabilities by
+what they functionally do, which is a different question from what they touch.
+Where function suggests a risk the triggers did not catch, re-read the triggers.
+It is a prompt to look again, **never** a route to a lower tier.
 
 ## Sources and confidence
 

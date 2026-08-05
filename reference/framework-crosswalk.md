@@ -67,6 +67,38 @@ systems, and third-party and customer relationships.
 > guidance) and ISO/IEC 42005 (impact assessment) is widely described as
 > complementary but was not verified.
 
+### ISO/IEC 38500:2024
+
+*Information technology, Governance of IT for the organization.* Included
+because it is the only framework on this page addressing the question this
+model spends chapters 09 and 12 on: **who holds authority, and how it is
+delegated.** Everything else here is a risk-management framework, and risk
+frameworks have nothing to say about whether the office that says no will be
+obeyed.
+
+Reported to define four governance activities, applied by a governing body to
+the organization's use of IT: **engage stakeholders, evaluate, direct, and
+monitor.** Those four map onto this model as follows.
+
+| 38500 activity *(reported)* | Where it lands here |
+|---|---|
+| Engage stakeholders | [Chapter 10](../model/10-concurrent-reviews.md) concurrent reviews; the accessibility, security, and privacy offices as parallel participants rather than sequential gates |
+| Evaluate | [Chapter 03](../model/03-classification.md) classification and [chapter 04](../model/04-design-review.md) design review |
+| Direct | [Chapter 05](../model/05-authorization-to-build.md) authorization to build; [chapter 12](../model/12-delegated-authority.md) delegated authority |
+| Monitor | [Chapter 06](../model/06-inspections.md) inspections, [chapter 07](../model/07-production-approval.md) records and reconciliation, [requirement 8.9](../model/08-alterations.md) interval re-verification, and [requirement 1.9](../model/01-principles.md) measuring the governance system itself |
+
+> **Not verified.** The standard is paywalled and ISO's catalogue page was not
+> retrieved. The title, the 2024 revision year, and the four activity names
+> above are taken from a secondary source, the *ITIL AI Governance* white paper
+> (PeopleCert, v1.0, November 2025), which cites 38500:2024 as the basis for
+> its own governance-pattern model. **Do not cite a clause of 38500 on the
+> basis of this page.** The mapping in the table is ours regardless of whether
+> the activity names are exact.
+>
+> The same white paper supplies the four-pattern governance diagnostic in
+> [Adoption](../guide/01-adoption.md), where it is attributed and where its
+> limits are stated.
+
 ### EU AI Act
 
 Regulation (EU) 2024/1689. Four risk tiers, confirmed against the
@@ -155,29 +187,29 @@ satisfies, to who or what enforces it. **This is the table to build from.**
 | Construction | This model | Chapter | Framework mapping | Enforced by |
 |---|---|---|---|---|
 | Model code adopted with local amendments | The model plus your amendments document | README | NIST GOVERN (policies, roles); ISO 42001 clause structure | Institutional adoption. Nothing else. |
-| Authority Having Jurisdiction | Named AHJ office | 09 | NIST GOVERN (accountability structures); OMB CAIO analogue | Institutional charter |
+| Authority Having Jurisdiction | Named Final Decision Authority | 09 | NIST GOVERN (accountability structures); OMB CAIO analogue | Institutional charter |
 | Statement of need / Owner's Project Requirements | Statement of Need | 02 | NIST MAP (context, purpose, beneficiaries); ISO 42001 A.5 impact assessment *(unverified id)* | Human. Intake process. |
 | Feasibility study | Existing-tooling and do-nothing check | 02 | NIST MAP | Human |
-| Occupancy classification | Permit tiers via objective triggers | 03 | EU AI Act tiering; NIST MAP (risk categorization); OMB High-Impact AI analogue | Human, from declared inputs. Partly automatable. |
+| Occupancy classification | Risk tiers via objective triggers | 03 | EU AI Act tiering; NIST MAP (risk categorization); OMB High-Impact AI analogue | Human, from declared inputs. Partly automatable. |
 | Prohibited construction | The "not permitted" category | 03 | EU AI Act Article 5 prohibited practices | Policy. Should be platform-enforced where possible. |
 | Basis of Design | Design Response | 04 | NIST MAP, MEASURE | Human |
 | Plan review / Commissioning Authority audit | Timeboxed peer or independent review | 04 | NIST GOVERN, MEASURE; ISO 42001 A.6 life cycle *(unverified id)* | Human. Timeboxed with deemed approval. |
 | Submittal disposition stamps | Approved / Approved as Noted / Revise and Resubmit / Rejected | 04 | n/a. Process hygiene. | Human |
 | Request for information | Lightweight recorded question path | 04, 08 | n/a | Human |
-| Building permit | Permit with conditions and expiry | 05 | NIST GOVERN | Partly platform (conditions), partly human |
-| Permit expiry and lapse | Permit lapse, credential expiry | 05 | NIST MANAGE | **Platform.** Key expiry is enforceable. |
+| Building permit | Authorization to Build, with conditions and expiry | 05 | NIST GOVERN | Partly platform (conditions), partly human |
+| Permit expiry and lapse | Authorization lapse, credential expiry | 05 | NIST MANAGE | **Platform.** Key expiry is enforceable. |
 | Inspection hold points | H1 through H5 | 06 | NIST MEASURE, MANAGE | **Mostly platform.** Automate everything countable. |
 | Do-not-conceal rule | H4 concealment gate | 06 | NIST MANAGE; OWASP LLM06 Excessive Agency | Human sign-off above Tier 1 |
 | Framing after rough-in | H3 requires H1 and H2 passed | 06 | n/a. Sequencing. | Platform (check dependency) |
 | Special inspection by independent agency | Tier 3 independent reviewer | 06, 09 | NIST GOVERN (independence); ISO 42001 audit posture | Institutional structure |
 | Engineer's seal | Responsible Builder signature | 09 | NIST GOVERN (accountability) | Human. **Deliberately no personal liability.** |
 | Design professional of record | Standing Owner | 09 | NIST GOVERN | Human. Precondition for occupancy above Tier 1. |
-| Certificate of occupancy | Production authorization | 07 | NIST MANAGE (deployment authorization) | Human, gated on platform checks |
-| Temporary certificate of occupancy | Time-boxed pilot authorization | 07 | NIST MANAGE | Human, with a real expiry date |
+| Certificate of occupancy | Production Approval | 07 | NIST MANAGE (deployment authorization) | Human, gated on platform checks |
+| Temporary certificate of occupancy | Time-Limited Production Approval | 07 | NIST MANAGE | Human, with a real expiry date |
 | Substantial completion | Support commitment starts | 07 | NIST MANAGE (incident response) | Human |
 | Retainage | Withhold something until records are done | 07 | n/a. The enforcement trick. | Institutional |
 | As-builts and record drawings | The registry | 07 | NIST GOVERN, MAP (inventory); OMB use-case inventory analogue | **Generate from platform where possible.** Human for the rest. |
-| Punch list | Accepted deferred defects with owners | 08 | NIST MANAGE | Human |
+| Punch list | Accepted Defect List, with owners | 08 | NIST MANAGE | Human |
 | Change order | Alteration re-entry table | 08 | NIST MANAGE | Partly platform (drift alarms), partly human |
 | Existing lawfully non-conforming buildings | Amnesty and compliance-on-alteration | 08 | NIST MAP (inventory before control) | Institutional decision |
 | Hazard abatement in existing buildings | The short unsafe list | 08 | NIST MANAGE | Human, urgent |
@@ -207,10 +239,10 @@ A reference stack of a self-hosted AI gateway (LiteLLM), an Agent Studio (n8n), 
 a set of MCP servers, at a large decentralized research university. This
 is the shape of steps 1 through 3 of the adoption path in the README.
 
-### Step 1: Name the AHJ
+### Step 1: Name the Final Decision Authority
 
 The institution already has a policy body for AI and an existing IT
-governance process for investment. **Do not add a third.** The AHJ is the
+governance process for investment. **Do not add a third.** The Final Decision Authority is the
 platform team that operates the gateway and the automation instance,
 because they are the only party with both the technical standing to judge
 a build and the operational ability to switch one off.
@@ -219,7 +251,7 @@ a build and the operational ability to switch one off.
 |---|---|---|
 | Policy | AI council or equivalent | What is permissible at all |
 | Investment | IT governance process | What gets funded |
-| **Operational** | **Platform team as AHJ** | **Does this build meet the code** |
+| **Operational** | **Platform team as the Final Decision Authority** | **Does this build meet the code** |
 
 Stop-work authority: two named platform engineers plus a documented
 deputy. Reachable within a day.
@@ -229,7 +261,7 @@ deputy. Reachable within a day.
 Substitute the institution's own classification. A four-level scheme with
 a genuinely prohibited category maps cleanly:
 
-| Institutional data level | Permit tier |
+| Institutional data level | Tier |
 |---|---|
 | Low / public | 1 |
 | Moderate / internal business | 2 |
@@ -263,4 +295,4 @@ roughly half are not available as claimed. Writing them down anyway would
 have produced a governance document that was wrong in eight places, and
 nobody would have found out until an incident.
 
-That is the whole argument for principle 5.
+That is the whole argument for [requirement 1.5](../model/01-principles.md).

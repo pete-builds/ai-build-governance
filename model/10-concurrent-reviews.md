@@ -138,7 +138,7 @@ had a backlog. An earlier edition of this code blurred that and was wrong.
 The form worth remembering: **the clock can grant permission. It cannot
 grant absolution.**
 
-Practical guidance per discipline is in Part II:
+Practical guidance per discipline is in the implementation guide:
 [accessibility](../guide/04-accessibility.md) and
 [security and privacy review](../guide/05-security-and-privacy-review.md).
 Worked instance in [the running example, stage 4](../guide/02-running-example.md).

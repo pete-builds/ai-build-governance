@@ -36,7 +36,7 @@ nav_order: 9
 | Design review, Tier 3 (must not report to the builder) | |
 | Production approval, Tier 3 | |
 | Stop-work authority (small, reachable within a day) | |
-| Listing / certification authority (never the builder) | |
+| Certification authority (never the builder) | |
 | Escalation: security | |
 | Escalation: accessibility | |
 | Escalation: privacy / lawful basis | |
@@ -117,8 +117,8 @@ committee.
 | Authorization lapse if no inspection passes | 180 days | |
 | Temporary production approval | 90 days, one renewal | |
 | Record review: Tier 1 / 2 / 3 | Annual / 6 months / quarterly | |
-| Listing surveillance: Tier 1 / 2 / 3 ceiling | Annual / 6 months / quarterly | |
-| Listing expiry: Tier 1 / 2 / 3 ceiling | 24 / 18 / 12 months | |
+| Certification surveillance: Tier 1 / 2 / 3 ceiling | Annual / 6 months / quarterly | |
+| Certification expiry: Tier 1 / 2 / 3 ceiling | 24 / 18 / 12 months | |
 
 ## 6. Tier 1 exemption list
 
