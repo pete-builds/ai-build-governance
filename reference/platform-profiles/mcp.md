@@ -1,5 +1,5 @@
 ---
-title: "Platform profile: mcp"
+title: "Platform profile: MCP"
 parent: "Technical and Evidence References"
 nav_order: 11
 ---

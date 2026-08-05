@@ -1,5 +1,5 @@
 ---
-title: "Platform profile: litellm"
+title: "Platform profile: LiteLLM"
 parent: "Technical and Evidence References"
 nav_order: 10
 ---
