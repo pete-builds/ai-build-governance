@@ -216,3 +216,24 @@ It is a prompt to look again, **never** a route to a lower tier.
 > The three-tier count and every specific threshold are reasoned rather than
 > measured. No evidence exists on the optimal number of tiers. Three,
 > because more invites boundary arguments.
+
+> **UNVERIFIED**
+> **The triggers are not fully objective, and requirement 3.0 should be read as
+> a design goal rather than an achieved property.** Several turn on terms that
+> still require judgment: what counts as **consequential**, who is
+> **positioned to be harmed** rather than inconvenienced, what is **hard to
+> reverse**, what it means to **inform** a decision, and where a unit ends and
+> the institution begins. The running example labels one of its own triggers
+> borderline.
+>
+> What the triggers demonstrably do is narrow the range of defensible answers
+> and make a disagreement locatable, because two reviewers who differ can point
+> at which trigger they read differently. That is **bounded and auditable
+> classification**, which is a weaker and more accurate claim than objective
+> classification. No inter-rater agreement has been measured, here or
+> anywhere, so the size of the residual disagreement is unknown.
+>
+> If you adopt this, the cheapest thing you can contribute back is a set of
+> real classifications with the disputes recorded. That, and the numbers in
+> [requirement 1.9](01-principles.md), are what would turn 3.0 from an
+> aspiration into a measurement.

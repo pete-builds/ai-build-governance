@@ -86,7 +86,7 @@ result: pass | fail | pass with findings
       output
 - [ ] **Tool definitions pinned by hash or version**
 - [ ] **Drift alarm live.** A server revising a description after approval
-      is the rug pull, and it is the reason pinning is a authorization condition
+      is the rug pull, and it is the reason pinning is an authorization condition
       rather than a suggestion.
 - [ ] Parameter lists reviewed for unused or free-text parameters that
       could carry smuggled data out

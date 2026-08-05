@@ -55,14 +55,14 @@ committee.
 ## 2. Data classification mapping
 
 > Substitute your own levels verbatim. Include a genuinely prohibited
-> category if you have one; "not authorizationted" is not a tier.
+> category if you have one; "not permitted" is not a tier.
 
 | Our classification | Platform status | Authorization tier |
 |---|---|---|
 | | | 1 |
 | | | 2 |
 | | | 3 |
-| | **Not allowed** | **Not authorizationted** |
+| | **Not allowed** | **Not permitted** |
 
 **Decisions to make explicitly rather than by default:**
 

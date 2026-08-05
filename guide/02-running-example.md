@@ -300,7 +300,7 @@ central mitigation, a human comparing the draft against the records, is
 exactly what would be removed.
 
 Outcome: **declined in that form**, and a narrower version approved
-instead. Auto-send authorizationted only for one inquiry category where the reply
+instead. Auto-send permitted only for one inquiry category where the reply
 contains no account-specific figures. That version keeps the trifecta but
 removes the harm path, and it re-entered at H4 with a fresh sign-off.
 

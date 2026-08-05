@@ -213,6 +213,31 @@ else
 fi
 
 # ---------------------------------------------------------------------------
+note "15. Search-replace damage from the vocabulary rename"
+# Edition 2026.4 replaced "permit" with "authorization" across the repository
+# and hit substrings: "permitted" became "authorizationted" in four places, and
+# "a permit condition" became "a authorization condition". An external reviewer
+# found one of the four. Fourteen structural checks did not find any of them,
+# which is the difference between structural CI and copyediting.
+rn=0
+if grep -rniE 'authorization(ted|ting|ssion)|occupancyt|certificat(ed|ing)ion' \
+     --include='*.md' . 2>/dev/null | grep -v '^\./\.git/'; then
+  bad "word mangled by a substring replace"; rn=1
+fi
+# Article agreement, which a replace breaks silently. Vowel-sound words only:
+# u-initial words are excluded because "a user" is correct and "an unverified"
+# is too, so the rule would produce false positives either way.
+if grep -rnoiE '\ba (authorization|approval|inspection|amendment|agent|artifact|exception|owner|instance|integration|institution|edition|egress|independent|alteration|obligation|external|internal|earlier|hour|honest)\b' \
+     --include='*.md' . 2>/dev/null | grep -v '^\./\.git/'; then
+  bad "article disagreement: 'a' before a vowel sound"; rn=1
+fi
+if grep -rnoiE '\ban (permit|tier|gate|review|record|builder|component|server|credential|capability|chapter|check|human|model|requirement|template|platform|process|policy|registry|risk|standard|system|team|version|vendor)\b' \
+     --include='*.md' . 2>/dev/null | grep -v '^\./\.git/'; then
+  bad "article disagreement: 'an' before a consonant sound"; rn=1
+fi
+[ "$rn" -eq 0 ] && echo "  ok"
+
+# ---------------------------------------------------------------------------
 printf '\n'
 if [ "$fail" -eq 0 ]; then
   echo "All checks passed."
