@@ -190,7 +190,7 @@ Non-binding. The numbering is not a reading order; see the
 - Approval routing, condensed
 - Where this leaves the open questions
 
-### [07 Pilot Protocol](guide/07-pilot-protocol.md)
+### [07. Pilot Protocol](guide/07-pilot-protocol.md)
 
 - What a pilot is testing
 - Three archetypes, and why these three
@@ -198,7 +198,7 @@ Non-binding. The numbering is not a reading order; see the
 - Running it
 - What would count as the framework failing
 
-### [08 Vendor Beta Connections](guide/08-vendor-beta-mcp.md)
+### [08. Vendor Beta Connections](guide/08-vendor-beta-mcp.md)
 
 - Why a beta is not just an early version of route C
 - The gateway is where this gets specific

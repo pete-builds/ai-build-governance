@@ -1,5 +1,5 @@
 ---
-title: "07 Pilot Protocol"
+title: "07. Pilot Protocol"
 parent: "Implementation Guide"
 nav_order: 7
 ---

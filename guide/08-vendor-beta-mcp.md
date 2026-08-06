@@ -1,5 +1,5 @@
 ---
-title: "08 Vendor Beta Connections"
+title: "08. Vendor Beta Connections"
 parent: "Implementation Guide"
 nav_order: 8
 ---
