@@ -1,7 +1,7 @@
 ---
 title: "Template: Agentic Product Inspection"
 parent: "Templates"
-nav_order: 7
+nav_order: 8
 ---
 
 > Copy this file. The metadata block below is part of the template:

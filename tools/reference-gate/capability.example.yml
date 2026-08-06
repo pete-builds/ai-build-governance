@@ -1,0 +1,36 @@
+# Example capability manifest. An institution adopting the reference gate puts
+# one of these in each repository that holds a governed capability, at
+# governance/capability.yml.
+#
+# The gate reads `tier` and `evidence_dir`. Everything else here is for humans
+# and for whatever registry the institution keeps, per chapter 07.
+
+name: Payment inquiry triage agent
+capability_id: CAP-2026-0184
+
+# Chapter 03. The gate refuses to run without this, because an unclassified
+# capability has skipped the step that decides what everything else costs.
+tier: 3
+
+# Chapter 09. A named human, not a team alias.
+owner: someone@example.edu
+standing_owner: someone-else@example.edu
+
+# Where the H-point evidence lives. One file per point, H1.md through H5.md.
+evidence_dir: governance/evidence
+
+# Chapter 07. The record entry this capability appears in.
+registry_entry: https://registry.example.edu/capabilities/CAP-2026-0184
+
+# Chapter 11. If this consumed a certified component, name it and its terms,
+# because using one outside its certified terms voids reliance on it.
+consumed_components:
+  - name: Gateway retrieval connector
+    certification: CERT-2026-011
+    expires: 2027-02-01
+
+# Chapter 13. Runtime dependencies the institution does not operate.
+third_party_dependencies:
+  - name: Vendor tool server
+    boundary_inspection: governance/evidence/third-party-boundary.md
+    revocation_exercised: 2026-07-30

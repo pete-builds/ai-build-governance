@@ -31,6 +31,15 @@ The [**requirement index**](requirement-index.md) lists all 131 numbered
 requirements with a link to each. It is generated from the chapters, so it
 cannot fall out of step with them. Use it when you have a number and need the
 provision, which is the situation anyone amending this framework is in.
+[**Machine-readable requirements and a reference gate**](enforcement.md) covers
+the same index as JSON, plus a working CI gate, and is explicit about the narrow
+scope of what that gate can actually enforce.
+
+[**How this compares**](comparison.md) positions this framework against NIST AI
+RMF, Stanford's and UC's artifacts, and the current agent-governance literature,
+naming where each of them is genuinely stronger. It marks verification status per
+claim, because two of the most frequently cited artifacts in this space could not
+be fully verified from primary sources.
 
 This layer also keeps the construction vocabulary, because it is where the
 analogy is explained rather than used. The [glossary](glossary.md) has the

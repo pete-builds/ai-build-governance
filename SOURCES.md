@@ -85,7 +85,14 @@ Findings and practice. Stable, but confirm the pages still exist.
 | [Invariant Labs, tool poisoning](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks) | Tool poisoning, rug pull, shadowing. **Fetched once, not re-verified.** | 2026-08-04 | 2027-08 |
 | [Trail of Bits, line jumping](https://blog.trailofbits.com/2025/04/21/jumping-the-line-how-mcp-servers-can-attack-you-before-you-ever-use-them/) | `tools/list` loads before invocation. **Fetched once, not re-verified.** | 2026-08-04 | 2027-08 |
 | [IT@Cornell governance](https://it.cornell.edu/itgovernance) | A published university governance structure with a policy layer and no operational layer | 2026-08-04 | 2027-08 |
-| [UC AI Council](https://ai.universityofcalifornia.edu/) | Covers "development and deployment"; **defines no named risk tiers** | 2026-08-04 | 2027-08 |
+| [UC AI Council](https://ai.universityofcalifornia.edu/) | Covers "development and deployment"; **defines no named risk tiers**. The landing page carries no date and no version number. | 2026-08-04 | 2027-08 |
+| [UC AI Council Risk Assessment Guide v1.1](https://ai.universityofcalifornia.edu/_files/documents/uc-ai-council-risk-assessment-guide-1.1-1.pdf) and [v1.0](https://ai.universityofcalifornia.edu/_files/documents/final-uc-ai-council-risk-assessment-guide-1.0.pdf) | Title as printed; scope limited to administrative use, excluding research and pedagogy; **explicitly advisory**, deferring adoption to each location. PDFs are not decodable by fetch tooling; read directly. **Neither document prints a date.** | 2026-08-05 | 2027-08 |
+| [Report of the AI at Stanford Advisory Committee](https://provost.stanford.edu/news/report-ai-stanford-advisory-committee) | Office of the Provost, 2025-01-09, chaired Russ Altman; three domains; cautions against fixed rigid policies. **Direct fetch 403; recovered by two independent extractions. The report PDF itself was not retrieved.** | 2026-08-05 | 2027-08 |
+| [Responsible AI at Stanford](https://uit.stanford.edu/security/responsibleai) and [Responsible Agentic AI](https://uit.stanford.edu/security/agenticai) | Live Stanford UIT guidance, advisory register. **Neither page carries a date.** | 2026-08-05 | 2027-02 |
+| [AWS AI-Driven Development Life Cycle](https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/) | Title, 2025-07-31, author; AWS calls it "a new methodology"; phases Inception, Construction, Operations | 2026-08-05 | 2027-08 |
+| [arXiv 2606.22484](https://arxiv.org/abs/2606.22484) | Title, author, cs.HC, v1 2026-06-21, v2 2026-07-04; proposes "Governed AI-Assisted Engineering (GAIE)". **Abstract wording is a tool summary, not verbatim. Do not quote it.** | 2026-08-05 | 2027-08 |
+| [arXiv 2607.15769](https://arxiv.org/abs/2607.15769) | Title, five authors, cs.SE, 2026-07-17; proposes an "Agent Governance Manifest"; 15+15 participant studies. **Abstract wording is a tool summary, not verbatim.** | 2026-08-05 | 2027-08 |
+| [Agent Governance Toolkit](https://microsoft.github.io/agent-governance-toolkit/) | Exists in the `microsoft` GitHub organisation namespace, **not** first-party Microsoft product documentation; describes itself as augmenting "Microsoft Agent 365" | 2026-08-05 | 2027-02 |
 | *ITIL AI Governance* white paper, PeopleCert, v1.0, November 2025. Supplied to this project as a PDF; no stable public URL confirmed. | The four governance patterns and ten characteristics in [Adoption](guide/01-adoption.md), and the six functional capabilities in [Appendix E](reference/capability-taxonomy.md). **Secondary source for ISO/IEC 38500:2024**, whose activity names are taken from it. | 2026-08-05 | 2027-08 |
 
 > **On the ITIL white paper.** Read as a document, not as evidence. Its own
@@ -114,6 +121,10 @@ tried, and so a future pass knows what to retry.
 | `riba.org` Plan of Work | 403 | RIBA stage names (obtained via grounded search instead) |
 | `docs.litellm.ai/docs/proxy/mcp` | 404 | LiteLLM MCP gateway access control, logging, OAuth passthrough |
 | `it.cornell.edu/security-policy/data-types-...` | 404 on three URL variants | A citable public data-classification scheme |
+| `provost.stanford.edu` news page and `/artificial-intelligence` | 403 to direct fetch | Stanford's AI governance posture first-hand. Content was recovered by two independent extractions instead, and the report PDF was never retrieved. |
+| `adminguide.stanford.edu` | 403 | Whether Stanford's Administrative Guide carries a binding AI provision |
+| Microsoft Learn page for "Microsoft Agent 365" | Not retrieved | Whether Agent 365 is a shipped product, and its scope. **Never describe it as verified in this model.** |
+| A canonical publisher for "AI-SDLC" | Searched, none found | Nothing. Several unrelated small projects share the name; no standards body, vendor, or paper owns it. **It is not a citable framework.** |
 
 ## Open empirical questions
 

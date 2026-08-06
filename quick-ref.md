@@ -31,7 +31,12 @@ on this page will save you.
 
 ---
 
-## If you are building something new: the sequence
+## If you are building something new: the seven steps
+
+Seven steps over six chapters. Chapter 07 supplies two of them because it states
+two failures, and **chapter 08 is not step eight**: it is the way back in when
+something changes. The canonical short form of this is the spine on the
+[home page](index.md), generated from one source so these cannot disagree.
 
 | # | Do this | Chapter | The failure it prevents |
 |:--|:--|:--|:--|
@@ -39,10 +44,10 @@ on this page will save you.
 | 2 | **Classify** from stated triggers, highest wins | [03](model/03-classification.md) | Risk decided by reviewer mood |
 | 3 | **Review the design** against the need, timeboxed | [04](model/04-design-review.md) | A design nobody read against the requirement |
 | 4 | **Authorize the build**, with conditions and an expiry | [05](model/05-authorization-to-build.md) | Approval becoming a permanent entitlement |
-| 5 | **Verify** at five points, before behavior is hidden | [06](model/06-inspections.md) | Verification after the evidence is gone |
-| 6 | **Approve for production** as an act separate from finishing | [07](model/07-production-approval.md) | Shipping treated as approval |
-| 7 | **Record what exists**, not what was planned | [07](model/07-production-approval.md) | Nobody knowing what is running |
-| 8 | **Reassess when it changes**, and on an interval when it does not | [08](model/08-alterations.md) | Change that silently outruns its review |
+| 5 | **Inspect** at five points, before behavior is hidden | [06](model/06-inspections.md) | Verification after the evidence is gone |
+| 6 | **Approve production** as an act separate from finishing | [07](model/07-production-approval.md) | Software arriving in production by being used more, with nobody having decided |
+| 7 | **Keep a record** of what exists, not what was planned | [07](model/07-production-approval.md) | Nobody being able to say what is running, what it can reach, and who owns it |
+| ↺ | **Re-enter when it changes**, and on an interval when it does not | [08](model/08-alterations.md) | Change that silently outruns its review |
 
 ## Running throughout, not stages
 

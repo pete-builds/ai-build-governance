@@ -16,9 +16,9 @@ Every page in the framework, grouped by layer. Generated from the source files b
 | Layer | Pages | Binds? |
 |:--|--:|:--|
 | [Core Governance Model](model/) | 14 | **Yes**, once adopted |
-| [Implementation Guide](guide/) | 6 | No |
-| [Technical and Evidence References](reference/) | 8 | No |
-| [Templates](templates/) | 10 | The completed artifact is the evidence |
+| [Implementation Guide](guide/) | 8 | No |
+| [Technical and Evidence References](reference/) | 10 | No |
+| [Templates](templates/) | 11 | The completed artifact is the evidence |
 
 **You do not need to read all of it.** The model is the only layer that binds,
 and reading only Purpose and Requirement across it is a deliberate and
@@ -190,6 +190,23 @@ Non-binding. The numbering is not a reading order; see the
 - Approval routing, condensed
 - Where this leaves the open questions
 
+### [07 Pilot Protocol](guide/07-pilot-protocol.md)
+
+- What a pilot is testing
+- Three archetypes, and why these three
+- What to record
+- Running it
+- What would count as the framework failing
+
+### [08 Vendor Beta Connections](guide/08-vendor-beta-mcp.md)
+
+- Why a beta is not just an early version of route C
+- The gateway is where this gets specific
+- The failure this whole page prevents
+- Two agreement terms that can make it ungovernable
+- What to produce
+- When to decline
+
 ---
 
 ## Technical and Evidence References
@@ -202,7 +219,11 @@ Non-binding and the most volatile layer. Check retrieval dates in the
 - [Appendix C: The Evidence on Gates](reference/evidence-on-gates.md)
 - [Appendix D: Glossary, and Where the Analogy Breaks](reference/glossary.md)
 - [Appendix E: Functional Capability Taxonomy](reference/capability-taxonomy.md)
+- [How This Compares](reference/comparison.md)
+- [Machine-Readable Requirements and a Reference Gate](reference/enforcement.md)
 - [Requirement index](reference/requirement-index.md), every numbered requirement
+- `reference/requirements.json`, the same index machine-readable, for the
+  [reference gate](reference/enforcement.md)
 
 **Platform profiles.** Findings about one product at one date. They do not
 generalize to the product category.
@@ -225,6 +246,7 @@ A completed template is the evidence that a requirement was satisfied.
 - [Template: Gateway Credential Inspection](templates/inspection-gateway-key.md)
 - [Template: MCP Server Inspection](templates/inspection-mcp-server.md)
 - [Template: Third-Party Tool Server Boundary Inspection](templates/inspection-third-party-mcp.md)
+- [Pilot Findings](templates/pilot-findings.md)
 - [Template: Production Approval](templates/production-approval.md)
 - [Template: Statement of Need](templates/statement-of-need.md)
 

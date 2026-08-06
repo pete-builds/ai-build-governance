@@ -16,6 +16,158 @@ decide is a new edition. Wording and typo fixes are not.
 
 ## Unreleased
 
+No requirement changed, no chapter was added or removed, and no gate moved, so
+none of what follows is an edition. Two bodies of work: a front-door
+restructure, and then a response to an external review.
+
+---
+
+### Responding to an external review
+
+A reviewer graded this A- on design and B+ on adoption-readiness, with the lowest
+marks on enforcement maturity, readability, and adoption readiness. Those three
+were fair, and each had a specific cause worth stating.
+
+#### Fixed: the model's shape was asserted in four places, in four shapes
+
+The operating idea here is one sentence. Establish the need, classify the
+consequences, review the design, authorize construction, inspect at the right
+moments, approve production, keep a record. A reader could not find that sentence,
+because the structure was described four separate times: as prose in `index.md`,
+as prose plus a flat fourteen-row chapter table in `README.md`, as an eight-row
+table in `quick-ref.md`, and as two tables in `model/index.md`.
+
+Worse, those four disagreed. `quick-ref.md` presented eight steps by splitting
+chapter 07 into two rows and appending chapter 08 as an eighth step. `model/index.md`
+said seven chapters were a sequence, counting chapter 08 as part of it. Both cannot
+be right, and neither matched the sentence above.
+
+**The resolution: seven steps over six chapters, and chapter 08 is not step
+eight.** Chapter 07 legitimately supplies two steps because it states two
+failures, approving production and being able to say afterwards what is running.
+Chapter 08, alterations, is the way back into the sequence rather than the end of
+it, and it is now drawn that way.
+
+There was no mechanism preventing this drift and no way to add one with a grep,
+since no check can compare two prose statements of the same fact. So the block is
+now **generated into all three pages by `tools/build-nav.pl` between markers**,
+from one data structure, and check 14 fails the build when a copy diverges. The
+same argument requirement 7.9 makes. This repository was not applying it to the
+one fact most likely to rot.
+
+Jekyll includes were not an option: `README.md` is rendered by github.com, which
+does not process Liquid, and there is no `_includes` directory here.
+
+#### Added: machine-readable requirements, and a gate that actually runs
+
+The enforcement criticism was the sharpest one. Every control in this model
+depended on a person choosing to follow a procedure, which is what requirement
+1.5 tells everybody else not to do.
+
+- **`reference/requirements.json`**, generated from the chapters, carrying the 131
+  requirements and the five verification points.
+- **`tools/reference-gate/`**, a working GitHub Actions gate that fails a pull
+  request when a Tier 2 or Tier 3 capability has no evidence for the verification
+  points its tier requires, or when a point requiring a human was signed by the
+  person who opened the change. That last check implements part of requirement
+  6.13, and it is the only requirement in this model a script can honestly carry.
+
+**Two things are deliberately absent from the JSON, and the reason is a defect
+found while building it.** Tier applicability and evidence artifact are not
+emitted per requirement, because neither is recoverable from the chapter text:
+tier is stated inside a requirement, or in a table above a block of them, or only
+in the chapter's Applicability section, depending on the chapter. A generator that
+guessed would have produced an authoritative-looking file that was wrong in ways
+nobody would check.
+
+**Also measured rather than assumed:** twelve requirements (5.4, 6.3, 6.5, 6.13,
+7.2, 7.11, 8.2, 11.4, 11.6, 11.10, 13.1, 13.10) report no normative keyword,
+because they state their force in a table the extractor drops. That is an artifact
+of the extractor, not an absence in the chapter, and
+[the enforcement page](reference/enforcement.md) says so and names all twelve
+rather than letting a consumer infer they are non-binding.
+
+The gate is documented with its limits stated first: it does not read the
+evidence, does not classify anything, and does not approve production. A green
+check mark is a claim, and this one is narrow.
+
+#### Added: the pilot protocol, because "nobody has piloted this" was a dead end
+
+This repository has said "nobody has piloted this" since the first edition and
+gave nobody a way to change that. Now there is
+[a protocol](guide/07-pilot-protocol.md) and
+[a findings template](templates/pilot-findings.md): three archetypes, the exact
+measures to record, and **five stated conditions that would count as this
+framework failing**, written in advance so the hypothesis can lose.
+
+The three archetypes are classified by working the actual triggers rather than
+asserting tiers, including where an archetype is genuinely underdetermined and
+which single fact decides it.
+
+#### Added: an honest landscape comparison, and two corrections it forced
+
+[How this compares](reference/comparison.md) positions this against NIST AI RMF,
+Stanford's and UC's artifacts, AWS AI-DLC, Microsoft's agent governance material,
+and two 2026 arXiv papers, naming where each is genuinely stronger.
+
+Every source was fetched before anything was written about it, and that changed
+two claims this repository would otherwise have made:
+
+- **UC's Risk Assessment Guide is not mandatory.** It says "Each campus should
+  establish its own approval processes" and "complements, but does not replace, an
+  AI governance structure". It is also scoped to administrative use only,
+  explicitly excluding research and pedagogy. Neither version prints a date.
+- **"AI-SDLC" is not a citable framework.** Several unrelated small projects share
+  the name and no standards body, vendor, or paper owns it. It is named here only
+  because it gets cited as though it were one.
+
+Also corrected: Microsoft's "Agent Governance Toolkit" is in the `microsoft`
+GitHub organisation namespace, not first-party product documentation, and calling
+it an official Microsoft product would have been wrong. Stanford's Provost report
+was recovered only through two indirect extractions after a 403, and the report
+PDF itself was never retrieved; it is labelled accordingly rather than described
+confidently.
+
+The page also states, in its own section, the five ways this framework is weaker
+than every alternative on it. The first is that it has no adoption and two of the
+alternatives have human-participant evaluation.
+
+#### Added: a playbook for the vendor beta case
+
+[Vendor beta connections](guide/08-vendor-beta-mcp.md) covers a situation that was
+reachable through chapter 13 and route C but not addressed directly: a vendor
+wants beta-test help and a connection to the institution's AI gateway. It adds no
+requirements. It names the four things a beta changes, and they are structural:
+
+- **There is nothing to pin.** Route C's central control is pinning definitions
+  and alarming on drift. A beta changes continuously by design, so the alarm gets
+  muted. The control has to shift to bounding blast radius, which is unilateral.
+- **The consideration is your telemetry**, and it is routinely the one data flow
+  in the arrangement nobody writes down, because it does not look like an
+  integration.
+- **The people evaluating it want it to succeed.** The same separation the model
+  already requires between certifier and builder applies to the vendor
+  relationship owner and the boundary inspection.
+- **Self-attestation is at its weakest here, and 13.3 has no exception path.** A
+  vendor beta is connectable and never certifiable.
+
+The failure it exists to prevent is chapter 07's first one: a beta becoming
+production because people started relying on it, with nobody having decided. The
+mechanism is a time-limited production approval that expires, not a policy.
+
+It also names two agreement terms that can make a beta ungovernable, including an
+NDA that prevents keeping the record chapter 07 requires.
+
+#### Fixed: two template sidebar positions were undefined
+
+`inspection-agent-studio.md` and `inspection-third-party-mcp.md` both carried
+`nav_order: 6`, so their relative order in the sidebar was whatever Jekyll
+happened to do. Renumbered, along with everything after them.
+
+---
+
+### A front-door restructure
+
 **A front-door restructure.** No requirement changed, no chapter was added or
 removed, and no gate moved, so this is not an edition. It fixes the entry
 experience, which was the part of this repository least subjected to its own

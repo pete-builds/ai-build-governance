@@ -1,7 +1,7 @@
 ---
 title: "Template: Institutional Amendments"
 parent: "Templates"
-nav_order: 9
+nav_order: 10
 ---
 
 **Status:** Draft | Under review | **Adopted** (date)

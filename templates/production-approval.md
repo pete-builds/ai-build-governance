@@ -1,7 +1,7 @@
 ---
 title: "Template: Production Approval"
 parent: "Templates"
-nav_order: 8
+nav_order: 9
 ---
 
 > Copy this file. The metadata block below is part of the template:

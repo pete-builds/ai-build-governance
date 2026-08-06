@@ -1,0 +1,48 @@
+# Reference workflow. Copy this into .github/workflows/ in a repository that
+# holds a governed capability, alongside a governance/capability.yml.
+#
+# What it does: fails the pull request when a Tier 2 or Tier 3 capability has no
+# evidence for the verification points its tier requires, or when a point that
+# requires a human was signed by the person opening the change.
+#
+# What it does not do: check that the evidence is true, classify the capability,
+# or approve anything. See reference/enforcement.md for the honest scope.
+
+name: Governance evidence gate
+
+on:
+  pull_request:
+    # Adjust to the paths that actually constitute a production change in this
+    # repository. On a platform where edit access is production change authority,
+    # a path filter is not a boundary; see reference/platform-profiles/n8n.md.
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # The gate needs the verification-point definitions. Vendor them, or fetch
+      # a pinned edition. Pinning matters: an unpinned fetch means an upstream
+      # edit changes what your gate enforces without a decision here.
+      - name: Fetch the requirement metadata for a pinned edition
+        env:
+          EDITION: '2026.6'
+        run: |
+          curl -fsSL \
+            "https://raw.githubusercontent.com/pete-builds/ai-build-governance/${EDITION}/reference/requirements.json" \
+            -o requirements.json
+          python3 -c "import json;d=json.load(open('requirements.json'));print('edition',d['edition'],'points',len(d['verification_points']))"
+
+      - name: Check verification-point evidence
+        env:
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          python3 tools/reference-gate/evidence-gate.py \
+            --manifest governance/capability.yml \
+            --points requirements.json \
+            --author "$PR_AUTHOR"

@@ -21,6 +21,8 @@ order.** Find your row.
 | **An accessibility reviewer, or a builder whose output reaches people** | Obligations, why AI fails them by default, what to actually check | [04 Accessibility](04-accessibility.md) |
 | **A security or privacy reviewer** | Running those reviews without becoming the bottleneck | [05 Security and privacy review](05-security-and-privacy-review.md) |
 | **Building or connecting a tool server** | Which of three routes you are on, and what each one requires | [06 MCP approvals](06-mcp-approvals.md) |
+| **Deciding whether this framework works** | What to run, what to measure, and what result would disprove it | [07 Pilot protocol](07-pilot-protocol.md) |
+| **Being offered a vendor beta on your gateway** | The four things a beta changes, and when to decline | [08 Vendor beta connections](08-vendor-beta-mcp.md) |
 
 **Fastest orientation is the [running example](02-running-example.md)**, not
 chapter 01. It carries one system, an agent that triages emailed payment

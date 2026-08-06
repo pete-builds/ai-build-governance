@@ -1,7 +1,7 @@
 ---
 title: "Template: Third-Party Tool Server Boundary Inspection"
 parent: "Templates"
-nav_order: 6
+nav_order: 7
 ---
 
 > Copy this file. The metadata block below is part of the template:

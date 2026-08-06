@@ -1,5 +1,6 @@
 #!/usr/bin/env perl
-# Generates contents.md and reference/requirement-index.md from the source files.
+# Generates contents.md, reference/requirement-index.md, reference/requirements.json,
+# and the canonical spine block inside index.md, README.md and model/index.md.
 #
 #   perl tools/build-nav.pl           write the files
 #   perl tools/build-nav.pl --check   exit non-zero if the committed files are stale
@@ -8,11 +9,94 @@
 # generated should be, because generated content cannot drift out of step with
 # what it describes. Editing them by hand will be reverted by the next run and
 # will fail the check in tools/check.sh.
+#
+# The spine block is generated for a more specific reason. It was stated in four
+# places in four different shapes, two of which had already drifted into
+# miscounting the standing arrangements. There is no Jekyll include mechanism
+# here, and README.md is rendered by github.com where Liquid tags would not run,
+# so the only mechanism that cannot drift is generating the block into each file
+# between markers and failing the build when a copy diverges.
 
 use strict;
 use warnings;
 
 my $check = (@ARGV && $ARGV[0] eq '--check');
+
+# ---------------------------------------------------------------------------
+# The spine. This is the single source of truth for the model's shape.
+#
+# Seven steps over six chapters: chapter 07 supplies two of them, because it
+# states two failures. Approving production and being able to say afterwards
+# what is running are different acts that fail in different ways.
+
+my @SPINE = (
+  ['Establish the need',           '02-statement-of-need.md',      'Statement of Need',                 'Building the wrong thing, solution-first'],
+  ['Classify the consequences',    '03-classification.md',         'Risk Classification',               'Risk decided by reviewer mood'],
+  ['Review the design',            '04-design-review.md',          'Design Review',                     'A design nobody read against the requirement'],
+  ['Authorize construction',       '05-authorization-to-build.md', 'Authorization to Build',            'Approval becoming a permanent entitlement'],
+  ['Inspect at the right moments', '06-inspections.md',            'Inspections',                       'Verification after the evidence is gone'],
+  ['Approve production',           '07-production-approval.md',    'Production Approval and Records',   'Software arriving in production by being used more, with nobody having decided'],
+  ['Keep a record',                '07-production-approval.md',    'Production Approval and Records',   'Nobody being able to say what is running, what it can reach, and who owns it'],
+);
+
+# Chapter 08 is not step eight. It is the way back in.
+my $REENTRY = ['08-alterations.md', 'Alterations and Existing Systems', 'Change that silently outruns its review'];
+
+# Six of them. Counting these as steps 8 through 13 is most of why the model
+# reads heavier than it is.
+my @STANDING = (
+  ['01-principles.md',           'Principles',                     'Always. Where a chapter conflicts with a principle, the principle wins.'],
+  ['09-roles.md',                'Roles and Authority',            'From before the Statement of Need until decommissioning'],
+  ['10-concurrent-reviews.md',   'Concurrent Reviews',             'Alongside design review, never as a queue behind it'],
+  ['11-certified-components.md', 'Certified Reusable Components',  'Both the **entry point** for anything reusing existing work and an output of finishing'],
+  ['12-delegated-authority.md',  'Delegated Authority',            "Whenever an agent acts on a human's behalf"],
+  ['13-third-party.md',          'Third-Party Capabilities',       'Whenever a build depends on something the institution does not operate'],
+);
+
+my $SPINE_SENTENCE =
+  'Establish the need, classify the consequences, review the design, authorize '
+. 'construction, inspect at the right moments, approve production, and keep a record.';
+
+# $prefix is the relative path to model/ from the file being written into.
+sub spine_block {
+  my $prefix = shift;
+  my $b = '';
+  $b .= "**The model is one sentence.** $SPINE_SENTENCE\n\n";
+  $b .= "Everything else in it hangs off that sentence.\n\n";
+  $b .= "| | Step | Chapter | The failure it prevents |\n|--:|:--|:--|:--|\n";
+  my $i = 0;
+  for my $s (@SPINE) {
+    $i++;
+    $b .= sprintf "| %d | %s | [%s](%s%s) | %s |\n", $i, $s->[0], $s->[2], $prefix, $s->[1], $s->[3];
+  }
+  $b .= sprintf "| ↺ | **When it changes, re-enter** | [%s](%s%s) | %s |\n",
+                $REENTRY->[1], $prefix, $REENTRY->[0], $REENTRY->[2];
+  $b .= "\n**Six chapters are not steps.** They are standing arrangements, true the\n"
+      . "whole way through:\n\n";
+  $b .= "| Chapter | Applies |\n|:--|:--|\n";
+  for my $s (@STANDING) {
+    $b .= sprintf "| [%s](%s%s) | %s |\n", $s->[1], $prefix, $s->[0], $s->[2];
+  }
+  $b .= "\n**Start at [Certified Reusable Components](${prefix}11-certified-components.md), not at step 1.**\n"
+      . "A capability consuming an already certified component inherits its inspection\n"
+      . "and reviews only the integration. That is the fastest path through all of this,\n"
+      . "and the only one that gets faster as an institution governs more.\n";
+  return $b;
+}
+
+# Splice a generated block into a hand-written file between markers.
+sub splice_block {
+  my ($file, $name, $block) = @_;
+  open my $h, '<', $file or die "$file: $!";
+  local $/; my $text = <$h>; close $h;
+  my $begin = "<!-- $name:BEGIN generated by tools/build-nav.pl; edit the data there, not here -->";
+  my $end   = "<!-- $name:END -->";
+  my $want  = "$begin\n\n$block\n$end";
+  unless ($text =~ s/\Q$begin\E.*?\Q$end\E/$want/s) {
+    die "$file: no $name markers found. Add:\n$begin\n$end\n";
+  }
+  return $text;
+}
 
 # ---------------------------------------------------------------------------
 # helpers
@@ -41,12 +125,18 @@ sub parse_chapter {
   my ($pending, @body);
   my $flush = sub {
     return unless defined $pending;
-    my $sum = join ' ', @body;
+    my $raw = join ' ', @body;
+    # Normative strength, before the bold markers are stripped. A requirement
+    # routinely carries several, so this is the set present, not one label.
+    my %kw; $kw{$1}++ while $raw =~ /\*\*(MUST NOT|MUST|SHOULD NOT|SHOULD|MAY)\*\*/g;
+    my @order = grep { $kw{$_} } ('MUST NOT','MUST','SHOULD NOT','SHOULD','MAY');
+    my $sum = $raw;
     $sum =~ s/\*\*//g; $sum =~ s/^\s+|\s+$//g;
     $sum =~ s/\s+/ /g;
     $sum =~ s/^([^.]{0,110}?[.])\s.*$/$1/;      # first sentence if short enough
     if (length $sum > 116) { $sum = substr($sum,0,113); $sum =~ s/\s+\S*$//; $sum .= '...' }
-    push @reqs, { num => $pending->[0], name => $pending->[1], sub => $pending->[2], summary => $sum };
+    push @reqs, { num => $pending->[0], name => $pending->[1], sub => $pending->[2],
+                  summary => $sum, keywords => \@order };
     undef $pending; @body = ();
   };
   while (my $l = <$h>) {
@@ -154,6 +244,7 @@ for my $f (@guide) {
 $c .= "---\n\n## Technical and Evidence References\n\nNon-binding and the most volatile layer. Check retrieval dates in the\n[source ledger](SOURCES.md) before relying on anything here.\n\n";
 $c .= sprintf "- [%s](%s)\n", title_of($_), $_ for @appendix;
 $c .= sprintf "- [Requirement index](reference/requirement-index.md), every numbered requirement\n";
+$c .= sprintf "- `reference/requirements.json`, the same index machine-readable, for the\n  [reference gate](reference/enforcement.md)\n";
 $c .= "\n**Platform profiles.** Findings about one product at one date. They do not\ngeneralize to the product category.\n\n";
 $c .= sprintf "- [%s](%s)\n", title_of($_), $_ for @profiles;
 
@@ -208,9 +299,81 @@ for my $q (@all) {
 }
 
 # ---------------------------------------------------------------------------
+# reference/requirements.json
+#
+# Only what is mechanically derivable from the chapter text. Tier applicability
+# and the evidence artifact are deliberately NOT emitted per requirement,
+# because they are not recoverable: tier is stated variously in a requirement's
+# own prose, in a table several lines above a block of requirements, or only in
+# the chapter's Applicability section. Emitting a guess per requirement would be
+# documenting a control this file does not actually know, which is the one thing
+# the model tells you never to do.
+#
+# The verification points are emitted instead, because those genuinely do carry
+# a tier and a template, and they are what a gate can check.
+
+sub jstr {
+  my $s = shift; $s = '' unless defined $s;
+  $s =~ s/\\/\\\\/g; $s =~ s/"/\\"/g; $s =~ s/\n/\\n/g; $s =~ s/\t/\\t/g;
+  $s =~ s/([\x00-\x1f])/sprintf('\\u%04x', ord $1)/ge;
+  return '"' . $s . '"';
+}
+
+# From model/06-inspections.md requirement 6.2 and the tier table under it.
+# Hand-maintained because it is five rows, not 131, and because a wrong entry
+# here is visible immediately rather than buried.
+my @POINTS = (
+  ['H1','Identity and credentials','automated','automated','automated plus human','inspection-gateway-key.md'],
+  ['H2','Connections and permissions','automated','automated','automated plus human','inspection-mcp-server.md'],
+  ['H3','End-to-end path','automated','automated','automated','' ],
+  ['H4','Pre-concealment verification','automated','human','human','inspection-agent-studio.md'],
+  ['H5','Final verification','automated','automated','human','production-approval.md'],
+);
+
+my $j = "{\n";
+$j .= '  "generated_by": ' . jstr('tools/build-nav.pl') . ",\n";
+$j .= '  "edition": ' . jstr(do {
+        my $e = 'unknown';
+        if (open my $h, '<', 'CITATION.cff') {
+          while (my $l = <$h>) { if ($l =~ /^version:\s*"?([^"\s]+)"?/) { $e = $1; last } }
+          close $h;
+        } $e;
+      }) . ",\n";
+$j .= '  "what_this_is": ' . jstr(
+      'Machine-readable index of the numbered requirements. Tier applicability and '
+    . 'evidence artifact are not emitted per requirement because they are not '
+    . 'derivable from the chapter text. Use verification_points for gating.') . ",\n";
+$j .= '  "requirement_count": ' . scalar(@all) . ",\n";
+
+$j .= "  \"verification_points\": [\n";
+$j .= join ",\n", map {
+    sprintf '    {"id": %s, "name": %s, "tier_1": %s, "tier_2": %s, "tier_3": %s, "template": %s}',
+      jstr($_->[0]), jstr($_->[1]), jstr($_->[2]), jstr($_->[3]), jstr($_->[4]),
+      ($_->[5] eq '' ? 'null' : jstr('templates/' . $_->[5]));
+  } @POINTS;
+$j .= "\n  ],\n";
+
+$j .= "  \"requirements\": [\n";
+$j .= join ",\n", map {
+    sprintf '    {"id": %s, "chapter": %s, "chapter_title": %s, "file": %s, "section": %s, "anchor": %s, "title": %s, "summary": %s, "normative": [%s]}',
+      jstr($_->{num}), jstr(chapter_num($_->{file})), jstr($_->{chapter}), jstr($_->{file}),
+      jstr($_->{sub}), jstr($_->{sub} ? '#' . slug($_->{sub}) : ''),
+      jstr($_->{name}), jstr($_->{summary}),
+      join(', ', map { jstr($_) } @{$_->{keywords}});
+  } @all;
+$j .= "\n  ]\n}\n";
+
+# ---------------------------------------------------------------------------
 # write or check
 
-my %out = ('contents.md' => $c, 'reference/requirement-index.md' => $r);
+my %out = (
+  'contents.md'                     => $c,
+  'reference/requirement-index.md'  => $r,
+  'reference/requirements.json'     => $j,
+  'index.md'                        => splice_block('index.md',       'SPINE', spine_block('model/')),
+  'README.md'                       => splice_block('README.md',      'SPINE', spine_block('model/')),
+  'model/index.md'                  => splice_block('model/index.md', 'SPINE', spine_block('')),
+);
 
 if ($check) {
   my $bad = 0;
@@ -227,4 +390,4 @@ for my $f (sort keys %out) {
   close $h;
   print "wrote $f\n";
 }
-print "$total requirements indexed\n";
+print "$total requirements indexed, spine written into 3 pages\n";
